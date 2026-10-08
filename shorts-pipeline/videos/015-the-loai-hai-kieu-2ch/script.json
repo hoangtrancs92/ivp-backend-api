@@ -1,0 +1,1862 @@
+{
+  "title": [
+    "笑える迷言集",
+    "婚活の現実"
+  ],
+  "genre": "Hài, đời thường (2ch 笑える迷言集)",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "icchi": "#FF9800",
+    "friend_papa": "#4DD0E1",
+    "konkatsu_advisor": "#EC407A",
+    "omiai_woman": "#B39DDB",
+    "date_pixie": "#FDD835"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "婚活で、\n心が4回折れた。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "head hanging low, both hands empty and limp at his sides, hollow eyes",
+      "emotion": "despair",
+      "shot": "close",
+      "location": "apartment",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/001.png"
+        },
+        {
+          "word": "ポキッ",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "ワイ、40歳、\n独身。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "holding one silver can of beer in his right hand, left hand scratching the back of his head, forced smile",
+      "emotion": "awkward",
+      "shot": "half",
+      "location": "apartment",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/002.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "始まりは、\n半年前の同窓会。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "nostalgic",
+      "shot": "full",
+      "location": "restaurant_izakaya_night",
+      "filter": "none",
+      "transition": "whip",
+      "layers": []
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "うちの娘、\nもう5歳でさ。",
+      "speaker": "friend_papa",
+      "characters": [
+        "friend_papa",
+        "icchi"
+      ],
+      "action": "standing upper body, one hand raised slightly as if chatting, cheerful open smile",
+      "emotion": "cheerful",
+      "shot": "half",
+      "location": "restaurant_izakaya_night",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "friend_papa",
+          "image": "cutouts/004_friend_papa.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/004_icchi.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "画面には、\n幸せそうな家族。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "envious",
+      "object": "a black smartphone whose screen shows a photo of a smiling family of three",
+      "shot": "close",
+      "location": "restaurant_izakaya_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/005.png"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "objects.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "お前は？\n結婚まだ？",
+      "speaker": "friend_papa",
+      "characters": [
+        "friend_papa",
+        "icchi"
+      ],
+      "action": "standing upper body, head tilted slightly, looking toward the other person",
+      "emotion": "curious",
+      "shot": "half",
+      "location": "restaurant_izakaya_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "friend_papa",
+          "image": "cutouts/006_friend_papa.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/006_icchi.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "friend_papa.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "setup",
+      "text": "…まあ、\nそのうちな。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "eyes looking away to the side, stiff smile, both hands empty",
+      "emotion": "awkward",
+      "shot": "close",
+      "location": "restaurant_izakaya_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/007.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "icchi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "setup",
+      "text": "じゃ、嫁が\n待ってるから！",
+      "speaker": "friend_papa",
+      "characters": [
+        "friend_papa"
+      ],
+      "action": "walking toward the right, waving with his right hand raised, holding one black smartphone in his left hand",
+      "emotion": "happy",
+      "shot": "full",
+      "location": "restaurant_izakaya_night",
+      "filter": "none",
+      "alt_pose": "right hand waving at a different angle, mid-step",
+      "layers": [
+        {
+          "id": "friend_papa",
+          "image": "cutouts/008.png",
+          "anim": "exit_right"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "setup",
+      "text": "気づけば、\n周りはみんなパパ。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "seen from behind, standing alone with shoulders slumped, holding one empty glass beer mug in his right hand, left hand empty",
+      "emotion": "lonely",
+      "shot": "full",
+      "location": "restaurant_izakaya_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/009.png"
+        },
+        {
+          "word": "ポツーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "setup",
+      "text": "その夜、\nワイは決めた。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "walking forward, holding one white plastic convenience store bag in his left hand, right hand empty, serious face",
+      "emotion": "serious",
+      "shot": "full",
+      "location": "apartment",
+      "filter": "none",
+      "alt_pose": "walking, other leg forward",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/010.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "setup",
+      "text": "婚活、\nしよう！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "clenching his right fist in front of his chest, eyes burning, mouth set firmly",
+      "emotion": "determined",
+      "shot": "close",
+      "location": "apartment",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/011.png"
+        },
+        {
+          "word": "ドン",
+          "size": 90,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "setup",
+      "text": "結婚相談所に、\n即申し込み。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "hopeful",
+      "object": "an open silver laptop showing a pink matchmaking website with hearts",
+      "shot": "close",
+      "location": "apartment",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/012.png"
+        },
+        {
+          "word": "ポチッ",
+          "size": 70,
+          "at": "objects.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise1",
+      "text": "数日後、\n面談の日。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "nervous",
+      "shot": "full",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "transition": "push_left",
+      "layers": [
+        {
+          "word": "コンコン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise1",
+      "text": "ようこそ。\n担当の佐藤です。",
+      "speaker": "konkatsu_advisor",
+      "characters": [
+        "konkatsu_advisor",
+        "icchi"
+      ],
+      "action": "seated upper body, back straight, hands folded in front, polite smile toward the other person",
+      "emotion": "polite",
+      "shot": "half",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/014_konkatsu_advisor.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/014_icchi.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise1",
+      "text": "よ、よろしく\nお願いします！",
+      "speaker": "icchi",
+      "characters": [
+        "konkatsu_advisor",
+        "icchi"
+      ],
+      "action": "seated upper body, bowing the head slightly, hands on knees",
+      "emotion": "nervous",
+      "shot": "half",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/015_konkatsu_advisor.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/015_icchi.png",
+          "at": "right",
+          "anim": "nod"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise1",
+      "text": "では、自己PRを\nどうぞ。",
+      "speaker": "konkatsu_advisor",
+      "characters": [
+        "konkatsu_advisor",
+        "icchi"
+      ],
+      "action": "seated upper body, attentive look toward the other person, gentle smile",
+      "emotion": "calm",
+      "shot": "half",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/016_konkatsu_advisor.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/016_icchi.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise1",
+      "text": "えっと…\n年収は、普通で…",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "eyes darting to the side, fingers fidgeting in front of his chest",
+      "emotion": "embarrassed",
+      "shot": "close",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/017.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "icchi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise1",
+      "text": "顔も、\n普通で…",
+      "speaker": "icchi",
+      "characters": [
+        "icchi",
+        "konkatsu_advisor"
+      ],
+      "action": "seated upper body, scratching the cheek with one finger, small uneasy smile",
+      "emotion": "awkward",
+      "shot": "half",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "alt_pose": "scratching the head instead",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/018_icchi.png",
+          "at": "right"
+        },
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/018_konkatsu_advisor.png",
+          "at": "left"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise1",
+      "text": "身長も、\n普通です。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi",
+        "konkatsu_advisor"
+      ],
+      "action": "seated upper body, looking down at the floor, shoulders drooping",
+      "emotion": "gloomy",
+      "shot": "half",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/019_icchi.png",
+          "at": "right"
+        },
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/019_konkatsu_advisor.png",
+          "at": "left"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "icchi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise1",
+      "text": "……いや、\n一つだけある！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "head snapping up, eyes wide open, index finger raised",
+      "emotion": "inspired",
+      "shot": "close",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/020.png"
+        },
+        {
+          "word": "ハッ",
+          "size": 80,
+          "at": "icchi.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise1",
+      "text": "優しさには、\n自信あります！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "giving a thumbs up with his right hand, big confident grin, star-shaped sparkles shining in both eyes",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "icchi",
+          "colour": "#FFE082"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/021.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "icchi"
+        },
+        {
+          "word": "シャキーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise1",
+      "text": "優しいって、\nよく言われます！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "standing with both hands on his hips, chest puffed out, chin raised, star-shaped sparkles in his eyes",
+      "emotion": "smug",
+      "shot": "full",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "alt_pose": "chest puffed even more, eyes closed proudly",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "icchi",
+          "colour": "#FFD54F"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/022.png"
+        },
+        {
+          "word": "キラーン",
+          "size": 70,
+          "at": "icchi.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise1",
+      "text": "ええ、\n皆さんそう\nおっしゃいます。",
+      "speaker": "konkatsu_advisor",
+      "characters": [
+        "konkatsu_advisor",
+        "icchi"
+      ],
+      "action": "seated upper body, calm polite smile with eyes half closed",
+      "emotion": "polite",
+      "shot": "half",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/023_konkatsu_advisor.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/023_icchi.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise1",
+      "text": "（み、皆さん…？）",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "frozen with eyes wide and mouth hanging open, both hands empty",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "mood_shock",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/024.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "icchi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise1",
+      "text": "優しさは、\n標準装備だった。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "seated upper body, staring blankly ahead, mouth shut in a flat line, hands on knees",
+      "emotion": "hollow",
+      "shot": "half",
+      "location": "konkatsu_office_afternoon",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/025.png",
+          "anim": "none"
+        },
+        {
+          "word": "シーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise2",
+      "text": "1ヶ月後、\n初のお見合い。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "anticipation",
+      "shot": "full",
+      "location": "mood_time_skip",
+      "filter": "none",
+      "transition": "zoom",
+      "layers": []
+    },
+    {
+      "id": 27,
+      "beat": "rise2",
+      "text": "ホテルの\nラウンジで\n待ち合わせ。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "walking forward stiffly, arms swinging, both hands empty, nervous smile",
+      "emotion": "nervous",
+      "shot": "full",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "alt_pose": "walking, other leg forward",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/027.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.9
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "rise2",
+      "text": "はじめまして、\n美咲です。",
+      "speaker": "omiai_woman",
+      "characters": [
+        "icchi",
+        "omiai_woman"
+      ],
+      "action": "seated upper body, hands resting together on the lap, soft smile toward the other person",
+      "emotion": "gentle",
+      "shot": "half",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/028_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "omiai_woman",
+          "image": "cutouts/028_omiai_woman.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "rise2",
+      "text": "（か、かわいい…）",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "cheeks bright red, hands pressed to his chest, dreamy eyes",
+      "emotion": "blushing",
+      "shot": "close",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/029.png"
+        },
+        {
+          "effect": "hearts",
+          "on": "icchi"
+        },
+        {
+          "word": "ドキドキ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "rise2",
+      "text": "だが、会話が\n続かない。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi",
+        "omiai_woman"
+      ],
+      "action": "seated upper body, looking down silently, hands on the lap, tense mouth",
+      "emotion": "uneasy",
+      "shot": "half",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/030_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "omiai_woman",
+          "image": "cutouts/030_omiai_woman.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise2",
+      "text": "沈黙、3分。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "tense",
+      "object": "two white coffee cups on white saucers, both still full",
+      "shot": "close",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/031.png"
+        },
+        {
+          "word": "チクタク",
+          "size": 70,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise2",
+      "text": "（何か話題を…！）",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "eyes spinning in panic, both hands gripping his head",
+      "emotion": "panicked",
+      "shot": "close",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/032.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "icchi.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise2",
+      "text": "せや、\n若さや！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "seated upper body, snapping his fingers with his right hand, eyes lighting up",
+      "emotion": "inspired",
+      "shot": "half",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/033.png"
+        },
+        {
+          "word": "ピコン",
+          "size": 70,
+          "at": "icchi.above"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise2",
+      "text": "ワイ、\n若いって\nよく言われます！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "pointing at himself with his right thumb, wide confident grin, star-shaped sparkles shining in both eyes",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "icchi",
+          "colour": "#FFE082"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/034.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "icchi"
+        },
+        {
+          "word": "キラーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "rise2",
+      "text": "気持ちは、\nまだ20代です！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "standing in a flexing pose with both arms bent up, chin raised, star-shaped sparkles in his eyes",
+      "emotion": "smug",
+      "shot": "full",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "alt_pose": "flexing pose with one arm up and one hand on hip",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "icchi",
+          "colour": "#FFD54F"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/035.png"
+        },
+        {
+          "word": "ドヤァ",
+          "size": 70,
+          "at": "icchi.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise2",
+      "text": "そうなんですね。",
+      "speaker": "omiai_woman",
+      "characters": [
+        "icchi",
+        "omiai_woman"
+      ],
+      "action": "seated upper body, nodding slightly with a polite smile",
+      "emotion": "polite",
+      "shot": "half",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/036_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "omiai_woman",
+          "image": "cutouts/036_omiai_woman.png",
+          "at": "right",
+          "anim": "nod"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "rise2",
+      "text": "うちの父も、\n同じこと\n言ってます。",
+      "speaker": "omiai_woman",
+      "characters": [
+        "omiai_woman"
+      ],
+      "action": "one hand gently covering her mouth, innocent warm smile, head tilted",
+      "emotion": "innocent",
+      "shot": "close",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, hand lowered",
+      "layers": [
+        {
+          "id": "omiai_woman",
+          "image": "cutouts/037.png"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "rise2",
+      "text": "（ち、父…！？）",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "jaw dropped, eyes bulging, both hands empty and raised in shock",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "mood_shock",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/038.png"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "rise2",
+      "text": "ワイは、\n父親枠だった。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "in side view, seated upper body, frozen still, holding one white coffee cup in his right hand, blank stare",
+      "emotion": "deflated",
+      "shot": "half",
+      "location": "hotel_lounge_afternoon",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/039.png",
+          "anim": "none"
+        },
+        {
+          "word": "チーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "rise2",
+      "text": "その夜、\nお断りの連絡。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "dejected",
+      "object": "a black smartphone screen showing a short message with a few lines of text",
+      "shot": "close",
+      "location": "apartment",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/040.png"
+        },
+        {
+          "word": "ピロン",
+          "size": 70,
+          "at": "objects.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "rise3",
+      "text": "2週間後、\n次のお相手。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "hopeful",
+      "shot": "full",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "transition": "wipe",
+      "motion": "tilt_up",
+      "layers": []
+    },
+    {
+      "id": 42,
+      "beat": "rise3",
+      "text": "今日は\nよろしくです！",
+      "speaker": "date_pixie",
+      "characters": [
+        "icchi",
+        "date_pixie"
+      ],
+      "action": "standing, waving one hand in greeting, friendly smile",
+      "emotion": "cheerful",
+      "shot": "full",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/042_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "date_pixie",
+          "image": "cutouts/042_date_pixie.png",
+          "path": [
+            "off_right",
+            "right"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "rise3",
+      "text": "紅葉の公園を\n二人で散歩。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi",
+        "date_pixie"
+      ],
+      "action": "in side view, walking toward the right, both hands empty, relaxed face",
+      "emotion": "relaxed",
+      "shot": "full",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "alt_pose": "walking, other leg forward",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/043_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "date_pixie",
+          "image": "cutouts/043_date_pixie.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "rise3",
+      "text": "休日は、何を\nしてるんですか？",
+      "speaker": "date_pixie",
+      "characters": [
+        "icchi",
+        "date_pixie"
+      ],
+      "action": "standing upper body, head tilted with a curious look toward the other person",
+      "emotion": "curious",
+      "shot": "half",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/044_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "date_pixie",
+          "image": "cutouts/044_date_pixie.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "rise3",
+      "text": "えっと…\n家で寝てます。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi",
+        "date_pixie"
+      ],
+      "action": "standing upper body, rubbing the back of the neck with one hand, sheepish smile",
+      "emotion": "embarrassed",
+      "shot": "half",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/045_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "date_pixie",
+          "image": "cutouts/045_date_pixie.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "icchi.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "rise3",
+      "text": "……へぇ。",
+      "speaker": "date_pixie",
+      "characters": [
+        "date_pixie"
+      ],
+      "action": "polite thin smile with flat half-closed eyes, both hands empty",
+      "emotion": "unimpressed",
+      "shot": "close",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "date_pixie",
+          "image": "cutouts/046.png"
+        },
+        {
+          "word": "ヒュー",
+          "size": 70,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "rise3",
+      "text": "（あかん、\n挽回せな！）",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "eyes wide in panic, biting his lower lip, both fists clenched near his chin",
+      "emotion": "panicked",
+      "shot": "close",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/047.png",
+          "anim": "shiver"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "rise3",
+      "text": "でも貯金は、\nしっかりあります！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "holding one blue bank passbook up high in his right hand, left hand empty, big grin, star-shaped sparkles shining in both eyes",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "icchi",
+          "colour": "#FFE082"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/048.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "icchi"
+        },
+        {
+          "word": "ジャーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "rise3",
+      "text": "無駄遣いは、\n一切しません！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "standing, holding one blue bank passbook against his chest with his right hand, left hand on his hip, chin up, star-shaped sparkles in his eyes",
+      "emotion": "confident",
+      "shot": "full",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "icchi",
+          "colour": "#FFD54F"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/049.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "icchi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "rise3",
+      "text": "堅実なんですね。",
+      "speaker": "date_pixie",
+      "characters": [
+        "icchi",
+        "date_pixie"
+      ],
+      "action": "standing upper body, polite smile, hands empty and relaxed",
+      "emotion": "polite",
+      "shot": "half",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/050_icchi.png",
+          "at": "left"
+        },
+        {
+          "id": "date_pixie",
+          "image": "cutouts/050_date_pixie.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "rise3",
+      "text": "使う機会が、\nなかったんですね。",
+      "speaker": "date_pixie",
+      "characters": [
+        "date_pixie"
+      ],
+      "action": "kind sympathetic smile, eyes gently closed, hands clasped in front",
+      "emotion": "sympathetic",
+      "shot": "close",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "date_pixie",
+          "image": "cutouts/051.png"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "rise3",
+      "text": "（き、機会…）",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "holding one blue bank passbook in his right hand, frozen with mouth open and eyes white",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "mood_shock",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "shake",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/052.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "icchi.beside_right",
+          "size": "tiny"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "rise3",
+      "text": "じゃあ、そろそろ\n失礼します〜",
+      "speaker": "date_pixie",
+      "characters": [
+        "date_pixie"
+      ],
+      "action": "walking toward the right, waving one hand over her shoulder, polite smile",
+      "emotion": "cheerful",
+      "shot": "half",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "alt_pose": "waving hand at a different angle",
+      "layers": [
+        {
+          "id": "date_pixie",
+          "image": "cutouts/053.png",
+          "anim": "exit_right"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "rise3",
+      "text": "貯金は、\n孤独の結晶だった。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "seen from behind, standing alone, holding one blue bank passbook in his right hand hanging at his side, shoulders slumped",
+      "emotion": "lonely",
+      "shot": "full",
+      "location": "park_maple_dusk",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/054.png",
+          "anim": "none"
+        },
+        {
+          "word": "ズーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "twist",
+      "text": "そして、\n3ヶ月後。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "weary",
+      "shot": "full",
+      "location": "mood_time_skip",
+      "filter": "none",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 56,
+      "beat": "twist",
+      "text": "お断り、\n通算12回。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "bleak",
+      "shot": "full",
+      "location": "konkatsu_office_rain_evening",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "ザーッ",
+          "size": 80,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "twist",
+      "text": "今回も、\nお断りでした。",
+      "speaker": "konkatsu_advisor",
+      "characters": [
+        "konkatsu_advisor",
+        "icchi"
+      ],
+      "action": "seated upper body, eyebrows lowered apologetically, hands folded in front",
+      "emotion": "apologetic",
+      "shot": "half",
+      "location": "konkatsu_office_rain_evening",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/057_konkatsu_advisor.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/057_icchi.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "beat": "twist",
+      "text": "そう、ですか…",
+      "speaker": "icchi",
+      "characters": [
+        "konkatsu_advisor",
+        "icchi"
+      ],
+      "action": "seated upper body, head lowered, hands resting on knees",
+      "emotion": "dejected",
+      "shot": "half",
+      "location": "konkatsu_office_rain_evening",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/058_konkatsu_advisor.png",
+          "at": "left"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/058_icchi.png",
+          "at": "right",
+          "anim": "sink"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "beat": "twist",
+      "text": "でもワイ、\n全然平気です！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "suddenly lifting his face with a wide forced grin, right fist raised",
+      "emotion": "determined",
+      "shot": "close",
+      "location": "konkatsu_office_rain_evening",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/059.png"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "icchi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "beat": "twist",
+      "text": "断られても、\nへこまないんで！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "pressing his right fist against his chest, confident grin, star-shaped sparkles shining in both eyes",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "icchi",
+          "colour": "#FFE082"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/060.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "icchi"
+        },
+        {
+          "word": "シャキーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "beat": "twist",
+      "text": "メンタル、\n鋼なんで！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "standing with arms crossed firmly, chin raised high, star-shaped sparkles in his eyes",
+      "emotion": "smug",
+      "shot": "full",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "icchi",
+          "colour": "#FFD54F"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/061.png",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "icchi.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "beat": "twist",
+      "text": "ええ、\n存じております。",
+      "speaker": "konkatsu_advisor",
+      "characters": [
+        "konkatsu_advisor",
+        "icchi"
+      ],
+      "action": "seated upper body, serene polite smile, hands folded in front",
+      "emotion": "polite",
+      "shot": "half",
+      "location": "konkatsu_office_rain_evening",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/062_konkatsu_advisor.png",
+          "at": "left",
+          "anim": "nod"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/062_icchi.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "beat": "twist",
+      "text": "もう、12回目\nですので。",
+      "speaker": "konkatsu_advisor",
+      "characters": [
+        "konkatsu_advisor"
+      ],
+      "action": "calm gentle smile, eyes softly closed, head tilted slightly",
+      "emotion": "serene",
+      "shot": "close",
+      "location": "konkatsu_office_rain_evening",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "konkatsu_advisor",
+          "image": "cutouts/063.png"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "beat": "twist",
+      "text": "（じゅ、12回…）",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "face turning pale, eyes wide, mouth trembling, both hands empty",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "mood_shock",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/064.png"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "beat": "twist",
+      "text": "強さじゃない。\nただの慣れだった。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "seated upper body, head lowered, empty stare at his knees, hands limp",
+      "emotion": "despair",
+      "shot": "half",
+      "location": "konkatsu_office_rain_evening",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "icchi",
+          "image": "cutouts/065.png",
+          "anim": "none"
+        },
+        {
+          "word": "シーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "beat": "ending",
+      "text": "そして正月。\n年賀状が届いた。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "wistful",
+      "object": "a small stack of white new year postcards, each with a family photo",
+      "shot": "close",
+      "location": "apartment",
+      "filter": "none",
+      "transition": "push_up",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/066.png"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "beat": "ending",
+      "text": "どれも、\n家族写真ばかりや。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "holding one white new year postcard in his right hand, left hand empty, looking at it with a faint bittersweet smile",
+      "emotion": "bittersweet",
+      "shot": "half",
+      "location": "apartment",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/067.png"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "beat": "ending",
+      "text": "ワイも、\n出したったで。",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "small proud smile, rubbing his nose with his left index finger, holding one white new year postcard in his right hand",
+      "emotion": "bashful",
+      "shot": "close",
+      "location": "apartment",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/068.png"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "beat": "ending",
+      "text": "写ってるのは、\nワイ一人や。",
+      "speaker": "icchi",
+      "characters": [],
+      "action": "",
+      "emotion": "deadpan",
+      "object": "a single white new year postcard with a photo frame, inside the frame one smiling chubby man alone",
+      "shot": "close",
+      "location": "apartment",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/069.png"
+        },
+        {
+          "word": "チーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "beat": "ending",
+      "text": "今年こそ、\n結婚するで！",
+      "speaker": "icchi",
+      "characters": [
+        "icchi"
+      ],
+      "action": "standing, giving a thumbs up with his right hand, holding one white new year postcard in his left hand, smiling widely with tears streaming down",
+      "emotion": "crying",
+      "shot": "full",
+      "location": "apartment",
+      "filter": "none",
+      "alt_pose": "thumbs up raised higher, mouth open shouting",
+      "layers": [
+        {
+          "id": "icchi",
+          "image": "cutouts/070.png",
+          "anim": "jump"
+        },
+        {
+          "effect": "tears",
+          "on": "icchi"
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    }
+  ]
+}

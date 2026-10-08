@@ -1,0 +1,81 @@
+Tạo một video kể chuyện bằng phong cách điện ảnh Nhật Bản, thời lượng **trên 1 phút (khoảng 70–90 giây)**, gồm **20–25 cảnh liên tiếp**.
+
+Mỗi cảnh cần có chuyển động tự nhiên, biểu cảm nhân vật rõ ràng và liên kết chặt chẽ với cảnh trước. Câu chuyện phải tạo cảm giác tò mò ngay từ đầu, tăng dần sự căng thẳng và có **twist ở gần cuối video**.
+
+### Title: 電車で席を譲らなかった男
+
+ある朝、満員電車に乗った。
+
+目の前に、おじいさんが立っていた。
+
+俺の隣には、若い男が座っている。
+
+おじいさんは手すりにつかまり、少し苦しそうだった。
+
+俺は思った。
+
+「なんで席を譲らないんだ？」
+
+男はスマホを見たまま、顔を上げない。
+
+周りの人も、男を見ていた。
+
+「冷たいな」
+
+誰かが小さく言った。
+
+次の駅で、おじいさんが突然しゃがみ込んだ。
+
+男はすぐに立ち上がった。
+
+「大丈夫ですか？」
+
+そして、電車を降りた。
+
+俺は、男がおじいさんを助けるために降りたと思った。
+
+でも違った。
+
+数分後、男は戻ってきた。
+
+手には、薬と水。
+
+「これ、駅員さんからもらいました」
+
+おじいさんは、何度も頭を下げた。
+
+その時、男のズボンの裾から、松葉杖が見えた。
+
+俺は初めて気づいた。
+
+男も、足を怪我していた。
+
+譲らなかったのではない。
+
+譲れなかった。
+
+それでも、誰より先に助けに行った。
+
+俺は何も言えなかった。
+
+人は、見えている部分だけでは分からない。
+
+あなたなら、最初にその男を責めますか？
+
+それとも、少しだけ待ちますか？
+
+### Video requirements
+
+- Thời lượng: **70–90 giây**
+- Số cảnh: **20–25 cảnh**
+- Bối cảnh: tàu điện Nhật Bản, nhà ga Nhật Bản, buổi sáng
+- Nhân vật chính: nam thanh niên khoảng 25–30 tuổi
+- Nhân vật phụ: ông cụ Nhật Bản, người đàn ông trẻ, hành khách trên tàu, nhân viên nhà ga
+- Phong cách: Japanese cinematic anime, realistic anime, emotional storytelling
+- Camera chuyển động nhẹ, góc quay điện ảnh
+- Biểu cảm khuôn mặt rõ ràng
+- Không tiết lộ twist quá sớm
+- Cảnh chiếc nạng chỉ xuất hiện rõ ở gần cuối video
+- Nhấn mạnh sự hiểu lầm của nhân vật kể chuyện
+- Kết thúc bằng câu hỏi để kích thích người xem bình luận
+- Chuyển cảnh mượt mà, câu chuyện phải có mở đầu, cao trào và kết thúc rõ ràng

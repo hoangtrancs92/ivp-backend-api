@@ -1,0 +1,1915 @@
+{
+  "title": [
+    "「専業主婦って楽だよね」",
+    "と言った夫、翌朝…"
+  ],
+  "genre": "Hài, đời thường",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "kenta": "#4DB6AC",
+    "wife": "#F48FB1",
+    "daughter": "#FFD54F"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "正直さ、\n専業主婦って",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "leaning back casually, holding one silver beer can in his right hand, left hand waving loosely, looking toward the right",
+      "emotion": "careless",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "alt_pose": "taking a sip from the silver beer can held in his right hand",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "毎日そんなに\n大変？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "standing, facing the other person, stiff posture, hands at sides",
+      "emotion": "tense",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/002_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/002_wife.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "……どういう意味？",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "holding one wet white plate in her left hand and one yellow sponge in her right hand, frozen mid-wash, eyes narrowed",
+      "emotion": "offended",
+      "shot": "close",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/003.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "俺は毎日、\n会社行ってるんだよ",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "pointing at his own chest with his left thumb, holding one silver beer can in his right hand",
+      "emotion": "defensive",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, holding one silver beer can in his right hand",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/004.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "家にいるほうが\n楽じゃない？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "standing, arms crossed, facing the other person",
+      "emotion": "smug",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/005_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/005_wife.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "kenta.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "その瞬間、\n空気が凍った。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "frozen",
+      "shot": "full",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "シーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "setup",
+      "text": "……じゃあ",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "head lowered, holding one yellow sponge tightly in her right hand, left hand empty",
+      "emotion": "seething",
+      "shot": "close",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/007.png"
+        },
+        {
+          "word": "ゴゴゴ",
+          "size": 75,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "setup",
+      "text": "明日から全部、\nあなたがやって。",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "holding one yellow sponge in her left hand, pointing toward the right with her right index finger",
+      "emotion": "determined",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "motion": "punch_in",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "wife"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/008.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "wife.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "ドン",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "setup",
+      "text": "……え？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "mouth hanging open, holding one silver beer can in his right hand",
+      "emotion": "dumbfounded",
+      "shot": "close",
+      "location": "mood_shock",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/009.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "kenta.beside_right",
+          "size": "tiny"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "setup",
+      "text": "夫はまだ、\n冗談だと思っていた。",
+      "speaker": "narrator",
+      "characters": [
+        "kenta"
+      ],
+      "action": "seen from behind, shrugging, holding one silver beer can in his right hand",
+      "emotion": "carefree",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/010.png"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "翌朝。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "calm",
+      "shot": "full",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 12,
+      "beat": "rise1",
+      "text": "食卓に、\n朝ごはんがない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "empty",
+      "object": "one empty white plate and one empty rice bowl",
+      "shot": "close",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/012.png"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise1",
+      "text": "おはよー……\nあれ？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "walking in, yawning, scratching his head with his right hand, left hand empty",
+      "emotion": "sleepy",
+      "shot": "full",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "alt_pose": "walking, rubbing his eyes with his right hand",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/013.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 1.0
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "kenta.above",
+          "size": "tiny",
+          "start": 1.0
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise1",
+      "text": "洗濯も、\nされていない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "messy",
+      "object": "a blue laundry basket overflowing with dirty clothes",
+      "shot": "close",
+      "location": "laundry_room",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/014.png"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise1",
+      "text": "娘の準備も、\n手つかず。",
+      "speaker": "narrator",
+      "characters": [
+        "daughter"
+      ],
+      "action": "standing barefoot, hair messy, rubbing her eyes with her right hand, left hand empty",
+      "emotion": "drowsy",
+      "shot": "full",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "daughter",
+          "image": "cutouts/015.png"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise1",
+      "text": "パパ、\nごはんまだ？",
+      "speaker": "daughter",
+      "characters": [
+        "daughter",
+        "kenta"
+      ],
+      "action": "looking toward the other person with a puzzled face, hands at sides",
+      "emotion": "puzzled",
+      "shot": "half",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/016_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "daughter",
+          "image": "cutouts/016_daughter.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise1",
+      "text": "え？ 今日\nどうしたの？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "looking toward the right, both hands raised with palms up, empty hands",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/017.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "kenta.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise1",
+      "text": "妻は優雅に、\nコーヒーを飲んでいた。",
+      "speaker": "narrator",
+      "characters": [
+        "wife"
+      ],
+      "action": "walking slowly, holding one white coffee mug in her right hand, left hand empty, relaxed",
+      "emotion": "leisurely",
+      "shot": "full",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/018.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.2
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise1",
+      "text": "昨日、楽だって\n言ったよね？",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "holding one white coffee mug in her right hand, tilting her head with a cold smile",
+      "emotion": "icy smile",
+      "shot": "close",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/019.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "wife.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise1",
+      "text": "いや、\n冗談だろ？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "facing the other person, forcing an awkward smile, hands at sides",
+      "emotion": "awkward",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/020_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/020_wife.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise1",
+      "text": "私は本気。",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "staring straight ahead, holding one white coffee mug in her right hand, no smile",
+      "emotion": "dead serious",
+      "shot": "close",
+      "location": "living_room_morning",
+      "filter": "none",
+      "motion": "shake",
+      "transition": "flash",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/021.png"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise1",
+      "text": "……マジかよ。",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding his head with both hands, face pale",
+      "emotion": "panicked",
+      "shot": "close",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/022.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "kenta.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise2",
+      "text": "夫は仕方なく、\n台所に立った。",
+      "speaker": "narrator",
+      "characters": [
+        "kenta"
+      ],
+      "action": "in side view, standing, holding one small bag of white rice under his left arm, right hand empty",
+      "emotion": "reluctant",
+      "shot": "full",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/023.png"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise2",
+      "text": "米って……\nどうやって炊くんだ？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding one small bag of white rice in both hands, staring at it",
+      "emotion": "bewildered",
+      "shot": "half",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/024.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "kenta.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise2",
+      "text": "えっと……\n『米 炊き方』……",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding one black smartphone in his right hand, typing with his left index finger, squinting at the screen",
+      "emotion": "concentrating",
+      "shot": "half",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "alt_pose": "holding one black smartphone in his right hand, scrolling with his left thumb",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/025.png"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise2",
+      "text": "ボタン、\n多すぎだろ……",
+      "speaker": "kenta",
+      "characters": [],
+      "action": null,
+      "emotion": "overwhelmed",
+      "object": "a white rice cooker with many small buttons",
+      "shot": "close",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/026.png"
+        },
+        {
+          "word": "ポチ",
+          "size": 70,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise2",
+      "text": "ママはスマホ\n見ないでやってたよ",
+      "speaker": "daughter",
+      "characters": [
+        "daughter",
+        "kenta"
+      ],
+      "action": "looking toward the other person, hands at sides",
+      "emotion": "matter-of-fact",
+      "shot": "half",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/027_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "daughter",
+          "image": "cutouts/027_daughter.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "rise2",
+      "text": "うるさい、\n今やってる！",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding one black smartphone in his right hand, left fist clenched, shouting",
+      "emotion": "flustered",
+      "shot": "close",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "alt_pose": "mouth wide open while shouting, holding one black smartphone in his right hand",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "kenta",
+          "image": "cutouts/028.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "kenta.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "rise2",
+      "text": "次は、洗濯。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "ominous",
+      "shot": "full",
+      "location": "laundry_room",
+      "filter": "none",
+      "transition": "whip",
+      "layers": []
+    },
+    {
+      "id": 30,
+      "beat": "rise2",
+      "text": "洗剤……\nこれでいいのか？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding one blue bottle of liquid detergent in his right hand and one pink bottle of fabric softener in his left hand, comparing them",
+      "emotion": "perplexed",
+      "shot": "half",
+      "location": "laundry_room",
+      "filter": "none",
+      "alt_pose": "looking at the pink bottle in his left hand, blue bottle in his right hand",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/030.png"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise2",
+      "text": "多めに入れとけば\nいいか！",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "grinning, pouring from one blue detergent bottle held in his right hand, left hand empty",
+      "emotion": "overconfident",
+      "shot": "close",
+      "location": "laundry_room",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/031.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "kenta"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "kenta.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise2",
+      "text": "数分後、\n泡があふれた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "chaotic",
+      "object": "a white washing machine overflowing with fluffy white soap foam",
+      "shot": "close",
+      "location": "laundry_room",
+      "filter": "none",
+      "motion": "shake",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/032.png"
+        },
+        {
+          "word": "ブクブク",
+          "size": 75,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise2",
+      "text": "うわああっ！",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "jumping back, both hands raised in panic, empty hands, white soap foam on his shoes",
+      "emotion": "horrified",
+      "shot": "full",
+      "location": "laundry_room",
+      "filter": "none",
+      "anim": "jump",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/033.png",
+          "anim": "jump"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise2",
+      "text": "パパ、今日\n体操服の日だよ！",
+      "speaker": "daughter",
+      "characters": [
+        "daughter",
+        "kenta"
+      ],
+      "action": "standing, facing the other person, both hands on hips",
+      "emotion": "impatient",
+      "shot": "full",
+      "location": "genkan",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/034_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "daughter",
+          "image": "cutouts/034_daughter.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "rise2",
+      "text": "体操服って\nどこ！？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "frantically looking around, both hands raised beside his head, empty hands",
+      "emotion": "frantic",
+      "shot": "half",
+      "location": "genkan",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/035.png",
+          "anim": "exit_left",
+          "start": 0.8
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "kenta.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise2",
+      "text": "遅刻ギリギリで、\n家を飛び出した。",
+      "speaker": "narrator",
+      "characters": [
+        "kenta",
+        "daughter"
+      ],
+      "action": "in side view, running toward the right, arms swinging",
+      "emotion": "hurried",
+      "shot": "full",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": "in side view, running toward the right, other leg forward",
+      "transition": "whip",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "kenta",
+          "image": "cutouts/036_kenta.png",
+          "at": "left",
+          "anim": "exit_right",
+          "start": 0.6
+        },
+        {
+          "id": "daughter",
+          "image": "cutouts/036_daughter.png",
+          "at": "right",
+          "anim": "exit_right",
+          "start": 0.4
+        },
+        {
+          "word": "ダッ",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "rise2",
+      "text": "そのまま、\n会社へ。",
+      "speaker": "narrator",
+      "characters": [
+        "kenta"
+      ],
+      "action": "seen from behind, walking away, holding one black business briefcase in his right hand, shoulders slumped",
+      "emotion": "worn out",
+      "shot": "full",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/037.png",
+          "anim": "recede"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "rise3",
+      "text": "ただいま……",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "walking in, tie loosened, holding one black business briefcase in his right hand, left hand empty, eyes tired",
+      "emotion": "drained",
+      "shot": "half",
+      "location": "genkan",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/038.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.0
+        },
+        {
+          "word": "ガチャ",
+          "size": 70,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "rise3",
+      "text": "夕飯は、\nもちろんない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "bleak",
+      "object": "one empty white dinner plate with one fork",
+      "shot": "close",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/039.png"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "rise3",
+      "text": "パパ、\nおなかすいた〜",
+      "speaker": "daughter",
+      "characters": [
+        "daughter",
+        "kenta"
+      ],
+      "action": "looking toward the other person, holding stomach with both hands",
+      "emotion": "hungry",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "alt_pose": "mouth open while whining, holding stomach with both hands",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/040_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "daughter",
+          "image": "cutouts/040_daughter.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "rise3",
+      "text": "……カップ麺で\nいいか？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding one instant cup noodle in his right hand and one instant cup noodle in his left hand, no briefcase",
+      "emotion": "guilty",
+      "shot": "half",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/041.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "kenta.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "rise3",
+      "text": "流しには、\n朝の皿が山積み。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "hopeless",
+      "object": "a stack of dirty dishes and bowls piled high",
+      "shot": "close",
+      "location": "kitchen",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/042.png"
+        },
+        {
+          "word": "ズーン",
+          "size": 75,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "rise3",
+      "text": "朝の洗濯物は、\n濡れたまま。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "hopeless",
+      "object": "a white washing machine full of damp crumpled clothes",
+      "shot": "close",
+      "location": "laundry_room",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/043.png"
+        },
+        {
+          "word": "ガーン",
+          "size": 80,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "rise3",
+      "text": "干すの、\n忘れてた……",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding his forehead with his right hand, left hand empty, eyes shut",
+      "emotion": "despairing",
+      "shot": "close",
+      "location": "laundry_room",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "kenta",
+          "image": "cutouts/044.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "kenta.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "rise3",
+      "text": "明日って……\n何持っていくんだ？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "seated on the floor, holding one small yellow school notebook open in his right hand, left hand scratching his head",
+      "emotion": "lost",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/045.png"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "rise3",
+      "text": "連絡帳、\n見てないの？",
+      "speaker": "daughter",
+      "characters": [
+        "daughter",
+        "kenta"
+      ],
+      "action": "looking toward the other person, tilting head",
+      "emotion": "doubtful",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, tilting head",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/046_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "daughter",
+          "image": "cutouts/046_daughter.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "rise3",
+      "text": "スマホを開くと……",
+      "speaker": "narrator",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding one black smartphone in both hands, staring down at the screen",
+      "emotion": "uneasy",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/047.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "kenta.above",
+          "size": "tiny",
+          "start": 0.6
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "rise3",
+      "text": "学校から、\n大量の連絡。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "overwhelming",
+      "object": "a black smartphone with a screen full of many notification bubbles",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/048.png"
+        },
+        {
+          "word": "ピロン",
+          "size": 70,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "rise3",
+      "text": "……こんなに\nあるの！？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "eyes wide, holding one black smartphone in his right hand, left hand on his cheek",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "mood_shock",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "kenta",
+          "image": "cutouts/049.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "kenta.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "エッ",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "rise3",
+      "text": "持ち物、提出物、\n参観日、集金……",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "endless",
+      "object": "a messy pile of school handout papers and one small coin envelope",
+      "shot": "full",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/050.png"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "rise3",
+      "text": "夜9時。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "late",
+      "shot": "full",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "チクタク",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "rise3",
+      "text": "夫は、その場に\n倒れ込んだ。",
+      "speaker": "narrator",
+      "characters": [
+        "kenta"
+      ],
+      "action": "lying face down on the floor, arms spread out, tie loosened, empty hands",
+      "emotion": "collapsed",
+      "shot": "full",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/052.png",
+          "anim": "drop"
+        },
+        {
+          "word": "バタン",
+          "size": 75,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "rise3",
+      "text": "仕事終わってから……",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "eyes half closed, hair messy, tie loosened",
+      "emotion": "exhausted",
+      "shot": "close",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "kenta",
+          "image": "cutouts/053.png"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "rise3",
+      "text": "これ全部、\nやるの……？",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "face buried in both hands, shoulders slumped",
+      "emotion": "defeated",
+      "shot": "close",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/054.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "kenta.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "rise3",
+      "text": "妻が、静かに\n口を開いた。",
+      "speaker": "narrator",
+      "characters": [
+        "wife"
+      ],
+      "action": "walking in quietly, holding one neat stack of folded children's clothes in both hands",
+      "emotion": "composed",
+      "shot": "full",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/055.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 1.2
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "beat": "rise3",
+      "text": "私、毎日\nこれやってたよ。",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "looking down gently, holding one neat stack of folded children's clothes in both hands",
+      "emotion": "quietly hurt",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/056.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "wife.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "rise3",
+      "text": "……。",
+      "speaker": "kenta",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "silent, eyes lowered, facing the other person",
+      "emotion": "speechless",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/057_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/057_wife.png",
+          "at": "right"
+        },
+        {
+          "word": "シーン",
+          "size": 75,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "beat": "rise3",
+      "text": "あなたが\n仕事してること、",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "holding one neat stack of folded children's clothes in both hands, looking toward the left",
+      "emotion": "earnest",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, holding the stack of folded clothes",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/058.png"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "beat": "rise3",
+      "text": "私は一度も、\n楽だなんて言ってない。",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "eyes glistening with tears, holding one neat stack of folded children's clothes in both hands",
+      "emotion": "tearful",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "motion": "focus",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/059.png"
+        },
+        {
+          "effect": "tears",
+          "on": "wife"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "beat": "twist",
+      "text": "……俺も、\n言い方が悪かった。",
+      "speaker": "kenta",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "facing the other person, head bowed slightly, hands at sides",
+      "emotion": "remorseful",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/060_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/060_wife.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "beat": "twist",
+      "text": "少し、\n間があった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "still",
+      "shot": "full",
+      "location": "mood_night_stars",
+      "filter": "none",
+      "layers": []
+    },
+    {
+      "id": 62,
+      "beat": "twist",
+      "text": "でも、俺が働いて\n稼いだお金で",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "looking up with serious eyes, jaw set, tie loosened",
+      "emotion": "earnest",
+      "shot": "close",
+      "location": "mood_night_stars",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, serious eyes",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/062.png"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "beat": "twist",
+      "text": "生活してることも、\n忘れないでほしい。",
+      "speaker": "kenta",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "facing the other person, serious expression, hands at sides",
+      "emotion": "firm",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "kenta"
+        },
+        {
+          "id": "kenta",
+          "image": "cutouts/063_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/063_wife.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "beat": "twist",
+      "text": "妻も、黙った。",
+      "speaker": "narrator",
+      "characters": [
+        "wife"
+      ],
+      "action": "lips pressed together, eyes lowered, holding one neat stack of folded children's clothes",
+      "emotion": "conflicted",
+      "shot": "close",
+      "location": "mood_night_stars",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/064.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "wife.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "beat": "twist",
+      "text": "……それは、\n分かってる。",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "holding one stack of folded children's clothes against her chest with both hands, looking aside",
+      "emotion": "reluctant",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/065.png"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "beat": "twist",
+      "text": "二人とも、\n何も言わなくなった。",
+      "speaker": "narrator",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "seen from behind, standing still, head slightly lowered",
+      "emotion": "pensive",
+      "shot": "full",
+      "location": "mood_night_stars",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/066_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/066_wife.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "beat": "ending",
+      "text": "翌朝。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "fresh",
+      "shot": "full",
+      "location": "garbage_spot_morning",
+      "filter": "none",
+      "motion": "tilt_up",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 68,
+      "beat": "ending",
+      "text": "夫は、\nゴミを出した。",
+      "speaker": "narrator",
+      "characters": [
+        "kenta"
+      ],
+      "action": "walking, carrying one white garbage bag in his right hand and one black business briefcase in his left hand",
+      "emotion": "refreshed",
+      "shot": "full",
+      "location": "garbage_spot_morning",
+      "filter": "none",
+      "alt_pose": "walking, other leg forward, carrying one white garbage bag in his right hand and one black business briefcase in his left hand",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/068.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 1.2
+        },
+        {
+          "effect": "sparkles",
+          "on": "kenta",
+          "start": 1.0
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "beat": "ending",
+      "text": "妻は、\n朝食を作った。",
+      "speaker": "narrator",
+      "characters": [
+        "wife",
+        "daughter"
+      ],
+      "action": "smiling, facing the other person, hands at sides",
+      "emotion": "gentle",
+      "shot": "half",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wife",
+          "image": "cutouts/069_wife.png",
+          "at": "left"
+        },
+        {
+          "id": "daughter",
+          "image": "cutouts/069_daughter.png",
+          "at": "right"
+        },
+        {
+          "word": "ジュー",
+          "size": 70,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "beat": "ending",
+      "text": "やった！\n朝ごはんだ！",
+      "speaker": "daughter",
+      "characters": [
+        "daughter"
+      ],
+      "action": "holding one small red rice bowl in both hands, beaming",
+      "emotion": "overjoyed",
+      "shot": "half",
+      "location": "kitchen_morning",
+      "filter": "none",
+      "alt_pose": "eating rice from the small red rice bowl held in her left hand",
+      "layers": [
+        {
+          "id": "daughter",
+          "image": "cutouts/070.png",
+          "anim": "hop"
+        },
+        {
+          "effect": "sparkles",
+          "on": "daughter"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "daughter.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "beat": "ending",
+      "text": "今日、\n帰ったら……",
+      "speaker": "kenta",
+      "characters": [
+        "kenta"
+      ],
+      "action": "holding one black business briefcase in his right hand, left hand rubbing the back of his neck, looking toward the right",
+      "emotion": "sheepish",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/071.png"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "beat": "ending",
+      "text": "俺が、\n洗濯するよ。",
+      "speaker": "kenta",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "standing, facing the other person, smiling softly, hands at sides",
+      "emotion": "sincere",
+      "shot": "full",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/072_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/072_wife.png",
+          "at": "right"
+        },
+        {
+          "effect": "hearts",
+          "on": "wife"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "beat": "ending",
+      "text": "じゃあ、\nお願い。",
+      "speaker": "wife",
+      "characters": [
+        "wife"
+      ],
+      "action": "smiling a little, hands clasped in front of her chest, empty hands",
+      "emotion": "softly smiling",
+      "shot": "close",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "wife",
+          "colour": "#FFB3D1"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/073.png"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "wife.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "beat": "ending",
+      "text": "洗剤は、\nちょっとだけね。",
+      "speaker": "wife",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "facing the other person, laughing awkwardly, hands at sides",
+      "emotion": "teasing",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "mouth open while laughing",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/074_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/074_wife.png",
+          "at": "right"
+        },
+        {
+          "word": "ギクッ",
+          "size": 70,
+          "at": "kenta.above"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "beat": "ending",
+      "text": "夫が悪い？妻が悪い？\nあなたはどっち？",
+      "speaker": "narrator",
+      "characters": [
+        "kenta",
+        "wife"
+      ],
+      "action": "looking straight at the viewer, one hand on chin, thinking",
+      "emotion": "thoughtful",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kenta",
+          "image": "cutouts/075_kenta.png",
+          "at": "left"
+        },
+        {
+          "id": "wife",
+          "image": "cutouts/075_wife.png",
+          "at": "right"
+        },
+        {
+          "word": "どっち？",
+          "size": 90,
+          "at": "center"
+        }
+      ]
+    }
+  ]
+}

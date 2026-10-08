@@ -1,0 +1,30 @@
+# Môi trường và cache model
+venv-gen/
+venv-klein/
+hf/
+**/venv/
+**/.venv/
+__pycache__/
+*.pyc
+
+# Bản sao không dùng
+shorts-pipeline-2/
+shorts-pipeline-3/
+
+# Log (có thể chứa key)
+*.log
+
+# Bí mật
+.env
+.env.*
+kaggle.json
+*.key
+
+# File nặng: model, ảnh, âm thanh, video
+*.safetensors
+*.ckpt
+*.zip
+shorts-pipeline/videos/*/**/*.png
+shorts-pipeline/videos/*/**/*.wav
+*.mp3
+*.mp4

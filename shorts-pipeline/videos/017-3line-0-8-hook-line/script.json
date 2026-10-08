@@ -1,0 +1,1639 @@
+{
+  "title": [
+    "結婚式に3万円包んだ俺、",
+    "親友のLINEに絶句した"
+  ],
+  "genre": "Công sở, xã hội",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "wedding_guest": "#5C9DED",
+    "wedding_friend": "#CE667C",
+    "mutual_friend": "#F6BE57"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "ご祝儀、3万円って。",
+      "speaker": "wedding_friend",
+      "characters": [],
+      "action": "isolated object insert",
+      "emotion": "uneasy",
+      "object": "one black smartphone displaying a white message screen with a few text lines",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        },
+        {
+          "word": "ピロン",
+          "size": 55,
+          "at": "objects.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "正直、ちょっと驚いた。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_friend"
+      ],
+      "action": "looking down at one black smartphone held in his right hand, left hand empty",
+      "emotion": "disappointed",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/002.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "え、どういう意味だ？",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "eyes widened, holding one black smartphone in his right hand near his chest, left hand empty",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/003.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "wedding_guest.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "ガーン",
+          "size": 65,
+          "vertical": true,
+          "at": "wedding_guest.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "結婚式から帰った夜。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "walking inward in side view, holding one black smartphone in his right hand, left hand empty",
+      "emotion": "weary",
+      "shot": "full",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/004.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.7
+        },
+        {
+          "word": "スタスタ",
+          "size": 48,
+          "at": "wedding_guest.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "親友から来たLINE。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert returning to the opening message",
+      "emotion": "unsettled",
+      "object": "one black smartphone displaying a white message screen with a few text lines",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "reuse": 1,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "俺は何度も読み返した。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "seated, leaning forward, holding one black smartphone in his right hand, left hand empty",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "alt_pose": "seated, raising his eyes from one black smartphone held in his right hand, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/006.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "rise1",
+      "text": "友人とは大学時代から。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "standing in three-quarter view with relaxed shoulders, both hands empty, giving a small friendly nod",
+      "emotion": "touched",
+      "shot": "full",
+      "location": "mood_warm_memory",
+      "filter": "sepia",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "wedding_guest",
+          "colour": "#FFD6A5"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/007_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/007_wedding_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise1",
+      "text": "何でも話せる親友だ。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "laughing softly in three-quarter view, right hand resting on his chest, left hand empty",
+      "emotion": "laughing",
+      "shot": "half",
+      "location": "mood_warm_memory",
+      "filter": "sepia",
+      "alt_pose": "mouth open in a gentle laugh, right hand resting on his chest, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/008_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/008_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "式には絶対に来てくれ。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "speaking earnestly in three-quarter view, right palm extended at chest height, left hand empty",
+      "emotion": "earnest",
+      "shot": "half",
+      "location": "mood_warm_memory",
+      "filter": "sepia",
+      "alt_pose": "mouth open while speaking, right palm slightly raised at chest height, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/009_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/009_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "wedding_friend.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "もちろん。約束するよ。",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "standing upright, raising his empty right hand in a small pledge, left hand empty",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "mood_warm_memory",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/010_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/010_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "そして、迎えた式当日。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "walking forward, holding one white celebration envelope with red and gold ribbon knots in his right hand, left hand empty",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "wedding_hall_autumn_noon",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/011.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 0.7
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise1",
+      "text": "俺が包んだのは3万円。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert",
+      "emotion": "careful",
+      "object": "one white celebration envelope with red and gold ribbon knots",
+      "shot": "close",
+      "location": "wedding_hall_autumn_noon",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/012.png"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise1",
+      "text": "結婚、本当におめでとう。",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "giving a small congratulatory bow with a warm smile, both hands empty",
+      "emotion": "overjoyed",
+      "shot": "half",
+      "location": "wedding_hall_autumn_noon",
+      "filter": "sepia",
+      "alt_pose": "straightening slightly from a small bow, mouth open in a warm greeting, both hands empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/013_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/013_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "effect": "sparkles",
+          "on": "wedding_guest"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise1",
+      "text": "安い金額ではなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "standing calmly in three-quarter view, both hands empty, wearing a small sincere smile",
+      "emotion": "content",
+      "shot": "half",
+      "location": "wedding_hall_autumn_noon",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/014_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/014_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "wedding_friend.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise1",
+      "text": "だが翌朝、また通知が。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert showing another notification",
+      "emotion": "nervous",
+      "object": "one black smartphone displaying two white message bubbles with text lines",
+      "shot": "close",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/015.png"
+        },
+        {
+          "word": "ピロン",
+          "size": 55,
+          "at": "objects.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise1",
+      "text": "普通、親友だったらさ。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, holding one black smartphone in his right hand, left hand empty",
+      "emotion": "insistent",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, moving his right thumb over one black smartphone held in his right hand, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/016_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/016_wedding_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise1",
+      "text": "5万円じゃないのか？",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, chin slightly raised, holding one black smartphone in his right hand, left hand empty",
+      "emotion": "smug",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/017_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/017_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "wedding_friend.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise1",
+      "text": "そんなルール、初耳だ。",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, brows drawn together, holding one black smartphone in his right hand, left hand empty",
+      "emotion": "angry",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, typing with his right thumb on one black smartphone held in his right hand, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/018_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/018_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise1",
+      "text": "祝ったはずなのに、なぜ。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "seen from behind, shoulders slumped, holding one black smartphone low in his right hand, left hand empty",
+      "emotion": "bitter",
+      "shot": "full",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/019.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "wedding_guest.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise1",
+      "text": "返事は、さらに刺さった。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_friend"
+      ],
+      "action": "jaw tightened, holding one black smartphone in his right hand near his chest, left hand empty",
+      "emotion": "angry",
+      "shot": "close",
+      "location": "living_room_morning",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/020.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "wedding_friend.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "ズーン",
+          "size": 58,
+          "at": "wedding_friend.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise2",
+      "text": "俺、お前の結婚式には、",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, studying one black smartphone held in his right hand, left hand empty",
+      "emotion": "accusing",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, pressing the screen of one black smartphone with his right thumb, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/021_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/021_wedding_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise2",
+      "text": "5万円、包んだよな。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, holding one black smartphone upright in his right hand, left hand empty",
+      "emotion": "confident",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/022_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/022_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "wedding_friend.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise2",
+      "text": "その言葉で思い出した。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert representing an earlier wedding gift",
+      "emotion": "recognizing",
+      "object": "one white celebration envelope beside five tan banknotes",
+      "shot": "close",
+      "location": "mood_warm_memory",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/023.png"
+        },
+        {
+          "word": "ハッ",
+          "size": 60,
+          "at": "objects.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise2",
+      "text": "確かに、5万円だった。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "eyes widened in recognition, both hands empty",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "mood_warm_memory",
+      "filter": "sepia",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "wedding_guest"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/024.png"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise2",
+      "text": "あの時は、\nありがたかった。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "bowing his head gently, empty right hand over his chest, left hand empty",
+      "emotion": "touched",
+      "shot": "half",
+      "location": "mood_warm_memory",
+      "filter": "sepia",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "wedding_guest",
+          "colour": "#FFD6A5"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/025.png"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise2",
+      "text": "でも俺は働き始めた\nばかり。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "seated in side view, examining one white payslip with text lines held in his right hand, left hand empty",
+      "emotion": "worried",
+      "shot": "half",
+      "location": "budget_kitchen_autumn_dawn",
+      "filter": "sepia",
+      "alt_pose": "seated in side view, lowering his chin toward one white payslip held in his right hand, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/026.png"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise2",
+      "text": "手取りは\n20万円以下だった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert",
+      "emotion": "troubled",
+      "object": "one white payslip with text lines beside one closed blue wallet",
+      "shot": "close",
+      "location": "budget_kitchen_autumn_dawn",
+      "filter": "sepia",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/027.png"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "rise2",
+      "text": "生活費を引けば、\nぎりぎり。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert",
+      "emotion": "strained",
+      "object": "one open blue wallet containing a few coins and one folded bill",
+      "shot": "close",
+      "location": "budget_kitchen_autumn_dawn",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/028.png"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "rise2",
+      "text": "それでも、無理をして、",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "lips pressed tightly, looking down at one open blue wallet held in his right hand, left hand empty",
+      "emotion": "scared",
+      "shot": "close",
+      "location": "budget_kitchen_autumn_dawn",
+      "filter": "sepia",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/029.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        },
+        {
+          "word": "ドキドキ",
+          "size": 52,
+          "at": "wedding_guest.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "rise2",
+      "text": "3万円を用意したんだ。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "holding one sealed white celebration envelope with red and gold ribbon knots in his right hand, left hand empty",
+      "emotion": "determined",
+      "shot": "half",
+      "location": "budget_kitchen_autumn_dawn",
+      "filter": "sepia",
+      "alt_pose": "raising one sealed white celebration envelope slightly in his right hand, left hand empty, giving a firm nod",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/030.png"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise2",
+      "text": "俺だって、精一杯だった。",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "in side view, holding one black smartphone low in his right hand, empty left hand clenched",
+      "emotion": "strained",
+      "shot": "half",
+      "location": "wedding_courtyard_autumn_dusk",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/031.png"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise2",
+      "text": "金額だけなら、俺が悪い？",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "eyes lowered, holding one black smartphone in his right hand near his chest, left hand empty",
+      "emotion": "ashamed",
+      "shot": "close",
+      "location": "wedding_courtyard_autumn_dusk",
+      "filter": "sepia",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/032.png"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise2",
+      "text": "でも、これが友情なのか。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "seen from behind, walking away with one black smartphone lowered in his right hand, left hand empty",
+      "emotion": "heartbroken",
+      "shot": "full",
+      "location": "wedding_courtyard_autumn_dusk",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/033.png",
+          "anim": "exit_right"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise3",
+      "text": "金額で友情を測るのか？",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, gripping one black smartphone in his right hand, empty left hand clenched",
+      "emotion": "angry",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, typing sharply with his right thumb on one black smartphone, empty left hand clenched",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/034_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/034_wedding_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "rise3",
+      "text": "そういう話じゃないんだ。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, holding one black smartphone in his right hand, empty left palm turned upward",
+      "emotion": "defensive",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/035_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/035_wedding_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise3",
+      "text": "じゃあ、何なんだよ。",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, leaning forward with one black smartphone in his right hand, left hand empty",
+      "emotion": "angry",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, mouth slightly open while typing on one black smartphone with his right thumb, left hand empty",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/036_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/036_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "word": "ビシッ",
+          "size": 58,
+          "at": "wedding_guest.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "rise3",
+      "text": "親友なら、分かるだろ。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, standing rigidly with one black smartphone in his right hand, left hand empty",
+      "emotion": "smug",
+      "shot": "full",
+      "location": "living_room_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/037_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/037_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "word": "ポチ",
+          "size": 48,
+          "at": "wedding_friend.hand_right"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "rise3",
+      "text": "俺にとって、大切な日だ。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a LINE exchange, holding one black smartphone in his right hand, empty left hand against his chest",
+      "emotion": "earnest",
+      "shot": "half",
+      "location": "living_room_morning",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, typing on one black smartphone with his right thumb, empty left hand against his chest",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/038_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/038_wedding_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "rise3",
+      "text": "俺には、返す言葉がない。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "mouth slightly parted, holding one black smartphone in his right hand, left hand empty",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/039.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "wedding_guest.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "シーン",
+          "size": 52,
+          "at": "wedding_guest.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "rise3",
+      "text": "それ以上は\n返信しなかった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert showing an unfinished reply",
+      "emotion": "resigned",
+      "object": "one black smartphone displaying message bubbles and an empty reply field",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/040.png"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "rise3",
+      "text": "俺はスマホを閉じた。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "turning his face away, holding one black smartphone with a dark screen in his right hand, left hand empty",
+      "emotion": "despair",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/041.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        },
+        {
+          "word": "カチッ",
+          "size": 48,
+          "at": "wedding_guest.hand_right"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "rise3",
+      "text": "祝いの余韻だけが消えた。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "seen from behind, walking away slowly, holding one black smartphone with a dark screen low in his right hand, left hand empty",
+      "emotion": "heartbroken",
+      "shot": "full",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/042.png",
+          "anim": "exit_left"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "rise3",
+      "text": "翌日、別の連絡が来た。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "background-only morning transition",
+      "emotion": "expectant",
+      "shot": "full",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "word": "プルルル",
+          "size": 55,
+          "at": "bottom"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "rise3",
+      "text": "実は、あいつの式の費用、",
+      "speaker": "mutual_friend",
+      "characters": [
+        "wedding_guest",
+        "mutual_friend"
+      ],
+      "action": "isolated single-person portrait for a remote call, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "concerned",
+      "shot": "half",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/044_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "mutual_friend",
+          "image": "cutouts/044_mutual_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "rise3",
+      "text": "かなり足りなかったんだ。",
+      "speaker": "mutual_friend",
+      "characters": [
+        "wedding_guest",
+        "mutual_friend"
+      ],
+      "action": "isolated single-person portrait for a remote call, holding one black smartphone to his right ear with his right hand, empty left palm slightly raised",
+      "emotion": "surprised",
+      "shot": "half",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, mouth open while speaking, one black smartphone held to his right ear, empty left palm turned upward",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/045_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "mutual_friend",
+          "image": "cutouts/045_mutual_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "twist",
+      "text": "その時、初めて知った。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "eyes widening, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/046.png"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "twist",
+      "text": "式場代のための借金が、",
+      "speaker": "mutual_friend",
+      "characters": [
+        "mutual_friend"
+      ],
+      "action": "in side view, speaking carefully with one black smartphone held to his right ear in his right hand, left hand empty",
+      "emotion": "uneasy",
+      "shot": "half",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": "in side view, mouth open while speaking, one black smartphone held to his right ear in his right hand, left hand empty",
+      "layers": [
+        {
+          "id": "mutual_friend",
+          "image": "cutouts/047.png"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "twist",
+      "text": "300万円を超えていた。",
+      "speaker": "mutual_friend",
+      "characters": [
+        "mutual_friend"
+      ],
+      "action": "brows raised tensely, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "motion": "shake",
+      "transition": "flash",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "mutual_friend",
+          "colour": "#FFE0A3"
+        },
+        {
+          "id": "mutual_friend",
+          "image": "cutouts/048.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "mutual_friend.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "ドン",
+          "size": 75,
+          "at": "mutual_friend.beside_left"
+        },
+        {
+          "effect": "flash",
+          "start": 0,
+          "duration": 0.35
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "twist",
+      "text": "あのLINEの裏には、",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert returning to the exact opening message",
+      "emotion": "somber",
+      "object": "one black smartphone displaying a white message screen with a few text lines",
+      "shot": "close",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "reuse": 1,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "twist",
+      "text": "そんな事情があったのか。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "symbolic object insert illustrating the disclosed wedding debt",
+      "emotion": "troubled",
+      "object": "one white loan statement with text lines beside one red calculator",
+      "shot": "close",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/050.png"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "twist",
+      "text": "それでも、要求は正しい？",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "brows knitted, holding one black smartphone lowered in his right hand, empty left palm turned upward",
+      "emotion": "torn",
+      "shot": "half",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/051.png"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "ending",
+      "text": "俺は親友に電話をかけた。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "stepping forward, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/052.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 0.7
+        },
+        {
+          "word": "プルル",
+          "size": 52,
+          "at": "wedding_guest.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "ending",
+      "text": "なんで最初に、",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "looking ahead with a tense jaw, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "anguished",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/053.png"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "ending",
+      "text": "言わなかったんだよ。",
+      "speaker": "wedding_guest",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a remote call, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "hurt",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, mouth open while speaking, one black smartphone held to his right ear in his right hand, left hand empty",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "wedding_guest",
+          "colour": "#C7DBFF"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/054_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/054_wedding_friend.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "ending",
+      "text": "しばらく、沈黙が続いた。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "listening without speaking, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "heartbroken",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/055.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        },
+        {
+          "word": "シーン",
+          "size": 52,
+          "at": "wedding_guest.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "beat": "ending",
+      "text": "言えるわけないだろ。",
+      "speaker": "wedding_friend",
+      "characters": [
+        "wedding_guest",
+        "wedding_friend"
+      ],
+      "action": "isolated single-person portrait for a remote call, head lowered, holding one black smartphone to his right ear with his right hand, left hand empty",
+      "emotion": "despair",
+      "shot": "half",
+      "location": "living_room_night",
+      "filter": "none",
+      "alt_pose": "isolated single-person portrait, mouth barely open while speaking, one black smartphone held to his right ear in his right hand, left hand empty",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/056_wedding_guest.png",
+          "at": "left"
+        },
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/056_wedding_friend.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "wedding_guest.beside_left",
+          "size": "tiny"
+        },
+        {
+          "word": "ズキッ",
+          "size": 60,
+          "at": "wedding_friend.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "ending",
+      "text": "3万円だった俺が悪い？",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_guest"
+      ],
+      "action": "standing alone in three-quarter view, both empty palms slightly open",
+      "emotion": "uncertain",
+      "shot": "full",
+      "location": "wedding_hall_autumn_noon",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "wedding_guest",
+          "image": "cutouts/057.png"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "beat": "ending",
+      "text": "5万円を求めた新郎か。",
+      "speaker": "narrator",
+      "characters": [
+        "wedding_friend"
+      ],
+      "action": "looking slightly downward with pressed lips, both hands empty",
+      "emotion": "ashamed",
+      "shot": "close",
+      "location": "wedding_hall_autumn_noon",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "wedding_friend",
+          "image": "cutouts/058.png"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "beat": "ending",
+      "text": "あなたなら、どっちだ？",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "background-only darkened closing question",
+      "emotion": "pensive",
+      "shot": "full",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "transition": "fade",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "gloom"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "beat": "ending",
+      "text": "あのLINE、どう返す？",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "isolated object insert returning to the exact opening message for a visual loop",
+      "emotion": "unsettled",
+      "object": "one black smartphone displaying a white message screen with a few text lines",
+      "shot": "close",
+      "location": "living_room_night",
+      "filter": "none",
+      "reuse": 1,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "objects.beside_right",
+          "size": "tiny"
+        }
+      ]
+    }
+  ]
+}

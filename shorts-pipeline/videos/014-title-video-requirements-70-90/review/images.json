@@ -1,0 +1,88 @@
+{
+  "characters/004_parent_mother_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "style": 5,
+      "action": 4
+    },
+    "redraw": false,
+    "problems": [],
+    "fix": "",
+    "score": 4.9,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791387978672688700
+  },
+  "characters/007.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 2,
+      "objects": 5,
+      "extras": 5,
+      "style": 5,
+      "action": 3
+    },
+    "redraw": true,
+    "problems": [
+      "Nhân vật có ba bàn tay, thừa một bàn tay ở bên hông."
+    ],
+    "fix": "exactly two hands, right hand holding one black diploma tube, left hand resting on his knee",
+    "score": 4.3,
+    "verdict": "vẽ lại",
+    "failed": [
+      "body"
+    ],
+    "pass_score": 3,
+    "mtime": 1791387978692710700
+  },
+  "characters/020.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 3,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "style": 5,
+      "action": 3
+    },
+    "redraw": true,
+    "problems": [
+      "Nhân vật quay lưng nhưng lưng áo lại có ve áo, hàng cúc vàng và nơ như mặt trước."
+    ],
+    "fix": "rear view with a plain black jacket back, gold buttons and graduation corsage on the front only",
+    "score": 4.4,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791387978841767200
+  },
+  "characters/022.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 2,
+      "extras": 5,
+      "style": 5,
+      "action": 5
+    },
+    "redraw": true,
+    "problems": [
+      "Ống đựng bằng bị vẽ thành hai ống bắt chéo nhau."
+    ],
+    "fix": "holding exactly one black diploma tube in his right hand, left hand empty",
+    "score": 4.6,
+    "verdict": "vẽ lại",
+    "failed": [
+      "objects"
+    ],
+    "pass_score": 3,
+    "mtime": 1791387978856808600
+  }
+}

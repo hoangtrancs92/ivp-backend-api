@@ -1,0 +1,19 @@
+# Sao chép thành config.toml rồi điền giá trị thật. config.toml đã nằm trong .gitignore.
+# File này chỉ chứa tài khoản và khóa; không gửi lên Kaggle. Thông số chỉnh được nằm ở config/settings.toml.
+
+[kaggle]
+username = "ten-tai-khoan-kaggle"
+# Để trống nếu đã có token trong ~/.kaggle/access_token hoặc đã chạy `kaggle auth login`.
+# Hoặc dán token "KGAT_..." (kaggle.com/settings/api -> Generate New Token), hoặc khóa cũ trong kaggle.json.
+key = ""
+machine_shape = "NvidiaTeslaT4"            # GPU T4 x2
+lora_dataset = "irasutoya-style-lora"      # dataset chứa file LoRA, tạo một lần
+job_dataset = "shorts-job"                 # dataset chứa jobs.json, worker.py và ảnh chuẩn; tool tự tạo và cập nhật
+kernel = "shorts-gen"                      # tên kernel chạy sinh ảnh
+poll_seconds = 60
+run_timeout_minutes = 90                   # một lần chạy quá thời gian này thì Kaggle tự dừng
+
+[keys]
+anthropic_api_key = ""     # viết kịch bản, chấm điểm bằng model thị giác
+tts_api_key = ""           # giọng đọc
+hf_token = ""              # token Hugging Face (quyền read): gửi kèm dataset job riêng tư lên Kaggle để tải model nhanh, ít bị giới hạn

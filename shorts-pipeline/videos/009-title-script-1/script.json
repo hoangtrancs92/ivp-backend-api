@@ -1,0 +1,1119 @@
+{
+  "title": [
+    "教室のゴミ箱に",
+    "入ってたノート"
+  ],
+  "genre": "Trả thù nhẹ, công lý (スカッと)",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "popular_tanaka": "#9575CD"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "ゴミ箱に、ノート。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "ominous",
+      "object": "a single pale grey plastic wastebasket containing one worn ivory B5 school notebook with a cobalt blue cloth spine and a white name label outlined in blue, plus three crumpled white paper sheets; the notebook's front cover is partly exposed and faces the viewer",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "表紙には、俺の名前。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "uneasy",
+      "object": "a tight view of one worn ivory B5 school notebook's front cover, cobalt blue cloth spine on the left, one white name label outlined in blue bearing the handwritten Japanese name 高橋蓮, slightly bent corners, no hands or other objects",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/002.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "objects.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "中は、真っ黒だった。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "standing with his head lowered, holding one worn ivory B5 notebook open in both hands, right hand supporting the lower edge and left hand gripping the outer page edge, cobalt blue spine visible, cream pages densely marked with black ink, no other objects",
+      "emotion": "aghast",
+      "object": null,
+      "shot": "full",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": "raising the same single open notebook slightly toward his face with both hands, eyes widening, no other objects",
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/003.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "student_victim.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "パラッ",
+          "size": 62,
+          "vertical": false,
+          "at": "student_victim.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "rise1",
+      "text": "開くたび、悪口だらけ。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "looking down, holding one worn ivory B5 notebook open at chest height, right hand supporting its lower edge and left hand turning one cream page covered in black handwriting, cobalt blue spine visible, no other objects",
+      "emotion": "resentful",
+      "object": null,
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": "holding the same single open notebook at chest height with both hands after turning the page, jaw tightening, no other objects",
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/004.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "student_victim.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "rise1",
+      "text": "「消えろ」「臭い」",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "hostile",
+      "object": "one worn ivory B5 notebook open wide, cobalt blue cloth spine visible, two cream pages filled with repeated heavy black handwritten Japanese insults, the words 消えろ and 臭い especially prominent, no hands or other objects",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/005.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "objects.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "rise1",
+      "text": "「誰も味方いない」",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "eyes lowered and lips pressed together, holding one worn ivory B5 notebook open just below his chin with both hands, cobalt blue spine and blackened cream pages visible along the bottom of the frame, no other objects",
+      "emotion": "isolated",
+      "object": null,
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/006.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "student_victim.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "rise1",
+      "text": "同じ字で、何ページも。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "oppressed",
+      "object": "one worn ivory B5 school notebook open at its middle, cobalt blue cloth spine visible, two cream pages densely covered in the same angular black handwriting, repeated Japanese phrases 消えろ, 臭い, and 誰も味方いない, black ink showing through earlier pages, no hands or other objects",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/007.png"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise2",
+      "text": "隣の席の佐藤だ。",
+      "speaker": "narrator",
+      "characters": [
+        "bully_sato"
+      ],
+      "action": "walking slowly forward with his head turned slightly to the left, both hands empty, black backpack worn on his back, no notebook in his hands",
+      "emotion": "nonchalant",
+      "object": null,
+      "shot": "full",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": "taking another slow step, chin slightly raised, both hands still empty, black backpack still worn on his back",
+      "layers": [
+        {
+          "id": "bully_sato",
+          "image": "cutouts/008.png",
+          "path": [
+            "off_right",
+            "right"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise2",
+      "text": "俺には、分かってた。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "in side view, lowering his empty right hand after releasing the notebook out of frame, left hand also empty, shoulders hunched, no notebook remaining in his hands",
+      "emotion": "apprehensive",
+      "object": null,
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/009.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "student_victim.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise2",
+      "text": "佐藤が、ノートを回収。",
+      "speaker": "narrator",
+      "characters": [
+        "bully_sato"
+      ],
+      "action": "crouching low, lifting one closed worn ivory B5 notebook with a cobalt blue cloth spine and white blue-bordered name label in his right hand, left hand empty, black backpack still worn on his back, no other notebooks in his hands",
+      "emotion": "furtive",
+      "object": null,
+      "shot": "full",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "bully_sato",
+          "image": "cutouts/010.png"
+        },
+        {
+          "word": "サッ",
+          "size": 64,
+          "vertical": false,
+          "at": "bully_sato.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise2",
+      "text": "先生には言えなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "seen from behind, walking slowly with his head bowed and both hands empty, no notebook",
+      "emotion": "withdrawn",
+      "object": null,
+      "shot": "full",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "alt_pose": "seen from behind, taking another slow step with slightly rounded shoulders, both hands empty, no notebook",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "student_victim",
+          "image": "cutouts/011.png",
+          "path": [
+            "off_left",
+            "left"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise2",
+      "text": "言えば、もっと酷くなる。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "in side view, pressing his empty right hand lightly over his mouth, left hand empty below frame, eyes angled downward, no notebook",
+      "emotion": "frightened",
+      "object": null,
+      "shot": "close",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/012.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "student_victim.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise2",
+      "text": "俺は、口を閉じた。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "seated with his upper body bent slightly forward, lips closed tightly, both empty hands clasped near his chest, no notebook",
+      "emotion": "hurt",
+      "object": null,
+      "shot": "half",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "alt_pose": "seated, drawing a small breath while keeping his lips closed, both empty hands still clasped near his chest, no notebook",
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/013.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "student_victim.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "シン…",
+          "size": 58,
+          "vertical": true,
+          "at": "student_victim.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise2",
+      "text": "佐藤は、何食わぬ顔。",
+      "speaker": "narrator",
+      "characters": [
+        "bully_sato"
+      ],
+      "action": "chin raised slightly, holding one closed worn ivory B5 notebook with a cobalt blue cloth spine and white blue-bordered name label in his right hand at waist height, left hand empty, black backpack still worn on his back",
+      "emotion": "smug",
+      "object": null,
+      "shot": "half",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "bully_sato",
+          "image": "cutouts/014.png"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "bully_sato.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise2",
+      "text": "証拠は、\n消えたと思った。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "in side view, walking away with his head lowered and both hands empty, no notebook",
+      "emotion": "defeated",
+      "object": null,
+      "shot": "full",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/015.png",
+          "anim": "exit_right"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "student_victim.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise3",
+      "text": "その日の、放課後。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "expectant",
+      "object": null,
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": []
+    },
+    {
+      "id": 17,
+      "beat": "rise3",
+      "text": "佐藤が廊下で転んだ。",
+      "speaker": "narrator",
+      "characters": [
+        "bully_sato"
+      ],
+      "action": "stumbling forward with knees buckling, both hands empty and flung outward, black backpack still on his back with its main zipper open, no notebooks in his hands",
+      "emotion": "startled",
+      "object": null,
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "bully_sato",
+          "image": "cutouts/017.png",
+          "anim": "drop"
+        },
+        {
+          "word": "ドタン",
+          "size": 76,
+          "vertical": false,
+          "at": "bully_sato.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise3",
+      "text": "ノートが床に散らばった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "chaotic",
+      "object": "three school notebooks scattered at different angles: one worn ivory B5 notebook with cobalt blue cloth spine and a white blue-bordered name label bearing 高橋蓮, partly open to blackened cream pages; one closed dark green notebook; one closed brown notebook; no hands, bags, or furniture",
+      "shot": "close",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/018.png"
+        },
+        {
+          "word": "バサッ",
+          "size": 70,
+          "vertical": false,
+          "at": "objects.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise3",
+      "text": "拾ったのは、田中。",
+      "speaker": "narrator",
+      "characters": [
+        "popular_tanaka"
+      ],
+      "action": "kneeling on one knee, lifting one closed worn ivory B5 notebook with a cobalt blue cloth spine and white blue-bordered name label in his right hand, left hand empty, no other notebooks in his hands",
+      "emotion": "attentive",
+      "object": null,
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": "starting to stand while holding the same single closed ivory notebook in his right hand, left hand empty, no other notebooks",
+      "layers": [
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/019.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "popular_tanaka.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise3",
+      "text": "クラス一番の人気者。",
+      "speaker": "narrator",
+      "characters": [
+        "popular_tanaka"
+      ],
+      "action": "standing upright with relaxed shoulders, holding one closed worn ivory B5 notebook with a cobalt blue cloth spine and white blue-bordered name label in his right hand at chest height, left hand empty",
+      "emotion": "easygoing",
+      "object": null,
+      "shot": "half",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/020.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "popular_tanaka.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise3",
+      "text": "田中が、ページをめくる。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "curious",
+      "object": "one worn ivory B5 school notebook open at its middle, cobalt blue cloth spine visible, two cream pages densely covered in the same angular black handwriting, repeated Japanese phrases 消えろ, 臭い, and 誰も味方いない, black ink showing through earlier pages, no hands or other objects",
+      "shot": "close",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "reuse": 7,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/007.png"
+        },
+        {
+          "word": "ペラッ",
+          "size": 62,
+          "vertical": false,
+          "at": "objects.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise3",
+      "text": "その手が、止まった。",
+      "speaker": "narrator",
+      "characters": [
+        "popular_tanaka"
+      ],
+      "action": "holding one worn ivory B5 notebook open at chest height with both hands, cobalt blue spine and blackened cream pages visible, fingers frozen at the page edges, eyes widened, no other objects",
+      "emotion": "horrified",
+      "object": null,
+      "shot": "half",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "punch_in",
+      "layers": [
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/022.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "popular_tanaka.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "ピタッ",
+          "size": 66,
+          "vertical": false,
+          "at": "popular_tanaka.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise3",
+      "text": "これ、\nお前が書いたのか。",
+      "speaker": "popular_tanaka",
+      "characters": [
+        "popular_tanaka"
+      ],
+      "action": "lifting his gaze sharply toward the right, holding one open worn ivory B5 notebook just below his chin with both hands, cobalt blue spine visible, no other objects",
+      "emotion": "indignant",
+      "object": null,
+      "shot": "close",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": "mouth open while questioning, brows drawn together, holding the same single open ivory notebook with both hands below his chin, no other objects",
+      "motion": "punch_in",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/023.png"
+        },
+        {
+          "effect": "flash",
+          "start": 0,
+          "duration": 0.35
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise3",
+      "text": "佐藤の顔が、真っ白に。",
+      "speaker": "narrator",
+      "characters": [
+        "bully_sato"
+      ],
+      "action": "face drained of colour, lips parted without speaking, shoulders stiff, both hands empty below frame, black backpack still worn, no notebooks in his hands",
+      "emotion": "panicked",
+      "object": null,
+      "shot": "close",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "bully_sato",
+          "image": "cutouts/024.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "bully_sato.beside_left",
+          "size": "tiny"
+        },
+        {
+          "word": "サーッ",
+          "size": 64,
+          "vertical": true,
+          "at": "bully_sato.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise3",
+      "text": "周りに人が集まった。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim",
+        "me_teen"
+      ],
+      "action": "walking forward with head angled slightly down toward something outside the frame, both hands empty, no handheld objects",
+      "emotion": "bewildered",
+      "object": null,
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/025_student_victim.png",
+          "at": "left"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/025_me_teen.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "me_teen.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise3",
+      "text": "もう、隠せなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "bully_sato"
+      ],
+      "action": "drawing his shoulders inward and lowering his eyes, both hands empty below frame, black backpack still worn, no notebooks in his hands",
+      "emotion": "cornered",
+      "object": null,
+      "shot": "close",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "bully_sato",
+          "image": "cutouts/026.png"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "twist",
+      "text": "田中は、先生の元へ。",
+      "speaker": "narrator",
+      "characters": [
+        "popular_tanaka"
+      ],
+      "action": "seen from behind in three-quarter view, walking away while holding one closed worn ivory B5 notebook with a cobalt blue cloth spine and white blue-bordered name label in his right hand, left hand empty",
+      "emotion": "resolute",
+      "object": null,
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": "seen from behind in three-quarter view, taking another purposeful step, the same single closed ivory notebook in his right hand, left hand empty",
+      "layers": [
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/027.png",
+          "anim": "exit_right"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "twist",
+      "text": "ノートを先生に渡した。",
+      "speaker": "narrator",
+      "characters": [
+        "teacher_homeroom"
+      ],
+      "action": "receiving and holding one closed worn ivory B5 notebook, right palm supporting its lower edge and left hand securing its cobalt blue spine, white blue-bordered name label visible, no other objects",
+      "emotion": "grave",
+      "object": null,
+      "shot": "half",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "teacher_homeroom",
+          "colour": "#FFF4B8"
+        },
+        {
+          "id": "teacher_homeroom",
+          "image": "cutouts/028.png"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "twist",
+      "text": "そして、俺を見た。",
+      "speaker": "narrator",
+      "characters": [
+        "popular_tanaka"
+      ],
+      "action": "turning his gaze toward the right with shoulders lowered, both hands empty, no notebook remaining in his hands",
+      "emotion": "ashamed",
+      "object": null,
+      "shot": "half",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/029.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "popular_tanaka.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "twist",
+      "text": "さっきまで、\n知らなかった。",
+      "speaker": "popular_tanaka",
+      "characters": [
+        "popular_tanaka",
+        "student_victim"
+      ],
+      "action": "standing with shoulders lowered and head slightly tilted, both hands open and empty near waist height, no handheld objects",
+      "emotion": "sincere",
+      "object": null,
+      "shot": "half",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "punch_in",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "popular_tanaka",
+          "colour": "#B3E5FC"
+        },
+        {
+          "effect": "rays",
+          "on": "popular_tanaka",
+          "colour": "#FFF4B8"
+        },
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/030_popular_tanaka.png",
+          "at": "left"
+        },
+        {
+          "id": "student_victim",
+          "image": "cutouts/030_student_victim.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "twist",
+      "text": "……ごめん。",
+      "speaker": "popular_tanaka",
+      "characters": [
+        "popular_tanaka"
+      ],
+      "action": "lowering his chin with softened eyes and slightly parted lips, both hands empty below frame, no notebook",
+      "emotion": "remorseful",
+      "object": null,
+      "shot": "close",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "alt_pose": "eyes lowered, mouth open while apologizing, both hands empty below frame, no notebook",
+      "layers": [
+        {
+          "id": "popular_tanaka",
+          "image": "cutouts/031.png"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "popular_tanaka.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "ending",
+      "text": "翌日、教室に入ると。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "walking forward with his head raised slightly, both hands empty, no notebook",
+      "emotion": "cautious hope",
+      "object": null,
+      "shot": "full",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "student_victim",
+          "colour": "#D9EAF7"
+        },
+        {
+          "id": "student_victim",
+          "image": "cutouts/032.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "ending",
+      "text": "佐藤の席は、空だった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "sobering",
+      "object": null,
+      "shot": "full",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": []
+    },
+    {
+      "id": 34,
+      "beat": "ending",
+      "text": "ノートはシュレッダーへ。",
+      "speaker": "narrator",
+      "characters": [
+        "teacher_homeroom"
+      ],
+      "action": "in side view, holding one thin worn ivory B5 notebook open in both hands, cobalt blue spine visible, lowering its blackened cream page edges toward the bottom of the frame, no other objects",
+      "emotion": "firm",
+      "object": null,
+      "shot": "half",
+      "location": "school_staffroom_autumn_next_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "teacher_homeroom",
+          "image": "cutouts/034.png"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "ending",
+      "text": "黒い文字が、\n細かく消えた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "finality",
+      "object": "one small loose pile of narrow cream paper strips bearing fragmented black ink strokes, a few cobalt blue spine scraps and torn fragments of a white blue-bordered name label mixed into the pile, no intact notebook, no hands or furniture",
+      "shot": "close",
+      "location": "school_staffroom_autumn_next_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/035.png"
+        },
+        {
+          "word": "ガーッ",
+          "size": 64,
+          "vertical": false,
+          "at": "objects.beside_right"
+        },
+        {
+          "effect": "flash",
+          "start": 0,
+          "duration": 0.35
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "ending",
+      "text": "新しいノートを買った。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "walking slowly forward, holding one new mint-green B5 notebook with a plain unmarked cover and white stitched spine in his right hand, left hand empty, no old notebook",
+      "emotion": "tentative joy",
+      "object": null,
+      "shot": "full",
+      "location": "stationery_shop_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": "taking another slow step while holding the same single new mint-green notebook in his right hand, left hand empty, no old notebook",
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/036.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "student_victim",
+          "colour": "#D1F2EB"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "ending",
+      "text": "１ページ目は、\n空白のまま。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "hopeful",
+      "object": "one new mint-green B5 notebook open to its first bright white page, plain mint-green cover and white stitched spine visible, both visible pages entirely free of handwriting or drawings, no hands or other objects",
+      "shot": "close",
+      "location": "stationery_shop_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/037.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "objects.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "パラリ",
+          "size": 58,
+          "vertical": false,
+          "at": "objects.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "ending",
+      "text": "沈黙も、暴力だ。",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "looking directly forward with steady eyes, holding one closed new mint-green B5 notebook near his chest in his right hand, left hand empty below frame, no old notebook",
+      "emotion": "unflinching",
+      "object": null,
+      "shot": "close",
+      "location": "stationery_shop_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "student_victim",
+          "colour": "#D1F2EB"
+        },
+        {
+          "id": "student_victim",
+          "image": "cutouts/038.png"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "ending",
+      "text": "あなたなら、\n見て見ぬふり？",
+      "speaker": "narrator",
+      "characters": [
+        "student_victim"
+      ],
+      "action": "holding one closed new mint-green B5 notebook at chest height in his right hand, extending his empty left hand toward the viewer with palm facing upward, no old notebook",
+      "emotion": "inviting",
+      "object": null,
+      "shot": "half",
+      "location": "stationery_shop_autumn_afternoon",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "id": "student_victim",
+          "image": "cutouts/039.png"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "student_victim.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "ending",
+      "text": "それとも、拾う？",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "haunting",
+      "object": "a single pale grey plastic wastebasket containing one worn ivory B5 school notebook with a cobalt blue cloth spine and a white name label outlined in blue, plus three crumpled white paper sheets; the notebook's front cover is partly exposed and faces the viewer",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "sepia",
+      "alt_pose": null,
+      "reuse": 1,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        }
+      ]
+    }
+  ]
+}

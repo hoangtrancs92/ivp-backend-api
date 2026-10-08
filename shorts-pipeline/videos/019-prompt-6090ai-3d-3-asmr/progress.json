@@ -1,0 +1,57 @@
+{
+ "steps": {
+  "script": {
+   "label": "Viết kịch bản",
+   "status": "done",
+   "started": 1791423589.5407474,
+   "ended": 1791423905.6214943
+  },
+  "jobs": {
+   "label": "Lên danh sách ảnh",
+   "status": "done",
+   "started": 1791423905.622495,
+   "ended": 1791423905.990077,
+   "note": "85 ảnh cần sinh"
+  },
+  "kaggle": {
+   "label": "Sinh ảnh trên Kaggle",
+   "status": "done",
+   "started": 1791423905.990077,
+   "note": "xong lượt 1",
+   "ended": 1791427540.1291668
+  },
+  "review": {
+   "label": "Duyệt ảnh",
+   "status": "done",
+   "ended": 1791427540.1980493,
+   "note": "Không duyệt, dùng luôn ảnh Kaggle"
+  },
+  "cutouts": {
+   "label": "Tách nền",
+   "status": "done",
+   "started": 1791427540.1986396,
+   "ended": 1791427554.2789075
+  },
+  "preview": {
+   "label": "Bố cục cảnh",
+   "status": "done",
+   "started": 1791427554.2789075,
+   "ended": 1791427587.8226893
+  },
+  "voice": {
+   "label": "Giọng đọc",
+   "status": "done",
+   "started": 1791427587.8236928,
+   "ended": 1791427651.0665333
+  },
+  "build": {
+   "label": "Dựng video",
+   "status": "done",
+   "started": 1791427651.067534,
+   "ended": 1791428066.8192124
+  }
+ },
+ "gpu_hours": 0.91,
+ "error": null,
+ "started": 1791423589.539746
+}

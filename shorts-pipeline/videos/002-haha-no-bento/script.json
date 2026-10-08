@@ -1,0 +1,1385 @@
+{
+ "title": [
+  "母の",
+  "お弁当ノート"
+ ],
+ "font": "Noto Sans CJK JP",
+ "font_file": "fonts/NotoSansCJKjp-Black.otf",
+ "speakers": {
+  "narrator": "#4FC3F7",
+  "me": "#4FC3F7",
+  "me_teen": "#4FC3F7",
+  "mother": "#F48FB1",
+  "mother_patient": "#F48FB1",
+  "father": "#FFB74D"
+ },
+ "scenes": [
+  {
+   "id": 1,
+   "beat": "setup",
+   "text": "母は毎朝、\nお弁当を作った。",
+   "speaker": "narrator",
+   "characters": [
+    "mother"
+   ],
+   "action": "standing at the kitchen counter, packing food into a small pink lunch box with chopsticks",
+   "emotion": "gentle smile",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/001.png",
+     "anim": "bounce"
+    },
+    {
+     "effect": "sparkles",
+     "on": "mother"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 2,
+   "beat": "setup",
+   "text": "朝5時、\n包丁の音で\n目が覚める。",
+   "speaker": "narrator",
+   "characters": [
+    "me_teen"
+   ],
+   "action": "lying in bed under a blanket, rubbing her eyes",
+   "emotion": "sleepy",
+   "location": "bedroom",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me_teen",
+     "image": "cutouts/002.png",
+     "anim": "none"
+    },
+    {
+     "word": "トントン",
+     "size": 80,
+     "at": "me_teen.beside_right",
+     "anim": "pop_fade",
+     "start": 0.3,
+     "vertical": true
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 3,
+   "beat": "setup",
+   "text": "タコさんに、\nうさぎのリンゴ。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/003.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ],
+   "object": "an open pink lunch box with octopus-shaped red sausages, rabbit-shaped apple slices and rice with a smiley face made of seaweed"
+  },
+  {
+   "id": 4,
+   "beat": "setup",
+   "text": "もう高校生なのに…",
+   "speaker": "me_teen",
+   "characters": [
+    "me_teen"
+   ],
+   "action": "standing in a classroom, holding a small pink lunch box with both hands",
+   "emotion": "embarrassed",
+   "location": "classroom",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me_teen",
+     "image": "cutouts/004.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "me_teen.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 5,
+   "beat": "setup",
+   "text": "クラスで\n笑われた。",
+   "speaker": "narrator",
+   "characters": [
+    "me_teen"
+   ],
+   "action": "standing with her head down, holding a small pink lunch box",
+   "emotion": "ashamed",
+   "location": "classroom",
+   "motion": "shake",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "me_teen",
+     "image": "cutouts/005.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "full"
+  },
+  {
+   "id": 6,
+   "beat": "setup",
+   "text": "恥ずかしくて、\nたまらなかった。",
+   "speaker": "narrator",
+   "characters": [
+    "me_teen"
+   ],
+   "action": "covering her face with both hands",
+   "emotion": "humiliated",
+   "location": "classroom",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "me_teen",
+     "image": "cutouts/006.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 7,
+   "beat": "rise1",
+   "text": "もう作らないで！",
+   "speaker": "me_teen",
+   "characters": [
+    "me_teen"
+   ],
+   "action": "shouting with both fists clenched",
+   "emotion": "angry",
+   "location": "kitchen",
+   "motion": "shake",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me_teen",
+     "image": "cutouts/007.png",
+     "anim": "jump"
+    },
+    {
+     "image": "stickers/anger.png",
+     "size": "tiny",
+     "at": "me_teen.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    },
+    {
+     "effect": "flash"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 8,
+   "beat": "rise1",
+   "text": "母は少し、\n黙っていた。",
+   "speaker": "narrator",
+   "characters": [
+    "mother"
+   ],
+   "action": "standing still, holding a small pink lunch box, looking down",
+   "emotion": "sad",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "mother",
+     "image": "cutouts/008.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 9,
+   "beat": "rise1",
+   "text": "…そっか",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "small sad smile, looking at her daughter",
+   "emotion": "sad smile",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/009.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "close",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 10,
+   "beat": "rise1",
+   "text": "次の日も、\nお弁当はあった。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/010.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    }
+   ],
+   "object": "a lunch box wrapped in a pink cloth on a wooden table"
+  },
+  {
+   "id": 11,
+   "beat": "rise1",
+   "text": "私はそれを、\n食べずに残した。",
+   "speaker": "narrator",
+   "characters": [
+    "me_teen"
+   ],
+   "action": "walking away with her back turned",
+   "emotion": "cold",
+   "location": "genkan",
+   "motion": "pan_left",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me_teen",
+     "image": "cutouts/011.png",
+     "anim": "exit_right"
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 12,
+   "beat": "rise1",
+   "text": "母は、何も\n言わなかった。",
+   "speaker": "narrator",
+   "characters": [
+    "mother"
+   ],
+   "action": "washing a lunch box at the sink",
+   "emotion": "lonely",
+   "location": "kitchen",
+   "motion": "zoom_out",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "mother",
+     "image": "cutouts/012.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 13,
+   "beat": "rise2",
+   "text": "高校を出て、\n東京へ出た。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "walking with a determined stride, pulling a small red rolling suitcase",
+   "emotion": "determined",
+   "location": "station",
+   "motion": "pan_right",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/013.png",
+     "anim": "bounce"
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 14,
+   "beat": "rise2",
+   "text": "仕事は毎日、\n終電まで。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "slumped over an office desk, typing on a laptop",
+   "emotion": "exhausted",
+   "location": "office",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/014.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 15,
+   "beat": "rise2",
+   "text": "夕飯は、\nいつもコンビニ。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "sitting on the floor, eating a convenience store bento from a plastic tray",
+   "emotion": "tired",
+   "location": "apartment",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/015.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 16,
+   "beat": "rise2",
+   "text": "味なんて、\nしなかった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "holding chopsticks, staring blankly",
+   "emotion": "empty",
+   "location": "apartment",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/016.png",
+     "anim": "none"
+    },
+    {
+     "effect": "rain"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 17,
+   "beat": "rise2",
+   "text": "ちゃんと\n食べてる？",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "holding a white smartphone to her ear",
+   "emotion": "worried",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/017.png",
+     "anim": "bounce"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 18,
+   "beat": "rise2",
+   "text": "食べてるよ。\n忙しいの",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "holding a white smartphone to her ear, looking away",
+   "emotion": "annoyed",
+   "location": "apartment",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/018.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 19,
+   "beat": "rise3",
+   "text": "ある日、\n荷物が届いた。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "apartment",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/019.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "word": "ピンポーン",
+     "size": 80,
+     "at": "objects.above",
+     "anim": "pop_fade",
+     "start": 0.3,
+     "vertical": false
+    }
+   ],
+   "object": "a cardboard delivery box with a shipping label"
+  },
+  {
+   "id": 20,
+   "beat": "rise3",
+   "text": "中には、\n母の手料理。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "apartment",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/020.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ],
+   "object": "an open cardboard box full of plastic food containers with homemade japanese side dishes and a folded letter"
+  },
+  {
+   "id": 21,
+   "beat": "rise3",
+   "text": "体だけは、\n大事にね",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "smiling gently with hands clasped in front",
+   "emotion": "warm",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "mother"
+    },
+    {
+     "id": "mother",
+     "image": "cutouts/021.png",
+     "anim": "bounce"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 22,
+   "beat": "rise3",
+   "text": "…うん",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "holding a letter on pink paper, lips trembling",
+   "emotion": "moved",
+   "location": "apartment",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/022.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 23,
+   "beat": "rise3",
+   "text": "それから半年後。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "standing at an office desk, looking at a ringing white smartphone",
+   "emotion": "surprised",
+   "location": "office",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/023.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/exclaim.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 24,
+   "beat": "rise3",
+   "text": "母さんが、\n倒れた",
+   "speaker": "father",
+   "characters": [
+    "father"
+   ],
+   "action": "holding a white smartphone to his ear, eyes wide",
+   "emotion": "shocked",
+   "location": "dining_room",
+   "motion": "shake",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/024.png",
+     "anim": "none"
+    },
+    {
+     "effect": "flash"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 25,
+   "beat": "rise3",
+   "text": "頭が、\n真っ白になった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "frozen in place with her mouth open",
+   "emotion": "shocked",
+   "location": "office",
+   "motion": "shake",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/025.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 26,
+   "beat": "rise3",
+   "text": "新幹線に、\n飛び乗った。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "running fast",
+   "emotion": "desperate",
+   "location": "station",
+   "motion": "pan_left",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/026.png",
+     "anim": "bounce",
+     "path": [
+      "off_right",
+      "center"
+     ]
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "running with the other leg forward, arms swinging the other way"
+  },
+  {
+   "id": 27,
+   "beat": "twist",
+   "text": "病院の母は、\n小さく見えた。",
+   "speaker": "narrator",
+   "characters": [
+    "mother_patient"
+   ],
+   "action": "lying in a hospital bed under a white blanket",
+   "emotion": "weak smile",
+   "location": "hospital_room",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "mother_patient",
+     "image": "cutouts/027.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 28,
+   "beat": "twist",
+   "text": "あら、\n来てくれたの",
+   "speaker": "mother_patient",
+   "characters": [
+    "mother_patient"
+   ],
+   "action": "sitting up in a hospital bed",
+   "emotion": "gentle smile",
+   "location": "hospital_room",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother_patient",
+     "image": "cutouts/028.png",
+     "anim": "bounce"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 29,
+   "beat": "twist",
+   "text": "ただの、\n過労だった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "letting out a breath with her shoulders dropping",
+   "emotion": "relieved",
+   "location": "hospital_room",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/029.png",
+     "anim": "none"
+    },
+    {
+     "word": "ホッ",
+     "size": 80,
+     "at": "me.beside_right",
+     "anim": "pop_fade",
+     "start": 0.3,
+     "vertical": false
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 30,
+   "beat": "twist",
+   "text": "着替えを取りに\n実家へ戻った。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "walking with a tote bag on her shoulder",
+   "emotion": "tired",
+   "location": "genkan",
+   "motion": "pan_right",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/030.png",
+     "anim": "bounce"
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 31,
+   "beat": "twist",
+   "text": "台所の棚に、\n古いノート。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/031.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ],
+   "object": "an old worn notebook with a faded pink cover lying on a wooden shelf"
+  },
+  {
+   "id": 32,
+   "beat": "twist",
+   "text": "表紙には\n「お弁当\nノート」",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/032.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    }
+   ],
+   "object": "an old notebook with a hand-drawn lunch box doodle on its pink cover"
+  },
+  {
+   "id": 33,
+   "beat": "twist",
+   "text": "幼稚園から\n毎日の記録。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "sitting at a kitchen table, turning the pages of an old notebook",
+   "emotion": "curious",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/033.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/question.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 34,
+   "beat": "twist",
+   "text": "今日はタコさん\n喜ぶかな",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "packing octopus-shaped sausages into a small lunch box",
+   "emotion": "happy",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/034.png",
+     "anim": "bounce"
+    },
+    {
+     "effect": "sparkles",
+     "on": "mother"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 35,
+   "beat": "twist",
+   "text": "全部、\n食べてくれた！",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "raising both hands in joy",
+   "emotion": "overjoyed",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/035.png",
+     "anim": "jump"
+    },
+    {
+     "effect": "hearts",
+     "on": "mother"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 36,
+   "beat": "twist",
+   "text": "キャラ弁、\n恥ずかしい\nみたい",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "looking down at an open lunch box",
+   "emotion": "worried",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/036.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "mother.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 37,
+   "beat": "twist",
+   "text": "普通のおかずに\nしよう。\nごめんね",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "writing in a notebook at a kitchen table",
+   "emotion": "apologetic",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/037.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 38,
+   "beat": "twist",
+   "text": "今日も残してた\n疲れてるのかな",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "holding an untouched lunch box",
+   "emotion": "sad",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "sepia",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "mother",
+     "image": "cutouts/038.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 39,
+   "beat": "twist",
+   "text": "最後のページ。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/039.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    }
+   ],
+   "object": "an old notebook open to its last page with handwritten japanese text"
+  },
+  {
+   "id": 40,
+   "beat": "twist",
+   "text": "いつか、\nあの子のお弁当、\n食べたいな",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "smiling with her eyes closed, hands on her chest",
+   "emotion": "hopeful",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "sepia",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "mother"
+    },
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "mother"
+    },
+    {
+     "id": "mother",
+     "image": "cutouts/040.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 41,
+   "beat": "twist",
+   "text": "涙が、\n止まらなかった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "holding an old notebook to her chest, crying",
+   "emotion": "crying",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/041.png",
+     "anim": "none"
+    },
+    {
+     "effect": "tears",
+     "on": "me"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 42,
+   "beat": "ending",
+   "text": "次の朝、\n台所に立った。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "wearing a pink apron, cracking an egg into a frying pan",
+   "emotion": "determined",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/042.png",
+     "anim": "bounce"
+    },
+    {
+     "effect": "sparkles",
+     "on": "me"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 43,
+   "beat": "ending",
+   "text": "卵焼きは、\nうまく巻けない。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "holding a frying pan with a messy rolled omelet",
+   "emotion": "troubled smile",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/043.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 44,
+   "beat": "ending",
+   "text": "タコさんも、\n少し不格好。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/044.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ],
+   "object": "a pink lunch box with slightly misshapen octopus-shaped sausages and a lopsided rolled omelet"
+  },
+  {
+   "id": 45,
+   "beat": "ending",
+   "text": "お母さん、\nお弁当だよ",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "holding out a small pink lunch box with both hands",
+   "emotion": "shy smile",
+   "location": "hospital_room",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/045.png",
+     "anim": "bounce"
+    },
+    {
+     "effect": "hearts",
+     "on": "me"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 46,
+   "beat": "ending",
+   "text": "…これ、\nあなたが？",
+   "speaker": "mother_patient",
+   "characters": [
+    "mother_patient"
+   ],
+   "action": "sitting up in a hospital bed, eyes wide",
+   "emotion": "surprised",
+   "location": "hospital_room",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother_patient",
+     "image": "cutouts/046.png",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/exclaim.png",
+     "size": "tiny",
+     "at": "mother_patient.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 47,
+   "beat": "ending",
+   "text": "母はゆっくり、\n一口食べた。",
+   "speaker": "narrator",
+   "characters": [
+    "mother_patient"
+   ],
+   "action": "sitting in a hospital bed, eating with chopsticks from a small pink lunch box",
+   "emotion": "calm",
+   "location": "hospital_room",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother_patient",
+     "image": "cutouts/047.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 48,
+   "beat": "ending",
+   "text": "…おいしい",
+   "speaker": "mother_patient",
+   "characters": [
+    "mother_patient"
+   ],
+   "action": "smiling with tears, holding chopsticks",
+   "emotion": "happy tears",
+   "location": "hospital_room",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "mother_patient"
+    },
+    {
+     "id": "mother_patient",
+     "image": "cutouts/048.png",
+     "anim": "none"
+    },
+    {
+     "effect": "sparkles",
+     "on": "mother_patient"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 49,
+   "beat": "ending",
+   "text": "母が、\n泣きながら笑った。",
+   "speaker": "narrator",
+   "characters": [
+    "mother_patient"
+   ],
+   "action": "laughing while crying, one hand on her cheek",
+   "emotion": "laughing and crying",
+   "location": "hospital_room",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother_patient",
+     "image": "cutouts/049.png",
+     "anim": "bounce"
+    },
+    {
+     "effect": "tears",
+     "on": "mother_patient"
+    },
+    {
+     "effect": "hearts",
+     "on": "mother_patient"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 50,
+   "beat": "ending",
+   "text": "これからは、\n私が作るね",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "smiling with tears, hands clasped in front",
+   "emotion": "happy tears",
+   "location": "hospital_room",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/050.png",
+     "anim": "bounce"
+    },
+    {
+     "effect": "sparkles",
+     "on": "me"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 51,
+   "beat": "ending",
+   "text": "あのノートの\n続きは、",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "kitchen",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/051.png",
+     "anim": "pop",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ],
+   "object": "an old notebook open with fresh new handwriting on a page and a pen lying on it"
+  },
+  {
+   "id": 52,
+   "beat": "ending",
+   "text": "今、私が\n書いている。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "writing in an old notebook at a kitchen table, smiling",
+   "emotion": "gentle smile",
+   "location": "kitchen",
+   "motion": "zoom_out",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "me"
+    },
+    {
+     "effect": "aura",
+     "on": "me"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/052.png",
+     "anim": "none"
+    }
+   ],
+   "shot": "half"
+  }
+ ]
+}

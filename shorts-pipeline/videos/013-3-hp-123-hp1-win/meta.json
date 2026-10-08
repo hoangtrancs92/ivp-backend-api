@@ -1,0 +1,7 @@
+{
+ "owner": "phuctran",
+ "created": 1791379388.4328885,
+ "script_model": "claude-opus-5-5",
+ "review_model": "claude-sonnet-5-5",
+ "review_mode": "manual"
+}

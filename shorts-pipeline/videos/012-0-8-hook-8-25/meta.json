@@ -1,0 +1,7 @@
+{
+ "owner": "tustruyen",
+ "created": 1791379293.9214013,
+ "script_model": "claude-opus-5-5",
+ "review_model": "claude-sonnet-5-5",
+ "review_mode": "manual"
+}

@@ -1,0 +1,1651 @@
+{
+  "title": [
+    "資格を探しただけなのに",
+    "免許と死角と視覚が大混乱"
+  ],
+  "genre": "Hài, đời thường",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "me_teen": "#4FC3F7",
+    "classmate_girl": "#F48FB1",
+    "classmate_quiet_girl": "#80CBC4"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "資格ある人、急募！",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "standing suddenly, raising one hand high",
+      "emotion": "determined",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/001_classmate_girl.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "classmate_girl.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "急募！",
+          "size": 70,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "免許持ってる人？",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen",
+        "classmate_girl"
+      ],
+      "action": "facing right toward classmate_girl, raising one hand",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/002_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/002_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "me_teen.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "え、運転免許？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "leaning forward with both palms open",
+      "emotion": "surprised",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/003_classmate_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.beside_left",
+          "size": "tiny"
+        },
+        {
+          "effect": "speed_lines"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "rise1",
+      "text": "就職に役立つ資格！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "holding one blue folder in her right hand, left hand empty",
+      "emotion": "exasperated",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "alt_pose": "mouth open while talking",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/004_me_teen.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "me_teen.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "rise1",
+      "text": "運転できる資格ね！",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "nodding confidently, giving a thumbs-up with her right hand, left hand empty",
+      "emotion": "confident",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "classmate_girl"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/005_classmate_girl.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        },
+        {
+          "word": "シャキーン",
+          "size": 58,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "rise1",
+      "text": "それは免許！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "throwing both hands upward, mouth wide open",
+      "emotion": "furious",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/006_me_teen.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "me_teen.beside_left",
+          "size": "tiny"
+        },
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "word": "違う！",
+          "size": 72,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "rise1",
+      "text": "免許は更新するでしょ？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl",
+        "me_teen"
+      ],
+      "action": "facing left toward me_teen, counting on three fingers",
+      "emotion": "serious",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/007_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/007_me_teen.png",
+          "at": "left"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise1",
+      "text": "資格は更新しないよ！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "shaking her head rapidly, both hands empty",
+      "emotion": "frustrated",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/008_me_teen.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "me_teen.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "じゃあ何を更新するの？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "tilting her head, one hand on her cheek",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/009_classmate_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "資格を取るの！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "holding one blue folder under her left arm, pointing upward with her right hand",
+      "emotion": "determined",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/010_me_teen.png"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "取る？ハンドルを？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "pretending to steer with both hands",
+      "emotion": "confident",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/011_classmate_girl.png"
+        },
+        {
+          "word": "ブーン",
+          "size": 64,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise1",
+      "text": "ハンドルは取らない！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "pulling both hands back in alarm",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/012_me_teen.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "me_teen.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise1",
+      "text": "講師の資格とか！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "holding one blue folder under her left arm, pointing upward with her right hand",
+      "emotion": "determined",
+      "shot": "half",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/013_me_teen.png"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise1",
+      "text": "教習所の先生？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "covering her mouth with one hand, eyebrows raised",
+      "emotion": "confused",
+      "shot": "close",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/014_classmate_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise1",
+      "text": "話が前に進まない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "empty japanese high school hallway after classes",
+      "emotion": "awkward",
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "シーン",
+          "size": 76,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise1",
+      "text": "運転って、楽しいよ？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "walking in side view, miming steering with both hands",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/016_classmate_girl.png"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise1",
+      "text": "今は仕事の話！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "pointing firmly to the right, left hand empty",
+      "emotion": "furious",
+      "shot": "half",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/017_me_teen.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "me_teen.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise1",
+      "text": "仕事で車に乗るの？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "leaning forward, pointing both thumbs at herself",
+      "emotion": "puzzled",
+      "shot": "close",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/018_classmate_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise2",
+      "text": "話、ずれてない？",
+      "speaker": "narrator",
+      "characters": [
+        "me_teen",
+        "classmate_girl"
+      ],
+      "action": "standing apart, staring at each other in confusion",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/019_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/019_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise2",
+      "text": "免許の更新に、",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "raising one finger with a very serious expression",
+      "emotion": "serious",
+      "shot": "half",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/020_classmate_girl.png"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise2",
+      "text": "資格って必要なの？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "leaning toward the camera with both hands raised",
+      "emotion": "surprised",
+      "shot": "close",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/021_classmate_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        },
+        {
+          "effect": "speed_lines"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise2",
+      "text": "もちろん！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "giving a confident thumbs-up with her right hand, left hand empty",
+      "emotion": "smug",
+      "shot": "close",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "me_teen"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/022_me_teen.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "me_teen.above",
+          "size": "tiny"
+        },
+        {
+          "word": "当然！",
+          "size": 70,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise2",
+      "text": "やっぱり必要なんだ！",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl",
+        "me_teen"
+      ],
+      "action": "facing left toward me_teen, clapping both hands once",
+      "emotion": "excited",
+      "shot": "half",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/023_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/023_me_teen.png",
+          "at": "left"
+        },
+        {
+          "word": "パン！",
+          "size": 60,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise2",
+      "text": "何の資格よ！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "pointing sharply to the right with her right hand, left hand empty",
+      "emotion": "furious",
+      "shot": "close",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/024_me_teen.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "me_teen.beside_right",
+          "size": "tiny"
+        },
+        {
+          "effect": "speed_lines"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise2",
+      "text": "死角の資格って何？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "covering one eye with her right hand, left hand empty",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/025_classmate_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise2",
+      "text": "死角って何よ！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "throwing both arms outward",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "flash"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/026_me_teen.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "me_teen.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise2",
+      "text": "車の見えない場所？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "turning sideways, covering one eye with her left hand",
+      "emotion": "suspicious",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/027_classmate_girl.png"
+        },
+        {
+          "word": "死角？",
+          "size": 66,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "rise2",
+      "text": "誰が車の話したの！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "holding one blue folder under her left arm, pointing to herself with her right hand",
+      "emotion": "exasperated",
+      "shot": "half",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/028_me_teen.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "me_teen.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "rise3",
+      "text": "ずっと聞いてたけど。",
+      "speaker": "narrator",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "standing still with a thin notebook held in her left hand, right hand empty",
+      "emotion": "suspicious",
+      "shot": "half",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/029_classmate_quiet_girl.png"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "rise3",
+      "text": "二人とも、声でかい。",
+      "speaker": "narrator",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "covering one ear with her right hand, notebook held in her left hand",
+      "emotion": "annoyed",
+      "shot": "close",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/030_classmate_quiet_girl.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "classmate_quiet_girl.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise3",
+      "text": "ちょっと待って！",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "walking into frame from the right, raising her right palm to stop them, notebook in her left hand",
+      "emotion": "shocked",
+      "shot": "full",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/031_classmate_quiet_girl.png",
+          "path": "off_right",
+          "anim": "slide_left"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "classmate_quiet_girl.above",
+          "size": "tiny"
+        },
+        {
+          "word": "ビシッ",
+          "size": 58,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise3",
+      "text": "何の話してるの？",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "leaning forward, notebook held against her chest with both hands",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/032_classmate_quiet_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_quiet_girl.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise3",
+      "text": "資格を探してるの！",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "facing right toward classmate_quiet_girl, pointing to herself",
+      "emotion": "defensive",
+      "shot": "half",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/033_classmate_girl.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/033_classmate_quiet_girl.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise3",
+      "text": "免許の話でしょ！",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen",
+        "classmate_girl"
+      ],
+      "action": "facing right toward classmate_girl, waving both hands in disagreement",
+      "emotion": "angry",
+      "shot": "half",
+      "location": "school_staffroom_autumn_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/034_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/034_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "me_teen.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "rise3",
+      "text": "視覚の話じゃない？",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "pointing to both eyes with her index fingers, notebook tucked under her left arm",
+      "emotion": "certain",
+      "shot": "close",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/035_classmate_quiet_girl.png"
+        },
+        {
+          "word": "視覚？",
+          "size": 68,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise3",
+      "text": "目の話まで来た！",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "empty japanese high school classroom with a dark green blackboard",
+      "emotion": "stunned",
+      "shot": "full",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "word": "ガーン",
+          "size": 82,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "rise3",
+      "text": "いったん、整理しよう。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "standing with one palm raised calmly, notebook held in her left hand",
+      "emotion": "determined",
+      "shot": "half",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/037_classmate_quiet_girl.png"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "classmate_quiet_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "rise3",
+      "text": "まず、資格は仕事。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "holding one piece of white chalk in her right hand, pointing upward",
+      "emotion": "explanatory",
+      "shot": "half",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/038_classmate_quiet_girl.png"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "rise3",
+      "text": "役立つ資格や検定。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "presenting an imaginary certificate with her right hand, left hand empty",
+      "emotion": "patient",
+      "shot": "half",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/039_classmate_quiet_girl.png"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "rise3",
+      "text": "それが最初の話ね。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl",
+        "classmate_girl"
+      ],
+      "action": "facing left toward classmate_girl, holding her notebook in her left hand",
+      "emotion": "patient",
+      "shot": "half",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/040_classmate_quiet_girl.png",
+          "at": "right"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/040_classmate_girl.png",
+          "at": "left"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "rise3",
+      "text": "死角は、見えない場所。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "covering one eye with her left hand, right hand empty",
+      "emotion": "focused",
+      "shot": "half",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/041_classmate_quiet_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_quiet_girl.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "rise3",
+      "text": "車から見えない部分。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "turning sideways, covering one eye with her left hand",
+      "emotion": "focused",
+      "shot": "close",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/042_classmate_quiet_girl.png"
+        },
+        {
+          "word": "死角",
+          "size": 76,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "rise3",
+      "text": "視覚は、目の働き。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "pointing to both eyes with her index fingers",
+      "emotion": "explanatory",
+      "shot": "close",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/043_classmate_quiet_girl.png"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "twist",
+      "text": "私、目の話だと思った。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "pointing to her eyes, tilting her head",
+      "emotion": "embarrassed",
+      "shot": "half",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/044_classmate_quiet_girl.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "classmate_quiet_girl.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "twist",
+      "text": "私は、車の死角ね。",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "covering one eye with her right hand, left hand empty",
+      "emotion": "awkward",
+      "shot": "close",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/045_classmate_girl.png"
+        },
+        {
+          "word": "死角",
+          "size": 76,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "twist",
+      "text": "私は、就職の資格。",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "pointing to herself with her right hand, blue folder under her left arm",
+      "emotion": "embarrassed",
+      "shot": "close",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "flash"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/046_me_teen.png"
+        },
+        {
+          "word": "資格",
+          "size": 82,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "twist",
+      "text": "三つの会話だったの？",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl",
+        "me_teen"
+      ],
+      "action": "facing left toward me_teen, both hands pressed to her cheeks",
+      "emotion": "stunned",
+      "shot": "half",
+      "location": "school_courtyard_autumn_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/047_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/047_me_teen.png",
+          "at": "left"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "twist",
+      "text": "読み方、似すぎでしょ。",
+      "speaker": "narrator",
+      "characters": [
+        "me_teen",
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "standing in a row, each looking in a different direction",
+      "emotion": "confused",
+      "shot": "full",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/048_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/048_classmate_girl.png",
+          "at": "center"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/048_classmate_quiet_girl.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "twist",
+      "text": "誰も目を合わせない。",
+      "speaker": "narrator",
+      "characters": [
+        "me_teen",
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "looking down with both hands empty",
+      "emotion": "awkward",
+      "shot": "half",
+      "location": "school_hallway_autumn_afternoon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/049_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/049_classmate_girl.png",
+          "at": "center"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/049_classmate_quiet_girl.png",
+          "at": "right"
+        },
+        {
+          "word": "シーン",
+          "size": 76,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "twist",
+      "text": "三人とも、理解した。",
+      "speaker": "narrator",
+      "characters": [
+        "me_teen",
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "slowly raising their heads, all hands empty",
+      "emotion": "surprised",
+      "shot": "full",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/050_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/050_classmate_girl.png",
+          "at": "center"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/050_classmate_quiet_girl.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "twist",
+      "text": "資格！死角！視覚！",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "holding up three fingers, eyes wide",
+      "emotion": "excited",
+      "shot": "close",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/051_classmate_quiet_girl.png"
+        },
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "word": "ドドン",
+          "size": 72,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "ending",
+      "text": "急に全部つながった。",
+      "speaker": "narrator",
+      "characters": [
+        "me_teen",
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "staring at one another, slowly beginning to smile",
+      "emotion": "surprised",
+      "shot": "half",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/052_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/052_classmate_girl.png",
+          "at": "center"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/052_classmate_quiet_girl.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "ending",
+      "text": "そして、吹き出した。",
+      "speaker": "narrator",
+      "characters": [
+        "me_teen",
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "throwing their heads back and laughing",
+      "emotion": "laughing",
+      "shot": "full",
+      "location": "classroom_autumn_next_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/053_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/053_classmate_girl.png",
+          "at": "center"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/053_classmate_quiet_girl.png",
+          "at": "right"
+        },
+        {
+          "effect": "sparkles"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "ending",
+      "text": "笑いが止まらない。",
+      "speaker": "narrator",
+      "characters": [
+        "me_teen",
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "bending forward with laughter, hands on their knees",
+      "emotion": "laughing",
+      "shot": "half",
+      "location": "mood_shock",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me_teen",
+          "image": "cutouts/054_me_teen.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/054_classmate_girl.png",
+          "at": "center"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/054_classmate_quiet_girl.png",
+          "at": "right"
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "ending",
+      "text": "でも、問題が一つ。",
+      "speaker": "narrator",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "stopping mid-laugh, looking down at both empty hands",
+      "emotion": "confused",
+      "shot": "close",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/055_classmate_girl.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "classmate_girl.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "beat": "ending",
+      "text": "免許の人も、いない。",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "looking down at both empty hands, shoulders dropped",
+      "emotion": "defeated",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/056_classmate_girl.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "classmate_girl.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "ending",
+      "text": "視覚だけは、良好。",
+      "speaker": "me_teen",
+      "characters": [
+        "me_teen"
+      ],
+      "action": "pointing to her eyes with both index fingers",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "me_teen"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/057_me_teen.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "me_teen.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "beat": "ending",
+      "text": "そこだけ自信あるの？",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl",
+        "me_teen"
+      ],
+      "action": "facing left toward me_teen, pointing at her with one hand",
+      "emotion": "exasperated",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/058_classmate_quiet_girl.png",
+          "at": "right"
+        },
+        {
+          "id": "me_teen",
+          "image": "cutouts/058_me_teen.png",
+          "at": "left"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "classmate_quiet_girl.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "beat": "ending",
+      "text": "結局、誰も資格を持ってなかった。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "standing still, holding one thin notebook in her left hand, right hand empty",
+      "emotion": "deadpan",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/059_classmate_quiet_girl.png"
+        },
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "word": "資格ゼロ",
+          "size": 66,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "beat": "ending",
+      "text": "その顔のまま、三秒。",
+      "speaker": "narrator",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "slowly looking straight at the camera with a completely exhausted deadpan expression, notebook held in her left hand",
+      "emotion": "deadpan",
+      "shot": "close",
+      "location": "classroom_autumn_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/060_classmate_quiet_girl.png"
+        },
+        {
+          "word": "シーン",
+          "size": 76,
+          "at": "bottom_right"
+        }
+      ]
+    }
+  ]
+}

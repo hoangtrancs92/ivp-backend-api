@@ -1,0 +1,1413 @@
+{
+  "title": [
+    "ハロウィンの夜、",
+    "知らない子供が家に来た"
+  ],
+  "genre": "Bí ẩn, hồi hộp (ホラー感動)",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "ore": "#42A5F5",
+    "halloween_boy": "#FFAB40",
+    "boy_mother_young": "#F8BBD0"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "午後11時、\nチャイムが鳴った。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "eerie",
+      "shot": "full",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "word": "ピンポーン",
+          "size": 80,
+          "vertical": false,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "こんな時間に、\n誰だ？",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "seated, holding one black tv remote in his right hand, left hand empty, turning his head toward the right",
+      "emotion": "confused",
+      "shot": "half",
+      "location": "living_room_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/002.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "ore.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "今夜はハロウィン。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "festive",
+      "object": "a glass bowl of colourful wrapped halloween candies",
+      "shot": "close",
+      "location": "living_room_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/003.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "子供たちは、\nもう帰った時間だ。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "standing up and stretching, rubbing the back of his neck with his right hand, left hand empty",
+      "emotion": "tired",
+      "shot": "full",
+      "location": "living_room_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/004.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "お菓子を持って、\n玄関へ。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "walking in side view toward the right, holding one glass bowl of colourful wrapped candies in both hands",
+      "emotion": "relaxed",
+      "shot": "full",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "alt_pose": "walking in side view toward the right, the other leg forward, holding one glass bowl of colourful wrapped candies in both hands",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/005.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 1.0
+        },
+        {
+          "word": "スタスタ",
+          "size": 60,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "ドアを開けると、\n冷たい雨。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "chilly",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "ザーッ",
+          "size": 80,
+          "vertical": true,
+          "at": "top_left"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "rise1",
+      "text": "トリック・\nオア・トリート！",
+      "speaker": "halloween_boy",
+      "characters": [
+        "ore",
+        "halloween_boy"
+      ],
+      "action": "standing still in the rain, body turned slightly toward the center of the frame",
+      "emotion": "cheerful",
+      "shot": "full",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/007_ore.png",
+          "at": "left"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/007_halloween_boy.png",
+          "at": "right",
+          "size": "medium"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise1",
+      "text": "うわっ、\nびっくりした。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "leaning back in surprise, holding one glass bowl of colourful wrapped candies in both hands in front of his chest",
+      "emotion": "surprised",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/008.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "ore.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "仮面で、\n顔が見えない。",
+      "speaker": "narrator",
+      "characters": [
+        "halloween_boy"
+      ],
+      "action": "face hidden behind the white fox mask, head tilted slightly to one side, looking straight ahead",
+      "emotion": "blank",
+      "shot": "close",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/009.png"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "こんな時間に、\n一人で？",
+      "speaker": "ore",
+      "characters": [
+        "ore",
+        "halloween_boy"
+      ],
+      "action": "leaning forward slightly, looking toward the center of the frame",
+      "emotion": "curious",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/010_ore.png",
+          "at": "left"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/010_halloween_boy.png",
+          "at": "right",
+          "size": "medium"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "男の子は、\n何も答えない。",
+      "speaker": "narrator",
+      "characters": [
+        "ore",
+        "halloween_boy"
+      ],
+      "action": "standing completely still, turned toward the center of the frame, silent",
+      "emotion": "uneasy",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/011_ore.png",
+          "at": "left"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/011_halloween_boy.png",
+          "at": "right",
+          "size": "medium"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "ore.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise1",
+      "text": "ただ、じっと\n俺を見ている。",
+      "speaker": "narrator",
+      "characters": [
+        "halloween_boy"
+      ],
+      "action": "staring straight at the viewer through the white fox mask, completely motionless",
+      "emotion": "eerie",
+      "shot": "close",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/012.png",
+          "anim": "none"
+        },
+        {
+          "word": "シーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise1",
+      "text": "路地にも、\n親の姿はない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "lonely",
+      "shot": "full",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "motion": "dutch",
+      "transition": "whip",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise1",
+      "text": "背中が、\nゾクッとした。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "shoulders tensed, eyes wide, glancing sideways",
+      "emotion": "scared",
+      "shot": "close",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/014.png",
+          "anim": "shiver"
+        },
+        {
+          "word": "ゾクッ",
+          "size": 80,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise2",
+      "text": "は、はい。\nお菓子どうぞ。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "holding out one wrapped orange candy in his right hand toward the right, holding one glass candy bowl in his left hand, forced smile",
+      "emotion": "nervous",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/015.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "ore.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise2",
+      "text": "コトン、と\n小さな音。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "quiet",
+      "object": "an orange wrapped candy falling into an orange plastic pumpkin bucket",
+      "shot": "close",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/016.png"
+        },
+        {
+          "word": "コトン",
+          "size": 70,
+          "vertical": false,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise2",
+      "text": "ありがとう。",
+      "speaker": "halloween_boy",
+      "characters": [
+        "halloween_boy"
+      ],
+      "action": "bowing his head slightly, right hand empty and resting at his side",
+      "emotion": "gentle",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/017.png",
+          "anim": "nod"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise2",
+      "text": "でも、これ……",
+      "speaker": "halloween_boy",
+      "characters": [
+        "halloween_boy"
+      ],
+      "action": "taking one wrapped orange candy out of the pumpkin bucket with his right hand, looking down at it",
+      "emotion": "hesitant",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/018.png"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise2",
+      "text": "お母さんに、\n渡して。",
+      "speaker": "halloween_boy",
+      "characters": [
+        "ore",
+        "halloween_boy"
+      ],
+      "action": "reaching one hand out toward the center of the frame",
+      "emotion": "pleading",
+      "shot": "half",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/019_ore.png",
+          "at": "left"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/019_halloween_boy.png",
+          "at": "right",
+          "size": "medium"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise2",
+      "text": "お母さん……？",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "holding one wrapped orange candy in his right hand near his chest, eyebrows raised",
+      "emotion": "confused",
+      "shot": "close",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/020.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "ore.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise2",
+      "text": "男の子は、\n雨の中へ走り去った。",
+      "speaker": "narrator",
+      "characters": [
+        "halloween_boy"
+      ],
+      "action": "running away toward the right, seen from behind, cape fluttering",
+      "emotion": "mysterious",
+      "shot": "full",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "alt_pose": "running away toward the right, seen from behind, the other leg forward, cape fluttering",
+      "layers": [
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/021.png",
+          "anim": "exit_right"
+        },
+        {
+          "word": "タタッ",
+          "size": 60,
+          "vertical": true,
+          "at": "top_left"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise2",
+      "text": "ちょっと、\n待って！",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "running in side view toward the right through the rain, one wrapped orange candy in his right hand, left hand empty",
+      "emotion": "panicked",
+      "shot": "full",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "alt_pose": "running in side view toward the right, the other leg forward, one wrapped orange candy in his right hand, left hand empty",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/022.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.8
+        },
+        {
+          "word": "ダッ",
+          "size": 80,
+          "vertical": false,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise2",
+      "text": "でも、路地には\n誰もいない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "desolate",
+      "shot": "full",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "motion": "pan_left",
+      "layers": [
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise2",
+      "text": "足音すら、\n聞こえなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "standing in the rain looking around, one wrapped orange candy in his right hand, left hand empty",
+      "emotion": "bewildered",
+      "shot": "half",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/024.png"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise3",
+      "text": "その時、\nスマホが震えた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "tense",
+      "object": "a black smartphone with a glowing notification on its screen",
+      "shot": "close",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/025.png",
+          "anim": "shiver"
+        },
+        {
+          "word": "ヴー",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise3",
+      "text": "近所のニュース……？",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "looking down at one black smartphone in his left hand, one wrapped orange candy in his right hand",
+      "emotion": "puzzled",
+      "shot": "half",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/026.png"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise3",
+      "text": "10年前のハロウィン、\n少年が行方不明に。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "nostalgic",
+      "shot": "full",
+      "location": "street_halloween_dusk_past",
+      "filter": "sepia",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 28,
+      "beat": "rise3",
+      "text": "母親が目を離した、\n数分の間に。",
+      "speaker": "narrator",
+      "characters": [
+        "boy_mother_young",
+        "halloween_boy"
+      ],
+      "action": "seen from behind, looking up at the orange paper lanterns",
+      "emotion": "peaceful",
+      "shot": "full",
+      "location": "street_halloween_dusk_past",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "boy_mother_young",
+          "image": "cutouts/028_boy_mother_young.png",
+          "at": "left"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/028_halloween_boy.png",
+          "at": "right",
+          "size": "medium",
+          "anim": "exit_right",
+          "start": 0.6
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "rise3",
+      "text": "陽太！\nどこにいるの！？",
+      "speaker": "boy_mother_young",
+      "characters": [
+        "boy_mother_young"
+      ],
+      "action": "shouting with both hands cupped around her mouth, looking around",
+      "emotion": "frantic",
+      "shot": "close",
+      "location": "street_halloween_dusk_past",
+      "filter": "sepia",
+      "alt_pose": "mouth wide open while shouting, both hands cupped around her mouth, turning her head to the other side",
+      "layers": [
+        {
+          "id": "boy_mother_young",
+          "image": "cutouts/029.png"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "rise3",
+      "text": "捜索は、\n何か月も続いた。",
+      "speaker": "narrator",
+      "characters": [
+        "police_officer",
+        "boy_mother_young"
+      ],
+      "action": "searching, looking around anxiously, one hand raised to the forehead",
+      "emotion": "desperate",
+      "shot": "full",
+      "location": "street_halloween_dusk_past",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "police_officer",
+          "image": "cutouts/030_police_officer.png",
+          "at": "left"
+        },
+        {
+          "id": "boy_mother_young",
+          "image": "cutouts/030_boy_mother_young.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise3",
+      "text": "記事の写真に、\n凍りついた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "dread",
+      "object": "a black smartphone, inside its screen a photo of a small boy in a white fox mask and black cape",
+      "shot": "close",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/031.png"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise3",
+      "text": "さっきの子だ……！",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "eyes wide open, mouth open in horror, gripping a smartphone near his face",
+      "emotion": "shocked",
+      "shot": "close",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "motion": "shake",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "ore",
+          "image": "cutouts/032.png",
+          "anim": "punch"
+        },
+        {
+          "word": "ドン",
+          "size": 90,
+          "vertical": false,
+          "at": "top_right"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise3",
+      "text": "服も、仮面も、\n全部同じ。",
+      "speaker": "narrator",
+      "characters": [
+        "halloween_boy"
+      ],
+      "action": "standing perfectly still facing forward, arms down at his sides",
+      "emotion": "eerie",
+      "shot": "full",
+      "location": "mood_shock",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "halloween_boy",
+          "colour": "#FF7043"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/033.png",
+          "anim": "none"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise3",
+      "text": "記事の最後の一文。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "reading one black smartphone in his left hand with a pale face, one wrapped orange candy in his right hand",
+      "emotion": "stunned",
+      "shot": "half",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/034.png"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "rise3",
+      "text": "「少年は、今も\n見つかっていません」",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "despair",
+      "shot": "full",
+      "location": "mood_shock",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "word": "ゴゴゴ",
+          "size": 80,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise3",
+      "text": "じゃあ、\nあの子は……？",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "trembling, staring into the distance, lips pressed tight",
+      "emotion": "horrified",
+      "shot": "close",
+      "location": "alley_rain_halloween_night",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/036.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "ore.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "twist",
+      "text": "俺は急いで、\n玄関に戻った。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "running in side view toward the left, one black smartphone in his left hand, one wrapped orange candy in his right hand",
+      "emotion": "hurried",
+      "shot": "full",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "alt_pose": "running in side view toward the left, the other leg forward, one black smartphone in his left hand, one wrapped orange candy in his right hand",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/037.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 0.8
+        },
+        {
+          "word": "バシャッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "twist",
+      "text": "床に、一枚の\n写真が落ちていた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "ominous",
+      "object": "a single old instant photograph with a thick white border lying face down on a wooden floor",
+      "shot": "close",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/038.png"
+        },
+        {
+          "word": "ハッ",
+          "size": 80,
+          "vertical": false,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "twist",
+      "text": "濡れていない。\n雨の中なのに。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "crouching down, picking up one old instant photograph from the floor with his left hand, one wrapped orange candy in his right hand, smartphone put away",
+      "emotion": "uneasy",
+      "shot": "full",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/039.png",
+          "anim": "sink"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "twist",
+      "text": "若い女性と、\nあの男の子。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "wistful",
+      "object": "a single old instant photograph with a thick white border, inside the photo frame a smiling young woman hugging a small boy in a white fox mask",
+      "shot": "close",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/040.png"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "twist",
+      "text": "裏に、何か\n書いてある。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "turning over one old instant photograph in his left hand, one wrapped orange candy in his right hand, looking down",
+      "emotion": "tense",
+      "shot": "half",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/041.png"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "twist",
+      "text": "お母さんに、\n会いたい。",
+      "speaker": "halloween_boy",
+      "characters": [],
+      "action": null,
+      "emotion": "longing",
+      "object": "the white back of an old instant photograph with one handwritten line",
+      "shot": "close",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "transition": "flash",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/042.png"
+        },
+        {
+          "word": "お母さんに会いたい",
+          "size": 56,
+          "vertical": true,
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "twist",
+      "text": "胸が、\nぎゅっと痛んだ。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "pressing one old instant photograph against his chest with his left hand, eyes glistening",
+      "emotion": "heartbroken",
+      "shot": "close",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "ore",
+          "image": "cutouts/043.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "ore.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "ending",
+      "text": "その夜、\n一睡もできなかった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "restless",
+      "shot": "full",
+      "location": "mood_night_stars",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "word": "チクタク",
+          "size": 60,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "ending",
+      "text": "翌朝。\n雨は上がっていた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "calm",
+      "shot": "full",
+      "location": "mother_house_morning",
+      "filter": "none",
+      "motion": "tilt_up",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 46,
+      "beat": "ending",
+      "text": "写真を手に、\nあの家を探した。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "walking in side view toward the right, one old instant photograph in his left hand, one wrapped orange candy in his right hand",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "mother_house_morning",
+      "filter": "none",
+      "alt_pose": "walking in side view toward the right, the other leg forward, one old instant photograph in his left hand, one wrapped orange candy in his right hand",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/046.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 1.2
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "ending",
+      "text": "門の前に、\n白い花束。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "solemn",
+      "object": "white chrysanthemum bouquets placed at a small iron gate",
+      "shot": "close",
+      "location": "mother_house_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/047.png"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "twist",
+      "text": "手の中のお菓子が、\n消えていた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore"
+      ],
+      "action": "staring at his open empty right hand, one old instant photograph in his left hand",
+      "emotion": "stunned",
+      "shot": "half",
+      "location": "mother_house_morning",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/048.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "ore.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "twist",
+      "text": "花の上に、\nあのお菓子が。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "chilling",
+      "object": "one orange wrapped candy lying on white chrysanthemum flowers",
+      "shot": "close",
+      "location": "mother_house_morning",
+      "filter": "none",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/049.png"
+        },
+        {
+          "word": "ドキッ",
+          "size": 80,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "ending",
+      "text": "ニュースで、\n初めて知った。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "sad",
+      "object": "a black smartphone showing a news article with a few lines of text",
+      "shot": "close",
+      "location": "mother_house_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/050.png"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "ending",
+      "text": "母親は10年間、\n毎年この夜に、",
+      "speaker": "narrator",
+      "characters": [
+        "boy_mother"
+      ],
+      "action": "standing alone seen from behind, holding one glass bowl of colourful wrapped candies in both hands, facing forward",
+      "emotion": "lonely",
+      "shot": "full",
+      "location": "mother_genkan_night",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "boy_mother",
+          "image": "cutouts/051.png",
+          "anim": "breathe"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "ending",
+      "text": "玄関で、息子を\n待ち続けていた。",
+      "speaker": "narrator",
+      "characters": [
+        "boy_mother"
+      ],
+      "action": "seated, holding one glass bowl of colourful wrapped candies on her lap with both hands, tears running down her cheeks",
+      "emotion": "crying",
+      "shot": "half",
+      "location": "mother_genkan_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "boy_mother",
+          "image": "cutouts/052.png"
+        },
+        {
+          "effect": "tears",
+          "on": "boy_mother"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "ending",
+      "text": "そして、今年。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "quiet",
+      "shot": "full",
+      "location": "mood_night_stars",
+      "filter": "none",
+      "motion": "drift",
+      "layers": []
+    },
+    {
+      "id": 54,
+      "beat": "ending",
+      "text": "初めて、\n息子が帰ってきた。",
+      "speaker": "narrator",
+      "characters": [
+        "boy_mother",
+        "halloween_boy"
+      ],
+      "action": "reaching out both arms toward the center of the frame, body leaning forward gently",
+      "emotion": "touched",
+      "shot": "full",
+      "location": "mood_night_stars",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "boy_mother",
+          "colour": "#FFB3D1"
+        },
+        {
+          "id": "boy_mother",
+          "image": "cutouts/054_boy_mother.png",
+          "at": "left"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/054_halloween_boy.png",
+          "at": "right",
+          "size": "medium",
+          "anim": "float"
+        },
+        {
+          "effect": "sparkles",
+          "on": "halloween_boy"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "ending",
+      "text": "今夜も、\nチャイムが鳴る。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "eerie",
+      "shot": "full",
+      "location": "genkan_rain_halloween_night",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "word": "ピンポーン",
+          "size": 80,
+          "vertical": false,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "beat": "ending",
+      "text": "トリック・\nオア・トリート。",
+      "speaker": "halloween_boy",
+      "characters": [
+        "halloween_boy"
+      ],
+      "action": "standing in the rain, head tilted, white fox mask facing the viewer",
+      "emotion": "whispering",
+      "shot": "close",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "motion": "focus",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "halloween_boy",
+          "image": "cutouts/056.png",
+          "anim": "none"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "ending",
+      "text": "もし、あなたの家に\nこの子が来たら……\nドアを開けますか？",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "ominous",
+      "shot": "full",
+      "location": "front_door_rain_halloween_night",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "effect": "rain"
+        }
+      ]
+    }
+  ]
+}

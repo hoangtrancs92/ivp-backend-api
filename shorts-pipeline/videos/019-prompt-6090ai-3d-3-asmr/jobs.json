@@ -1,0 +1,693 @@
+{
+ "jobs": [
+  {
+   "name": "ref_kona_chan",
+   "prompt": "irasutoya_style, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ref_mizu_kun",
+   "prompt": "irasutoya_style, cute living water droplet character, teardrop shaped transparent light blue body with a white shine highlight, small black dot eyes, tiny light blue arms, no clothes, no human body, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ref_satou_san",
+   "prompt": "irasutoya_style, cute living white sugar cube character, sparkling white cube body with tiny crystal texture, small black dot eyes, rosy cheeks, small pink ribbon bow on top, tiny white arms, no human body, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ref_mochi_kun",
+   "prompt": "irasutoya_style, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ref_ichigo_chan",
+   "prompt": "irasutoya_style, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ref_anko_jii",
+   "prompt": "irasutoya_style, cute living round ball of smooth dark reddish brown sweet red bean paste, glossy surface, small black dot eyes, thick white eyebrows, small white moustache, tiny brown arms, no human body, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ch_001",
+   "seed": 10,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a cloud of white rice flour floating above a white bowl, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_003",
+   "seed": 30,
+   "fix": "",
+   "refs": [
+    "@ref_kona_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, just woken up, rubbing one eye with one tiny arm, looking around, confused face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_004",
+   "seed": 40,
+   "fix": "",
+   "refs": [
+    "@ref_kona_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, gently floating downward, both tiny arms spread out, smiling, cheerful face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_005",
+   "seed": 50,
+   "fix": "",
+   "refs": [
+    "@ref_kona_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, raising both tiny arms high, bouncing with joy, excited face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_007_mizu_kun",
+   "seed": 70,
+   "fix": "",
+   "refs": [
+    "@ref_mizu_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living water droplet character, teardrop shaped transparent light blue body with a white shine highlight, small black dot eyes, tiny light blue arms, no clothes, no human body, mizu_kun: flying in with one tiny arm stretched forward, facing left toward the flour; kona_chan: looking right with wide eyes, both arms raised, cheerful face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_007_kona_chan",
+   "seed": 71,
+   "fix": "",
+   "refs": [
+    "@ref_kona_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, mizu_kun: flying in with one tiny arm stretched forward, facing left toward the flour; kona_chan: looking right with wide eyes, both arms raised, cheerful face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_008",
+   "seed": 80,
+   "fix": "",
+   "refs": [
+    "@ref_satou_san"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white sugar cube character, sparkling white cube body with tiny crystal texture, small black dot eyes, rosy cheeks, small pink ribbon bow on top, tiny white arms, no human body, landing gracefully, one tiny arm on her side, chin raised, proud face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_009_kona_chan",
+   "seed": 90,
+   "fix": "",
+   "refs": [
+    "@ref_kona_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, kona_chan: holding out one tiny arm toward the right, giggling; mizu_kun: facing left, waving one tiny arm; satou_san: facing left, smiling softly, giggling face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_009_mizu_kun",
+   "seed": 91,
+   "fix": "",
+   "refs": [
+    "@ref_mizu_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living water droplet character, teardrop shaped transparent light blue body with a white shine highlight, small black dot eyes, tiny light blue arms, no clothes, no human body, kona_chan: holding out one tiny arm toward the right, giggling; mizu_kun: facing left, waving one tiny arm; satou_san: facing left, smiling softly, giggling face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_009_satou_san",
+   "seed": 92,
+   "fix": "",
+   "refs": [
+    "@ref_satou_san"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white sugar cube character, sparkling white cube body with tiny crystal texture, small black dot eyes, rosy cheeks, small pink ribbon bow on top, tiny white arms, no human body, kona_chan: holding out one tiny arm toward the right, giggling; mizu_kun: facing left, waving one tiny arm; satou_san: facing left, smiling softly, giggling face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_010",
+   "seed": 100,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of white flour, a water drop and a sugar cube swirling in a white bowl, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_011",
+   "seed": 110,
+   "fix": "",
+   "refs": [
+    "@ref_kona_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, spiral swirly eyes, wobbling, both tiny arms flailing, dizzy face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_012_satou_san",
+   "seed": 120,
+   "fix": "",
+   "refs": [
+    "@ref_satou_san"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white sugar cube character, sparkling white cube body with tiny crystal texture, small black dot eyes, rosy cheeks, small pink ribbon bow on top, tiny white arms, no human body, satou_san: facing right toward the flour, patting the air gently with one tiny arm; kona_chan: facing left, dizzy, both arms drooping, gentle face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_012_kona_chan",
+   "seed": 121,
+   "fix": "",
+   "refs": [
+    "@ref_kona_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living pile of white glutinous rice flour shaped like a fluffy round cloud, powdery white texture, small black dot eyes, pink blush cheeks, tiny powdery white arms, no clothes, no human body, satou_san: facing right toward the flour, patting the air gently with one tiny arm; kona_chan: facing left, dizzy, both arms drooping, gentle face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_013",
+   "seed": 130,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a smooth soft white dough ball in a white bowl, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_014",
+   "seed": 140,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a soft white dough ball leaping into a round bamboo steamer, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_016",
+   "seed": 160,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a glossy white dough ball glowing in white steam, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_017",
+   "seed": 170,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, eyes popping open, both tiny arms thrown up high, glossy body shining, overjoyed face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_018",
+   "seed": 180,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, standing on tiny feet, body squishing up and down, smiling, happy face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_019",
+   "seed": 190,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, fanning his face with one tiny arm, cheeks bright pink from heat, flustered face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_020",
+   "seed": 200,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, jumping high in the air, body stretched, both tiny arms raised, determined face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_021",
+   "seed": 210,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a soft white mochi ball squished flat on a wooden table, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_022",
+   "seed": 220,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, rubbing his head with one tiny arm, smiling sheepishly, relieved face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_023",
+   "seed": 230,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, body trembling and wobbling, eyes wide, tiny arms stiff at his sides, nervous face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_024",
+   "seed": 240,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of six small round white mochi balls lined up on a wooden table, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_025",
+   "seed": 250,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, jaw dropped, both tiny arms raised in surprise, shocked face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_026",
+   "seed": 260,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, seen from behind, sitting low on the table, shoulders drooping, lonely face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_027",
+   "seed": 270,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, looking down at his own white body, mouth in a small frown, dejected face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_029",
+   "seed": 290,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, in side view, rolling forward along the ground, smiling, cheerful face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_030",
+   "seed": 300,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, shiny juicy red body glistening, one tiny arm waving, confident face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_031_ichigo_chan",
+   "seed": 310,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, ichigo_chan: rolling in, facing right toward the mochi, one tiny arm raised; mochi_kun: facing left, eyes wide, tiny arms at his sides, excited face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_031_mochi_kun",
+   "seed": 311,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, ichigo_chan: rolling in, facing right toward the mochi, one tiny arm raised; mochi_kun: facing left, eyes wide, tiny arms at his sides, excited face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_032_ichigo_chan",
+   "seed": 320,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, ichigo_chan: facing right toward the mochi, both tiny arms clasped in front, cheeks pink; mochi_kun: facing left, frozen, mouth slightly open, blushing face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_032_mochi_kun",
+   "seed": 321,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, ichigo_chan: facing right toward the mochi, both tiny arms clasped in front, cheeks pink; mochi_kun: facing left, frozen, mouth slightly open, blushing face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_033",
+   "seed": 330,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, pointing at himself with one tiny arm, eyes huge, stunned face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_034",
+   "seed": 340,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, in side view, looking down, tiny arms hanging, worried face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_035",
+   "seed": 350,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, eyes shut tight, body sagging, despair face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_036",
+   "seed": 360,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, hugging his own body with both tiny arms, looking away, jealous face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_038",
+   "seed": 380,
+   "fix": "",
+   "refs": [
+    "@ref_anko_jii"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living round ball of smooth dark reddish brown sweet red bean paste, glossy surface, small black dot eyes, thick white eyebrows, small white moustache, tiny brown arms, no human body, rolling forward slowly, one tiny arm raised in greeting, calm smile, gentle face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_039",
+   "seed": 390,
+   "fix": "",
+   "refs": [
+    "@ref_anko_jii"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living round ball of smooth dark reddish brown sweet red bean paste, glossy surface, small black dot eyes, thick white eyebrows, small white moustache, tiny brown arms, no human body, stroking his white moustache with one tiny arm, eyes narrowed kindly, warm face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_040_ichigo_chan",
+   "seed": 400,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, ichigo_chan: facing right toward the mochi, both tiny arms in fists of encouragement; mochi_kun: facing forward, unsure, tiny arms close to his body; anko_jii: facing left toward the mochi, one tiny arm stretched out, encouraging face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_040_mochi_kun",
+   "seed": 401,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, ichigo_chan: facing right toward the mochi, both tiny arms in fists of encouragement; mochi_kun: facing forward, unsure, tiny arms close to his body; anko_jii: facing left toward the mochi, one tiny arm stretched out, encouraging face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_040_anko_jii",
+   "seed": 402,
+   "fix": "",
+   "refs": [
+    "@ref_anko_jii"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living round ball of smooth dark reddish brown sweet red bean paste, glossy surface, small black dot eyes, thick white eyebrows, small white moustache, tiny brown arms, no human body, ichigo_chan: facing right toward the mochi, both tiny arms in fists of encouragement; mochi_kun: facing forward, unsure, tiny arms close to his body; anko_jii: facing left toward the mochi, one tiny arm stretched out, encouraging face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_041",
+   "seed": 410,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, shrinking back, both tiny arms covering his mouth, scared face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_042_ichigo_chan",
+   "seed": 420,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, ichigo_chan: facing right toward the mochi, smiling brightly, one tiny arm reaching out; mochi_kun: facing left, looking up slowly, hopeful face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_042_mochi_kun",
+   "seed": 421,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, ichigo_chan: facing right toward the mochi, smiling brightly, one tiny arm reaching out; mochi_kun: facing left, looking up slowly, hopeful face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_043_mochi_kun",
+   "seed": 430,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, mochi_kun: body stretching wide and thin like a soft sheet, eyes squeezed with effort; ichigo_chan: facing left toward the mochi, both tiny arms raised cheering, determined face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_043_ichigo_chan",
+   "seed": 431,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, mochi_kun: body stretching wide and thin like a soft sheet, eyes squeezed with effort; ichigo_chan: facing left toward the mochi, both tiny arms raised cheering, determined face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_044",
+   "seed": 440,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a stretched white mochi sheet wrapping a red strawberry and a dark red bean paste ball, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_045",
+   "seed": 450,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, round and full again, eyes softly closed, both tiny arms hugging his own body, touched face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_046",
+   "seed": 460,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of six round white daifuku mochi neatly lined up on a white ceramic plate, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_047",
+   "seed": 470,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, floating in the air, tiny arms spread out, eyes closed calmly, serene face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_048",
+   "seed": 480,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, spinning in mid-air, body glossy and shining, tiny arms tucked in, excited face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_049",
+   "seed": 490,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a white daifuku mochi split in half showing a red strawberry and red bean paste, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_050",
+   "seed": 500,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a cut strawberry daifuku, juicy red strawberry and red bean paste inside white mochi, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_051_anko_jii",
+   "seed": 510,
+   "fix": "",
+   "refs": [
+    "@ref_anko_jii"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living round ball of smooth dark reddish brown sweet red bean paste, glossy surface, small black dot eyes, thick white eyebrows, small white moustache, tiny brown arms, no human body, anko_jii: facing right toward the mochi, smiling kindly, one tiny arm raised; mochi_kun: facing left, listening with wide eyes, proud face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_051_mochi_kun",
+   "seed": 511,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, anko_jii: facing right toward the mochi, smiling kindly, one tiny arm raised; mochi_kun: facing left, listening with wide eyes, proud face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_052_ichigo_chan",
+   "seed": 520,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, ichigo_chan: facing right toward the mochi, both tiny arms held to her chest, gentle smile; mochi_kun: facing left, lips trembling, grateful face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_052_mochi_kun",
+   "seed": 521,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, ichigo_chan: facing right toward the mochi, both tiny arms held to her chest, gentle smile; mochi_kun: facing left, lips trembling, grateful face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_053",
+   "seed": 530,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, big tears rolling down, smiling through the tears, tiny arms pressed to his chest, crying face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_054_ichigo_chan",
+   "seed": 540,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, ichigo_chan: facing right, laughing, one tiny arm raised; mochi_kun: facing forward, laughing with both tiny arms up; anko_jii: facing left, laughing, eyes closed, laughing face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_054_mochi_kun",
+   "seed": 541,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, ichigo_chan: facing right, laughing, one tiny arm raised; mochi_kun: facing forward, laughing with both tiny arms up; anko_jii: facing left, laughing, eyes closed, laughing face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_054_anko_jii",
+   "seed": 542,
+   "fix": "",
+   "refs": [
+    "@ref_anko_jii"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living round ball of smooth dark reddish brown sweet red bean paste, glossy surface, small black dot eyes, thick white eyebrows, small white moustache, tiny brown arms, no human body, ichigo_chan: facing right, laughing, one tiny arm raised; mochi_kun: facing forward, laughing with both tiny arms up; anko_jii: facing left, laughing, eyes closed, laughing face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_055",
+   "seed": 550,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a cloud of white rice flour floating above a white bowl, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_056_ichigo_chan",
+   "seed": 560,
+   "fix": "",
+   "refs": [
+    "@ref_ichigo_chan"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living bright red fresh strawberry character, shiny juicy red body with tiny yellow seeds, small green leaf crown on top, small black dot eyes, pink blush cheeks, tiny red arms, no human body, ichigo_chan: facing forward, tilting her body curiously; mochi_kun: leaning toward the viewer, one tiny arm pointing forward; anko_jii: facing forward, one eyebrow raised with a smile, curious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure blue background (#0000FF), no shadow"
+  },
+  {
+   "name": "ch_056_mochi_kun",
+   "seed": 561,
+   "fix": "",
+   "refs": [
+    "@ref_mochi_kun"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living white mochi rice cake character, soft glossy squishy round white body like a daifuku, small black dot eyes, tiny pink blush cheeks, small stubby white arms and feet, no clothes, no human body, ichigo_chan: facing forward, tilting her body curiously; mochi_kun: leaning toward the viewer, one tiny arm pointing forward; anko_jii: facing forward, one eyebrow raised with a smile, curious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_056_anko_jii",
+   "seed": 562,
+   "fix": "",
+   "refs": [
+    "@ref_anko_jii"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, cute living round ball of smooth dark reddish brown sweet red bean paste, glossy surface, small black dot eyes, thick white eyebrows, small white moustache, tiny brown arms, no human body, ichigo_chan: facing forward, tilting her body curiously; mochi_kun: leaning toward the viewer, one tiny arm pointing forward; anko_jii: facing forward, one eyebrow raised with a smile, curious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_057",
+   "seed": 570,
+   "fix": "",
+   "prompt": "irasutoya_style, simple flat cartoon clip art illustration of a cut strawberry daifuku, juicy red strawberry and red bean paste inside white mochi, thick clean outlines, flat colors, minimal detail, cute simple shapes, not a photo, not realistic, not 3D, no texture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_018_alt",
+   "seed": 680,
+   "refs": [
+    "@ch_018"
+   ],
+   "fix": "",
+   "prompt": "irasutoya_style, change only the pose: body stretched tall, arms up. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  },
+  {
+   "name": "ch_029_alt",
+   "seed": 790,
+   "refs": [
+    "@ch_029"
+   ],
+   "fix": "",
+   "prompt": "irasutoya_style, change only the pose: in side view, rolled upside down mid-roll, still smiling. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  },
+  {
+   "name": "ch_043_mochi_kun_alt",
+   "seed": 930,
+   "refs": [
+    "@ch_043_mochi_kun"
+   ],
+   "fix": "",
+   "prompt": "irasutoya_style, change only the pose: body stretched even wider and thinner, mouth open shouting. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  },
+  {
+   "name": "ch_043_ichigo_chan_alt",
+   "seed": 931,
+   "refs": [
+    "@ch_043_ichigo_chan"
+   ],
+   "fix": "",
+   "prompt": "irasutoya_style, change only the pose: body stretched even wider and thinner, mouth open shouting. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  },
+  {
+   "name": "bg_bamboo_steamer_inside",
+   "prompt": "irasutoya_style, background illustration of the inside of a round bamboo steamer before dawn, woven light brown bamboo walls, a white cotton cloth on the bottom, thick white steam clouds rising, warm golden light, beige and gold colours, flat colors, simple shapes, no people, no text",
+   "lora": 0.8,
+   "width": 768,
+   "height": 1344,
+   "fix": ""
+  },
+  {
+   "name": "bg_engawa_garden_spring_noon",
+   "prompt": "irasutoya_style, background illustration of a wooden engawa veranda of an old japanese house at noon on a clear spring day, polished wooden floor, a small cup of tea, a blooming cherry tree in the garden, pink petals drifting, pink and wood colours, flat colors, simple shapes, no people, no text",
+   "lora": 0.8,
+   "width": 768,
+   "height": 1344,
+   "fix": ""
+  },
+  {
+   "name": "bg_kitchen_counter_night",
+   "prompt": "irasutoya_style, background illustration of a traditional japanese kitchen wooden counter at midnight, a large white ceramic mixing bowl, a paper bag of white rice flour, a small glass sugar jar, blue moonlight through a small window, deep navy and cream colours, flat colors, simple shapes, no people, no text",
+   "lora": 0.8,
+   "width": 768,
+   "height": 1344,
+   "fix": ""
+  },
+  {
+   "name": "bg_kitchen_table_morning",
+   "prompt": "irasutoya_style, background illustration of a wooden japanese kitchen table on a sunny spring morning, a light dusting of white flour on the table, a small wooden rolling pin, a white ceramic teapot, bright sunlight through a window, warm wood and cream colours, flat colors, simple shapes, no people, no text",
+   "lora": 0.8,
+   "width": 768,
+   "height": 1344,
+   "fix": ""
+  },
+  {
+   "name": "bg_mixing_bowl_inside",
+   "prompt": "irasutoya_style, background illustration of the inside of a huge white ceramic mixing bowl seen up close at midnight, smooth curved white walls, fine white flour dust floating in the air, soft warm lamp light from above, white and cream colours, flat colors, simple shapes, no people, no text",
+   "lora": 0.8,
+   "width": 768,
+   "height": 1344,
+   "fix": ""
+  },
+  {
+   "name": "bg_pantry_shelf_morning",
+   "prompt": "irasutoya_style, background illustration of a wooden pantry shelf in a japanese kitchen on a sunny spring morning, glass jars of beans, a small lacquered red box, a ceramic jar, soft sunlight beams, brown and red colours, flat colors, simple shapes, no people, no text",
+   "lora": 0.8,
+   "width": 768,
+   "height": 1344,
+   "fix": ""
+  },
+  {
+   "name": "bg_strawberry_field_morning",
+   "prompt": "irasutoya_style, background illustration of an outdoor japanese strawberry farm field on a clear spring morning, long rows of low strawberry plants with ripe red berries, white mulch sheets, a small wooden fence, pale blue sky, red and white colours, flat colors, simple shapes, no people, no text",
+   "lora": 0.8,
+   "width": 768,
+   "height": 1344,
+   "fix": ""
+  }
+ ]
+}

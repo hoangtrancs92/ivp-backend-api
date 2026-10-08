@@ -1,0 +1,43 @@
+job: "extension"
+config:
+  name: "irasutoya_style_v1"
+  process:
+    - type: "diffusion_trainer"
+      training_folder: "/kaggle/working/output"
+      device: "cuda"
+      trigger_word: "irasutoya_style"
+      network:
+        type: "lora"
+        linear: 16
+        linear_alpha: 16
+      save:
+        dtype: "bf16"
+        save_every: 250
+        max_step_saves_to_keep: 40
+      datasets:
+        - folder_path: "/kaggle/temp/dataset/irasutoya_style"
+          caption_ext: "txt"
+          caption_dropout_rate: 0
+          cache_latents_to_disk: true
+          resolution: [512]
+      train:
+        batch_size: 1
+        steps: 2000
+        lr: 0.0001
+        noise_scheduler: "flowmatch"
+        dtype: "bf16"
+        optimizer: "adamw8bit"
+        gradient_checkpointing: true
+        timestep_type: "weighted"
+        content_or_style: "balanced"
+        cache_text_embeddings: true
+        disable_sampling: true
+      model:
+        name_or_path: "black-forest-labs/FLUX.2-klein-base-4B"
+        arch: "flux2_klein_4b"
+        quantize: true
+        quantize_te: true
+        low_vram: true
+meta:
+  name: "[name]"
+  version: "1.0"

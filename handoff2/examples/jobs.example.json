@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {"name": "001_base", "prompt": "irasutoya_style, the same man as in the reference image, kneeling and fixing a bicycle tire, serious face, full body, white background", "refs": ["ref__repairman_front.png"]},
+    {"name": "004_base", "prompt": "irasutoya_style, a ten-year-old boy, short black hair, green striped t-shirt, orange pants, pushing a rusty bicycle, shy face, full body, white background"},
+    {"name": "002_var", "prompt": "irasutoya_style, change the facial expression to surprised with an open mouth, keep the character, clothes, pose and white background unchanged", "refs": ["@001_base"]},
+    {"name": "004_alt", "prompt": "irasutoya_style, swap the legs so the other leg is stepping forward, keep the character, clothes, bicycle and white background unchanged", "refs": ["@004_base"]},
+    {"name": "bg_shop_inside", "prompt": "detailed anime background, inside a small bicycle repair shop, tools on the wall, warm afternoon light, no people", "lora": false, "width": 768, "height": 1344},
+    {"name": "bg_street", "prompt": "detailed anime background, quiet residential street in Japan, warm afternoon light, no people", "lora": false, "width": 768, "height": 1344}
+  ]
+}

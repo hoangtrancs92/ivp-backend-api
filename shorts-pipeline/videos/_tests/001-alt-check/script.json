@@ -1,0 +1,171 @@
+{
+ "title": [
+  "父が毎日冷やしていた",
+  "2つのジョッキ"
+ ],
+ "font": "Noto Sans CJK JP",
+ "font_file": "fonts/NotoSansCJKjp-Black.otf",
+ "speakers": {
+  "narrator": "#4FC3F7",
+  "me": "#4FC3F7",
+  "me_child": "#4FC3F7",
+  "father": "#FFB74D",
+  "mother": "#F48FB1"
+ },
+ "scenes": [
+  {
+   "id": 1,
+   "beat": "setup",
+   "text": "5年ぶりに実家に帰った。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "walking forward, pulling a suitcase behind her",
+   "emotion": "nervous",
+   "props": {
+    "suitcase": "a small red rolling suitcase"
+   },
+   "location": "genkan",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/001.png",
+     "size": "large",
+     "path": [
+      "off_left",
+      "center"
+     ],
+     "anim": "bounce"
+    },
+    {
+     "image": "props/suitcase.png",
+     "size": "small",
+     "at": "me.hand_right",
+     "anim": "none"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.6
+    }
+   ],
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 6,
+   "beat": "rise1",
+   "text": "お父さんなんて嫌い！",
+   "speaker": "me_child",
+   "characters": [
+    "me_child"
+   ],
+   "action": "stomping with fists clenched",
+   "emotion": "angry",
+   "location": "living_room_old",
+   "motion": "shake",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "me_child",
+     "image": "cutouts/006.png",
+     "size": "medium",
+     "at": "center",
+     "anim": "jump"
+    },
+    {
+     "image": "stickers/anger.png",
+     "size": "tiny",
+     "at": "me_child.beside_left",
+     "anim": "pop"
+    },
+    {
+     "word": "プンプン",
+     "size": 70,
+     "vertical": true,
+     "at": "me_child.beside_right",
+     "anim": "pop_fade",
+     "start": 0.2
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "beat": "rise2",
+   "text": "高校を出て、東京へ行った。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "walking with a determined stride, pulling a suitcase",
+   "emotion": "determined",
+   "props": {
+    "suitcase": "a small red rolling suitcase"
+   },
+   "location": "station",
+   "motion": "pan_left",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/009.png",
+     "size": "large",
+     "path": [
+      "off_left",
+      "center"
+     ],
+     "anim": "exit_right"
+    },
+    {
+     "image": "props/suitcase.png",
+     "size": "small",
+     "at": "me.hand_right",
+     "anim": "none"
+    }
+   ],
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 47,
+   "beat": "ending",
+   "text": "お父さん、ただいま。",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "standing with hands together in front",
+   "emotion": "happy tears",
+   "location": "dining_room",
+   "motion": "zoom_in",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/047.png",
+     "size": "large",
+     "at": "center",
+     "anim": "approach"
+    },
+    {
+     "image": "stickers/heart.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.2
+    },
+    {
+     "image": "stickers/tear.png",
+     "size": "tiny",
+     "at": "me.beside_right",
+     "anim": "drop",
+     "start": 0.4
+    }
+   ],
+   "alt_pose": "mouth open while talking"
+  }
+ ]
+}

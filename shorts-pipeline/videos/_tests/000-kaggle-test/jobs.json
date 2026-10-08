@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {"name": "father_base", "prompt": "irasutoya_style, japanese man in his late fifties, short grey hair, black glasses, brown cardigan over white shirt, grey trousers, standing with arms crossed, stern face, full body, white background"},
+    {"name": "me_base", "prompt": "irasutoya_style, young japanese woman in her twenties, shoulder-length brown hair, white blouse, navy skirt, standing, nervous face, full body, white background"},
+    {"name": "father_var", "prompt": "irasutoya_style, change the facial expression to a gentle small smile, keep the character, clothes, pose and white background unchanged", "refs": ["@father_base"]},
+    {"name": "me_var", "prompt": "irasutoya_style, change the facial expression to crying with tears, keep the character, clothes, pose and white background unchanged", "refs": ["@me_base"]},
+    {"name": "bg_dining_room", "prompt": "detailed anime background, inside a cozy japanese home dining room at night, wooden table, warm ceiling light, no people", "lora": false, "width": 768, "height": 1344},
+    {"name": "bg_kitchen", "prompt": "detailed anime background, small japanese home kitchen at night, white refrigerator, sink, warm light, no people", "lora": false, "width": 768, "height": 1344}
+  ]
+}

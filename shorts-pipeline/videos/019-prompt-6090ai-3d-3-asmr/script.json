@@ -1,0 +1,1527 @@
+{
+  "title": [
+    "人間の手は、一本もいらない",
+    "〜白いもちが知った秘密〜"
+  ],
+  "genre": "Bài học, ngụ ngôn",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "mochi_kun": "#F5E6C8",
+    "kona_chan": "#B0BEC5",
+    "mizu_kun": "#1E88E5",
+    "satou_san": "#FFD54F",
+    "ichigo_chan": "#E53935",
+    "anko_jii": "#8D6E63"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "真夜中、粉が\nひとりでに浮いた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "mysterious",
+      "object": "a cloud of white rice flour floating above a white bowl",
+      "shot": "close",
+      "location": "kitchen_counter_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "objects"
+        },
+        {
+          "word": "サラサラ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "人間の手は、\n一本もいらない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "calm",
+      "shot": "full",
+      "location": "kitchen_counter_night",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "シーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "ふわぁ…\nここ、どこ？",
+      "speaker": "kona_chan",
+      "characters": [
+        "kona_chan"
+      ],
+      "action": "just woken up, rubbing one eye with one tiny arm, looking around",
+      "emotion": "confused",
+      "shot": "close",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kona_chan",
+          "image": "cutouts/003.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "白いもち米の粉、\nこなちゃんだ。",
+      "speaker": "narrator",
+      "characters": [
+        "kona_chan"
+      ],
+      "action": "gently floating downward, both tiny arms spread out, smiling",
+      "emotion": "cheerful",
+      "shot": "full",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kona_chan",
+          "image": "cutouts/004.png",
+          "path": [
+            "off_top",
+            "center"
+          ],
+          "over": 1.0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "今夜、わたしたち\nもちになるの！",
+      "speaker": "kona_chan",
+      "characters": [
+        "kona_chan"
+      ],
+      "action": "raising both tiny arms high, bouncing with joy",
+      "emotion": "excited",
+      "shot": "half",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kona_chan",
+          "image": "cutouts/005.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "kona_chan"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "そこへ、何かが\n飛んできた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "curious",
+      "shot": "full",
+      "location": "kitchen_counter_night",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "word": "ヒュー",
+          "size": 80,
+          "vertical": false,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "setup",
+      "text": "おまたせ！\n水のみずくんだ！",
+      "speaker": "mizu_kun",
+      "characters": [
+        "mizu_kun",
+        "kona_chan"
+      ],
+      "action": "mizu_kun: flying in with one tiny arm stretched forward, facing left toward the flour; kona_chan: looking right with wide eyes, both arms raised",
+      "emotion": "cheerful",
+      "shot": "full",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kona_chan",
+          "image": "cutouts/007_kona_chan.png",
+          "at": "left"
+        },
+        {
+          "id": "mizu_kun",
+          "image": "cutouts/007_mizu_kun.png",
+          "path": [
+            "off_right",
+            "right"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "setup",
+      "text": "あまさ担当、\nさとうさんよ。",
+      "speaker": "satou_san",
+      "characters": [
+        "satou_san"
+      ],
+      "action": "landing gracefully, one tiny arm on her side, chin raised",
+      "emotion": "proud",
+      "shot": "full",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "satou_san",
+          "image": "cutouts/008.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "三つがそろうと、",
+      "speaker": "narrator",
+      "characters": [
+        "kona_chan",
+        "mizu_kun",
+        "satou_san"
+      ],
+      "action": "kona_chan: holding out one tiny arm toward the right, giggling; mizu_kun: facing left, waving one tiny arm; satou_san: facing left, smiling softly",
+      "emotion": "giggling",
+      "shot": "half",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kona_chan",
+          "image": "cutouts/009_kona_chan.png",
+          "at": "left"
+        },
+        {
+          "id": "satou_san",
+          "image": "cutouts/009_satou_san.png",
+          "at": "center"
+        },
+        {
+          "id": "mizu_kun",
+          "image": "cutouts/009_mizu_kun.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "ぐるぐる回り\nはじめた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "playful",
+      "object": "white flour, a water drop and a sugar cube swirling in a white bowl",
+      "shot": "close",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/010.png",
+          "anim": "spin_in"
+        },
+        {
+          "word": "ぐるぐる",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "目が、回る〜！",
+      "speaker": "kona_chan",
+      "characters": [
+        "kona_chan"
+      ],
+      "action": "spiral swirly eyes, wobbling, both tiny arms flailing",
+      "emotion": "dizzy",
+      "shot": "close",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kona_chan",
+          "image": "cutouts/011.png",
+          "anim": "sway"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "kona_chan.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise1",
+      "text": "がまんよ、\nもうすぐだから。",
+      "speaker": "satou_san",
+      "characters": [
+        "satou_san",
+        "kona_chan"
+      ],
+      "action": "satou_san: facing right toward the flour, patting the air gently with one tiny arm; kona_chan: facing left, dizzy, both arms drooping",
+      "emotion": "gentle",
+      "shot": "half",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "satou_san",
+          "image": "cutouts/012_satou_san.png",
+          "at": "left"
+        },
+        {
+          "id": "kona_chan",
+          "image": "cutouts/012_kona_chan.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise1",
+      "text": "粉と水と砂糖が、\nひとつに溶けた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "calm",
+      "object": "a smooth soft white dough ball in a white bowl",
+      "shot": "close",
+      "location": "mixing_bowl_inside",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/013.png"
+        },
+        {
+          "effect": "aura",
+          "on": "objects",
+          "colour": "#FFF3E0"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise1",
+      "text": "やわらかい生地が、\n蒸し器へ跳んだ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "lively",
+      "object": "a soft white dough ball leaping into a round bamboo steamer",
+      "shot": "full",
+      "location": "kitchen_counter_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/014.png",
+          "anim": "hop"
+        },
+        {
+          "word": "ピョン",
+          "size": 70,
+          "vertical": false,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise1",
+      "text": "湯気が、\nもくもく立ちのぼる。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "warm",
+      "shot": "full",
+      "location": "bamboo_steamer_inside",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "word": "プシュー",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise1",
+      "text": "生地が少しずつ、\nツヤを帯びる。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "anticipation",
+      "object": "a glossy white dough ball glowing in white steam",
+      "shot": "close",
+      "location": "bamboo_steamer_inside",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/016.png",
+          "anim": "pulse"
+        },
+        {
+          "effect": "sparkles",
+          "on": "objects"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise1",
+      "text": "ぷはっ！\nぼく、生まれた！",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "eyes popping open, both tiny arms thrown up high, glossy body shining",
+      "emotion": "overjoyed",
+      "shot": "close",
+      "location": "bamboo_steamer_inside",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "mochi_kun",
+          "colour": "#FFF8E1"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/017.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "mochi_kun"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise1",
+      "text": "白いもち、\nもちくん誕生。",
+      "speaker": "narrator",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "standing on tiny feet, body squishing up and down, smiling",
+      "emotion": "happy",
+      "shot": "full",
+      "location": "bamboo_steamer_inside",
+      "filter": "none",
+      "alt_pose": "body stretched tall, arms up",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/018.png",
+          "anim": "bounce"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise1",
+      "text": "あつい！\n外に出たい！",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "fanning his face with one tiny arm, cheeks bright pink from heat",
+      "emotion": "flustered",
+      "shot": "half",
+      "location": "bamboo_steamer_inside",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/019.png",
+          "anim": "exit_right"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "mochi_kun.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise2",
+      "text": "朝。もちくんは\nジャンプした。",
+      "speaker": "narrator",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "jumping high in the air, body stretched, both tiny arms raised",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/020.png",
+          "anim": "jump"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise2",
+      "text": "テーブルに、\nぽよんと着地。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "playful",
+      "object": "a soft white mochi ball squished flat on a wooden table",
+      "shot": "close",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/021.png",
+          "anim": "drop"
+        },
+        {
+          "word": "ボヨン",
+          "size": 80,
+          "vertical": false,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise2",
+      "text": "いてて…\nでも、やわらかい！",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "rubbing his head with one tiny arm, smiling sheepishly",
+      "emotion": "relieved",
+      "shot": "close",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/022.png"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise2",
+      "text": "すると体が、\nぷるぷる震えて…",
+      "speaker": "narrator",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "body trembling and wobbling, eyes wide, tiny arms stiff at his sides",
+      "emotion": "nervous",
+      "shot": "half",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/023.png",
+          "anim": "shiver"
+        },
+        {
+          "word": "ブルブル",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise2",
+      "text": "小さな丸に、\n分かれていった！",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "surprised",
+      "object": "six small round white mochi balls lined up on a wooden table",
+      "shot": "full",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "motion": "zoom_out",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/024.png",
+          "anim": "pop"
+        },
+        {
+          "word": "ポンッ",
+          "size": 80,
+          "vertical": false,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise2",
+      "text": "ぼくが、\nいっぱいいる！",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "jaw dropped, both tiny arms raised in surprise",
+      "emotion": "shocked",
+      "shot": "half",
+      "location": "mood_shock",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/025.png"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise2",
+      "text": "でも…ぼくって、\nただの白だ。",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "seen from behind, sitting low on the table, shoulders drooping",
+      "emotion": "lonely",
+      "shot": "full",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/026.png"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise2",
+      "text": "色もない。\n味もうすい。",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "looking down at his own white body, mouth in a small frown",
+      "emotion": "dejected",
+      "shot": "close",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/027.png",
+          "anim": "sink"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "mochi_kun.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "rise2",
+      "text": "そのころ、\n外のいちご畑で。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "calm",
+      "shot": "full",
+      "location": "strawberry_field_morning",
+      "filter": "none",
+      "transition": "fade",
+      "motion": "tilt_up",
+      "layers": []
+    },
+    {
+      "id": 29,
+      "beat": "rise2",
+      "text": "よいしょ、\nころころ〜！",
+      "speaker": "ichigo_chan",
+      "characters": [
+        "ichigo_chan"
+      ],
+      "action": "in side view, rolling forward along the ground, smiling",
+      "emotion": "cheerful",
+      "shot": "full",
+      "location": "strawberry_field_morning",
+      "filter": "none",
+      "alt_pose": "in side view, rolled upside down mid-roll, still smiling",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/029.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.0
+        },
+        {
+          "word": "コロコロ",
+          "size": 70,
+          "vertical": false,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "rise2",
+      "text": "真っ赤で新鮮な、\nいちごちゃんだ。",
+      "speaker": "narrator",
+      "characters": [
+        "ichigo_chan"
+      ],
+      "action": "shiny juicy red body glistening, one tiny arm waving",
+      "emotion": "confident",
+      "shot": "half",
+      "location": "strawberry_field_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/030.png",
+          "anim": "exit_left",
+          "start": 0.8
+        },
+        {
+          "effect": "sparkles",
+          "on": "ichigo_chan"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise2",
+      "text": "おまたせ、\nもちくん！",
+      "speaker": "ichigo_chan",
+      "characters": [
+        "ichigo_chan",
+        "mochi_kun"
+      ],
+      "action": "ichigo_chan: rolling in, facing right toward the mochi, one tiny arm raised; mochi_kun: facing left, eyes wide, tiny arms at his sides",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "transition": "push_left",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/031_ichigo_chan.png",
+          "path": [
+            "off_left",
+            "left"
+          ],
+          "over": 0.8
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/031_mochi_kun.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise2",
+      "text": "わたしを、\nつつんでほしいの！",
+      "speaker": "ichigo_chan",
+      "characters": [
+        "ichigo_chan",
+        "mochi_kun"
+      ],
+      "action": "ichigo_chan: facing right toward the mochi, both tiny arms clasped in front, cheeks pink; mochi_kun: facing left, frozen, mouth slightly open",
+      "emotion": "blushing",
+      "shot": "half",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/032_ichigo_chan.png",
+          "at": "left"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/032_mochi_kun.png",
+          "at": "right"
+        },
+        {
+          "effect": "hearts",
+          "on": "ichigo_chan"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise2",
+      "text": "えっ、ぼくが？",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "pointing at himself with one tiny arm, eyes huge",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/033.png"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise2",
+      "text": "もちくんは、\nこう思った。",
+      "speaker": "narrator",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "in side view, looking down, tiny arms hanging",
+      "emotion": "worried",
+      "shot": "half",
+      "location": "mood_rain_sad",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/034.png"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "rise2",
+      "text": "主役は、\nいちごなんだ…",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "eyes shut tight, body sagging",
+      "emotion": "despair",
+      "shot": "close",
+      "location": "mood_rain_sad",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/035.png"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise2",
+      "text": "ぼくは、ただの\n包み紙か。",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "hugging his own body with both tiny arms, looking away",
+      "emotion": "jealous",
+      "shot": "half",
+      "location": "mood_rain_sad",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/036.png"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "rise3",
+      "text": "棚の上で、\nゴロッと音がした。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "curious",
+      "shot": "full",
+      "location": "pantry_shelf_morning",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "word": "ゴロッ",
+          "size": 90,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "rise3",
+      "text": "わしも、\n仲間に入れてくれ。",
+      "speaker": "anko_jii",
+      "characters": [
+        "anko_jii"
+      ],
+      "action": "rolling forward slowly, one tiny arm raised in greeting, calm smile",
+      "emotion": "gentle",
+      "shot": "full",
+      "location": "pantry_shelf_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "anko_jii",
+          "image": "cutouts/038.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.2
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "rise3",
+      "text": "丸いあんこの、\nあんこじい。",
+      "speaker": "narrator",
+      "characters": [
+        "anko_jii"
+      ],
+      "action": "stroking his white moustache with one tiny arm, eyes narrowed kindly",
+      "emotion": "warm",
+      "shot": "half",
+      "location": "pantry_shelf_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "anko_jii",
+          "image": "cutouts/039.png",
+          "anim": "nod"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "anko_jii.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "rise3",
+      "text": "さあ、\nのびてみい。",
+      "speaker": "anko_jii",
+      "characters": [
+        "ichigo_chan",
+        "mochi_kun",
+        "anko_jii"
+      ],
+      "action": "ichigo_chan: facing right toward the mochi, both tiny arms in fists of encouragement; mochi_kun: facing forward, unsure, tiny arms close to his body; anko_jii: facing left toward the mochi, one tiny arm stretched out",
+      "emotion": "encouraging",
+      "shot": "half",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/040_ichigo_chan.png",
+          "at": "left"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/040_mochi_kun.png",
+          "at": "center"
+        },
+        {
+          "id": "anko_jii",
+          "image": "cutouts/040_anko_jii.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "rise3",
+      "text": "む、むりだよ…",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "shrinking back, both tiny arms covering his mouth",
+      "emotion": "scared",
+      "shot": "close",
+      "location": "mood_shock",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/041.png"
+        },
+        {
+          "word": "ドキドキ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "rise3",
+      "text": "大丈夫。\nやわらかいもん！",
+      "speaker": "ichigo_chan",
+      "characters": [
+        "ichigo_chan",
+        "mochi_kun"
+      ],
+      "action": "ichigo_chan: facing right toward the mochi, smiling brightly, one tiny arm reaching out; mochi_kun: facing left, looking up slowly",
+      "emotion": "hopeful",
+      "shot": "half",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/042_ichigo_chan.png",
+          "at": "left",
+          "anim": "lean_in"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/042_mochi_kun.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "rise3",
+      "text": "もちくんは、\nぐーんと伸びた。",
+      "speaker": "narrator",
+      "characters": [
+        "mochi_kun",
+        "ichigo_chan"
+      ],
+      "action": "mochi_kun: body stretching wide and thin like a soft sheet, eyes squeezed with effort; ichigo_chan: facing left toward the mochi, both tiny arms raised cheering",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "alt_pose": "body stretched even wider and thinner, mouth open shouting",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/043_mochi_kun.png",
+          "at": "left"
+        },
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/043_ichigo_chan.png",
+          "at": "right"
+        },
+        {
+          "word": "ビヨーン",
+          "size": 80,
+          "vertical": false,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "rise3",
+      "text": "いちごとあんこを、\nやさしく包む。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "tender",
+      "object": "a stretched white mochi sheet wrapping a red strawberry and a dark red bean paste ball",
+      "shot": "close",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/044.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "objects"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "rise3",
+      "text": "あったかい…",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "round and full again, eyes softly closed, both tiny arms hugging his own body",
+      "emotion": "touched",
+      "shot": "close",
+      "location": "kitchen_table_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "mochi_kun",
+          "colour": "#FFB3D1"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/045.png"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "twist",
+      "text": "お昼。もちたちが\nお皿に並ぶ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "peaceful",
+      "object": "six round white daifuku mochi neatly lined up on a white ceramic plate",
+      "shot": "full",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "transition": "push_up",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/046.png"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "twist",
+      "text": "真ん中の一つが、\nふわりと浮く。",
+      "speaker": "narrator",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "floating in the air, tiny arms spread out, eyes closed calmly",
+      "emotion": "serene",
+      "shot": "full",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "mochi_kun",
+          "colour": "#FFF8E1"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/047.png",
+          "anim": "float"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "twist",
+      "text": "くるくる、\n空中で回って…",
+      "speaker": "narrator",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "spinning in mid-air, body glossy and shining, tiny arms tucked in",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/048.png",
+          "anim": "spin_in"
+        },
+        {
+          "effect": "sparkles",
+          "on": "mochi_kun"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "twist",
+      "text": "パカッと、\n半分に割れた！",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "surprised",
+      "object": "a white daifuku mochi split in half showing a red strawberry and red bean paste",
+      "shot": "close",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "shake",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/049.png",
+          "anim": "punch"
+        },
+        {
+          "word": "パカッ",
+          "size": 90,
+          "vertical": false,
+          "at": "top_right"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "twist",
+      "text": "真っ赤ないちごと、\n甘いあんこ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "delighted",
+      "object": "a cut strawberry daifuku, juicy red strawberry and red bean paste inside white mochi",
+      "shot": "close",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/050.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "objects"
+        },
+        {
+          "word": "ジュワッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "twist",
+      "text": "白いおまえが、\nいたからじゃ。",
+      "speaker": "anko_jii",
+      "characters": [
+        "anko_jii",
+        "mochi_kun"
+      ],
+      "action": "anko_jii: facing right toward the mochi, smiling kindly, one tiny arm raised; mochi_kun: facing left, listening with wide eyes",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "anko_jii",
+          "colour": "#FFE0B2"
+        },
+        {
+          "id": "anko_jii",
+          "image": "cutouts/051_anko_jii.png",
+          "at": "left"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/051_mochi_kun.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "twist",
+      "text": "だから、\nひとつになれた。",
+      "speaker": "ichigo_chan",
+      "characters": [
+        "ichigo_chan",
+        "mochi_kun"
+      ],
+      "action": "ichigo_chan: facing right toward the mochi, both tiny arms held to her chest, gentle smile; mochi_kun: facing left, lips trembling",
+      "emotion": "grateful",
+      "shot": "half",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/052_ichigo_chan.png",
+          "at": "left"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/052_mochi_kun.png",
+          "at": "right"
+        },
+        {
+          "effect": "hearts",
+          "on": "ichigo_chan"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "twist",
+      "text": "ぼくの白は、\n包むための色…",
+      "speaker": "mochi_kun",
+      "characters": [
+        "mochi_kun"
+      ],
+      "action": "big tears rolling down, smiling through the tears, tiny arms pressed to his chest",
+      "emotion": "crying",
+      "shot": "close",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "motion": "punch_in",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "mochi_kun"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/053.png"
+        },
+        {
+          "effect": "tears",
+          "on": "mochi_kun"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "ending",
+      "text": "白は、なんでも\n包める色だ。",
+      "speaker": "narrator",
+      "characters": [
+        "ichigo_chan",
+        "mochi_kun",
+        "anko_jii"
+      ],
+      "action": "ichigo_chan: facing right, laughing, one tiny arm raised; mochi_kun: facing forward, laughing with both tiny arms up; anko_jii: facing left, laughing, eyes closed",
+      "emotion": "laughing",
+      "shot": "full",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/054_ichigo_chan.png",
+          "at": "left"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/054_mochi_kun.png",
+          "at": "center",
+          "anim": "hop"
+        },
+        {
+          "id": "anko_jii",
+          "image": "cutouts/054_anko_jii.png",
+          "at": "right"
+        },
+        {
+          "effect": "sparkles",
+          "on": "mochi_kun"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "ending",
+      "text": "真夜中の台所で、\n今夜も粉が浮く。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "nostalgic",
+      "object": "a cloud of white rice flour floating above a white bowl",
+      "shot": "close",
+      "location": "kitchen_counter_night",
+      "filter": "none",
+      "transition": "fade",
+      "motion": "drift",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/055.png",
+          "anim": "float"
+        },
+        {
+          "word": "シーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "beat": "ending",
+      "text": "ねえ、きみは…",
+      "speaker": "mochi_kun",
+      "characters": [
+        "ichigo_chan",
+        "mochi_kun",
+        "anko_jii"
+      ],
+      "action": "ichigo_chan: facing forward, tilting her body curiously; mochi_kun: leaning toward the viewer, one tiny arm pointing forward; anko_jii: facing forward, one eyebrow raised with a smile",
+      "emotion": "curious",
+      "shot": "half",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ichigo_chan",
+          "image": "cutouts/056_ichigo_chan.png",
+          "at": "left"
+        },
+        {
+          "id": "mochi_kun",
+          "image": "cutouts/056_mochi_kun.png",
+          "at": "center",
+          "anim": "lean_in"
+        },
+        {
+          "id": "anko_jii",
+          "image": "cutouts/056_anko_jii.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "mochi_kun.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "ending",
+      "text": "あなたは、どの味の\nもちが好き？",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "cheerful",
+      "object": "a cut strawberry daifuku, juicy red strawberry and red bean paste inside white mochi",
+      "shot": "close",
+      "location": "engawa_garden_spring_noon",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/057.png"
+        },
+        {
+          "word": "あなたは、どの味の\nもちが好き？",
+          "size": 90,
+          "vertical": false,
+          "at": "center"
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    }
+  ]
+}

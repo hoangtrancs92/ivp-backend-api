@@ -1,0 +1,43 @@
+{
+ "jobs": [
+  {
+   "name": "test_girl_white",
+   "seed": 20,
+   "refs": [
+    "ref__me_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, young japanese woman in her twenties, shoulder-length brown hair, white blouse, navy skirt, tilting her head, confused face, full body, white background"
+  },
+  {
+   "name": "test_mugs_white",
+   "seed": 40,
+   "prompt": "irasutoya_style, two glass beer mugs full of golden beer with white foam clinking together, foam splashing, no people, white background"
+  },
+  {
+   "name": "test_girl_magenta",
+   "seed": 20,
+   "refs": [
+    "ref__me_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, young japanese woman in her twenties, shoulder-length brown hair, white blouse, navy skirt, tilting her head, confused face, full body, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "test_mugs_magenta",
+   "seed": 40,
+   "prompt": "irasutoya_style, two glass beer mugs full of golden beer with white foam clinking together, foam splashing, no people, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "test_girl_green",
+   "seed": 20,
+   "refs": [
+    "ref__me_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, young japanese woman in her twenties, shoulder-length brown hair, white blouse, navy skirt, tilting her head, confused face, full body, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "test_mugs_green",
+   "seed": 40,
+   "prompt": "irasutoya_style, two glass beer mugs full of golden beer with white foam clinking together, foam splashing, no people, on a solid flat pure green background (#00FF00), no shadow"
+  }
+ ]
+}

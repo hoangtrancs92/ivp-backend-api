@@ -1,0 +1,28 @@
+{
+ "jobs": [
+  {
+   "name": "ch_026",
+   "seed": 260,
+   "refs": [
+    "ref__wife_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, japanese woman in her thirties, long brown hair tied back in a low ponytail, beige cardigan over a white shirt, long brown skirt, holding a tiny pair of white baby socks in both hands, smiling gently, warm face, upper body from the waist up, cropped at the waist, filling the frame, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_040",
+   "seed": 400,
+   "refs": [
+    "ref__wife_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, japanese woman in her thirties, long brown hair tied back in a low ponytail, beige cardigan over a white shirt, long brown skirt, looking straight ahead with a gentle but serious face, both arms down at her sides, serious face, close-up of the face and shoulders, cropped at the chest, filling the frame, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_040_alt",
+   "seed": 900,
+   "refs": [
+    "@ch_040"
+   ],
+   "prompt": "irasutoya_style, change only the pose: mouth open while talking. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  }
+ ]
+}

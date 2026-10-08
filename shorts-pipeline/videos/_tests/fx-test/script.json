@@ -1,0 +1,264 @@
+{
+ "title": [
+  "効果テスト"
+ ],
+ "font": "Noto Sans CJK JP",
+ "font_file": "fonts/NotoSansCJKjp-Black.otf",
+ "speakers": {
+  "narrator": "#4FC3F7"
+ },
+ "scenes": [
+  {
+   "id": 1,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "half",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "on": "father"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/001.png",
+     "anim": "none",
+     "size": 0.55,
+     "at": "floor"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "close",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "father"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/003.png",
+     "anim": "none",
+     "size": 0.5,
+     "at": "floor"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "half",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/002.png",
+     "anim": "none",
+     "size": 0.55,
+     "at": "floor"
+    },
+    {
+     "effect": "sparkles",
+     "on": "me"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "full",
+   "location": "dining_room",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/005.png",
+     "anim": "none",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "effect": "hearts",
+     "on": "me"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "half",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/002.png",
+     "anim": "none",
+     "size": 0.55,
+     "at": "floor"
+    },
+    {
+     "effect": "tears",
+     "on": "me"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "close",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/003.png",
+     "anim": "none",
+     "size": 0.5,
+     "at": "floor"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "half",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/002.png",
+     "anim": "none",
+     "size": 0.55,
+     "at": "floor"
+    },
+    {
+     "effect": "rain"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "full",
+   "location": "dining_room",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/005.png",
+     "anim": "none",
+     "size": "large",
+     "at": "center"
+    },
+    {
+     "effect": "confetti"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "text": "テスト",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "",
+   "emotion": "",
+   "shot": "half",
+   "location": "kitchen",
+   "motion": "none",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "father"
+    },
+    {
+     "effect": "rays",
+     "on": "father"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/001.png",
+     "anim": "none",
+     "size": 0.55,
+     "at": "floor"
+    },
+    {
+     "effect": "sparkles",
+     "on": "father"
+    }
+   ]
+  }
+ ]
+}

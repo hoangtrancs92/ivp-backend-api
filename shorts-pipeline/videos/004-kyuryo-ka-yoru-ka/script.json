@@ -1,0 +1,1169 @@
+{
+ "title": [
+  "会社の秘密を",
+  "知ってしまった"
+ ],
+ "font": "Noto Sans CJK JP",
+ "font_file": "fonts/NotoSansCJKjp-Black.otf",
+ "speakers": {
+  "worker": "#4FC3F7",
+  "boss": "#E57373",
+  "senpai": "#FFB74D",
+  "wife": "#F48FB1",
+  "daughter": "#FFD54F"
+ },
+ "scenes": [
+  {
+   "id": 1,
+   "beat": "hook",
+   "text": "テーブルの上に、\n札束と、スマホ。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/001.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    },
+    {
+     "word": "ドクン",
+     "size": 80,
+     "at": "objects.above",
+     "anim": "pop_fade",
+     "start": 0.3,
+     "vertical": false
+    }
+   ],
+   "motion": "punch_in",
+   "object": "a thick white envelope stuffed with japanese yen bills lying next to a smartphone showing a paused video of a dark pipe, on a wooden table"
+  },
+  {
+   "id": 2,
+   "beat": "hook",
+   "text": "どちらかを\n選ばなきゃ\nいけない。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "sitting at a table, staring down, sweating",
+   "emotion": "troubled",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/002.png"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "worker.beside_right",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 3,
+   "beat": "hook",
+   "text": "3日前。\nすべてが\n始まった。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "in side view, walking down a factory aisle at night holding a flashlight",
+   "emotion": "tired",
+   "location": "factory_floor",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/003.png"
+    }
+   ],
+   "transition": "flash",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way",
+   "shot": "full"
+  },
+  {
+   "id": 4,
+   "beat": "rise1",
+   "text": "夜勤の\n見回り中、",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "seen from behind, walking forward holding a flashlight",
+   "emotion": "calm",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/004.png"
+    }
+   ],
+   "alt_pose": "the other leg stepping forward, arms swinging the other way",
+   "shot": "full"
+  },
+  {
+   "id": 5,
+   "beat": "rise1",
+   "text": "変な臭いが\nした。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "covering his nose with one hand, frowning",
+   "emotion": "disgusted",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/005.png"
+    },
+    {
+     "word": "ツーン",
+     "size": 80,
+     "at": "worker.beside_right",
+     "anim": "pop_fade",
+     "start": 0.3,
+     "vertical": true
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 6,
+   "beat": "rise1",
+   "text": "工場の裏の、\n排水管。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "objects",
+     "image": "cutouts/006.png",
+     "size": "large",
+     "at": "edge_left",
+     "anim": "none"
+    }
+   ],
+   "object": "a large rusty drainage pipe sticking out of a concrete wall, pouring thick black liquid into a narrow canal"
+  },
+  {
+   "id": 7,
+   "beat": "rise1",
+   "text": "真っ黒な水が、\n川へ流れて\nいた。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "riverside",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "objects",
+     "image": "cutouts/007.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    }
+   ],
+   "motion": "shake",
+   "object": "a small river with thick black oily water and a few dead fish floating on the surface"
+  },
+  {
+   "id": 8,
+   "beat": "rise1",
+   "text": "嘘だろ…",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "frozen with eyes wide and mouth open",
+   "emotion": "shocked",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/008.png"
+    }
+   ],
+   "motion": "shake",
+   "shot": "close"
+  },
+  {
+   "id": 9,
+   "beat": "rise1",
+   "text": "バルブは、\n夜だけ\n開いていた。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/009.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    },
+    {
+     "effect": "sparkles",
+     "colour": "#FF8A65",
+     "on": "objects"
+    }
+   ],
+   "object": "a large red valve wheel on a rusty industrial pipe, turned open"
+  },
+  {
+   "id": 10,
+   "beat": "rise1",
+   "text": "誰かが、\nわざと\n開けている。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "looking around nervously in the dark",
+   "emotion": "suspicious",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/010.png"
+    },
+    {
+     "image": "stickers/question.png",
+     "size": "tiny",
+     "at": "worker.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 11,
+   "beat": "rise1",
+   "text": "僕はスマホで、\n動画を撮った。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "in side view, holding up a smartphone to film something",
+   "emotion": "determined",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/011.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 12,
+   "beat": "rise2",
+   "text": "翌朝、\n工場長に\n報告した。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "walking forward with a serious face",
+   "emotion": "determined",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/012.png",
+     "path": [
+      "off_left",
+      "center"
+     ]
+    }
+   ],
+   "alt_pose": "the other leg stepping forward, arms swinging the other way",
+   "shot": "full"
+  },
+  {
+   "id": 13,
+   "beat": "rise2",
+   "text": "排水が、\n川に流れて\nます",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "standing straight, explaining seriously",
+   "emotion": "serious",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/013.png"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "half"
+  },
+  {
+   "id": 14,
+   "beat": "rise2",
+   "text": "工場長は、\n少し黙った。",
+   "speaker": "worker",
+   "characters": [
+    "boss"
+   ],
+   "action": "sitting at a large desk with fingers interlocked",
+   "emotion": "cold",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "boss",
+     "image": "cutouts/014.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 15,
+   "beat": "rise2",
+   "text": "見なかった\nことにしろ",
+   "speaker": "boss",
+   "characters": [
+    "boss"
+   ],
+   "action": "leaning forward with a cold stare",
+   "emotion": "cold",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "boss",
+     "image": "cutouts/015.png"
+    }
+   ],
+   "motion": "dutch",
+   "alt_pose": "mouth open while talking",
+   "shot": "close"
+  },
+  {
+   "id": 16,
+   "beat": "rise2",
+   "text": "でも、あれは\n違法です！",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "clenching his fists",
+   "emotion": "angry",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/016.png"
+    },
+    {
+     "effect": "flash"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 17,
+   "beat": "rise2",
+   "text": "君には、\n家族が\nいるだろう",
+   "speaker": "boss",
+   "characters": [
+    "boss"
+   ],
+   "action": "smiling coldly",
+   "emotion": "sinister smile",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "boss",
+     "image": "cutouts/017.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 18,
+   "beat": "rise2",
+   "text": "机の上に、\n分厚い封筒。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/018.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ],
+   "motion": "punch_in",
+   "object": "a thick white envelope stuffed with japanese yen bills on a dark wooden office desk"
+  },
+  {
+   "id": 19,
+   "beat": "rise2",
+   "text": "ボーナスだ。\n黙っていれば\nな",
+   "speaker": "boss",
+   "characters": [
+    "boss"
+   ],
+   "action": "pushing something forward across a desk with one hand",
+   "emotion": "sly smile",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "boss",
+     "image": "cutouts/019.png"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "half"
+  },
+  {
+   "id": 20,
+   "beat": "rise2",
+   "text": "言葉が、\n出なかった。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "standing frozen, sweating",
+   "emotion": "speechless",
+   "location": "manager_office",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/020.png"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "worker.beside_right",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 21,
+   "beat": "rise3",
+   "text": "休憩中、\n先輩が\n言った。",
+   "speaker": "worker",
+   "characters": [
+    "senpai"
+   ],
+   "action": "sitting with a paper cup of coffee",
+   "emotion": "tired",
+   "location": "factory_floor",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "senpai",
+     "image": "cutouts/021.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 22,
+   "beat": "rise3",
+   "text": "前にも、\n告発した\nやつがいた",
+   "speaker": "senpai",
+   "characters": [
+    "senpai"
+   ],
+   "action": "speaking quietly, looking down",
+   "emotion": "serious",
+   "location": "factory_floor",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "senpai",
+     "image": "cutouts/022.png"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "close"
+  },
+  {
+   "id": 23,
+   "beat": "rise3",
+   "text": "次の週には、\nクビだった",
+   "speaker": "senpai",
+   "characters": [
+    "senpai"
+   ],
+   "action": "shrugging with both hands",
+   "emotion": "resigned",
+   "location": "factory_floor",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "senpai",
+     "image": "cutouts/023.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 24,
+   "beat": "rise3",
+   "text": "この町に、\n次の仕事は\nないぞ",
+   "speaker": "senpai",
+   "characters": [
+    "senpai"
+   ],
+   "action": "looking straight ahead with a serious face",
+   "emotion": "serious",
+   "location": "factory_floor",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "senpai",
+     "image": "cutouts/024.png"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "close"
+  },
+  {
+   "id": 25,
+   "beat": "home",
+   "text": "パパ、\nおかえり！",
+   "speaker": "daughter",
+   "characters": [
+    "daughter"
+   ],
+   "action": "running forward with both arms open",
+   "emotion": "happy",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "daughter",
+     "image": "cutouts/025.png"
+    },
+    {
+     "effect": "hearts",
+     "on": "daughter"
+    }
+   ],
+   "alt_pose": "running with the other leg forward, arms open",
+   "shot": "full"
+  },
+  {
+   "id": 26,
+   "beat": "home",
+   "text": "妻のお腹には、\n二人目がいる。",
+   "speaker": "worker",
+   "characters": [
+    "wife"
+   ],
+   "action": "holding a tiny pair of white baby socks in both hands, smiling gently",
+   "emotion": "warm",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "wife"
+    },
+    {
+     "id": "wife",
+     "image": "cutouts/026.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 27,
+   "beat": "home",
+   "text": "家のローンも、\nあと30年。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/027.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    }
+   ],
+   "object": "a stack of bills and a house loan document on a wooden dining table"
+  },
+  {
+   "id": 28,
+   "beat": "home",
+   "text": "黙れば、\n全部\n守れる…",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "staring at a thick white envelope in his hand",
+   "emotion": "conflicted",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/028.png"
+    }
+   ],
+   "motion": "dutch",
+   "shot": "close"
+  },
+  {
+   "id": 29,
+   "beat": "twist",
+   "text": "パパ、週末\nまた川で\n遊ぼう！",
+   "speaker": "daughter",
+   "characters": [
+    "daughter"
+   ],
+   "action": "smiling brightly and pointing outside",
+   "emotion": "excited",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "daughter",
+     "image": "cutouts/029.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "daughter"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "half"
+  },
+  {
+   "id": 30,
+   "beat": "twist",
+   "text": "娘が毎週\n遊ぶ川。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "riverside",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/030.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    }
+   ],
+   "object": "a red toy bucket and a small fishing net left on a grassy riverbank"
+  },
+  {
+   "id": 31,
+   "beat": "twist",
+   "text": "あの黒い水が、\n流れ込む\n川だった。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "riverside",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "objects",
+     "image": "cutouts/007.png",
+     "size": "large",
+     "at": "center",
+     "anim": "punch"
+    },
+    {
+     "effect": "flash"
+    }
+   ],
+   "motion": "shake",
+   "transition": "flash"
+  },
+  {
+   "id": 32,
+   "beat": "twist",
+   "text": "まさか…",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "covering his mouth with one hand, eyes wide",
+   "emotion": "shocked",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/032.png"
+    }
+   ],
+   "motion": "punch_in",
+   "shot": "close"
+  },
+  {
+   "id": 33,
+   "beat": "twist",
+   "text": "その夜、\n眠れなかった。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "lying in bed under a blanket, staring at the ceiling",
+   "emotion": "sleepless",
+   "location": "bedroom",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/033.png"
+    },
+    {
+     "effect": "rain"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 34,
+   "beat": "twist",
+   "text": "目を閉じると、\nあの黒い水。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "factory_back",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "objects",
+     "image": "cutouts/006.png",
+     "size": "large",
+     "at": "edge_left",
+     "anim": "none"
+    }
+   ],
+   "motion": "dutch"
+  },
+  {
+   "id": 35,
+   "beat": "twist",
+   "text": "目を開けると、\n娘の寝顔。",
+   "speaker": "worker",
+   "characters": [
+    "daughter"
+   ],
+   "action": "sleeping peacefully in bed",
+   "emotion": "peaceful",
+   "location": "bedroom",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "daughter",
+     "image": "cutouts/035.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "daughter"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 36,
+   "beat": "choice",
+   "text": "告発すれば、\n仕事を失う。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "holding a smartphone with his thumb over the screen",
+   "emotion": "tense",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/036.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 37,
+   "beat": "choice",
+   "text": "黙っていれば、\n家族は\n暮らせる。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "looking at a thick white envelope in his hand",
+   "emotion": "conflicted",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/037.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 38,
+   "beat": "choice",
+   "text": "でも、\n娘の川は…",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "clenching his teeth with his head down",
+   "emotion": "anguished",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/038.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 39,
+   "beat": "choice",
+   "text": "…あなた？",
+   "speaker": "wife",
+   "characters": [
+    "wife"
+   ],
+   "action": "standing with hands clasped in front, looking worried",
+   "emotion": "worried",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "wife",
+     "image": "cutouts/039.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 40,
+   "beat": "choice",
+   "text": "何か、\n隠してるでしょ",
+   "speaker": "wife",
+   "characters": [
+    "wife"
+   ],
+   "action": "looking straight ahead with a gentle but serious face, both arms down at her sides",
+   "emotion": "serious",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "wife",
+     "image": "cutouts/040.png"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "close"
+  },
+  {
+   "id": 41,
+   "beat": "choice",
+   "text": "僕は、\n全部話した。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "sitting at a table, talking seriously with his hands clasped",
+   "emotion": "serious",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/041.png"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "half"
+  },
+  {
+   "id": 42,
+   "beat": "choice",
+   "text": "妻は、\n長い間\n黙っていた。",
+   "speaker": "worker",
+   "characters": [
+    "wife"
+   ],
+   "action": "eyes closed, thinking quietly",
+   "emotion": "thoughtful",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "wife",
+     "image": "cutouts/042.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 43,
+   "beat": "choice",
+   "text": "あなたが、\n決めていいよ",
+   "speaker": "wife",
+   "characters": [
+    "wife"
+   ],
+   "action": "smiling softly with both hands clasped in front",
+   "emotion": "gentle",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "wife"
+    },
+    {
+     "id": "wife",
+     "image": "cutouts/043.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 44,
+   "beat": "choice",
+   "text": "どっちを\n選んでも、\nついていく",
+   "speaker": "wife",
+   "characters": [
+    "wife"
+   ],
+   "action": "smiling with tears in her eyes",
+   "emotion": "teary smile",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "wife",
+     "image": "cutouts/044.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "wife"
+    }
+   ],
+   "alt_pose": "mouth open while talking",
+   "shot": "close"
+  },
+  {
+   "id": 45,
+   "beat": "ending",
+   "text": "テーブルの上に、\n札束と、スマホ。",
+   "speaker": "worker",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/001.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    }
+   ],
+   "motion": "focus"
+  },
+  {
+   "id": 46,
+   "beat": "ending",
+   "text": "明日の朝、\n答えを出す。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "looking straight ahead with determination",
+   "emotion": "determined",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "worker"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/046.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 47,
+   "beat": "ending",
+   "text": "給料を\n選ぶか、",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "holding a thick white envelope in one hand",
+   "emotion": "serious",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/047.png"
+    }
+   ],
+   "shot": "full"
+  },
+  {
+   "id": 48,
+   "beat": "ending",
+   "text": "ぐっすり眠れる\n夜を選ぶか。",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "holding a smartphone in one hand",
+   "emotion": "serious",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "worker",
+     "image": "cutouts/048.png"
+    }
+   ],
+   "shot": "full"
+  },
+  {
+   "id": 49,
+   "beat": "ending",
+   "text": "あなたなら、\nどっちを\n選ぶ？",
+   "speaker": "worker",
+   "characters": [
+    "worker"
+   ],
+   "action": "looking straight at the viewer with a serious face",
+   "emotion": "serious",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "worker"
+    },
+    {
+     "effect": "aura",
+     "on": "worker"
+    },
+    {
+     "id": "worker",
+     "image": "cutouts/049.png"
+    }
+   ],
+   "motion": "punch_in",
+   "shot": "close"
+  }
+ ]
+}

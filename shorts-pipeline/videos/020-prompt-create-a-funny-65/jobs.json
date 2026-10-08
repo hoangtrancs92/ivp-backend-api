@@ -1,0 +1,724 @@
+{
+ "jobs": [
+  {
+   "name": "ch_001",
+   "seed": 10,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, standing suddenly, raising one hand high, determined face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_002_me_teen",
+   "seed": 20,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, facing right toward classmate_girl, raising one hand, confused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_002_classmate_girl",
+   "seed": 21,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, facing right toward classmate_girl, raising one hand, confused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_003",
+   "seed": 30,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, leaning forward with both palms open, surprised face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_004",
+   "seed": 40,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, holding one blue folder in her right hand, left hand empty, exasperated face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_005",
+   "seed": 50,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, nodding confidently, giving a thumbs-up with her right hand, left hand empty, confident face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_006",
+   "seed": 60,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, throwing both hands upward, mouth wide open, furious face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_007_classmate_girl",
+   "seed": 70,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, facing left toward me_teen, counting on three fingers, serious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_007_me_teen",
+   "seed": 71,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, facing left toward me_teen, counting on three fingers, serious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_008",
+   "seed": 80,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, shaking her head rapidly, both hands empty, frustrated face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_009",
+   "seed": 90,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, tilting her head, one hand on her cheek, confused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_010",
+   "seed": 100,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, holding one blue folder under her left arm, pointing upward with her right hand, determined face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_011",
+   "seed": 110,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, pretending to steer with both hands, confident face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_012",
+   "seed": 120,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, pulling both hands back in alarm, shocked face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_013",
+   "seed": 130,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, holding one blue folder under her left arm, pointing upward with her right hand, determined face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_014",
+   "seed": 140,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, covering her mouth with one hand, eyebrows raised, confused face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_016",
+   "seed": 160,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, walking in side view, miming steering with both hands, excited face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_017",
+   "seed": 170,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, pointing firmly to the right, left hand empty, furious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_018",
+   "seed": 180,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, leaning forward, pointing both thumbs at herself, puzzled face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_019_me_teen",
+   "seed": 190,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, standing apart, staring at each other in confusion, confused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_019_classmate_girl",
+   "seed": 191,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, standing apart, staring at each other in confusion, confused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_020",
+   "seed": 200,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, raising one finger with a very serious expression, serious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_021",
+   "seed": 210,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, leaning toward the camera with both hands raised, surprised face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_022",
+   "seed": 220,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, giving a confident thumbs-up with her right hand, left hand empty, smug face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_023_classmate_girl",
+   "seed": 230,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, facing left toward me_teen, clapping both hands once, excited face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_023_me_teen",
+   "seed": 231,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, facing left toward me_teen, clapping both hands once, excited face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_024",
+   "seed": 240,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, pointing sharply to the right with her right hand, left hand empty, furious face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_025",
+   "seed": 250,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, covering one eye with her right hand, left hand empty, confused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_026",
+   "seed": 260,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, throwing both arms outward, shocked face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_027",
+   "seed": 270,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, turning sideways, covering one eye with her left hand, suspicious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_028",
+   "seed": 280,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, holding one blue folder under her left arm, pointing to herself with her right hand, exasperated face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_029",
+   "seed": 290,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, standing still with a thin notebook held in her left hand, right hand empty, suspicious face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_030",
+   "seed": 300,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, covering one ear with her right hand, notebook held in her left hand, annoyed face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_031",
+   "seed": 310,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, walking into frame from the right, raising her right palm to stop them, notebook in her left hand, shocked face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_032",
+   "seed": 320,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, leaning forward, notebook held against her chest with both hands, confused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_033_classmate_girl",
+   "seed": 330,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, facing right toward classmate_quiet_girl, pointing to herself, defensive face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_033_classmate_quiet_girl",
+   "seed": 331,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, facing right toward classmate_quiet_girl, pointing to herself, defensive face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_034_me_teen",
+   "seed": 340,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, facing right toward classmate_girl, waving both hands in disagreement, angry face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_034_classmate_girl",
+   "seed": 341,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, facing right toward classmate_girl, waving both hands in disagreement, angry face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_035",
+   "seed": 350,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, pointing to both eyes with her index fingers, notebook tucked under her left arm, certain face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_037",
+   "seed": 370,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, standing with one palm raised calmly, notebook held in her left hand, determined face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_038",
+   "seed": 380,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, holding one piece of white chalk in her right hand, pointing upward, explanatory face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_039",
+   "seed": 390,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, presenting an imaginary certificate with her right hand, left hand empty, patient face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_040_classmate_quiet_girl",
+   "seed": 400,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, facing left toward classmate_girl, holding her notebook in her left hand, patient face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_040_classmate_girl",
+   "seed": 401,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, facing left toward classmate_girl, holding her notebook in her left hand, patient face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_041",
+   "seed": 410,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, covering one eye with her left hand, right hand empty, focused face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_042",
+   "seed": 420,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, turning sideways, covering one eye with her left hand, focused face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_043",
+   "seed": 430,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, pointing to both eyes with her index fingers, explanatory face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_044",
+   "seed": 440,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, pointing to her eyes, tilting her head, embarrassed face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_045",
+   "seed": 450,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, covering one eye with her right hand, left hand empty, awkward face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_046",
+   "seed": 460,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, pointing to herself with her right hand, blue folder under her left arm, embarrassed face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_047_classmate_girl",
+   "seed": 470,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, facing left toward me_teen, both hands pressed to her cheeks, stunned face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_047_me_teen",
+   "seed": 471,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, facing left toward me_teen, both hands pressed to her cheeks, stunned face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_048_me_teen",
+   "seed": 480,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, standing in a row, each looking in a different direction, confused face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_048_classmate_girl",
+   "seed": 481,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, standing in a row, each looking in a different direction, confused face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_048_classmate_quiet_girl",
+   "seed": 482,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, standing in a row, each looking in a different direction, confused face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_049_me_teen",
+   "seed": 490,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, looking down with both hands empty, awkward face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_049_classmate_girl",
+   "seed": 491,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, looking down with both hands empty, awkward face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_049_classmate_quiet_girl",
+   "seed": 492,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, looking down with both hands empty, awkward face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_050_me_teen",
+   "seed": 500,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, slowly raising their heads, all hands empty, surprised face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_050_classmate_girl",
+   "seed": 501,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, slowly raising their heads, all hands empty, surprised face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_050_classmate_quiet_girl",
+   "seed": 502,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, slowly raising their heads, all hands empty, surprised face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_051",
+   "seed": 510,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, holding up three fingers, eyes wide, excited face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_052_me_teen",
+   "seed": 520,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, staring at one another, slowly beginning to smile, surprised face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_052_classmate_girl",
+   "seed": 521,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, staring at one another, slowly beginning to smile, surprised face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_052_classmate_quiet_girl",
+   "seed": 522,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, staring at one another, slowly beginning to smile, surprised face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_053_me_teen",
+   "seed": 530,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, throwing their heads back and laughing, laughing face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_053_classmate_girl",
+   "seed": 531,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, throwing their heads back and laughing, laughing face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_053_classmate_quiet_girl",
+   "seed": 532,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, throwing their heads back and laughing, laughing face, full body, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_054_me_teen",
+   "seed": 540,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, bending forward with laughter, hands on their knees, laughing face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_054_classmate_girl",
+   "seed": 541,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, bending forward with laughter, hands on their knees, laughing face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_054_classmate_quiet_girl",
+   "seed": 542,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, bending forward with laughter, hands on their knees, laughing face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_055",
+   "seed": 550,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, stopping mid-laugh, looking down at both empty hands, confused face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_056",
+   "seed": 560,
+   "fix": "",
+   "refs": [
+    "ref__classmate_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, long black hair in a high ponytail, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers, small red and white graduation ribbon corsage on her chest, looking down at both empty hands, shoulders dropped, defeated face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure magenta background (#FF00FF), no shadow"
+  },
+  {
+   "name": "ch_057",
+   "seed": 570,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, pointing to her eyes with both index fingers, proud face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_058_classmate_quiet_girl",
+   "seed": 580,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, facing left toward me_teen, pointing at her with one hand, exasperated face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_058_me_teen",
+   "seed": 581,
+   "fix": "",
+   "refs": [
+    "ref__me_teen_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, japanese high school girl, shoulder-length brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, facing left toward me_teen, pointing at her with one hand, exasperated face, upper body from the waist up, cropped at the waist, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_059",
+   "seed": 590,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, standing still, holding one thin notebook in her left hand, right hand empty, deadpan face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_060",
+   "seed": 600,
+   "fix": "",
+   "refs": [
+    "ref__classmate_quiet_girl_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in the reference image, eighteen-year-old japanese girl, petite build, short black bob hair with a small yellow hairpin, round brown-rimmed glasses, navy sailor school uniform with a light blue ribbon, beige knitted cardigan over the uniform, navy pleated skirt, white socks, brown loafers, slowly looking straight at the camera with a completely exhausted deadpan expression, notebook held in her left hand, deadpan face, close-up of the face and shoulders, cropped at the chest, filling the frame, only this one person and the items in their hands, no furniture, no seat, no door, no window, no wall, no pole, no strap, no counter, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_004_alt",
+   "seed": 540,
+   "refs": [
+    "@ch_004"
+   ],
+   "fix": "",
+   "prompt": "irasutoya_style, change only the pose: mouth open while talking. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  }
+ ]
+}

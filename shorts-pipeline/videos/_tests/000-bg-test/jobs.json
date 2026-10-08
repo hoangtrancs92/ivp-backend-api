@@ -1,0 +1,10 @@
+{
+  "jobs": [
+    {"name": "kitchen_lora100", "lora": 1.0, "width": 768, "height": 1344, "prompt": "irasutoya_style, background illustration of the inside of a japanese home kitchen, white refrigerator, sink, cupboards, window, flat colors, simple shapes, no people, no text"},
+    {"name": "kitchen_lora080", "lora": 0.8, "width": 768, "height": 1344, "prompt": "irasutoya_style, background illustration of the inside of a japanese home kitchen, white refrigerator, sink, cupboards, window, flat colors, simple shapes, no people, no text"},
+    {"name": "dining_lora060", "lora": 0.6, "width": 768, "height": 1344, "prompt": "irasutoya_style, background illustration of the inside of a japanese home dining room, wooden table and chairs, ceiling lamp, window, flat colors, simple shapes, no people, no text"},
+    {"name": "kitchen_lora050", "lora": 0.5, "width": 768, "height": 1344, "prompt": "irasutoya_style, background illustration of the inside of a japanese home kitchen, white refrigerator, sink, cupboards, window, flat colors, simple shapes, no people, no text"},
+    {"name": "kitchen_flat_nolora", "lora": false, "width": 768, "height": 1344, "prompt": "simple flat vector illustration, the inside of a japanese home kitchen, white refrigerator, sink, cupboards, window, flat pastel colors, simple shapes, minimal detail, thin dark outlines, no shading, no people, no text, no signature"},
+    {"name": "dining_flat_nolora", "lora": false, "width": 768, "height": 1344, "prompt": "simple flat vector illustration, the inside of a japanese home dining room, wooden table and chairs, ceiling lamp, window, flat pastel colors, simple shapes, minimal detail, thin dark outlines, no shading, no people, no text, no signature"}
+  ]
+}

@@ -1,0 +1,62 @@
+{
+ "jobs": [
+  {
+   "name": "ch_001",
+   "seed": 10,
+   "refs": [
+    "ref__father_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, japanese man in his late fifties, short grey hair, black glasses, brown cardigan over white shirt, grey trousers, holding up an empty glass beer mug with no beer inside, frosted white with ice crystals, in one hand, calm face, upper body from the waist up, cropped at the waist, filling the frame, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_002",
+   "seed": 20,
+   "refs": [
+    "ref__me_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, young japanese woman in her twenties, shoulder-length brown hair, white blouse, navy skirt, tilting her head, confused face, upper body from the waist up, cropped at the waist, filling the frame, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_003",
+   "seed": 30,
+   "refs": [
+    "ref__father_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, japanese man in his late fifties, short grey hair, black glasses, brown cardigan over white shirt, grey trousers, standing, looking away shyly, embarrassed face, close-up of the face and shoulders, cropped at the chest, filling the frame, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_004",
+   "seed": 40,
+   "prompt": "irasutoya_style, two glass beer mugs full of golden beer with white foam clinking together, foam splashing, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_005",
+   "seed": 50,
+   "refs": [
+    "ref__me_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, young japanese woman in her twenties, shoulder-length brown hair, white blouse, navy skirt, standing with hands together in front, happy tears face, full body, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_006",
+   "seed": 60,
+   "prompt": "irasutoya_style, two empty glass beer mugs with no beer inside, frosted white with ice crystals, side by side, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_003_alt",
+   "seed": 530,
+   "refs": [
+    "@ch_003"
+   ],
+   "prompt": "irasutoya_style, change only the pose: mouth open while talking. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  },
+  {
+   "name": "ch_005_alt",
+   "seed": 550,
+   "refs": [
+    "@ch_005"
+   ],
+   "prompt": "irasutoya_style, change only the pose: mouth open while talking. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  }
+ ]
+}

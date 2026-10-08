@@ -1,0 +1,1623 @@
+{
+  "title": [
+    "父が毎日冷やしていた",
+    "2つのジョッキ"
+  ],
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "me": "#4FC3F7",
+    "me_child": "#4FC3F7",
+    "father": "#FFB74D",
+    "mother": "#F48FB1"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "5年ぶりに実家に帰った。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "walking forward, pulling a suitcase behind her",
+      "emotion": "nervous",
+      "props": {
+        "suitcase": "a small red rolling suitcase"
+      },
+      "location": "genkan",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/001.png",
+          "size": "large",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "anim": "bounce"
+        },
+        {
+          "image": "props/suitcase.png",
+          "size": "small",
+          "at": "me.hand_right",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop",
+          "start": 0.6
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "父とはずっと話していない。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "standing still, looking down",
+      "emotion": "gloomy",
+      "location": "genkan",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/002.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "size": "small",
+          "at": "me.above",
+          "anim": "drop"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "無口で、怖い人だった。",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "standing with arms crossed",
+      "emotion": "stern",
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/003.png",
+          "size": "large",
+          "at": "center",
+          "anim": "pulse"
+        },
+        {
+          "image": "stickers/anger.png",
+          "size": "tiny",
+          "at": "father.beside_left",
+          "anim": "pop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "rise1",
+      "text": "父はいつも帰りが遅かった。",
+      "speaker": "narrator",
+      "characters": [
+        "me_child"
+      ],
+      "action": "sitting on the floor hugging her knees, waiting",
+      "emotion": "lonely",
+      "location": "living_room_old",
+      "motion": "zoom_in",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "me_child",
+          "image": "cutouts/004.png",
+          "size": "medium",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "size": "small",
+          "at": "me_child.above",
+          "anim": "drop"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "rise1",
+      "text": "運動会にも来なかった。",
+      "speaker": "narrator",
+      "characters": [
+        "me_child"
+      ],
+      "action": "standing in a gym uniform with a headband",
+      "emotion": "crying",
+      "location": "living_room_old",
+      "motion": "none",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "me_child",
+          "image": "cutouts/005.png",
+          "size": "medium",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/tear.png",
+          "size": "tiny",
+          "at": "me_child.beside_right",
+          "anim": "drop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "rise1",
+      "text": "お父さんなんて嫌い！",
+      "speaker": "me_child",
+      "characters": [
+        "me_child"
+      ],
+      "action": "stomping with fists clenched",
+      "emotion": "angry",
+      "location": "living_room_old",
+      "motion": "shake",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "me_child",
+          "image": "cutouts/006.png",
+          "size": "medium",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/anger.png",
+          "size": "tiny",
+          "at": "me_child.beside_left",
+          "anim": "pop"
+        },
+        {
+          "word": "プンプン",
+          "size": 70,
+          "vertical": true,
+          "at": "me_child.beside_right",
+          "anim": "pop_fade",
+          "start": 0.2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "rise1",
+      "text": "でも父は、何も言わなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "standing still, looking down at the floor",
+      "emotion": "quiet",
+      "location": "living_room_old",
+      "motion": "zoom_in",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/007.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "word": "……",
+          "size": 70,
+          "vertical": true,
+          "at": "father.beside_right",
+          "anim": "pop_fade",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise1",
+      "text": "ただ、ビールを飲むだけ。",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "sitting cross-legged, one hand raised as if holding something",
+      "emotion": "calm",
+      "props": {
+        "beer_mug": "a glass beer mug full of beer with white foam"
+      },
+      "location": "living_room_old",
+      "motion": "none",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/008.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "id": "beer",
+          "image": "props/beer_mug.png",
+          "size": "small",
+          "at": "father.hand_left",
+          "anim": "wobble"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise2",
+      "text": "高校を出て、東京へ行った。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "walking with a determined stride, pulling a suitcase",
+      "emotion": "determined",
+      "props": {
+        "suitcase": "a small red rolling suitcase"
+      },
+      "location": "station",
+      "motion": "pan_left",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/009.png",
+          "size": "large",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "anim": "bounce"
+        },
+        {
+          "image": "props/suitcase.png",
+          "size": "small",
+          "at": "me.hand_right",
+          "anim": "none"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise2",
+      "text": "見送りに来たのは母だけ。",
+      "speaker": "narrator",
+      "characters": [
+        "mother"
+      ],
+      "action": "waving one hand",
+      "emotion": "sad smile",
+      "location": "station",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mother",
+          "image": "cutouts/010.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/tear.png",
+          "size": "tiny",
+          "at": "mother.beside_left",
+          "anim": "drop",
+          "start": 0.4
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise2",
+      "text": "父は、来なかった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "looking back over her shoulder",
+      "emotion": "disappointed",
+      "location": "station",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/011.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "size": "small",
+          "at": "me.above",
+          "anim": "drop"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise2",
+      "text": "仕事は毎日、終電まで。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "slumped over, typing on an office desk",
+      "emotion": "exhausted",
+      "location": "office",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/012.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise2",
+      "text": "電話もほとんどしなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "lying on the floor, one hand raised as if holding something",
+      "emotion": "bored",
+      "props": {
+        "phone": "a white smartphone with a dark screen"
+      },
+      "location": "apartment",
+      "motion": "zoom_out",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/013.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "props/phone.png",
+          "size": "tiny",
+          "at": "me.hand_left",
+          "anim": "none"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise2",
+      "text": "たまには帰ってきなさいよ",
+      "speaker": "mother",
+      "characters": [
+        "mother"
+      ],
+      "action": "one hand raised to her ear as if on the phone",
+      "emotion": "worried",
+      "props": {
+        "phone": "a white smartphone with a dark screen"
+      },
+      "location": "kitchen",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mother",
+          "image": "cutouts/014.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "props/phone.png",
+          "size": "tiny",
+          "at": "mother.beside_right",
+          "anim": "wobble"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise2",
+      "text": "忙しいから、また今度ね",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "sitting at a desk, one hand raised to her ear as if on the phone",
+      "emotion": "annoyed",
+      "props": {
+        "phone": "a white smartphone with a dark screen"
+      },
+      "location": "apartment",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/015.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "props/phone.png",
+          "size": "tiny",
+          "at": "me.beside_right",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise2",
+      "text": "そう言って、5年がたった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "sitting alone hugging her knees",
+      "emotion": "empty",
+      "location": "apartment",
+      "motion": "zoom_out",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/016.png",
+          "size": "medium",
+          "at": "center",
+          "anim": "none"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise3",
+      "text": "ある日、母から電話がきた。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "jumping slightly, looking to the side",
+      "emotion": "surprised",
+      "props": {
+        "phone": "a white smartphone with a dark screen"
+      },
+      "location": "apartment",
+      "motion": "shake",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/017.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "id": "phone",
+          "image": "props/phone.png",
+          "size": "small",
+          "at": "top_right",
+          "anim": "wobble"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop"
+        },
+        {
+          "word": "ブルブル",
+          "size": 64,
+          "at": "phone.bottom",
+          "anim": "pop_fade",
+          "start": 0.2
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise3",
+      "text": "お父さん、倒れたの",
+      "speaker": "mother",
+      "characters": [
+        "mother"
+      ],
+      "action": "one hand raised to her ear as if on the phone, the other hand on her chest",
+      "emotion": "panicked",
+      "props": {
+        "phone": "a white smartphone with a dark screen"
+      },
+      "location": "kitchen",
+      "motion": "shake",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mother",
+          "image": "cutouts/018.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "props/phone.png",
+          "size": "tiny",
+          "at": "mother.beside_right",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "mother.beside_left",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise3",
+      "text": "頭が真っ白になった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "frozen in place, mouth open",
+      "emotion": "shocked",
+      "location": "apartment",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/019.png",
+          "size": "large",
+          "at": "center",
+          "anim": "pulse"
+        },
+        {
+          "image": "stickers/lines.png",
+          "size": "small",
+          "at": "me.above",
+          "anim": "drop"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise3",
+      "text": "すぐに新幹線に飛び乗った。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "running fast",
+      "emotion": "desperate",
+      "location": "station",
+      "motion": "pan_right",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/020.png",
+          "size": "large",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 0.5,
+          "anim": "bounce"
+        },
+        {
+          "word": "ダッ",
+          "size": 80,
+          "at": "me.beside_right",
+          "anim": "pop_fade",
+          "start": 0.4
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise3",
+      "text": "でも父は、もう家にいた。",
+      "speaker": "narrator",
+      "characters": [
+        "me",
+        "father"
+      ],
+      "action": "standing",
+      "emotion": "puzzled",
+      "location": "dining_room",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/021_me.png",
+          "size": "large",
+          "at": "left",
+          "anim": "none"
+        },
+        {
+          "id": "father",
+          "image": "cutouts/021_father.png",
+          "size": "large",
+          "at": "right",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/question.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise3",
+      "text": "……おう。",
+      "speaker": "father",
+      "characters": [
+        "father"
+      ],
+      "action": "standing, raising one hand slightly",
+      "emotion": "awkward",
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/022.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "father.beside_left",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise3",
+      "text": "ただの貧血だったらしい。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "shoulders dropping, letting out a breath",
+      "emotion": "relieved",
+      "location": "dining_room",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/023.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "word": "ホッ",
+          "size": 80,
+          "at": "me.beside_right",
+          "anim": "pop_fade",
+          "start": 0.2
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise3",
+      "text": "なんだ、心配して損した",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "hands on hips, puffing her cheeks",
+      "emotion": "pouting",
+      "location": "dining_room",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/024.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/anger.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise3",
+      "text": "気まずくて、台所に逃げた。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "walking away quickly",
+      "emotion": "awkward",
+      "location": "kitchen",
+      "motion": "pan_left",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/025.png",
+          "size": "large",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "anim": "none"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "me.beside_right",
+          "anim": "pop",
+          "start": 0.8
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "twist",
+      "text": "冷凍庫を開けると……",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "seen from the side, reaching out to open a door",
+      "emotion": "curious",
+      "location": "kitchen",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/026.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "word": "ガチャ",
+          "size": 80,
+          "at": "me.beside_left",
+          "anim": "pop_fade",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "twist",
+      "text": "ジョッキが2つ、凍っていた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "",
+      "props": {
+        "frozen_mug": "an empty glass beer mug covered in white frost"
+      },
+      "location": "kitchen",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mug_a",
+          "image": "props/frozen_mug.png",
+          "size": "medium",
+          "at": [
+            0.31,
+            0.66
+          ],
+          "anim": "pop"
+        },
+        {
+          "id": "mug_b",
+          "image": "props/frozen_mug.png",
+          "size": "medium",
+          "at": [
+            0.69,
+            0.66
+          ],
+          "anim": "pop",
+          "start": 0.3
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "size": "tiny",
+          "at": "mug_a.above",
+          "anim": "pop",
+          "start": 0.5
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "size": "tiny",
+          "at": "mug_b.above",
+          "anim": "pop",
+          "start": 0.7
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "twist",
+      "text": "なんで2つも？",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "tilting her head",
+      "emotion": "confused",
+      "location": "kitchen",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/028.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/question.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "twist",
+      "text": "お父さんが毎日入れてるのよ",
+      "speaker": "mother",
+      "characters": [
+        "mother"
+      ],
+      "action": "standing with hands clasped in front",
+      "emotion": "gentle smile",
+      "location": "kitchen",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mother",
+          "image": "cutouts/029.png",
+          "size": "large",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "anim": "bounce"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "twist",
+      "text": "あなたの分よ",
+      "speaker": "mother",
+      "characters": [
+        "mother"
+      ],
+      "action": "pointing forward gently",
+      "emotion": "kind smile",
+      "location": "kitchen",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mother",
+          "image": "cutouts/030.png",
+          "size": "large",
+          "at": "center",
+          "anim": "pulse"
+        },
+        {
+          "image": "stickers/heart.png",
+          "size": "tiny",
+          "at": "mother.beside_left",
+          "anim": "pop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "twist",
+      "text": "え……？",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "eyes wide, frozen",
+      "emotion": "stunned",
+      "location": "kitchen",
+      "motion": "shake",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/031.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "twist",
+      "text": "二十歳になったら一緒に飲むって",
+      "speaker": "mother",
+      "characters": [
+        "mother"
+      ],
+      "action": "looking far away, hands clasped",
+      "emotion": "nostalgic",
+      "location": "kitchen",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mother",
+          "image": "cutouts/032.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "twist",
+      "text": "ずっと楽しみにしてたの",
+      "speaker": "mother",
+      "characters": [
+        "mother"
+      ],
+      "action": "smiling with eyes closed",
+      "emotion": "warm",
+      "location": "kitchen",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mother",
+          "image": "cutouts/033.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/heart.png",
+          "size": "tiny",
+          "at": "mother.beside_right",
+          "anim": "pop",
+          "start": 0.4
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "twist",
+      "text": "東京へ行ったあの日も、",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "hiding behind a pillar, peeking out",
+      "emotion": "sad",
+      "location": "station",
+      "motion": "zoom_in",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/034.png",
+          "size": "large",
+          "path": [
+            "off_right",
+            "right"
+          ],
+          "anim": "none"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "twist",
+      "text": "父は陰から見送っていた。",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "waving one hand slightly, half hidden",
+      "emotion": "teary",
+      "location": "station",
+      "motion": "none",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/035.png",
+          "size": "large",
+          "at": "right",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/tear.png",
+          "size": "tiny",
+          "at": "father.beside_left",
+          "anim": "drop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "twist",
+      "text": "運動会の日も、",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "working at an office desk late at night",
+      "emotion": "troubled",
+      "location": "office",
+      "motion": "none",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/036.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "father.beside_left",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "twist",
+      "text": "休めないことを謝っていたらしい。",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "bowing deeply",
+      "emotion": "apologetic",
+      "location": "office",
+      "motion": "zoom_in",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/037.png",
+          "size": "large",
+          "at": "center",
+          "anim": "pulse"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "twist",
+      "text": "全部、知らなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "covering her mouth with both hands",
+      "emotion": "crying",
+      "location": "kitchen",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/038.png",
+          "size": "large",
+          "at": "center",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/tear.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "drop",
+          "start": 0.2
+        },
+        {
+          "image": "stickers/tear.png",
+          "size": "tiny",
+          "at": "me.beside_right",
+          "anim": "drop",
+          "start": 0.5
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "ending",
+      "text": "ジョッキを持って、居間に戻った。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "walking, one hand raised in front as if holding something",
+      "emotion": "resolute",
+      "props": {
+        "frozen_mug": "an empty glass beer mug covered in white frost"
+      },
+      "location": "dining_room",
+      "motion": "pan_left",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/039.png",
+          "size": "large",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "anim": "none"
+        },
+        {
+          "image": "props/frozen_mug.png",
+          "size": "small",
+          "at": "me.hand_left",
+          "anim": "none"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "ending",
+      "text": "お父さん、飲もう",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "holding one hand forward as if offering something",
+      "emotion": "shy smile",
+      "props": {
+        "frozen_mug": "an empty glass beer mug covered in white frost"
+      },
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/040.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "props/frozen_mug.png",
+          "size": "small",
+          "at": "me.hand_left",
+          "anim": "wobble"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "ending",
+      "text": "……おう。",
+      "speaker": "father",
+      "characters": [
+        "father"
+      ],
+      "action": "sitting at a table, looking away",
+      "emotion": "flustered",
+      "location": "dining_room",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/041.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "father.beside_left",
+          "anim": "pop"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "father.beside_right",
+          "anim": "pop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "ending",
+      "text": "5年分のビールを注いだ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "",
+      "props": {
+        "frozen_mug": "an empty glass beer mug covered in white frost",
+        "beer_bottle": "a brown glass beer bottle"
+      },
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mug",
+          "image": "props/frozen_mug.png",
+          "size": "medium",
+          "at": [
+            0.4,
+            0.74
+          ],
+          "anim": "none"
+        },
+        {
+          "id": "bottle",
+          "image": "props/beer_bottle.png",
+          "size": "medium",
+          "path": [
+            "off_right",
+            [
+              0.68,
+              0.54
+            ]
+          ],
+          "anim": "wobble"
+        },
+        {
+          "word": "トクトク",
+          "size": 72,
+          "vertical": true,
+          "at": "mug.beside_left",
+          "anim": "pop_fade",
+          "start": 0.6
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "ending",
+      "text": "……キンキンだな",
+      "speaker": "father",
+      "characters": [
+        "father"
+      ],
+      "action": "sitting, one hand raised as if holding something",
+      "emotion": "small smile",
+      "props": {
+        "beer_mug": "a glass beer mug full of beer with white foam"
+      },
+      "location": "dining_room",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/043.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "id": "beer",
+          "image": "props/beer_mug.png",
+          "size": "small",
+          "at": "father.hand_left",
+          "anim": "wobble"
+        },
+        {
+          "word": "キンキン",
+          "size": 72,
+          "vertical": true,
+          "at": "father.beside_right",
+          "anim": "pop_fade",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "ending",
+      "text": "父が、少しだけ笑った。",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "sitting at a table",
+      "emotion": "gentle smile",
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/044.png",
+          "size": "large",
+          "at": "center",
+          "anim": "pulse"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "size": "tiny",
+          "at": "father.beside_left",
+          "anim": "pop",
+          "start": 0.3
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "size": "tiny",
+          "at": "father.beside_right",
+          "anim": "pop",
+          "start": 0.5
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "ending",
+      "text": "初めて見る顔だった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "wiping tears with one hand",
+      "emotion": "teary smile",
+      "location": "dining_room",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/045.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/heart.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop",
+          "start": 0.3
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "ending",
+      "text": "乾杯の音が、やけに響いた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "",
+      "props": {
+        "beer_mug": "a glass beer mug full of beer with white foam"
+      },
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mug_l",
+          "image": "props/beer_mug.png",
+          "size": "medium",
+          "path": [
+            "off_left",
+            [
+              0.38,
+              0.66
+            ]
+          ],
+          "over": 0.6,
+          "anim": "none"
+        },
+        {
+          "id": "mug_r",
+          "image": "props/beer_mug.png",
+          "size": "medium",
+          "path": [
+            "off_right",
+            [
+              0.62,
+              0.66
+            ]
+          ],
+          "over": 0.6,
+          "anim": "none"
+        },
+        {
+          "word": "カチン",
+          "size": 90,
+          "at": [
+            0.5,
+            0.5
+          ],
+          "anim": "pop_fade",
+          "start": 0.6
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "ending",
+      "text": "お父さん、ただいま。",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "standing with hands together in front",
+      "emotion": "happy tears",
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/047.png",
+          "size": "large",
+          "at": "center",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/heart.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop",
+          "start": 0.2
+        },
+        {
+          "image": "stickers/tear.png",
+          "size": "tiny",
+          "at": "me.beside_right",
+          "anim": "drop",
+          "start": 0.4
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "ending",
+      "text": "冷凍庫には今も、ジョッキが2つ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "",
+      "props": {
+        "frozen_mug": "an empty glass beer mug covered in white frost"
+      },
+      "location": "kitchen",
+      "motion": "zoom_out",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mug_a",
+          "image": "props/frozen_mug.png",
+          "size": "medium",
+          "at": [
+            0.32,
+            0.68
+          ],
+          "anim": "none"
+        },
+        {
+          "id": "mug_b",
+          "image": "props/frozen_mug.png",
+          "size": "medium",
+          "at": [
+            0.68,
+            0.68
+          ],
+          "anim": "none"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "size": "tiny",
+          "at": "mug_b.above",
+          "anim": "pop",
+          "start": 0.4
+        }
+      ]
+    }
+  ]
+}

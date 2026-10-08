@@ -1,0 +1,1430 @@
+{
+ "title": [
+  "父の財布にあった",
+  "知らない女の子の写真"
+ ],
+ "font": "Noto Sans CJK JP",
+ "font_file": "fonts/NotoSansCJKjp-Black.otf",
+ "speakers": {
+  "narrator": "#4FC3F7",
+  "me": "#4FC3F7",
+  "father": "#FFB74D",
+  "mother": "#F48FB1",
+  "nurse": "#81C784"
+ },
+ "scenes": [
+  {
+   "id": 1,
+   "beat": "hook",
+   "text": "父の財布から、\n写真が落ちた。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/001.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    },
+    {
+     "word": "ヒラッ",
+     "size": 80,
+     "at": "objects.above",
+     "anim": "pop_fade",
+     "start": 0.3,
+     "vertical": false
+    }
+   ],
+   "object": "an open brown leather wallet on a wooden table with an old photo sliding out of it"
+  },
+  {
+   "id": 2,
+   "beat": "hook",
+   "text": "知らない、\n女の子だった。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "objects",
+     "image": "cutouts/002.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop",
+     "fill_holes": "#F6F1E4"
+    }
+   ],
+   "object": "a single old instant photograph with a thick white border, slightly bent at one corner, lying flat; inside the photo frame a five-year-old girl with very short hair in light blue hospital pajamas smiles weakly and makes a peace sign"
+  },
+  {
+   "id": 3,
+   "beat": "hook",
+   "text": "…誰、この子？",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "holding an old small photo, staring at it",
+   "emotion": "confused",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/003.png"
+    },
+    {
+     "image": "stickers/question.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 4,
+   "beat": "hook",
+   "text": "父は慌てて、\n写真を奪った。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "snatching something quickly with one hand",
+   "emotion": "flustered",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/004.png"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "father.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "motion": "shake",
+   "shot": "half"
+  },
+  {
+   "id": 5,
+   "beat": "setup",
+   "text": "父は昔から、\n無口な人だった。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "standing with arms crossed",
+   "emotion": "stern",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/005.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 6,
+   "beat": "setup",
+   "text": "笑った顔なんて、\n見たことがない。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "facing forward with arms crossed, both eyes visible behind his glasses, mouth in a flat line",
+   "emotion": "expressionless",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/006.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 7,
+   "beat": "setup",
+   "text": "まさか…\n浮気？",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "covering her mouth with one hand",
+   "emotion": "suspicious",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/007.png"
+    },
+    {
+     "image": "stickers/lines.png",
+     "size": "tiny",
+     "at": "me.above",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "motion": "shake",
+   "shot": "close"
+  },
+  {
+   "id": 8,
+   "beat": "setup",
+   "text": "その日から、\n父が気になった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "peeking around a doorway",
+   "emotion": "curious",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/008.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 9,
+   "beat": "rise1",
+   "text": "毎週日曜、\n父は一人で\n出かける。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "walking out carrying a small tote bag",
+   "emotion": "calm",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/009.png",
+     "anim": "exit_right"
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 10,
+   "beat": "rise1",
+   "text": "行き先は、\n誰も知らない。",
+   "speaker": "narrator",
+   "characters": [
+    "mother"
+   ],
+   "action": "tilting her head with a small smile",
+   "emotion": "calm",
+   "location": "kitchen",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/010.png"
+    },
+    {
+     "image": "stickers/question.png",
+     "size": "tiny",
+     "at": "mother.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 11,
+   "beat": "rise1",
+   "text": "お父さんの、\n趣味でしょ",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "smiling while washing dishes",
+   "emotion": "gentle smile",
+   "location": "kitchen",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/011.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 12,
+   "beat": "rise1",
+   "text": "母は笑った。\nでも、目が\n赤かった。",
+   "speaker": "narrator",
+   "characters": [
+    "mother"
+   ],
+   "action": "smiling with slightly teary eyes",
+   "emotion": "teary smile",
+   "location": "kitchen",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "mother",
+     "image": "cutouts/012.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 13,
+   "beat": "rise1",
+   "text": "ある日曜、\n私は父をつけた。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "sneaking forward wearing a cap and sunglasses",
+   "emotion": "determined",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/013.png",
+     "path": [
+      "off_left",
+      "center"
+     ]
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 14,
+   "beat": "rise1",
+   "text": "父が入ったのは、\n大きな病院。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "walking toward a building carrying a small tote bag",
+   "emotion": "calm",
+   "location": "hospital_entrance",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/014.png",
+     "anim": "none",
+     "at": "edge_right"
+    }
+   ],
+   "shot": "full"
+  },
+  {
+   "id": 15,
+   "beat": "rise1",
+   "text": "病院…？\nどこか悪いの？",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "hiding behind a pillar, peeking",
+   "emotion": "worried",
+   "location": "hospital_entrance",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/015.png",
+     "anim": "none",
+     "at": "edge_left"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "me.beside_right",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 16,
+   "beat": "rise2",
+   "text": "父は、\n若い女性と\n話していた。",
+   "speaker": "narrator",
+   "characters": [
+    "nurse"
+   ],
+   "action": "talking cheerfully",
+   "emotion": "bright smile",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/016.png"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 17,
+   "beat": "rise2",
+   "text": "そして、\n笑っていた。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "laughing happily",
+   "emotion": "big laugh",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/017.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "father"
+    },
+    {
+     "effect": "flash"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 18,
+   "beat": "rise2",
+   "text": "あの父が…\n笑ってる！？",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "frozen in shock, mouth wide open",
+   "emotion": "shocked",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/018.png"
+    }
+   ],
+   "motion": "shake",
+   "shot": "close"
+  },
+  {
+   "id": 19,
+   "beat": "rise2",
+   "text": "頭に、\n血がのぼった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "clenching both fists",
+   "emotion": "furious",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/019.png",
+     "anim": "jump"
+    },
+    {
+     "image": "stickers/anger.png",
+     "size": "tiny",
+     "at": "me.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 20,
+   "beat": "rise2",
+   "text": "その夜、\n父を問い詰めた。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "pointing forward angrily",
+   "emotion": "angry",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/020.png"
+    }
+   ],
+   "motion": "shake",
+   "shot": "half"
+  },
+  {
+   "id": 21,
+   "beat": "rise2",
+   "text": "あの女の人、\n誰なの！",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "shouting with one hand on the table",
+   "emotion": "angry",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/021.png"
+    },
+    {
+     "effect": "flash"
+    }
+   ],
+   "shot": "close",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 22,
+   "beat": "rise2",
+   "text": "…お前には、\n関係ない",
+   "speaker": "father",
+   "characters": [
+    "father"
+   ],
+   "action": "looking away coldly",
+   "emotion": "cold",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/022.png"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 23,
+   "beat": "rise2",
+   "text": "父はそれだけ\n言って去った。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "walking away with his back turned",
+   "emotion": "cold",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/023.png",
+     "anim": "exit_left"
+    }
+   ],
+   "motion": "pan_right",
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 24,
+   "beat": "rise2",
+   "text": "母は、\n黙っていた。",
+   "speaker": "narrator",
+   "characters": [
+    "mother"
+   ],
+   "action": "looking down quietly",
+   "emotion": "sad",
+   "location": "kitchen",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "mother",
+     "image": "cutouts/024.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 25,
+   "beat": "rise3",
+   "text": "次の日曜。\n私は一人で\n病院へ。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "walking with a determined stride",
+   "emotion": "determined",
+   "location": "hospital_entrance",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/025.png"
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 26,
+   "beat": "rise3",
+   "text": "父とは、\nどういう\n関係ですか",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "standing straight, speaking seriously",
+   "emotion": "serious",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/026.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 27,
+   "beat": "rise3",
+   "text": "彼女は、\n目を丸くした。",
+   "speaker": "narrator",
+   "characters": [
+    "nurse"
+   ],
+   "action": "eyes wide open",
+   "emotion": "surprised",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/027.png"
+    },
+    {
+     "image": "stickers/exclaim.png",
+     "size": "tiny",
+     "at": "nurse.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 28,
+   "beat": "rise3",
+   "text": "もしかして…\n娘さん？",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "covering her mouth with both hands",
+   "emotion": "surprised smile",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/028.png"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 29,
+   "beat": "rise3",
+   "text": "大きく、\nなったね",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "smiling warmly with hands clasped",
+   "emotion": "warm smile",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/029.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "nurse"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 30,
+   "beat": "rise3",
+   "text": "…え？",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "frozen, eyes wide",
+   "emotion": "stunned",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "speed_lines"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/030.png"
+    }
+   ],
+   "motion": "shake",
+   "shot": "close"
+  },
+  {
+   "id": 31,
+   "beat": "twist",
+   "text": "あなたは昔、\nここにいたの",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "explaining gently",
+   "emotion": "gentle",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/031.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 32,
+   "beat": "twist",
+   "text": "5歳のとき、\n重い病気でね",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "looking down with a serious face",
+   "emotion": "serious",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/032.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 33,
+   "beat": "twist",
+   "text": "何も、\n覚えて\nいなかった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "holding her head with both hands",
+   "emotion": "shocked",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "gloom"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/033.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 34,
+   "beat": "twist",
+   "text": "お父さん、\n毎晩来てたのよ",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "smiling sadly",
+   "emotion": "sad smile",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/034.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 35,
+   "beat": "twist",
+   "text": "仕事帰りに、\n一日も欠かさず。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "walking quickly down a hallway at night in a suit",
+   "emotion": "worried",
+   "location": "hospital_hallway",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/035.png",
+     "path": [
+      "off_left",
+      "center"
+     ]
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 36,
+   "beat": "twist",
+   "text": "眠る私の手を、\nずっと\n握っていた。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "sitting by a hospital bed, holding a small hand",
+   "emotion": "worried",
+   "location": "hospital_room",
+   "filter": "sepia",
+   "layers": [
+    {
+     "effect": "aura",
+     "on": "father"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/036.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 37,
+   "beat": "twist",
+   "text": "がんばれ…\nがんばれ…",
+   "speaker": "father",
+   "characters": [
+    "father"
+   ],
+   "action": "whispering with tears in his eyes",
+   "emotion": "crying",
+   "location": "hospital_room",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/037.png"
+    },
+    {
+     "effect": "tears",
+     "on": "father"
+    }
+   ],
+   "shot": "close",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 38,
+   "beat": "twist",
+   "text": "手術の前の日、\n写真を\n一枚撮った。",
+   "speaker": "narrator",
+   "characters": [
+    "me_child_sick"
+   ],
+   "action": "sitting on a hospital bed, smiling weakly, making a peace sign",
+   "emotion": "weak smile",
+   "location": "hospital_room",
+   "filter": "sepia",
+   "layers": [
+    {
+     "id": "me_child_sick",
+     "image": "cutouts/038.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "me_child_sick"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 39,
+   "beat": "twist",
+   "text": "それが、\nあの写真だった。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "objects"
+    },
+    {
+     "effect": "aura",
+     "on": "objects"
+    },
+    {
+     "id": "objects",
+     "image": "cutouts/002.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop",
+     "fill_holes": "#F6F1E4"
+    },
+    {
+     "effect": "flash"
+    }
+   ]
+  },
+  {
+   "id": 40,
+   "beat": "twist",
+   "text": "あの子は…\n私だったんだ",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "covering her mouth, crying",
+   "emotion": "crying",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/040.png"
+    },
+    {
+     "effect": "tears",
+     "on": "me"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 41,
+   "beat": "reveal",
+   "text": "手術は成功。\nそれからね",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "smiling gently",
+   "emotion": "gentle smile",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/041.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 42,
+   "beat": "reveal",
+   "text": "毎週ここで、\n子どもたちに",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "pointing toward a room",
+   "emotion": "warm smile",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "nurse",
+     "image": "cutouts/042.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 43,
+   "beat": "reveal",
+   "text": "父は絵本を、\n読んでいたのだ。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "reading a picture book aloud, smiling",
+   "emotion": "kind smile",
+   "location": "hospital_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/043.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "father"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 44,
+   "beat": "reveal",
+   "text": "娘が元気に\nなった\nお礼だって",
+   "speaker": "nurse",
+   "characters": [
+    "nurse"
+   ],
+   "action": "smiling with hands on her chest",
+   "emotion": "warm smile",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "nurse"
+    },
+    {
+     "id": "nurse",
+     "image": "cutouts/044.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 45,
+   "beat": "reveal",
+   "text": "涙で、\n前が\n見えなかった。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "wiping tears with both hands",
+   "emotion": "crying",
+   "location": "hospital_hallway",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/045.png"
+    },
+    {
+     "effect": "tears",
+     "on": "me"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 46,
+   "beat": "ending",
+   "text": "家に帰ると、\n父が待っていた。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "standing awkwardly with hands behind his back",
+   "emotion": "awkward",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/046.png"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "father.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 47,
+   "beat": "ending",
+   "text": "…聞いたのか",
+   "speaker": "father",
+   "characters": [
+    "father"
+   ],
+   "action": "scratching his cheek",
+   "emotion": "embarrassed",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/047.png"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 48,
+   "beat": "ending",
+   "text": "なんで、\n言わなかったの",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "crying with fists clenched",
+   "emotion": "crying",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/048.png"
+    },
+    {
+     "effect": "tears",
+     "on": "me"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 49,
+   "beat": "ending",
+   "text": "怖い思い出は、\n忘れた\nままでいい",
+   "speaker": "father",
+   "characters": [
+    "father"
+   ],
+   "action": "speaking gently",
+   "emotion": "gentle",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "on": "father"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/049.png"
+    }
+   ],
+   "shot": "close",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 50,
+   "beat": "ending",
+   "text": "お前が\n笑っていれば、\nそれでいい",
+   "speaker": "father",
+   "characters": [
+    "father"
+   ],
+   "action": "smiling gently for the first time",
+   "emotion": "gentle smile",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "father"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/050.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "father"
+    }
+   ],
+   "shot": "close"
+  },
+  {
+   "id": 51,
+   "beat": "ending",
+   "text": "初めて見た、\n父の笑顔だった。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "smiling warmly",
+   "emotion": "warm smile",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "father"
+    },
+    {
+     "id": "father",
+     "image": "cutouts/051.png"
+    },
+    {
+     "effect": "hearts",
+     "on": "father"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 52,
+   "beat": "ending",
+   "text": "お父さん、\nありがとう",
+   "speaker": "me",
+   "characters": [
+    "me"
+   ],
+   "action": "smiling through tears",
+   "emotion": "happy tears",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/052.png"
+    },
+    {
+     "effect": "hearts",
+     "on": "me"
+    }
+   ],
+   "shot": "half",
+   "alt_pose": "mouth open while talking"
+  },
+  {
+   "id": 53,
+   "beat": "ending",
+   "text": "父は照れて、\nそっぽを向いた。",
+   "speaker": "narrator",
+   "characters": [
+    "father"
+   ],
+   "action": "looking away with red cheeks",
+   "emotion": "embarrassed",
+   "location": "genkan",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/053.png"
+    },
+    {
+     "image": "stickers/sweat.png",
+     "size": "tiny",
+     "at": "father.beside_left",
+     "anim": "pop",
+     "start": 0.3
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 54,
+   "beat": "ending",
+   "text": "やっと、\n言えたね",
+   "speaker": "mother",
+   "characters": [
+    "mother"
+   ],
+   "action": "smiling with tears",
+   "emotion": "happy tears",
+   "location": "kitchen",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "aura",
+     "colour": "#FFB3D1",
+     "on": "mother"
+    },
+    {
+     "id": "mother",
+     "image": "cutouts/054.png"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 55,
+   "beat": "ending",
+   "text": "次の日曜は、\n二人で病院へ。",
+   "speaker": "narrator",
+   "characters": [
+    "father",
+    "me"
+   ],
+   "action": "walking forward, smiling",
+   "emotion": "happy",
+   "location": "hospital_entrance",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "father",
+     "image": "cutouts/055_father.png",
+     "size": "large",
+     "at": "left"
+    },
+    {
+     "id": "me",
+     "image": "cutouts/055_me.png",
+     "size": "large",
+     "at": "right"
+    }
+   ],
+   "shot": "full",
+   "alt_pose": "the other leg stepping forward, arms swinging the other way"
+  },
+  {
+   "id": 56,
+   "beat": "ending",
+   "text": "私も一緒に、\n絵本を読んだ。",
+   "speaker": "narrator",
+   "characters": [
+    "me"
+   ],
+   "action": "reading a picture book aloud, smiling",
+   "emotion": "happy",
+   "location": "hospital_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "me",
+     "image": "cutouts/056.png"
+    },
+    {
+     "effect": "sparkles",
+     "on": "me"
+    }
+   ],
+   "shot": "half"
+  },
+  {
+   "id": 57,
+   "beat": "loop",
+   "text": "今、\n私の財布にも、",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "id": "objects",
+     "image": "cutouts/057.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ],
+   "object": "an open pink leather wallet seen from the front, nothing else, no table; tucked in its clear card pocket is old instant photograph with a thick white border, slightly bent at one corner, lying flat; inside the photo frame a five-year-old girl with very short hair in light blue hospital pajamas smiles weakly and makes a peace sign"
+  },
+  {
+   "id": 58,
+   "beat": "loop",
+   "text": "あの写真が、\n入っている。",
+   "speaker": "narrator",
+   "characters": [],
+   "action": "",
+   "emotion": "",
+   "location": "dining_room",
+   "filter": "none",
+   "layers": [
+    {
+     "effect": "rays",
+     "on": "objects"
+    },
+    {
+     "effect": "aura",
+     "on": "objects"
+    },
+    {
+     "id": "objects",
+     "image": "cutouts/002.png",
+     "size": "large",
+     "at": "center",
+     "anim": "pop",
+     "fill_holes": "#F6F1E4"
+    },
+    {
+     "effect": "sparkles",
+     "on": "objects"
+    }
+   ]
+  }
+ ]
+}

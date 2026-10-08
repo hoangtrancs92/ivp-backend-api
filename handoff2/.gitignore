@@ -1,0 +1,7 @@
+config.toml
+*.safetensors
+dataset/
+videos/
+build/
+build_tmp/
+__pycache__/

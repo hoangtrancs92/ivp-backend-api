@@ -1,0 +1,20 @@
+{
+ "jobs": [
+  {
+   "name": "ref_me",
+   "prompt": "irasutoya_style, young japanese woman in her twenties, shoulder-length brown hair, white blouse, navy skirt, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ref_me_child",
+   "prompt": "irasutoya_style, eight-year-old japanese girl, short black hair with bangs, yellow t-shirt, red skirt, standing straight facing forward, arms down, calm neutral face, full body, white background"
+  },
+  {
+   "name": "ch_009_alt",
+   "seed": 590,
+   "refs": [
+    "char__009.png"
+   ],
+   "prompt": "irasutoya_style, change only the pose: the other leg stepping forward, arms swinging the other way. keep the same character, face, hairstyle, accessories, clothes, colors, size, position and white background unchanged, full body"
+  }
+ ]
+}

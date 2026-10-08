@@ -1,0 +1,1838 @@
+{
+  "title": [
+    "【神プレイ】",
+    "最後の3秒で奇跡が起きた！"
+  ],
+  "genre": "Bí ẩn, hồi hộp",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "gamer_haru": "#FF8A3D",
+    "ally_girl": "#F48FB1",
+    "enemy_scout": "#BA68C8",
+    "enemy_heavy": "#A1887F",
+    "enemy_sniper": "#7986CB",
+    "enemy_boss": "#E53935"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "残りHP、\nたったの5。",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "crouching low, gritting his teeth, holding one black and orange blaster rifle in both hands, small scratches on his cheek",
+      "emotion": "strained",
+      "shot": "close",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "motion": "punch_in",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "敵チームに、\n完全に囲まれた。",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_scout",
+        "enemy_heavy",
+        "enemy_sniper"
+      ],
+      "action": "aiming one weapon forward with both hands, menacing grin",
+      "emotion": "menacing",
+      "shot": "half",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "enemy_scout",
+          "image": "cutouts/002_enemy_scout.png",
+          "at": "left"
+        },
+        {
+          "id": "enemy_heavy",
+          "image": "cutouts/002_enemy_heavy.png",
+          "at": "center"
+        },
+        {
+          "id": "enemy_sniper",
+          "image": "cutouts/002_enemy_sniper.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "もう逃げ場は\nねぇぞ、坊主。",
+      "speaker": "enemy_boss",
+      "characters": [
+        "enemy_boss"
+      ],
+      "action": "standing with arms crossed, smirking, one long crimson energy blade sheathed on his back, both hands empty",
+      "emotion": "smug",
+      "shot": "half",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "enemy_boss",
+          "image": "cutouts/003.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "ヒャハハ、\n1対4だぜ！",
+      "speaker": "enemy_scout",
+      "characters": [
+        "enemy_scout"
+      ],
+      "action": "laughing loudly, pointing forward with his left hand, holding one purple pistol in his right hand",
+      "emotion": "mocking",
+      "shot": "half",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "alt_pose": "laughing with head tilted back, pistol lowered",
+      "layers": [
+        {
+          "id": "enemy_scout",
+          "image": "cutouts/004.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "味方は、\nすでに全員ダウン。",
+      "speaker": "narrator",
+      "characters": [
+        "ally_girl"
+      ],
+      "action": "lying face down on the ground, exhausted, both hands empty",
+      "emotion": "defeated",
+      "shot": "full",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "ally_girl",
+          "image": "cutouts/005.png",
+          "at": "floor"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "ごめん…\nあとは、頼む…",
+      "speaker": "ally_girl",
+      "characters": [
+        "ally_girl"
+      ],
+      "action": "lying on the ground, lifting her head weakly, reaching forward with one empty hand",
+      "emotion": "fading",
+      "shot": "close",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ally_girl",
+          "image": "cutouts/006.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "ally_girl.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "setup",
+      "text": "深夜2時。\n配信者ハルの部屋。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "quiet",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "word": "カタカタカタ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "setup",
+      "text": "いや、これ\n無理だろ…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, leaning forward, holding one black game controller in both hands, staring ahead",
+      "emotion": "panicked",
+      "shot": "half",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, shoulders hunched",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/008.png"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "setup",
+      "text": "コメント欄は、\nもう諦めムード。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "hopeless",
+      "object": "a glowing computer monitor showing a game screen and a chat panel",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/009.png"
+        },
+        {
+          "word": "終わった",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "setup",
+      "text": "1対4は、\nさすがにキツい…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "wincing, biting his lip, sweat on his forehead",
+      "emotion": "nervous",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/010.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "gamer_haru.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "setup",
+      "text": "誰もが思った。\n「もう終わった」と。",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "kneeling on one knee, head down, holding one black and orange blaster rifle loosely in his right hand",
+      "emotion": "despairing",
+      "shot": "full",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/011.png"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "setup",
+      "text": "……いや、\n待てよ。",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "eyes narrowing, suddenly very still, mouth closed",
+      "emotion": "focused",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "motion": "focus",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/012.png"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "setup",
+      "text": "その瞬間、\n彼の目が変わった。",
+      "speaker": "narrator",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, gripping one black game controller tightly in both hands, sharp eyes",
+      "emotion": "intense",
+      "shot": "half",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "gamer_haru",
+          "colour": "#FF8A3D"
+        },
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/013.png"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "setup",
+      "text": "残弾は、\nまだ12発。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "hopeful",
+      "object": "a black bullet magazine with a few golden bullets inside",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/014.png"
+        },
+        {
+          "word": "×12",
+          "size": 90,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "setup",
+      "text": "やるしか\nねぇだろ。",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "small fearless grin, adjusting his headset with his right hand",
+      "emotion": "determined",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/015.png"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise1",
+      "text": "ここから、\n反撃開始！",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "dashing forward, holding one black and orange blaster rifle in both hands",
+      "emotion": "fierce",
+      "shot": "full",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "alt_pose": "dashing forward with the other leg in front",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/016.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.6
+        },
+        {
+          "word": "ダッ",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise1",
+      "text": "なっ、\n動いただと！？",
+      "speaker": "enemy_scout",
+      "characters": [
+        "enemy_scout"
+      ],
+      "action": "flinching back in surprise, holding one purple pistol in his right hand",
+      "emotion": "startled",
+      "shot": "half",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "enemy_scout",
+          "image": "cutouts/017.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "enemy_scout.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise1",
+      "text": "まずは、\n1人目！",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "in side view, aiming one black and orange blaster rifle toward the right with both hands",
+      "emotion": "concentrated",
+      "shot": "half",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/018.png"
+        },
+        {
+          "word": "バーン",
+          "size": 90,
+          "at": "top_right"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise1",
+      "text": "撃破！\n残り3人！",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_scout"
+      ],
+      "action": "falling backward onto the ground, one purple pistol slipping from his right hand",
+      "emotion": "knocked out",
+      "shot": "full",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "enemy_scout",
+          "image": "cutouts/019.png",
+          "anim": "drop"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise1",
+      "text": "よっしゃ、\n1人！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "pumping his right fist, wide grin",
+      "emotion": "fired-up",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/020.png"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "gamer_haru.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise1",
+      "text": "コメント欄が、\nざわつき始める。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "curious",
+      "object": "a glowing computer monitor showing a game screen and a chat panel",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/021.png"
+        },
+        {
+          "word": "え？",
+          "size": 90,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise1",
+      "text": "調子に\n乗るなァ！",
+      "speaker": "enemy_heavy",
+      "characters": [
+        "enemy_heavy"
+      ],
+      "action": "roaring, holding one large black gatling gun at his hip with both hands",
+      "emotion": "furious",
+      "shot": "half",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "enemy_heavy",
+          "image": "cutouts/022.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "enemy_heavy.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise1",
+      "text": "スライディングで、\n弾幕をかわす！",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "in side view, sliding low on the ground, holding one black and orange blaster rifle in both hands",
+      "emotion": "agile",
+      "shot": "full",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/023.png",
+          "anim": "slide_right"
+        },
+        {
+          "word": "シュッ",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise1",
+      "text": "崩れた倉庫に、\n滑り込む。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "tense",
+      "location": "game_warehouse_dusk",
+      "filter": "none",
+      "transition": "push_left",
+      "layers": []
+    },
+    {
+      "id": 25,
+      "beat": "rise1",
+      "text": "ここで、\n待ち伏せだ…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "crouching low, holding one black and orange blaster rifle close to his chest, breathing hard",
+      "emotion": "cautious",
+      "shot": "half",
+      "location": "game_warehouse_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/025.png",
+          "anim": "breathe"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise1",
+      "text": "重装兵が、\nゆっくり入ってきた。",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_heavy"
+      ],
+      "action": "walking slowly forward, holding one large black gatling gun at his hip, scanning around",
+      "emotion": "suspicious",
+      "shot": "full",
+      "location": "game_warehouse_dusk",
+      "filter": "none",
+      "alt_pose": "walking slowly with the other foot forward",
+      "layers": [
+        {
+          "id": "enemy_heavy",
+          "image": "cutouts/026.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.0
+        },
+        {
+          "word": "ゴゴゴ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise1",
+      "text": "今だっ！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "aiming one black and orange blaster rifle forward, sharp eyes, one eye narrowed",
+      "emotion": "decisive",
+      "shot": "close",
+      "location": "game_warehouse_dusk",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/027.png"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "rise1",
+      "text": "2人目、撃破！",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_heavy"
+      ],
+      "action": "dropping to his knees, one large black gatling gun falling from his hands",
+      "emotion": "defeated",
+      "shot": "full",
+      "location": "game_warehouse_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "enemy_heavy",
+          "image": "cutouts/028.png",
+          "anim": "sink"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "rise1",
+      "text": "うおお、\n2人目ぇ！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, raising one black game controller above his head with both hands, shouting",
+      "emotion": "thrilled",
+      "shot": "half",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "alt_pose": "seated, holding the controller at his chest, bouncing",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/029.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "gamer_haru"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "rise1",
+      "text": "同接が、\n一気に跳ね上がる。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "excited",
+      "object": "a glowing computer monitor showing a game screen and a chat panel",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/030.png"
+        },
+        {
+          "word": "マジ！？",
+          "size": 90,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise2",
+      "text": "……見つけた。",
+      "speaker": "enemy_sniper",
+      "characters": [
+        "enemy_sniper"
+      ],
+      "action": "looking through the scope of one long navy sniper rifle held in both hands",
+      "emotion": "cold",
+      "shot": "half",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "enemy_sniper",
+          "image": "cutouts/031.png"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise2",
+      "text": "被弾！\nHPは3に！",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "flinching sharply, left hand clutching his shoulder, holding one black and orange blaster rifle in his right hand",
+      "emotion": "hurt",
+      "shot": "close",
+      "location": "game_warehouse_dusk",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/032.png"
+        },
+        {
+          "word": "ガーン",
+          "size": 90,
+          "at": "top_left"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise2",
+      "text": "やばい、\nやばいって！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "eyes wide, sweating, pressing his headset with his left hand",
+      "emotion": "frantic",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "alt_pose": "mouth wide open while shouting",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/033.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "gamer_haru.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise2",
+      "text": "撃ってきたのは、\n屋上だ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "ominous",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "motion": "tilt_up",
+      "transition": "wipe",
+      "layers": []
+    },
+    {
+      "id": 35,
+      "beat": "rise2",
+      "text": "階段を、\n一気に駆け上がる。",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "seen from behind, running forward, holding one black and orange blaster rifle in his right hand",
+      "emotion": "urgent",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "alt_pose": "seen from behind, running with the other leg forward",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/035.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.7
+        },
+        {
+          "word": "タタタ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise2",
+      "text": "リロードの、\n一瞬のスキ。",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_sniper"
+      ],
+      "action": "in side view, kneeling on one knee, reloading one long navy sniper rifle",
+      "emotion": "distracted",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "enemy_sniper",
+          "image": "cutouts/036.png"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "rise2",
+      "text": "そこ、\nもらったぁ！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "shouting, leaning toward the screen, intense stare",
+      "emotion": "explosive",
+      "shot": "close",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "gamer_haru"
+        },
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/037.png"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "rise2",
+      "text": "3人目、撃破！",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_sniper"
+      ],
+      "action": "staggering backward, one long navy sniper rifle slipping from her hands",
+      "emotion": "stunned",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "enemy_sniper",
+          "image": "cutouts/038.png",
+          "anim": "exit_right"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "rise2",
+      "text": "残るは、\nあと1人。",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "standing, panting, holding one black and orange blaster rifle lowered in his right hand",
+      "emotion": "breathless",
+      "shot": "half",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/039.png"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "rise2",
+      "text": "HP3、弾も少ない。\nでも…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, holding one black game controller in both hands, swallowing hard",
+      "emotion": "tense",
+      "shot": "half",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/040.png"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "rise2",
+      "text": "コメント欄は、\nお祭り騒ぎ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "hyped",
+      "object": "a glowing computer monitor showing a game screen and a chat panel",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/041.png"
+        },
+        {
+          "word": "神",
+          "size": 110,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "rise2",
+      "text": "いける…\nいけるぞ！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, leaning forward with a wide grin, holding one black game controller in both hands",
+      "emotion": "confident",
+      "shot": "half",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, grinning",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/042.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "gamer_haru"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "rise2",
+      "text": "だが、その背後に\n最後の敵が――",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_boss"
+      ],
+      "action": "walking in slowly, holding one long crimson energy blade in his right hand, left hand empty",
+      "emotion": "menacing",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "enemy_boss",
+          "image": "cutouts/043.png",
+          "path": [
+            "off_right",
+            "right"
+          ],
+          "over": 1.0
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "rise2",
+      "text": "遊びは、\nここまでだ。",
+      "speaker": "enemy_boss",
+      "characters": [
+        "enemy_boss"
+      ],
+      "action": "cold grin, eyes glowing faintly red",
+      "emotion": "sinister",
+      "shot": "close",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "enemy_boss",
+          "colour": "#E53935"
+        },
+        {
+          "id": "enemy_boss",
+          "image": "cutouts/044.png"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "rise3",
+      "text": "強烈な、\n一撃！",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "knocked down, sitting on the ground, one hand on the floor, one black and orange blaster rifle lying beside him",
+      "emotion": "winded",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "motion": "shake",
+      "transition": "flash",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/045.png",
+          "at": "floor"
+        },
+        {
+          "word": "ドン",
+          "size": 100,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "rise3",
+      "text": "残りHP、\nついに1。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "critical",
+      "object": "a red health bar almost empty with one tiny red segment",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/046.png"
+        },
+        {
+          "word": "HP 1",
+          "size": 100,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "rise3",
+      "text": "うそだろ…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "frozen, mouth half open, pale face",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/047.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "gamer_haru.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "rise3",
+      "text": "弾も、\n残りたった1発。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "desperate",
+      "object": "a black bullet magazine with only one golden bullet left",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/048.png"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "rise3",
+      "text": "1発で、\nどうしろと…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, slumping, holding one black game controller loosely in both hands",
+      "emotion": "discouraged",
+      "shot": "half",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/049.png"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "rise3",
+      "text": "もう、\nダメなのか…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "kneeling, head hanging low, holding one black and orange blaster rifle loosely in his right hand",
+      "emotion": "hopeless",
+      "shot": "half",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/050.png"
+        },
+        {
+          "word": "ズーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "rise3",
+      "text": "これで\n終わりだぁ！",
+      "speaker": "enemy_boss",
+      "characters": [
+        "enemy_boss"
+      ],
+      "action": "raising one long crimson energy blade high above his head with both hands",
+      "emotion": "ruthless",
+      "shot": "half",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "enemy_boss",
+          "image": "cutouts/051.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "enemy_boss.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "rise3",
+      "text": "誰もが、\n目をそらした。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "resigned",
+      "object": "a glowing computer monitor showing a game screen and a chat panel",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/052.png"
+        },
+        {
+          "word": "あー…",
+          "size": 90,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "rise3",
+      "text": "……まだだ。",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "opening his eyes sharply, jaw set",
+      "emotion": "resolute",
+      "shot": "close",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/053.png"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "rise3",
+      "text": "あとは、\n頼む…",
+      "speaker": "ally_girl",
+      "characters": [
+        "ally_girl"
+      ],
+      "action": "lying on the ground, lifting her head weakly, reaching forward with one empty hand",
+      "emotion": "pleading",
+      "shot": "close",
+      "location": "game_ruined_street_dusk",
+      "filter": "sepia",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "ally_girl",
+          "image": "cutouts/054.png"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "rise3",
+      "text": "諦めて、\nたまるかよ！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, gripping one black game controller tightly in both hands, leaning in",
+      "emotion": "fierce",
+      "shot": "half",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "gamer_haru",
+          "colour": "#FF8A3D"
+        },
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/055.png"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "beat": "rise3",
+      "text": "最後の攻撃が、\n迫る！",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_boss"
+      ],
+      "action": "lunging forward, swinging one long crimson energy blade down with both hands",
+      "emotion": "savage",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "enemy_boss",
+          "image": "cutouts/056.png",
+          "anim": "approach"
+        },
+        {
+          "word": "ヒュン",
+          "size": 80,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "rise3",
+      "text": "その瞬間――",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "breathless",
+      "location": "mood_shock",
+      "filter": "none",
+      "transition": "flash",
+      "music_stop": true,
+      "layers": [
+        {
+          "word": "シーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "beat": "twist",
+      "text": "ほんの一瞬の、\n横ステップ！",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "in side view, stepping quickly to the side in a low dodge, holding one black and orange blaster rifle in both hands",
+      "emotion": "razor-sharp",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/058.png",
+          "anim": "slide_left"
+        },
+        {
+          "word": "シュッ",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "beat": "twist",
+      "text": "なにっ！？",
+      "speaker": "enemy_boss",
+      "characters": [
+        "enemy_boss"
+      ],
+      "action": "eyes wide in shock, one long crimson energy blade swung down low in both hands",
+      "emotion": "shocked",
+      "shot": "half",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "id": "enemy_boss",
+          "image": "cutouts/059.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "enemy_boss.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "beat": "twist",
+      "text": "攻撃は、\n空を切った。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "suspended",
+      "object": "a crimson energy blade slicing through empty air with sparks",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/060.png"
+        },
+        {
+          "word": "スカッ",
+          "size": 90,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "beat": "twist",
+      "text": "ここだぁぁ！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "screaming with full force, eyes blazing",
+      "emotion": "explosive",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "gamer_haru",
+          "colour": "#FFD54F"
+        },
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/061.png"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "beat": "twist",
+      "text": "最後の、\n一発。",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero"
+      ],
+      "action": "aiming one black and orange blaster rifle forward, one eye closed, perfectly steady",
+      "emotion": "calm",
+      "shot": "close",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "avatar_hero",
+          "colour": "#29B6F6"
+        },
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/062.png"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "beat": "twist",
+      "text": "撃ち抜けぇっ！",
+      "speaker": "gamer_haru",
+      "characters": [],
+      "action": null,
+      "emotion": "climactic",
+      "object": "a single glowing orange bullet flying with a bright trail",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/063.png"
+        },
+        {
+          "word": "バーン",
+          "size": 110,
+          "at": "top_left"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "beat": "twist",
+      "text": "ラスト1人、\n撃破――",
+      "speaker": "narrator",
+      "characters": [
+        "enemy_boss"
+      ],
+      "action": "falling backward, one long crimson energy blade flying out of his right hand",
+      "emotion": "defeated",
+      "shot": "full",
+      "location": "game_rooftop_wind_dusk",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "id": "enemy_boss",
+          "image": "cutouts/064.png",
+          "anim": "exit_left"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "beat": "twist",
+      "text": "「WIN！」",
+      "speaker": "narrator",
+      "characters": [
+        "avatar_hero",
+        "ally_girl"
+      ],
+      "action": "jumping with both arms raised, cheering, both hands empty",
+      "emotion": "triumphant",
+      "shot": "full",
+      "location": "mood_happy_sparkle",
+      "filter": "none",
+      "transition": "flash",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/065_avatar_hero.png",
+          "at": "left",
+          "anim": "jump"
+        },
+        {
+          "id": "ally_girl",
+          "image": "cutouts/065_ally_girl.png",
+          "at": "right",
+          "anim": "jump"
+        },
+        {
+          "word": "WIN",
+          "size": 130,
+          "at": "top"
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "beat": "ending",
+      "text": "勝ったぁぁぁ！！",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "seated, throwing both fists in the air, holding one black game controller in his right hand, headset slipping",
+      "emotion": "ecstatic",
+      "shot": "half",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "alt_pose": "seated, shouting with both fists pulled to his chest",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/066.png"
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "beat": "ending",
+      "text": "コメントが、\n止まらない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "overjoyed",
+      "object": "a glowing computer monitor showing a game screen and a chat panel",
+      "location": "streamer_desk_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/067.png"
+        },
+        {
+          "word": "神プレイ",
+          "size": 100,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "beat": "ending",
+      "text": "手、まだ\n震えてる…",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "laughing with teary eyes, looking down at his open hands",
+      "emotion": "overwhelmed",
+      "shot": "close",
+      "location": "streamer_room_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/068.png",
+          "anim": "shiver"
+        },
+        {
+          "effect": "tears",
+          "on": "gamer_haru"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "beat": "ending",
+      "text": "ありがとう！\n信じてたよ！",
+      "speaker": "ally_girl",
+      "characters": [
+        "avatar_hero",
+        "ally_girl"
+      ],
+      "action": "smiling brightly, giving a thumbs up with the right hand, left hand empty",
+      "emotion": "grateful",
+      "shot": "half",
+      "location": "game_ruined_street_dusk",
+      "filter": "none",
+      "alt_pose": "laughing with eyes closed, thumbs up",
+      "layers": [
+        {
+          "id": "avatar_hero",
+          "image": "cutouts/069_avatar_hero.png",
+          "at": "left"
+        },
+        {
+          "id": "ally_girl",
+          "image": "cutouts/069_ally_girl.png",
+          "at": "right"
+        },
+        {
+          "effect": "hearts",
+          "on": "ally_girl"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "beat": "ending",
+      "text": "気づけば、\n外は朝だった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "peaceful",
+      "location": "streamer_room_dawn",
+      "filter": "none",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 71,
+      "beat": "ending",
+      "text": "あの3秒は、\n一生忘れない。",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "standing, seen from behind, stretching both arms up, headset around his neck, both hands empty",
+      "emotion": "satisfied",
+      "shot": "full",
+      "location": "streamer_room_dawn",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/071.png"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "beat": "ending",
+      "text": "最後まで諦めないって、\n大事だな。",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "standing, headset around his neck, soft smile, right hand rubbing the back of his head",
+      "emotion": "reflective",
+      "shot": "half",
+      "location": "streamer_room_dawn",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, soft smile",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "gamer_haru",
+          "colour": "#FFCC80"
+        },
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/072.png"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "beat": "ending",
+      "text": "残りHP1からの、\n大逆転。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "proud",
+      "object": "a computer monitor showing a victory screen with a big golden trophy",
+      "location": "streamer_room_dawn",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/073.png"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "beat": "ending",
+      "text": "これ、\n予想できた？",
+      "speaker": "narrator",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "turning around, pointing toward the viewer with his right hand, confident grin, headset around his neck",
+      "emotion": "playful",
+      "shot": "half",
+      "location": "streamer_room_dawn",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/074.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "gamer_haru.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "beat": "ending",
+      "text": "このプレイ、\nあなたなら\n何点つける？",
+      "speaker": "gamer_haru",
+      "characters": [
+        "gamer_haru"
+      ],
+      "action": "smiling at the viewer, giving a thumbs up with his right hand",
+      "emotion": "cheeky",
+      "shot": "close",
+      "location": "streamer_room_dawn",
+      "filter": "none",
+      "alt_pose": "winking, thumbs up",
+      "layers": [
+        {
+          "id": "gamer_haru",
+          "image": "cutouts/075.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "gamer_haru"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "gamer_haru.beside_left",
+          "size": "tiny"
+        }
+      ]
+    }
+  ]
+}

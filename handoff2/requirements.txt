@@ -1,0 +1,4 @@
+# Máy local. Ghi cố định phiên bản ngay khi mọi thứ chạy được.
+kaggle
+pillow
+rembg

@@ -1,0 +1,89 @@
+# Thông số của pipeline. Sửa ở đây, không sửa trong code. File này không chứa khóa bí mật
+# (tài khoản Kaggle và khóa API nằm trong config.toml ở thư mục gốc).
+# Mô tả nhân vật: config/characters.json. Prompt bối cảnh: config/locations.json.
+
+[generation]        # sinh ảnh trên Kaggle; cả mục này được gửi lên kèm jobs.json
+model = "black-forest-labs/FLUX.2-klein-4B"
+lora_file = "irasutoya_style_v1.safetensors"   # = checkpoint 750, tên file trong dataset LoRA trên Kaggle
+size_text = 1024     # cạnh ảnh sinh từ chữ; đã đo vừa T4
+size_ref = 768       # cạnh ảnh có ảnh tham chiếu; 1024 hết VRAM trên T4
+ref_size = 512       # ảnh tham chiếu được thu về cạnh này trước khi đưa vào model
+steps = 4
+seed = 42
+ref_wait = 900       # giây tối đa một ảnh chờ ảnh tham chiếu do GPU khác sinh; quá thì báo lỗi
+
+[background]        # ảnh nền, do tools/make_bg_jobs.py đưa vào jobs.json
+lora = 0.8           # cố định: cường độ style LoRA cho nền (đã thử 0 / 0.5 / 0.8 / 1.0, chọn 0.8)
+width = 768          # 768 x 1344 gần 9:16; khi dựng được phóng lên 1080 x 1920
+height = 1344
+
+[cutout]            # bước 4, tách nền
+# Ảnh nhân vật và đồ vật sinh trên nền màu đặc rồi tách theo màu (đã thử: nền trắng làm áo trắng, bọt bia bị khoét thủng)
+key_prompt = "on a solid flat pure green background (#00FF00), no shadow"
+key_low = 70         # khoảng cách màu tới màu nền (0-441) dưới mức này: trong suốt hoàn toàn
+key_high = 140       # trên mức này: đục hoàn toàn; ở giữa: viền mềm
+spill_min_bright = 120   # khử ánh màu nền chỉ ở pixel sáng (hai kênh kia đều >= mức này): thủy tinh, bọt, áo trắng
+spill_max = 90           # và chỉ khi kênh màu nền vượt không quá mức này (màu xanh lá thật vượt nhiều hơn)
+model = "isnet-general-use"   # chỉ dùng cho ảnh nền trắng cũ; ~0,7 giây/ảnh; "bria-rmbg" (mặc định của rembg) ~15 giây/ảnh và ~13GB RAM
+
+[voice]             # bước 6; giọng của từng nhân vật nằm trong config/characters.json
+silence_db = -45     # cắt khoảng lặng đầu và cuối câu dưới ngưỡng này (dB)
+tempo = 1.2          # tốc độ đọc (giữ cao độ; góp ý 2026-10-08: TTS 1.2-1.5x, video 45-60 giây); áp cho file giọng mới
+
+[video]             # bước 7
+pad = 0.08           # giây nghỉ sau mỗi câu (trước 0.15; góp ý: nhịp nhanh hơn)
+sfx_below_voice = 7  # (12 → 7: người dùng muốn hiệu ứng to hơn chút, vẫn dưới giọng) hiệu ứng nhỏ hơn giọng nói của cảnh bao nhiêu dB (đo độ to từng file rồi chỉnh); số lớn = nhỏ hơn
+ambient_below_voice = 22 # tiếng nền (mưa, ga tàu, lớp học... library/sfx/lab/amb_*) nhỏ hơn giọng bao nhiêu dB
+sfx_volume = 1.0     # nhân thêm sau khi đã chỉnh theo giọng; 0 để tắt hiệu ứng
+ambient_volume = 1.0 # nhân thêm cho tiếng nền; 0 để tắt
+music_volume = 0.12  # (cũ) không còn dùng: nhạc nền chỉnh theo music_below_voice
+music_below_voice = 18 # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB (đo độ to rồi chỉnh); library/bgm, tools/fetch_bgm.py
+title_size = 190     # cỡ chữ dòng 1 tiêu đề (dòng 2 x0,8; dòng dài tự co cho vừa bề ngang) (chữ vàng viền nâu đậm trên dải đen, gần kín bề ngang như video mẫu)
+title_band = 380     # chiều cao dải đen chứa tiêu đề ở trên cùng (px); 0 để bỏ dải
+subtitle_size = 122  # cỡ chữ phụ đề (144 → 122 theo video mẫu: 2 dòng ~8 chữ, chữ to viền trắng dày); tự ngắt dòng
+narration_colour = "#2747F5" # màu chữ lời kể (chữ màu, viền trắng như video mẫu); lời thoại dùng màu speaker, làm đậm
+subtitle_margin = 30 # lề trái phải của phụ đề (px)
+subtitle_top = 410   # mép trên của phụ đề (px từ đỉnh khung), ngay dưới dải tiêu đề
+transition = 0.3     # giây chuyển cảnh (mờ, đẩy, lia, chớp...) ở đầu mỗi cảnh; "cut" thì không có
+alt_interval = 0.25  # giây giữa hai lần đổi tư thế ở cảnh có alt_pose (bước chân, nói, vẫy tay)
+
+[layout]            # bố cục lớp; tọa độ theo tỉ lệ khung hình, (0,0) là góc trên trái
+sticker_gap = 0.015  # khoảng hở giữa sticker và đầu nhân vật (beside_left, beside_right, above)
+edge_margin = 0.01   # lề tối thiểu từ lớp đứng yên ("at") tới mép khung; sticker tràn mép thì đổi bên
+[layout.slots]       # vị trí có tên: tâm của lớp (x, y)
+center = [0.50, 0.70]
+left = [0.28, 0.72]
+right = [0.72, 0.72]
+top = [0.50, 0.40]
+top_left = [0.20, 0.40]
+top_right = [0.80, 0.40]
+bottom = [0.50, 0.86]
+off_left = [-0.35, 0.72]
+off_right = [1.35, 0.72]
+off_top = [0.50, -0.25]
+off_bottom = [0.50, 1.25]
+
+[layout.sizes]       # kích thước có tên: chiều cao của lớp so với khung hình
+tiny = 0.07
+small = 0.15
+medium = 0.28
+large = 0.62         # nhân vật toàn thân (0.42 → 0.52 → 0.62: góp ý 2026-10-08 nhân vật chiếm khoảng 2/3 khung hình)
+huge = 0.62
+
+[shots]             # khung hình của cảnh ("shot" trong script.json); quy tắc chọn: config/script_guide.md
+# prompt: chèn vào prompt ảnh nhân vật; size, at: cỡ và vị trí mặc định của lớp nhân vật khi kịch bản bỏ trống
+# at = "floor": đứng sát mép dưới khung hình (nửa người, cận mặt như máy quay cắt ngang người)
+[shots.full]
+prompt = "full body"
+size = 0.64          # khoảng 2/3 khung hình, chân sát mép dưới
+at = "floor"
+
+[shots.half]
+prompt = "upper body from the waist up, cropped at the waist, filling the frame"
+size = 0.66
+at = "floor"
+
+[shots.close]
+prompt = "close-up of the face and shoulders, cropped at the chest, filling the frame"
+size = 0.62
+at = "floor"

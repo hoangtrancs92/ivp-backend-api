@@ -1,0 +1,18 @@
+config.toml
+*.safetensors
+dataset/
+build/
+work/
+__pycache__/
+# mỗi video chỉ lưu script.json và jobs.json; ảnh, âm thanh, video sinh lại được
+videos/**/*.png
+videos/**/*.wav
+videos/**/*.mp3
+videos/**/*.mp4
+data/
+
+# 効果音ラボ: cấm phát tán lại file gốc (tools/fetch_sfx.py)
+library/sfx/lab/
+
+# 甘茶の音楽工房: cấm phát tán lại nhạc, cấm Content ID (tools/fetch_bgm.py)
+library/bgm/

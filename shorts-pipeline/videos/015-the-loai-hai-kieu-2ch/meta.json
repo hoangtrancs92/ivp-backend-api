@@ -1,0 +1,7 @@
+{
+ "owner": "nickytiktok",
+ "created": 1791380056.2262704,
+ "script_model": "claude-opus-5-5",
+ "review_model": "claude-opus-5-5",
+ "review_mode": "manual"
+}

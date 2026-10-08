@@ -1,0 +1,19 @@
+{
+ "jobs": [
+  {
+   "name": "ch_018",
+   "seed": 1180,
+   "fix": "exactly three school notebooks, with the ivory notebook partly open to blackened cream pages, no separate black notebook",
+   "prompt": "irasutoya_style, exactly three school notebooks, with the ivory notebook partly open to blackened cream pages, no separate black notebook, three school notebooks scattered at different angles: one worn ivory B5 notebook with cobalt blue cloth spine and a white blue-bordered name label bearing 高橋蓮, partly open to blackened cream pages; one closed dark green notebook; one closed brown notebook; no hands, bags, or furniture, no people, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_036_alt",
+   "seed": 3860,
+   "refs": [
+    "char__036.png"
+   ],
+   "fix": "holding exactly one new mint-green B5 notebook with a plain unmarked cover and white stitched spine in his right hand, left hand empty, no old notebook",
+   "prompt": "irasutoya_style, holding exactly one new mint-green B5 notebook with a plain unmarked cover and white stitched spine in his right hand, left hand empty, no old notebook, change only the pose: taking another slow step while holding the same single new mint-green notebook in his right hand, left hand empty, no old notebook. keep the same character, face, hairstyle, accessories, clothes, held objects, colors, size, position, framing and background unchanged"
+  }
+ ]
+}

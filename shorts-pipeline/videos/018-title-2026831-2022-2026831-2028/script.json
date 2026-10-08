@@ -1,0 +1,1357 @@
+{
+  "title": [
+    "メッシ、代表引退",
+    "〜少年が残した最後の背中〜"
+  ],
+  "genre": "2ch感動スレ",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "fan_takumi": "#FFD54F",
+    "fan_arg_girl": "#CE93D8",
+    "fan_arg_oldman": "#A1887F"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "リオネル・メッシ、\n代表引退。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "shocked",
+      "object": "a black smartphone showing a red breaking news screen with a few lines of text",
+      "shot": "close",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "transition": "cut",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        },
+        {
+          "word": "速報",
+          "size": 90,
+          "vertical": true,
+          "at": "right"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "2026年8月31日。",
+      "speaker": "narrator",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "staring down at one black smartphone held in his right hand, left hand empty, mouth slightly open",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/002.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "fan_takumi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "世界中が、\nひとつのニュースを見た。",
+      "speaker": "narrator",
+      "characters": [
+        "fan_arg_girl"
+      ],
+      "action": "holding one white smartphone in both hands at chest height, looking up in disbelief",
+      "emotion": "surprised",
+      "shot": "half",
+      "location": "buenos_aires_plaza_night",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "fan_arg_girl",
+          "image": "cutouts/003.png"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "fan_arg_girl.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "嘘だろ…\nメッシが？",
+      "speaker": "fan_takumi",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "holding one black smartphone in his left hand, right hand pressed to his forehead",
+      "emotion": "shocked",
+      "shot": "half",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "alt_pose": "holding one black smartphone in his left hand, right hand pressed to his forehead, mouth open while talking",
+      "layers": [
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/004.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "もう、あのユニフォームは\n着ない。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "seen from behind, standing still with arms at his sides, number 10 visible on his back",
+      "emotion": "melancholy",
+      "shot": "full",
+      "location": "stadium_night_lights",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "messi_captain",
+          "image": "cutouts/005.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "物語は、\nひとりの少年から始まった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "nostalgic",
+      "shot": "full",
+      "location": "rosario_street_dusk_past",
+      "filter": "sepia",
+      "transition": "fade",
+      "motion": "drift",
+      "layers": []
+    },
+    {
+      "id": 7,
+      "beat": "rise1",
+      "text": "アルゼンチン、\nロサリオ。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_boy"
+      ],
+      "action": "holding one old brown leather soccer ball under his right arm, left hand empty, grinning",
+      "emotion": "cheerful",
+      "shot": "half",
+      "location": "rosario_street_dusk_past",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "messi_boy",
+          "image": "cutouts/007.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "messi_boy.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise1",
+      "text": "小さな体で、\nボールを追いかけた。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_boy"
+      ],
+      "action": "in side view, running forward while dribbling one old brown leather soccer ball at his feet",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "rosario_street_dusk_past",
+      "filter": "sepia",
+      "alt_pose": "in side view, running forward with the other leg forward, lightly kicking one old brown leather soccer ball",
+      "layers": [
+        {
+          "id": "messi_boy",
+          "image": "cutouts/008.png"
+        },
+        {
+          "word": "タタッ",
+          "size": 70,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "いつも、\nボールと一緒だった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "nostalgic",
+      "object": "one old brown leather soccer ball on dusty ground",
+      "shot": "close",
+      "location": "rosario_street_dusk_past",
+      "filter": "sepia",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/009.png"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "夢は、\nアルゼンチン代表。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_boy"
+      ],
+      "action": "looking up at the sky with both fists clenched, eyes shining",
+      "emotion": "determined",
+      "shot": "close",
+      "location": "rosario_street_dusk_past",
+      "filter": "sepia",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "messi_boy",
+          "colour": "#FFE082"
+        },
+        {
+          "id": "messi_boy",
+          "image": "cutouts/010.png"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "そして少年は、\n代表のピッチに立った。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_young"
+      ],
+      "action": "walking forward onto the pitch, looking around in awe, arms relaxed",
+      "emotion": "nervous",
+      "shot": "full",
+      "location": "stadium_night_lights",
+      "filter": "none",
+      "transition": "iris",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "id": "messi_young",
+          "image": "cutouts/011.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 1.0
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise1",
+      "text": "歓声が、\nスタジアムを包んだ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "excited",
+      "shot": "full",
+      "location": "stadium_night_lights",
+      "filter": "none",
+      "motion": "pan_right",
+      "layers": [
+        {
+          "word": "ワーッ",
+          "size": 100,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise2",
+      "text": "でも、\n勝てなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_young"
+      ],
+      "action": "head down, wet hair stuck to his forehead, biting his lip",
+      "emotion": "heartbroken",
+      "shot": "close",
+      "location": "stadium_rain_night_defeat",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "messi_young",
+          "image": "cutouts/013.png"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise2",
+      "text": "決勝で、\n何度も負けた。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_young"
+      ],
+      "action": "bent over with both hands on his knees, head hanging low",
+      "emotion": "despair",
+      "shot": "full",
+      "location": "stadium_rain_night_defeat",
+      "filter": "none",
+      "motion": "zoom_out",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "messi_young",
+          "image": "cutouts/014.png"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise2",
+      "text": "手に残ったのは、\n銀メダル。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "sad",
+      "object": "one silver medal with a light blue ribbon lying on dark wet ground",
+      "shot": "close",
+      "location": "stadium_rain_night_defeat",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/015.png"
+        },
+        {
+          "word": "ポタ",
+          "size": 70,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise2",
+      "text": "代表じゃ\n勝てない！",
+      "speaker": "fan_arg_oldman",
+      "characters": [
+        "fan_arg_oldman"
+      ],
+      "action": "shouting with his right fist raised, left hand empty",
+      "emotion": "angry",
+      "shot": "half",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "transition": "whip",
+      "motion": "shake",
+      "layers": [
+        {
+          "id": "fan_arg_oldman",
+          "image": "cutouts/016.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "fan_arg_oldman.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise2",
+      "text": "何度も、\n批判された。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_young"
+      ],
+      "action": "eyes closed, head lowered, shoulders slumped",
+      "emotion": "hurt",
+      "shot": "close",
+      "location": "mood_dark_swirl",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "messi_young",
+          "image": "cutouts/017.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "messi_young.beside_left",
+          "size": "tiny"
+        },
+        {
+          "word": "ズーン",
+          "size": 80,
+          "vertical": true,
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise2",
+      "text": "それでも、\n俺は信じてた。",
+      "speaker": "fan_takumi",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "holding one glass beer mug full of golden beer in his right hand, gazing into the distance with a soft smile",
+      "emotion": "wistful",
+      "shot": "half",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/018.png"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise2",
+      "text": "それでもメッシは、\n諦めなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_young"
+      ],
+      "action": "standing up straight in the rain, both fists clenched, looking forward",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "stadium_rain_night_defeat",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "messi_young"
+        },
+        {
+          "id": "messi_young",
+          "image": "cutouts/019.png",
+          "anim": "rise"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise2",
+      "text": "何度でも、\nこの10番を着た。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "resolute",
+      "object": "one folded light blue and white striped soccer jersey with number 10",
+      "shot": "half",
+      "location": "stadium_rain_night_defeat",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/020.png"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise3",
+      "text": "そして、2022年。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "calm",
+      "shot": "full",
+      "location": "mood_time_skip",
+      "filter": "none",
+      "transition": "zoom",
+      "layers": [
+        {
+          "word": "チクタク",
+          "size": 70,
+          "at": "bottom"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise3",
+      "text": "カタール。\nワールドカップ決勝。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "tense",
+      "shot": "full",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "word": "ドン",
+          "size": 100,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise3",
+      "text": "35歳のメッシ。\n最後のチャンス。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "walking forward with a calm serious face, arms relaxed at his sides",
+      "emotion": "focused",
+      "shot": "full",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "messi_captain",
+          "image": "cutouts/023.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.0
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise3",
+      "text": "お願い…\n勝って！",
+      "speaker": "fan_arg_girl",
+      "characters": [
+        "fan_arg_girl"
+      ],
+      "action": "hands clasped together in prayer near her chin, eyes shut tight",
+      "emotion": "nervous",
+      "shot": "close",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "fan_arg_girl",
+          "image": "cutouts/024.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "fan_arg_girl.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise3",
+      "text": "日本でも、\n夜中に祈った。",
+      "speaker": "narrator",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "seated, gripping one glass beer mug with both hands, leaning forward toward a screen",
+      "emotion": "anxious",
+      "shot": "half",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/025.png"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise3",
+      "text": "3対3。\nPK戦へ。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "staring straight ahead, jaw tight, sweat on his face",
+      "emotion": "tense",
+      "shot": "close",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "messi_captain",
+          "image": "cutouts/026.png"
+        },
+        {
+          "word": "ドキドキ",
+          "size": 70,
+          "vertical": true,
+          "at": "left"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise3",
+      "text": "運命の、\n最後のキック。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "suspense",
+      "object": "a white soccer ball resting on a small white painted spot",
+      "shot": "close",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "motion": "punch_in",
+      "sfx": [
+        "heartbeat"
+      ],
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/027.png"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "twist",
+      "text": "決まった！",
+      "speaker": "fan_arg_girl",
+      "characters": [],
+      "action": null,
+      "emotion": "overjoyed",
+      "shot": "full",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "shake",
+      "music_stop": true,
+      "layers": [
+        {
+          "word": "ワーッ",
+          "size": 110,
+          "at": "center"
+        },
+        {
+          "effect": "confetti"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "twist",
+      "text": "メッシは、\nピッチに膝をついた。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "kneeling on both knees, face buried in both hands, crying",
+      "emotion": "crying",
+      "shot": "full",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "messi_captain",
+          "image": "cutouts/029.png",
+          "anim": "sink"
+        },
+        {
+          "effect": "tears",
+          "on": "messi_captain"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "twist",
+      "text": "やっと…\nやっとだ！",
+      "speaker": "fan_arg_oldman",
+      "characters": [
+        "fan_arg_oldman",
+        "fan_arg_girl"
+      ],
+      "action": "fan_arg_oldman: both arms raised high, crying with a wide open mouth, facing right; fan_arg_girl: jumping with both arms up, tears on her cheeks, facing left",
+      "emotion": "overjoyed",
+      "shot": "half",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "fan_arg_oldman",
+          "image": "cutouts/030_fan_arg_oldman.png",
+          "at": "left"
+        },
+        {
+          "id": "fan_arg_girl",
+          "image": "cutouts/030_fan_arg_girl.png",
+          "at": "right",
+          "anim": "jump"
+        },
+        {
+          "effect": "hearts",
+          "on": "fan_arg_girl"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "twist",
+      "text": "泣くなって、\n無理だろ…",
+      "speaker": "fan_takumi",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "tears streaming down his face, wiping his eyes with his right forearm, left hand empty",
+      "emotion": "crying",
+      "shot": "close",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "alt_pose": "tears streaming down his face, right hand covering his mouth, shoulders shaking",
+      "layers": [
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/031.png"
+        },
+        {
+          "effect": "tears",
+          "on": "fan_takumi"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "twist",
+      "text": "そして、\nトロフィーを掲げた。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "lifting one golden world cup trophy with a globe on top high above his head with both hands, shouting with joy",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "punch_in",
+      "music_stop": true,
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "messi_captain",
+          "colour": "#FFD54F"
+        },
+        {
+          "id": "messi_captain",
+          "image": "cutouts/032.png",
+          "anim": "rise"
+        },
+        {
+          "effect": "sparkles",
+          "on": "messi_captain"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "twist",
+      "text": "少年の夢が、\nかなった瞬間。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "kissing one golden world cup trophy held in both hands, eyes closed",
+      "emotion": "touched",
+      "shot": "close",
+      "location": "lusail_final_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "messi_captain",
+          "colour": "#FFE082"
+        },
+        {
+          "id": "messi_captain",
+          "image": "cutouts/033.png"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "twist",
+      "text": "世界中が、\n涙を流した。",
+      "speaker": "narrator",
+      "characters": [
+        "fan_arg_girl",
+        "fan_arg_oldman"
+      ],
+      "action": "fan_arg_girl: jumping with joy, waving the end of her light blue scarf with her right hand, facing right; fan_arg_oldman: jumping with both fists raised, cheering with tears on his face, facing left",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "buenos_aires_plaza_night",
+      "filter": "none",
+      "transition": "push_left",
+      "layers": [
+        {
+          "id": "fan_arg_girl",
+          "image": "cutouts/034_fan_arg_girl.png",
+          "at": "left",
+          "anim": "bounce"
+        },
+        {
+          "id": "fan_arg_oldman",
+          "image": "cutouts/034_fan_arg_oldman.png",
+          "at": "right",
+          "anim": "hop"
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "twist",
+      "text": "これで、\n終わりなのか？",
+      "speaker": "fan_takumi",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "holding one glass beer mug in his left hand, right hand empty, looking down quietly",
+      "emotion": "uneasy",
+      "shot": "half",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/035.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "fan_takumi.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "ending",
+      "text": "そして、\n2026年8月31日。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "calm",
+      "shot": "full",
+      "location": "mood_time_skip",
+      "filter": "none",
+      "transition": "wipe",
+      "layers": [
+        {
+          "word": "チクタク",
+          "size": 70,
+          "at": "bottom"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "ending",
+      "text": "本当に、\nその日が来た。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "sad",
+      "object": "a black smartphone showing a red breaking news screen with a few lines of text",
+      "shot": "close",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "motion": "zoom_in",
+      "reuse": 1,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "ending",
+      "text": "ありがとう…\nメッシ…！",
+      "speaker": "fan_arg_girl",
+      "characters": [
+        "fan_arg_girl"
+      ],
+      "action": "pressing the end of her light blue scarf against her chest with both hands, tears in her eyes, smiling sadly",
+      "emotion": "heartbroken",
+      "shot": "close",
+      "location": "buenos_aires_plaza_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "fan_arg_girl",
+          "image": "cutouts/038.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "fan_arg_girl.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "ending",
+      "text": "でも、\nサッカーはやめない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "hopeful",
+      "shot": "full",
+      "location": "miami_stadium_sunset",
+      "filter": "none",
+      "transition": "push_up",
+      "motion": "pan_left",
+      "layers": []
+    },
+    {
+      "id": 40,
+      "beat": "ending",
+      "text": "インテル・マイアミ。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_miami"
+      ],
+      "action": "jogging forward, waving his right hand to the crowd with a smile, left hand empty",
+      "emotion": "cheerful",
+      "shot": "full",
+      "location": "miami_stadium_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "messi_miami",
+          "image": "cutouts/040.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.0
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "ending",
+      "text": "これからも、\nマイアミでプレーする。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_miami"
+      ],
+      "action": "in side view, running fast while dribbling one white soccer ball at his feet",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "miami_stadium_sunset",
+      "filter": "none",
+      "alt_pose": "in side view, running fast with the other leg forward, touching one white soccer ball with his left foot",
+      "layers": [
+        {
+          "id": "messi_miami",
+          "image": "cutouts/041.png",
+          "anim": "exit_right",
+          "start": 0.5
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "ending",
+      "text": "2028年まで、\n戦う予定だ。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_miami"
+      ],
+      "action": "clapping both hands above his head toward the crowd, smiling brightly",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "miami_stadium_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "messi_miami",
+          "image": "cutouts/042.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "messi_miami.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "ending",
+      "text": "まだ、\n見られるんだな。",
+      "speaker": "fan_takumi",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "holding one black smartphone in his right hand, left hand on his chest, exhaling with a small smile",
+      "emotion": "relieved",
+      "shot": "half",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/043.png"
+        },
+        {
+          "word": "ホッ",
+          "size": 70,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "ending",
+      "text": "物語は、\nまだ終わっていない。",
+      "speaker": "narrator",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "smiling with teary eyes, looking up at a screen above",
+      "emotion": "hopeful",
+      "shot": "close",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/044.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "fan_takumi"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "ending",
+      "text": "代表のメッシは、\nもう戻ってこない。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "lonely",
+      "shot": "full",
+      "location": "empty_stadium_dawn",
+      "filter": "none",
+      "transition": "fade",
+      "motion": "drift",
+      "music_stop": true,
+      "layers": [
+        {
+          "word": "シーン",
+          "size": 80,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "ending",
+      "text": "水色と白の、\n背番号10。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "nostalgic",
+      "object": "one folded light blue and white striped soccer jersey with number 10",
+      "shot": "half",
+      "location": "empty_stadium_dawn",
+      "filter": "none",
+      "motion": "focus",
+      "reuse": 20,
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/020.png"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "ending",
+      "text": "少年は、\n世界王者になった。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_boy"
+      ],
+      "action": "smiling softly, holding one old brown leather soccer ball against his chest with both hands",
+      "emotion": "gentle",
+      "shot": "close",
+      "location": "rosario_street_dusk_past",
+      "filter": "sepia",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "messi_boy",
+          "image": "cutouts/047.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "messi_boy"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "ending",
+      "text": "そして今、\n静かに舞台を去る。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "seen from behind, walking slowly away, head slightly lowered, arms relaxed",
+      "emotion": "melancholy",
+      "shot": "full",
+      "location": "empty_stadium_dawn",
+      "filter": "none",
+      "motion": "zoom_out",
+      "layers": [
+        {
+          "id": "messi_captain",
+          "image": "cutouts/048.png",
+          "anim": "recede"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "ending",
+      "text": "ありがとう、メッシ。",
+      "speaker": "narrator",
+      "characters": [
+        "fan_takumi"
+      ],
+      "action": "eyes closed, right hand pressed over the chest of his jersey, gentle smile",
+      "emotion": "touched",
+      "shot": "close",
+      "location": "sports_bar_tokyo_night",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "fan_takumi",
+          "colour": "#90CAF9"
+        },
+        {
+          "id": "fan_takumi",
+          "image": "cutouts/049.png"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "ending",
+      "text": "残したのは、\nゴールだけじゃない。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_young"
+      ],
+      "action": "smiling gently, holding one light blue captain armband in his right hand, left hand empty",
+      "emotion": "grateful",
+      "shot": "half",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "messi_young",
+          "image": "cutouts/050.png"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "messi_young.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "ending",
+      "text": "最後まで、\n諦めないこと。",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "running forward with determination, both fists pumping",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "messi_captain"
+        },
+        {
+          "id": "messi_captain",
+          "image": "cutouts/051.png"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "ending",
+      "text": "夢を、\n追い続けること。",
+      "speaker": "narrator",
+      "characters": [
+        "kid_boy"
+      ],
+      "action": "in side view, running and kicking one white soccer ball with his right foot",
+      "emotion": "excited",
+      "shot": "full",
+      "location": "tokyo_riverside_field_morning",
+      "filter": "none",
+      "alt_pose": "in side view, running with the other leg forward, chasing one white soccer ball",
+      "transition": "push_left",
+      "motion": "tilt_up",
+      "layers": [
+        {
+          "id": "kid_boy",
+          "image": "cutouts/052.png",
+          "anim": "exit_right",
+          "start": 0.6
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "ending",
+      "text": "世界中の子どもに、\n教えてくれた。",
+      "speaker": "narrator",
+      "characters": [
+        "kid_boy"
+      ],
+      "action": "holding one white soccer ball under his right arm, left fist clenched, looking up with a bright smile",
+      "emotion": "hopeful",
+      "shot": "half",
+      "location": "tokyo_riverside_field_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "kid_boy",
+          "image": "cutouts/053.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "kid_boy"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "ending",
+      "text": "あなたが忘れられない、\nメッシの瞬間は？",
+      "speaker": "narrator",
+      "characters": [
+        "messi_captain"
+      ],
+      "action": "seen from behind, standing still in the middle of the pitch, looking up at the empty stands",
+      "emotion": "calm",
+      "shot": "full",
+      "location": "empty_stadium_dawn",
+      "filter": "none",
+      "transition": "fade",
+      "motion": "dolly_left",
+      "layers": [
+        {
+          "id": "messi_captain",
+          "image": "cutouts/054.png",
+          "anim": "breathe"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "ending",
+      "text": "コメントで、\n教えてください。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "quiet",
+      "shot": "full",
+      "location": "empty_stadium_dawn",
+      "filter": "none",
+      "motion": "zoom_out",
+      "layers": [
+        {
+          "word": "シーン",
+          "size": 70,
+          "at": "bottom"
+        }
+      ]
+    }
+  ]
+}

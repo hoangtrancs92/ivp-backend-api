@@ -1,0 +1,24 @@
+# Sao chép thành config.toml rồi điền giá trị thật. config.toml đã nằm trong .gitignore.
+# Không khóa nào trong file này được gửi lên Kaggle; chỉ mục [generation] đi theo jobs.json.
+
+[kaggle]
+username = "ten-tai-khoan-kaggle"
+key = ""                                   # Kaggle: Settings -> API -> Create New Token
+lora_dataset = "irasutoya-style-lora"      # dataset chứa file LoRA, tạo một lần
+job_dataset = "shorts-job"                 # dataset chứa jobs.json, worker.py và ảnh chuẩn; tool tự tạo và cập nhật
+kernel = "shorts-gen"                      # tên kernel chạy sinh ảnh
+poll_seconds = 60
+
+[generation]
+model = "black-forest-labs/FLUX.2-klein-4B"
+lora_file = "irasutoya_style_v1_000000750.safetensors"
+size_text = 1024     # ảnh sinh từ chữ; đã đo vừa T4
+size_ref = 768       # ảnh có tham chiếu; 1024 hết VRAM trên T4
+ref_size = 512       # ảnh tham chiếu được thu về cạnh này trước khi đưa vào model
+steps = 4
+seed = 42
+
+[keys]
+anthropic_api_key = ""     # viết kịch bản, chấm điểm bằng model thị giác
+tts_api_key = ""           # giọng đọc
+hf_token = ""              # chỉ cần nếu model yêu cầu đăng nhập

@@ -1,0 +1,1248 @@
+{
+  "title": [
+    "隣の「鬼じじい」が",
+    "雨の夜 子どもを連れ去った"
+  ],
+  "genre": "Công sở, xã hội",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "me": "#4FC3F7",
+    "neighbor_oldman": "#90A4AE",
+    "kid_boy": "#AED581",
+    "police_officer": "#7986CB"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "10年間、\n隣のじいさんが\n大嫌いだった。",
+      "speaker": "narrator",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "glaring straight ahead with a deep scowl, thick white eyebrows pulled together",
+      "emotion": "furious",
+      "object": null,
+      "shot": "close",
+      "location": "old_man_gate_dusk",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "punch_in",
+      "layers": [
+        {
+          "image": "cutouts/001.png",
+          "id": "neighbor_oldman"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "neighbor_oldman.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "あの雨の夜、\n通報するまでは。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "ominous",
+      "object": null,
+      "shot": "full",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "transition": "whip",
+      "layers": [
+        {
+          "effect": "rain"
+        },
+        {
+          "word": "ザーッ",
+          "size": 70,
+          "vertical": true,
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "rise1",
+      "text": "子どもの頃、\nこの道で遊んでた。",
+      "speaker": "narrator",
+      "characters": [
+        "me_child",
+        "kid_boy"
+      ],
+      "action": "running and kicking a white and black soccer ball, laughing",
+      "emotion": "playful",
+      "object": null,
+      "shot": "full",
+      "location": "neighborhood_street_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/003_me_child.png",
+          "id": "me_child",
+          "at": "left"
+        },
+        {
+          "image": "cutouts/003_kid_boy.png",
+          "id": "kid_boy",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "rise1",
+      "text": "「こら！\nここで遊ぶな！」",
+      "speaker": "neighbor_oldman",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "striding forward in wooden geta sandals, pointing a finger angrily",
+      "emotion": "enraged",
+      "object": null,
+      "shot": "full",
+      "location": "neighborhood_street_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/004.png",
+          "id": "neighbor_oldman",
+          "path": [
+            "off_right",
+            "center"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "rise1",
+      "text": "「ボールは\n没収だ！」",
+      "speaker": "neighbor_oldman",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "holding a scuffed white and black soccer ball tightly under one arm, frowning",
+      "emotion": "stern",
+      "object": null,
+      "shot": "half",
+      "location": "neighborhood_street_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/005.png",
+          "id": "neighbor_oldman"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "rise1",
+      "text": "怖くて、\n泣きそうだった。",
+      "speaker": "narrator",
+      "characters": [
+        "me_child"
+      ],
+      "action": "clutching the hem of her yellow t-shirt, lips trembling",
+      "emotion": "frightened",
+      "object": null,
+      "shot": "half",
+      "location": "neighborhood_street_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/006.png",
+          "id": "me_child"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "me_child.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "rise1",
+      "text": "「あいつ、\n鬼じじいだよ」",
+      "speaker": "kid_boy",
+      "characters": [
+        "kid_boy"
+      ],
+      "action": "whispering with one hand beside his mouth, glancing sideways",
+      "emotion": "resentful",
+      "object": null,
+      "shot": "half",
+      "location": "neighborhood_street_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/007.png",
+          "id": "kid_boy"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "kid_boy.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise1",
+      "text": "暗くなると、\nすぐ怒鳴られた。",
+      "speaker": "narrator",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "standing in front of his gate with arms crossed, watching the street",
+      "emotion": "watchful",
+      "object": null,
+      "shot": "full",
+      "location": "old_man_gate_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/008.png",
+          "id": "neighbor_oldman"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "警察を\n呼ばれたこともある。",
+      "speaker": "narrator",
+      "characters": [
+        "police_officer"
+      ],
+      "action": "writing in a small black notebook with a pen",
+      "emotion": "tired",
+      "object": null,
+      "shot": "half",
+      "location": "neighborhood_street_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/009.png",
+          "id": "police_officer"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "玄関にはいつも、\n黄色い帽子。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "mysterious",
+      "object": "a faded yellow children's school cap with a small elastic chin strap, hanging alone on a rusty nail on an old wooden wall",
+      "shot": "close",
+      "location": "old_man_gate_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/010.png",
+          "id": "objects"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "「子どもいないのに、\nなんで？」",
+      "speaker": "me",
+      "characters": [
+        "me_child"
+      ],
+      "action": "tilting her head, pointing at something beside a door",
+      "emotion": "puzzled",
+      "object": null,
+      "shot": "half",
+      "location": "old_man_gate_dusk",
+      "filter": "sepia",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/011.png",
+          "id": "me_child"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "me_child.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise2",
+      "text": "10年後。\n雨の夜。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "lonely",
+      "object": null,
+      "shot": "full",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "tilt_up",
+      "transition": "fade",
+      "layers": [
+        {
+          "effect": "rain"
+        },
+        {
+          "word": "ザーッ",
+          "size": 70,
+          "vertical": true,
+          "at": "left"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise2",
+      "text": "仕事帰り、\nあの家の前を通った。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "in side view, walking holding a clear plastic umbrella over her head, a black shoulder bag on her arm",
+      "emotion": "weary",
+      "object": null,
+      "shot": "full",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": "in side view, walking with the other leg forward, holding a clear plastic umbrella",
+      "layers": [
+        {
+          "image": "cutouts/013.png",
+          "id": "me",
+          "path": [
+            "off_left",
+            "center"
+          ]
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise2",
+      "text": "じいさんが、\n傘もささずに\n立っていた。",
+      "speaker": "narrator",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "in side view, standing still without an umbrella, soaked clothes, staring intently into the distance",
+      "emotion": "tense",
+      "object": null,
+      "shot": "full",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "image": "cutouts/014.png",
+          "id": "neighbor_oldman"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise2",
+      "text": "その先に、\n泣いている女の子。",
+      "speaker": "narrator",
+      "characters": [
+        "kid_rain_girl"
+      ],
+      "action": "standing alone, rubbing her eyes with both fists",
+      "emotion": "crying",
+      "object": null,
+      "shot": "half",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": "sobbing with mouth open, shoulders shaking",
+      "layers": [
+        {
+          "image": "cutouts/015.png",
+          "id": "kid_rain_girl"
+        },
+        {
+          "effect": "tears",
+          "on": "kid_rain_girl"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise2",
+      "text": "（何してるの…？）",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "peering forward from under a clear plastic umbrella, eyes narrowed",
+      "emotion": "suspicious",
+      "object": null,
+      "shot": "close",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/016.png",
+          "id": "me"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "me.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise2",
+      "text": "じいさんが、\n女の子の腕を\nつかんだ。",
+      "speaker": "narrator",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "reaching out one hand firmly and grabbing forward, soaked by rain",
+      "emotion": "urgent",
+      "object": null,
+      "shot": "half",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/017.png",
+          "id": "neighbor_oldman",
+          "anim": "lean_in"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise2",
+      "text": "そのまま、\n家の中へ…。",
+      "speaker": "narrator",
+      "characters": [
+        "neighbor_oldman",
+        "kid_rain_girl"
+      ],
+      "action": "in side view, hurrying toward the right with one arm stretched back",
+      "emotion": "hurried",
+      "object": null,
+      "shot": "full",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/018_neighbor_oldman.png",
+          "id": "neighbor_oldman",
+          "at": "right",
+          "anim": "exit_right"
+        },
+        {
+          "image": "cutouts/018_kid_rain_girl.png",
+          "id": "kid_rain_girl",
+          "at": "left",
+          "anim": "exit_right"
+        },
+        {
+          "word": "ガラッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise2",
+      "text": "「誘拐だ…！」",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "covering her mouth with one hand, eyes wide, umbrella tilted",
+      "emotion": "horrified",
+      "object": null,
+      "shot": "close",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "image": "cutouts/019.png",
+          "id": "me"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "me.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise2",
+      "text": "震える指で、\n110番。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "panicked",
+      "object": "a trembling woman's hand holding a white smartphone, the screen showing a phone call to 110 in large white digits, raindrops on the screen",
+      "shot": "close",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/020.png",
+          "id": "objects"
+        },
+        {
+          "word": "ピッ",
+          "size": 70,
+          "vertical": true,
+          "at": "objects.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise2",
+      "text": "「隣のおじいさんが、\n子どもを…！」",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "holding a white smartphone to her ear, a clear plastic umbrella on her shoulder",
+      "emotion": "nervous",
+      "object": null,
+      "shot": "half",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": "mouth open while talking, holding a white smartphone to her ear",
+      "layers": [
+        {
+          "image": "cutouts/021.png",
+          "id": "me"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "me.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise3",
+      "text": "数分後、\n警察が来た。",
+      "speaker": "narrator",
+      "characters": [
+        "police_officer"
+      ],
+      "action": "running forward through the rain, holding a lit black flashlight",
+      "emotion": "alert",
+      "object": null,
+      "shot": "full",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": "running with the other leg forward, holding a lit black flashlight",
+      "layers": [
+        {
+          "image": "cutouts/022.png",
+          "id": "police_officer",
+          "path": [
+            "off_left",
+            "center"
+          ]
+        },
+        {
+          "effect": "rain"
+        },
+        {
+          "word": "バシャバシャ",
+          "size": 70,
+          "vertical": true,
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise3",
+      "text": "「警察です！\n開けてください！」",
+      "speaker": "police_officer",
+      "characters": [
+        "police_officer"
+      ],
+      "action": "knocking hard on a door with his fist raised",
+      "emotion": "commanding",
+      "object": null,
+      "shot": "half",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": "fist pulled back, about to knock again, mouth open shouting",
+      "layers": [
+        {
+          "image": "cutouts/023.png",
+          "id": "police_officer"
+        },
+        {
+          "word": "ドンドン",
+          "size": 70,
+          "vertical": true,
+          "at": "police_officer.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise3",
+      "text": "じいさんが、\nゆっくり出てきた。",
+      "speaker": "narrator",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "standing in a doorway with a damp white towel over one shoulder",
+      "emotion": "composed",
+      "object": null,
+      "shot": "half",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/024.png",
+          "id": "neighbor_oldman",
+          "anim": "rise"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise3",
+      "text": "「…やっと来たか」",
+      "speaker": "neighbor_oldman",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "looking up from under his white eyebrows, face half in shadow",
+      "emotion": "grim",
+      "object": null,
+      "shot": "close",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "dutch",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "image": "cutouts/025.png",
+          "id": "neighbor_oldman"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise3",
+      "text": "（やっぱり…\nこの人が…）",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "gripping the handle of a clear plastic umbrella with both hands, stepping back",
+      "emotion": "terrified",
+      "object": null,
+      "shot": "half",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/026.png",
+          "id": "me",
+          "anim": "shiver"
+        },
+        {
+          "image": "stickers/lines.png",
+          "at": "me.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "twist",
+      "text": "でも女の子は、\n毛布にくるまれていた。",
+      "speaker": "narrator",
+      "characters": [
+        "kid_rain_girl"
+      ],
+      "action": "sitting wrapped in a thick beige wool blanket, holding a white mug of warm cocoa with both hands",
+      "emotion": "relieved",
+      "object": null,
+      "shot": "half",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "kid_rain_girl",
+          "colour": "#FFE0B2"
+        },
+        {
+          "image": "cutouts/027.png",
+          "id": "kid_rain_girl"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "twist",
+      "text": "「黒い車の男に、\n連れて行かれかけてた」",
+      "speaker": "neighbor_oldman",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "pointing toward a window with a stiff arm, jaw clenched",
+      "emotion": "grave",
+      "object": null,
+      "shot": "half",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/028.png",
+          "id": "neighbor_oldman"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "twist",
+      "text": "「まさか…\nあの連中か！」",
+      "speaker": "police_officer",
+      "characters": [
+        "police_officer"
+      ],
+      "action": "pushing his peaked cap up, eyes wide",
+      "emotion": "stunned",
+      "object": null,
+      "shot": "close",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "image": "cutouts/029.png",
+          "id": "police_officer"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "police_officer.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "twist",
+      "text": "「この辺りで、\n子どもをさらう\nグループが…」",
+      "speaker": "police_officer",
+      "characters": [
+        "police_officer"
+      ],
+      "action": "speaking into the radio on his shoulder, head lowered",
+      "emotion": "serious",
+      "object": null,
+      "shot": "half",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/030.png",
+          "id": "police_officer"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "twist",
+      "text": "え…？",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "frozen in place, mouth slightly open, wet hair stuck to her cheeks",
+      "emotion": "dumbfounded",
+      "object": null,
+      "shot": "close",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "transition": "flash",
+      "layers": [
+        {
+          "image": "cutouts/031.png",
+          "id": "me"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "me.beside_right",
+          "size": "tiny"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "twist",
+      "text": "「孫は10年前、\n奴らにさらわれた」",
+      "speaker": "neighbor_oldman",
+      "characters": [],
+      "action": null,
+      "emotion": "grieving",
+      "object": "an old wrinkled hand holding a single old faded instant photograph with a thick white border, inside the photo frame a smiling small japanese boy wearing a yellow children's school cap",
+      "shot": "half",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/032.png",
+          "id": "objects"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "twist",
+      "text": "あの黄色い帽子は、\n孫のものだった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "revelation",
+      "object": "a faded yellow children's school cap with a small elastic chin strap, hanging alone on a rusty nail on an old wooden wall",
+      "shot": "close",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "reuse": 10,
+      "motion": "focus",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "objects"
+        },
+        {
+          "image": "cutouts/010.png",
+          "id": "objects"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "twist",
+      "text": "「だから、\n怒鳴るしかなかった」",
+      "speaker": "neighbor_oldman",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "head bowed, one hand pressed over his eyes",
+      "emotion": "heartbroken",
+      "object": null,
+      "shot": "close",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/034.png",
+          "id": "neighbor_oldman"
+        },
+        {
+          "effect": "tears",
+          "on": "neighbor_oldman"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "twist",
+      "text": "「嫌われてもいい。\nここに来なけりゃ」",
+      "speaker": "neighbor_oldman",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "kneeling on the tatami, both fists resting on his knees, looking down",
+      "emotion": "resigned",
+      "object": null,
+      "shot": "half",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "image": "cutouts/035.png",
+          "id": "neighbor_oldman",
+          "anim": "sink"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "twist",
+      "text": "暗くなる前に、\n家に帰すためだった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "eyes glistening, biting her lower lip",
+      "emotion": "remorseful",
+      "object": null,
+      "shot": "close",
+      "location": "living_room_old",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/036.png",
+          "id": "me"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "ending",
+      "text": "「ご協力、\n感謝します」",
+      "speaker": "police_officer",
+      "characters": [
+        "police_officer",
+        "neighbor_oldman"
+      ],
+      "action": "bowing deeply at the waist",
+      "emotion": "respectful",
+      "object": null,
+      "shot": "full",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/037_police_officer.png",
+          "id": "police_officer",
+          "at": "left",
+          "anim": "nod"
+        },
+        {
+          "image": "cutouts/037_neighbor_oldman.png",
+          "id": "neighbor_oldman",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "ending",
+      "text": "見ていた近所の人も、\n黙りこんだ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "silent",
+      "object": null,
+      "shot": "full",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "word": "シーン",
+          "size": 70,
+          "vertical": true,
+          "at": "center"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "ending",
+      "text": "私は、\n動けなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "seen from behind, standing still in the rain, a clear plastic umbrella lowered at her side",
+      "emotion": "numb",
+      "object": null,
+      "shot": "full",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/039.png",
+          "id": "me",
+          "anim": "none"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "ending",
+      "text": "「ごめんなさい」が、\n言えなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "rain dripping down her face, lips pressed together",
+      "emotion": "ashamed",
+      "object": null,
+      "shot": "close",
+      "location": "street_rain_evening",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/040.png",
+          "id": "me"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "me.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "ending",
+      "text": "じいさんは、\n黙って戸を閉めた。",
+      "speaker": "narrator",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "seen from behind, walking slowly toward the right, shoulders hunched",
+      "emotion": "lonely",
+      "object": null,
+      "shot": "full",
+      "location": "old_man_door_rain",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "image": "cutouts/041.png",
+          "id": "neighbor_oldman",
+          "anim": "exit_right"
+        },
+        {
+          "word": "ピシャッ",
+          "size": 70,
+          "vertical": true,
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "ending",
+      "text": "翌朝。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "fresh",
+      "object": null,
+      "shot": "full",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "tilt_up",
+      "transition": "fade",
+      "layers": [
+        {
+          "word": "チュンチュン",
+          "size": 70,
+          "vertical": true,
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "ending",
+      "text": "「こら！\n寄り道するな！」",
+      "speaker": "neighbor_oldman",
+      "characters": [
+        "neighbor_oldman"
+      ],
+      "action": "standing on the street with one hand cupped beside his mouth, shouting",
+      "emotion": "gruff",
+      "object": null,
+      "shot": "full",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": "mouth wide open yelling, pointing down the street",
+      "layers": [
+        {
+          "image": "cutouts/043.png",
+          "id": "neighbor_oldman"
+        },
+        {
+          "word": "コラーッ",
+          "size": 70,
+          "vertical": true,
+          "at": "neighbor_oldman.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "ending",
+      "text": "もう、\n嫌いじゃない。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "giving a small bow, one hand on her shoulder bag strap",
+      "emotion": "bittersweet smile",
+      "object": null,
+      "shot": "half",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "me",
+          "colour": "#FFB3D1"
+        },
+        {
+          "image": "cutouts/044.png",
+          "id": "me"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "me.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "ending",
+      "text": "愛されることと、\n子どもを救うこと。",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "looking straight at the viewer, one hand on her chest",
+      "emotion": "contemplative",
+      "object": null,
+      "shot": "close",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "me"
+        },
+        {
+          "image": "cutouts/045.png",
+          "id": "me"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "ending",
+      "text": "あなたなら、\nどっちを選ぶ？",
+      "speaker": "narrator",
+      "characters": [
+        "me"
+      ],
+      "action": "pointing gently toward the viewer, eyebrows slightly raised",
+      "emotion": "challenging",
+      "object": null,
+      "shot": "half",
+      "location": "neighborhood_street_morning",
+      "filter": "none",
+      "alt_pose": null,
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "image": "cutouts/046.png",
+          "id": "me"
+        },
+        {
+          "effect": "sparkles",
+          "on": "me"
+        }
+      ]
+    }
+  ]
+}

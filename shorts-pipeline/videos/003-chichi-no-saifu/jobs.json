@@ -1,0 +1,17 @@
+{
+ "jobs": [
+  {
+   "name": "ch_006",
+   "seed": 60,
+   "refs": [
+    "ref__father_front.png"
+   ],
+   "prompt": "irasutoya_style, the same person as in the reference image, japanese man in his late fifties, short grey hair, black glasses, brown cardigan over white shirt, grey trousers, facing forward with arms crossed, both eyes visible behind his glasses, mouth in a flat line, expressionless face, close-up of the face and shoulders, cropped at the chest, filling the frame, on a solid flat pure green background (#00FF00), no shadow"
+  },
+  {
+   "name": "ch_057",
+   "seed": 570,
+   "prompt": "irasutoya_style, an open pink leather wallet seen from the front, nothing else, no table; tucked in its clear card pocket is old instant photograph with a thick white border, slightly bent at one corner, lying flat; inside the photo frame a five-year-old girl with very short hair in light blue hospital pajamas smiles weakly and makes a peace sign, no people, on a solid flat pure green background (#00FF00), no shadow"
+  }
+ ]
+}

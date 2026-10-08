@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ tay pipeline video truyện ngắn nét phẳng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F5F7; --card:#FFFFFF; --ink:#1B2733; --muted:#5B6B7A; --line:#D5DDE4;
+  --navy:#1F4E79; --green:#3F9B4B; --orange:#D9742A; --tint:#E4EDF5; --code:#17212B; --codeink:#E6EDF3;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#131A21;--card:#1B242D;--ink:#E6ECF1;--muted:#9AA9B7;--line:#2D3945;
+        --navy:#7FB2E5;--green:#7CD992;--orange:#F2A86B;--tint:#22303D;--code:#0D1319;--codeink:#DCE5EC;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.65}
+a{color:var(--navy)} a:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{padding:56px 0 28px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.12;margin:0 0 14px;font-weight:700;letter-spacing:-.01em;max-width:18ch}
+.lede{font-size:18px;color:var(--muted);max-width:62ch;margin:0}
+.rail{display:flex;gap:6px;overflow-x:auto;padding:26px 0 8px;margin:0;list-style:none}
+.rail li{flex:1 0 108px}
+.rail a{display:block;height:100%;padding:10px 12px;background:var(--card);border:1px solid var(--line);border-radius:10px;
+  text-decoration:none;color:var(--ink);font-size:14px;line-height:1.3}
+.rail a:hover{border-color:var(--navy)}
+.rail b{display:block;font-size:12px;color:var(--muted);font-weight:500}
+.rail .own a{border-color:var(--green);box-shadow:inset 0 3px 0 var(--green)}
+.key{font-size:14px;color:var(--muted);margin:0}
+.key i{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--green);vertical-align:-1px;margin-right:6px}
+.layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:44px;padding-bottom:80px}
+nav.toc{position:sticky;top:16px;align-self:start;font-size:14px}
+nav.toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+nav.toc a{display:block;padding:5px 0 5px 14px;color:var(--muted);text-decoration:none}
+nav.toc a:hover{color:var(--ink)}
+main{min-width:0}
+main>section{padding-top:36px}
+h2{font-size:26px;line-height:1.2;margin:0 0 6px;font-weight:700}
+h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{margin:0 0 12px;max-width:74ch}
+.sub{color:var(--muted);margin-bottom:18px}
+ul{margin:0 0 12px;padding-left:20px;max-width:74ch} li{margin-bottom:4px}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:8px 0 16px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:500;color:var(--muted);font-size:14px;background:var(--tint)}
+tr:last-child td{border-bottom:0}
+.scroll{overflow-x:auto}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:var(--tint);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{background:var(--code);color:var(--codeink);padding:16px 18px;border-radius:10px;overflow-x:auto;font-size:13.5px;line-height:1.55;margin:8px 0 16px}
+pre code{background:none;padding:0;color:inherit;font-size:inherit;overflow-wrap:normal}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:14px 0}
+.step.own{border-left:5px solid var(--green)}
+.step h3{margin:0 0 4px;font-size:20px}
+.step .n{color:var(--orange);font-weight:700;margin-right:8px}
+.io{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:14px 0 6px}
+.io div{background:var(--tint);border-radius:8px;padding:10px 12px;font-size:15px}
+.io b{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-bottom:2px}
+.note{border-left:4px solid var(--orange);background:var(--card);padding:12px 16px;margin:12px 0;max-width:78ch}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:500}
+.check{list-style:none;padding:0}
+.check li{padding-left:28px;position:relative;margin-bottom:6px}
+.check li::before{content:"";position:absolute;left:0;top:5px;width:15px;height:15px;border:2px solid var(--navy);border-radius:4px}
+.arch{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;overflow-x:auto;margin:8px 0 14px}
+.arch svg{display:block;width:100%;min-width:760px;height:auto;font-family:inherit}
+.arch .band{fill:none;stroke:var(--muted);stroke-width:1;stroke-dasharray:5 5}
+.arch .bx{fill:var(--tint);stroke:var(--line);stroke-width:1}
+.arch .own{stroke:var(--green);stroke-width:2}
+.arch .t1{fill:var(--ink);font-size:14px;font-weight:700}
+.arch .t2{fill:var(--muted);font-size:12px}
+.arch .lb{fill:var(--ink);font-size:14px;font-weight:500}
+.arch .ar{stroke:var(--muted);stroke-width:1.5;fill:none}
+footer{color:var(--muted);font-size:14px;padding:24px 0 60px;border-top:1px solid var(--line)}
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:0} nav.toc{display:none} .io{grid-template-columns:1fr} header{padding-top:36px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Từ một chủ đề đến video truyện ngắn nét phẳng</h1>
+  <p class="lede">Sổ tay cho toàn bộ pipeline: cần chuẩn bị gì, mỗi model cần gì để train, đầu vào và đầu ra của từng bước, và repository nào dùng làm nền.</p>
+  <ol class="rail" aria-label="Các bước của pipeline">
+    <li><a href="#b1"><b>Bước 1</b>Kịch bản</a></li>
+    <li><a href="#b2"><b>Bước 2</b>Background</a></li>
+    <li class="own"><a href="#b3"><b>Bước 3</b>Nhân vật</a></li>
+    <li><a href="#b4"><b>Bước 4</b>Tách nền</a></li>
+    <li><a href="#b5"><b>Bước 5</b>Ghép cảnh</a></li>
+    <li><a href="#b6"><b>Bước 6</b>Giọng đọc</a></li>
+    <li><a href="#b7"><b>Bước 7</b>Dựng video</a></li>
+    <li><a href="#b8"><b>Bước 8</b>Kiểm tra</a></li>
+  </ol>
+  <p class="key"><i></i>Bước dùng model bạn tự train. Các bước 2, 3 và 6 chỉ phụ thuộc vào kịch bản nên chạy song song được.</p>
+</header>
+
+<div class="layout">
+<nav class="toc" aria-label="Mục lục">
+  <ol>
+    <li><a href="#muc-tieu">Thông số video</a></li>
+    <li><a href="#kien-truc">Kiến trúc</a></li>
+    <li><a href="#local">Làm ở local trước</a></li>
+    <li><a href="#kaggle">Sinh ảnh trên Kaggle</a></li>
+    <li><a href="#aws">Hạ tầng AWS</a></li>
+    <li><a href="#chuan-bi">Chuẩn bị</a></li>
+    <li><a href="#repo">Repository nền</a></li>
+    <li><a href="#train">Train model</a></li>
+    <li><a href="#on-dinh">Giữ nhân vật ổn định</a></li>
+    <li><a href="#cham-diem">Chấm điểm độ ổn định</a></li>
+    <li><a href="#chuyen-dong">Chuyển động</a></li>
+    <li><a href="#hieu-ung">Hiệu ứng</a></li>
+    <li><a href="#file">Các file cấu hình</a></li>
+    <li><a href="#buoc">Từng bước của pipeline</a></li>
+    <li><a href="#script">Script dựng video</a></li>
+    <li><a href="#chi-phi">Chi phí và rủi ro</a></li>
+    <li><a href="#ban-giao">Bàn giao để triển khai</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="muc-tieu">
+  <h2>Thông số video</h2>
+  <p class="sub">Mọi con số ở các phần sau tính theo mục tiêu này.</p>
+  <div class="scroll"><table>
+    <tr><th>Thông số</th><th>Giá trị</th><th>Ghi chú</th></tr>
+    <tr><td>Thời lượng</td><td>60 đến 120 giây</td><td>Nên bắt đầu ở 60-75 giây rồi kéo dài dần khi đã biết người xem ở lại tới đâu</td></tr>
+    <tr><td>Khung hình</td><td>Dọc 9:16, 1080×1920, 30fps</td><td></td></tr>
+    <tr><td>Số cảnh</td><td>45 đến 90</td><td>Giữ nhịp khoảng 1,3 giây mỗi cảnh như video mẫu</td></tr>
+    <tr><td>Số nền</td><td>8 đến 12</td><td>Dùng lại giữa các cảnh và giữa các video</td></tr>
+    <tr><td>Ảnh gốc nhân vật</td><td>10 đến 25 tư thế</td><td>Mỗi tư thế sinh 4-6 ảnh để chọn, luôn sinh từ ảnh chuẩn</td></tr>
+    <tr><td>Khung biến thể</td><td>Phần còn lại của 45-90 cảnh</td><td>Sửa từ ảnh gốc: đổi biểu cảm hoặc tay</td></tr>
+    <tr><td>Tổng số lần sinh ảnh</td><td>Khoảng 250-350 cho video 2 phút</td><td>Ước tính; số ảnh không phải thứ cần tiết kiệm, độ ổn định của nhân vật mới là ưu tiên</td></tr>
+    <tr><td>Giọng đọc</td><td>45 đến 90 câu ngắn</td><td>Mỗi câu đọc trong 1-2 giây</td></tr>
+  </table></div>
+  <p>Video dài gấp đôi thì khối lượng ảnh, giọng đọc và thời gian duyệt cũng gấp đôi, và giữ người xem tới cuối khó hơn. Vì vậy kịch bản cần nhiều nấc phát triển hơn chứ không chỉ kéo dài một tình huống.</p>
+</section>
+
+<section id="kien-truc">
+  <h2>Kiến trúc</h2>
+  <p class="sub">Ba tầng. Tầng huấn luyện chỉ chạy khi cần model mới; tầng sản xuất chạy cho mỗi video; mọi thành phần trao đổi với nhau qua file trong thư mục dự án.</p>
+  <div class="arch"><svg viewBox="0 0 920 560" role="img" aria-labelledby="arch-t arch-d"><title id="arch-t">Sơ đồ kiến trúc pipeline</title><desc id="arch-d">Ba tầng: huấn luyện làm một lần tạo ra file LoRA; sản xuất mỗi video gồm script điều phối gọi Claude, FLUX.2 klein trên GPU, rembg và Pillow, TTS, ffmpeg; và tầng lưu trữ là thư mục dự án mà mọi thành phần đọc và ghi.</desc><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect class="band" x="20" y="20" width="840" height="130" rx="12"/><text class="lb" x="36" y="44" dominant-baseline="central">Huấn luyện, làm một lần</text><rect class="bx" x="50" y="64" width="220" height="62" rx="8"/><text class="t1" x="160.0" y="86.0" text-anchor="middle" dominant-baseline="central">Dataset</text><text class="t2" x="160.0" y="106.0" text-anchor="middle" dominant-baseline="central">ảnh + caption .txt</text><rect class="bx own" x="320" y="64" width="220" height="62" rx="8"/><text class="t1" x="430.0" y="86.0" text-anchor="middle" dominant-baseline="central">AI Toolkit</text><text class="t2" x="430.0" y="106.0" text-anchor="middle" dominant-baseline="central">GPU từ 24GB</text><rect class="bx own" x="590" y="64" width="250" height="62" rx="8"/><text class="t1" x="715.0" y="86.0" text-anchor="middle" dominant-baseline="central">File LoRA</text><text class="t2" x="715.0" y="106.0" text-anchor="middle" dominant-baseline="central">style, character</text><line class="ar" x1="270" y1="95" x2="312" y2="95" marker-end="url(#ah)"/><line class="ar" x1="540" y1="95" x2="582" y2="95" marker-end="url(#ah)"/><rect class="band" x="20" y="180" width="840" height="210" rx="12"/><text class="lb" x="36" y="204" dominant-baseline="central">Sản xuất, chạy cho mỗi video</text><rect class="bx" x="40" y="222" width="800" height="46" rx="8"/><text class="t1" x="440.0" y="245.0" text-anchor="middle" dominant-baseline="central">Script điều phối: đọc script.json, gọi lần lượt từng thành phần</text><rect class="bx" x="40" y="310" width="144" height="62" rx="8"/><text class="t1" x="112.0" y="332.0" text-anchor="middle" dominant-baseline="central">Claude</text><text class="t2" x="112.0" y="352.0" text-anchor="middle" dominant-baseline="central">viết kịch bản</text><line class="ar" x1="112" y1="268" x2="112" y2="302" marker-end="url(#ah)"/><rect class="bx own" x="204" y="310" width="144" height="62" rx="8"/><text class="t1" x="276.0" y="332.0" text-anchor="middle" dominant-baseline="central">klein trên GPU</text><text class="t2" x="276.0" y="352.0" text-anchor="middle" dominant-baseline="central">nền và nhân vật</text><line class="ar" x1="276" y1="268" x2="276" y2="302" marker-end="url(#ah)"/><rect class="bx" x="368" y="310" width="144" height="62" rx="8"/><text class="t1" x="440.0" y="332.0" text-anchor="middle" dominant-baseline="central">rembg + Pillow</text><text class="t2" x="440.0" y="352.0" text-anchor="middle" dominant-baseline="central">tách nền, ghép cảnh</text><line class="ar" x1="440" y1="268" x2="440" y2="302" marker-end="url(#ah)"/><rect class="bx" x="532" y="310" width="144" height="62" rx="8"/><text class="t1" x="604.0" y="332.0" text-anchor="middle" dominant-baseline="central">TTS</text><text class="t2" x="604.0" y="352.0" text-anchor="middle" dominant-baseline="central">giọng đọc từng câu</text><line class="ar" x1="604" y1="268" x2="604" y2="302" marker-end="url(#ah)"/><rect class="bx" x="696" y="310" width="144" height="62" rx="8"/><text class="t1" x="768.0" y="332.0" text-anchor="middle" dominant-baseline="central">ffmpeg</text><text class="t2" x="768.0" y="352.0" text-anchor="middle" dominant-baseline="central">chuyển động, phụ đề</text><line class="ar" x1="768" y1="268" x2="768" y2="302" marker-end="url(#ah)"/><line class="ar" x1="440" y1="398" x2="440" y2="412" marker-start="url(#ah)" marker-end="url(#ah)"/><text class="t2" x="456" y="405" dominant-baseline="central">đọc và ghi file</text><rect class="band" x="20" y="420" width="840" height="120" rx="12"/><text class="lb" x="36" y="444" dominant-baseline="central">Lưu trữ: thư mục dự án, hoặc S3</text><rect class="bx" x="40" y="462" width="185" height="56" rx="8"/><text class="t1" x="132.5" y="481.0" text-anchor="middle" dominant-baseline="central">config/</text><text class="t2" x="132.5" y="501.0" text-anchor="middle" dominant-baseline="central">nhân vật, bối cảnh</text><rect class="bx own" x="245" y="462" width="185" height="56" rx="8"/><text class="t1" x="337.5" y="481.0" text-anchor="middle" dominant-baseline="central">loras/</text><text class="t2" x="337.5" y="501.0" text-anchor="middle" dominant-baseline="central">LoRA đã train</text><rect class="bx" x="450" y="462" width="185" height="56" rx="8"/><text class="t1" x="542.5" y="481.0" text-anchor="middle" dominant-baseline="central">library/backgrounds/</text><text class="t2" x="542.5" y="501.0" text-anchor="middle" dominant-baseline="central">nền dùng lại</text><rect class="bx" x="655" y="462" width="185" height="56" rx="8"/><text class="t1" x="747.5" y="481.0" text-anchor="middle" dominant-baseline="central">videos/&lt;tên&gt;/</text><text class="t2" x="747.5" y="501.0" text-anchor="middle" dominant-baseline="central">kịch bản đến output.mp4</text><path class="ar" d="M840 95 L885 95 L885 490 L868 490" marker-end="url(#ah)"/></svg></div>
+  <p class="key"><i></i>Viền xanh: thành phần liên quan tới model tự train. Mũi tên bên phải: file LoRA sau khi train được lưu vào tầng lưu trữ, và klein đọc nó từ đó khi sinh ảnh nhân vật.</p>
+  <ul>
+    <li><b>Các thành phần không gọi trực tiếp nhau.</b> Mỗi thành phần đọc file đầu vào và ghi file đầu ra, nên bạn chạy lại riêng một bước mà không ảnh hưởng bước khác.</li>
+    <li><b>Chỉ một thành phần cần GPU</b> lúc sản xuất. Phần còn lại chạy trên CPU, nên GPU có thể bật theo đợt rồi tắt.</li>
+    <li><b>Claude và TTS là dịch vụ ngoài</b> gọi qua API; có thể thay nhà cung cấp mà không đổi kiến trúc.</li>
+  </ul>
+</section>
+
+<section id="local">
+  <h2>Làm ở máy local trước</h2>
+  <p class="sub">Ba chặng. Chỉ chuyển lên AWS khi chặng 2 đã chạy ổn, vì AWS chỉ thay nơi chạy chứ không sửa được quy trình còn lỗi.</p>
+
+  <h3>Máy của bạn làm được gì</h3>
+  <div class="scroll"><table>
+    <tr><th>GPU trên máy</th><th>Train LoRA</th><th>Sinh ảnh</th></tr>
+    <tr><td>NVIDIA từ 24GB VRAM</td><td>Ngay trên máy bằng AI Toolkit</td><td>Trên máy</td></tr>
+    <tr><td>NVIDIA 12-16GB</td><td>Thuê GPU theo giờ chỉ cho lúc train (Colab L4 hoặc A100, hoặc dịch vụ thuê GPU có sẵn template AI Toolkit)</td><td>Trên máy; klein 4B cần khoảng 13GB</td></tr>
+    <tr><td>Không có GPU NVIDIA</td><td>Thuê GPU theo giờ</td><td>Thuê GPU, hoặc gọi API của BFL với LoRA đã tải lên</td></tr>
+  </table></div>
+  <p>Các bước tách nền, ghép cảnh, giọng đọc và dựng video chạy trên CPU, nên máy nào cũng làm được.</p>
+
+  <div class="step own">
+    <h3><span class="n">A</span>Chặng 1: làm tay từng bước</h3>
+    <p>Mục tiêu: ra được một video 60-75 giây và hiểu từng bước mất bao lâu, hỏng ở đâu.</p>
+    <div class="io">
+      <div><b>Đầu vào</b>Dataset đã lọc, một chủ đề truyện</div>
+      <div><b>Công cụ</b>AI Toolkit, ComfyUI hoặc script diffusers, rembg, TTS, <code>build_video.py</code></div>
+      <div><b>Đầu ra</b>File LoRA đã chọn, video số 1, bảng thời gian từng bước</div>
+    </div>
+    <ol>
+      <li><b>Cài AI Toolkit</b> theo README của repo và mở giao diện web. Lệnh cài đặt thay đổi theo phiên bản nên lấy từ README.</li>
+<pre><code>git clone https://github.com/ostris/ai-toolkit
+cd ai-toolkit
+# cài thư viện Python theo README, rồi:
+cd ui && npm run build_and_start</code></pre>
+      <li><b>Train style LoRA.</b> Tạo job, trỏ vào thư mục dataset, chọn FLUX.2 Klein 4B Base, khai báo 6-8 prompt mẫu, bấm Start. Chọn checkpoint theo hướng dẫn ở phần Train model.</li>
+      <li><b>Tạo ảnh chuẩn ba góc</b> cho từng nhân vật bằng style LoRA, lưu vào <code>config/refs/</code>.</li>
+      <li><b>Viết kịch bản</b> bằng Claude trong ứng dụng chat, lưu thành <code>script.json</code>.</li>
+      <li><b>Sinh nền và nhân vật bằng tay</b> trong ComfyUI hoặc bằng đoạn script diffusers ở bước 3. Làm tay giúp bạn tìm ra mẫu prompt nào cho kết quả ổn định trước khi đưa vào script.</li>
+      <li><b>Tách nền, ghép cảnh</b> bằng hai đoạn code ở bước 4 và 5, chỉnh vị trí nhân vật cho tới khi vừa mắt.</li>
+      <li><b>Tạo giọng đọc</b> cho từng câu, lưu theo số thứ tự cảnh.</li>
+      <li><b>Dựng</b> bằng <code>build_video.py</code>.</li>
+    </ol>
+    <p>Trong lúc làm, ghi lại ba thứ: mẫu prompt đã dùng, vị trí và kích thước nhân vật trong khung, và các lỗi lặp lại. Đây là đầu vào cho chặng 2.</p>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">B</span>Chặng 2: tự động hóa ở local</h3>
+    <p>Mục tiêu: một lệnh chạy từ <code>script.json</code> ra <code>output.mp4</code>, người chỉ can thiệp ở khâu viết kịch bản và duyệt.</p>
+    <div class="io">
+      <div><b>Đầu vào</b>Ghi chép từ chặng 1, <code>script.json</code></div>
+      <div><b>Công cụ</b>Các script Python, mỗi bước một file</div>
+      <div><b>Đầu ra</b>Lệnh <code>python run_local.py videos/002</code> chạy trọn pipeline</div>
+    </div>
+    <p>Quy tắc viết script để sau này đưa lên AWS không phải viết lại:</p>
+    <ul>
+      <li>Mỗi bước là một file chạy độc lập, nhận đường dẫn thư mục video làm tham số duy nhất.</li>
+      <li>Bước nào cũng chỉ đọc file và ghi file trong thư mục đó; không bước nào gọi hàm của bước khác.</li>
+      <li>Kết quả đã có thì bỏ qua, để chạy lại sau khi sửa một cảnh không phải làm lại từ đầu.</li>
+      <li>Không ghi cứng đường dẫn hay khóa API trong code; đọc từ biến môi trường.</li>
+    </ul>
+<pre><code>steps/
+  00_make_cast.py      characters.json                →  config/refs/   (chạy một lần cho cả kênh)
+  02_backgrounds.py    script.json + locations.json   →  backgrounds/
+  03_characters.py     script.json + characters.json  →  characters/
+  04_cutouts.py        characters/                    →  cutouts/
+  05_compose.py        cutouts/ + backgrounds/        →  scenes/ (ảnh xem trước + bố cục .json)
+  06_voice.py          script.json                    →  audio/
+  07_build.py          scenes/ + audio/               →  output.mp4
+run_local.py           gọi lần lượt các bước trên</code></pre>
+<pre><code>"""run_local.py: chạy trọn pipeline cho một video. Dùng: python run_local.py videos/002"""
+import subprocess
+import sys
+
+STEPS = ["02_backgrounds", "03_characters", "04_cutouts", "05_compose", "06_voice", "07_build"]
+
+video_dir = sys.argv[1]
+for step in STEPS:
+    print(f"== {step}")
+    subprocess.run([sys.executable, f"steps/{step}.py", video_dir], check=True)
+print(f"Xong: {video_dir}/output.mp4")</code></pre>
+    <p>Đoạn trên là khung điều phối tối giản. Bước duyệt ảnh nằm giữa bước 03 và 04: chạy tới 03, xóa ảnh hỏng, chạy lại 03 để sinh bù, rồi chạy tiếp.</p>
+  </div>
+
+  <div class="step">
+    <h3><span class="n">C</span>Chặng 3: đưa lên AWS</h3>
+    <p>Mục tiêu: cùng những script đó, chạy trên hạ tầng tự bật tự tắt.</p>
+    <div class="scroll"><table>
+      <tr><th>Ở local</th><th>Trên AWS</th><th>Phải đổi gì</th></tr>
+      <tr><td>Thư mục dự án</td><td>Bucket S3</td><td>Thêm bước tải thư mục video xuống đầu mỗi task và đẩy kết quả lên cuối task</td></tr>
+      <tr><td>AI Toolkit trên máy</td><td>SageMaker Training Job, Managed Spot</td><td>Đóng gói trainer và file cấu hình vào một image trên ECR</td></tr>
+      <tr><td><code>02_backgrounds</code>, <code>03_characters</code></td><td>SageMaker Asynchronous Inference</td><td>Tách phần nạp model và phần sinh ảnh thành handler của endpoint; script chỉ còn gửi yêu cầu</td></tr>
+      <tr><td><code>04</code>, <code>05</code>, <code>07</code></td><td>Task ECS trên Fargate Spot</td><td>Một image chứa ba script cùng ffmpeg</td></tr>
+      <tr><td><code>06_voice</code></td><td>Lambda hoặc cùng task ECS</td><td>Gần như không đổi</td></tr>
+      <tr><td><code>run_local.py</code></td><td>Step Functions</td><td>Chuyển danh sách bước thành state machine, cho bước 02, 03 và 06 chạy song song</td></tr>
+      <tr><td>Claude trong ứng dụng chat</td><td>Claude trên Bedrock</td><td>Một hàm gọi API với prompt đã dùng ổn ở local</td></tr>
+    </table></div>
+  </div>
+
+  <h3>Điều kiện để chuyển chặng</h3>
+  <ul class="check">
+    <li><b>Từ 1 sang 2:</b> đã có một video hoàn chỉnh, một checkpoint LoRA được chọn, và mẫu prompt cho kết quả ổn định ở phần lớn các cảnh.</li>
+    <li><b>Từ 2 sang 3:</b> đã làm ít nhất 3-5 video bằng một lệnh, biết thời gian và tỷ lệ ảnh hỏng của từng bước, và số liệu xem cho thấy định dạng này đáng làm tiếp.</li>
+    <li><b>Chưa nên lên AWS nếu:</b> bạn chỉ làm một vài video mỗi tuần. Ở mức đó máy local hoặc GPU thuê theo giờ rẻ và ít việc vận hành hơn.</li>
+  </ul>
+</section>
+
+<section id="kaggle">
+  <h2>Sinh ảnh trên Kaggle</h2>
+  <p class="sub">Bước sinh ảnh chạy trên Kaggle với hai GPU T4, gọi qua API từ máy local. Các con số dưới đây là số đo thật từ các lần chạy.</p>
+
+  <h3>Số đo trên T4 x2, 30GB RAM</h3>
+  <div class="scroll"><table>
+    <tr><th>Việc</th><th>Kết quả</th></tr>
+    <tr><td>Checkpoint đã chọn</td><td><code>irasutoya_style_v1_000000750.safetensors</code>, trigger <code>irasutoya_style</code></td></tr>
+    <tr><td>Cách gọi pipeline</td><td>Tham số đầu là <code>image</code>, nên luôn truyền <code>prompt=...</code> hoặc <code>prompt_embeds=...</code> theo tên. Ảnh tham chiếu và sửa ảnh dùng chung <code>image=[...]</code>.</td></tr>
+    <tr><td>torchao</td><td>Bản cài sẵn trên Kaggle làm diffusers mới không import được; đặt <code>sys.modules["torchao"] = None</code> trước khi import.</td></tr>
+    <tr><td>RAM</td><td>Một tiến trình nạp cả pipeline dùng khoảng 18GB. Hai tiến trình như vậy vượt 30GB, nên phải mã hóa prompt trước rồi mỗi worker chỉ nạp phần sinh ảnh.</td></tr>
+    <tr><td>Sinh từ chữ</td><td>1024×1024 vừa T4, dùng khoảng 12,5GB VRAM</td></tr>
+    <tr><td>Sinh có ảnh tham chiếu</td><td>1024×1024 hết bộ nhớ. Cấu hình chạy được: ảnh ra 768×768, một ảnh tham chiếu thu về 512px.</td></tr>
+    <tr><td>Tốc độ</td><td>Một GPU có chuyển model qua RAM: khoảng 70 giây mỗi ảnh 1024. Hai GPU song song ở 768 có tham chiếu: 31 ảnh trong 18 phút, khoảng 35 giây mỗi ảnh.</td></tr>
+    <tr><td>Một video 2 phút</td><td>250-350 lần sinh, khoảng 2,5-3,5 giờ</td></tr>
+    <tr><td>Giới hạn</td><td>12 giờ mỗi lần chạy, 30 giờ GPU mỗi tuần. File của phiên tương tác mất khi phiên kết thúc.</td></tr>
+  </table></div>
+
+  <div class="note">
+    <p><b>Khác với các mục khác trong tài liệu này khi chạy trên T4:</b> mỗi lần sinh chỉ dùng một ảnh tham chiếu (chọn góc hợp với tư thế), không dùng cả ba góc cùng lúc; ảnh có tham chiếu ra ở 768px và cảnh cận mặt được phóng to khi dựng. Trên GPU 24GB thì hai giới hạn này không còn.</p>
+  </div>
+
+  <h3>Luồng chạy</h3>
+<pre><code>máy local                                   Kaggle
+videos/001/jobs.json  --+
+config/refs/*.png     --+-- dataset job --&gt; kernel_main.py
+kaggle_job/worker.py  --+                     1. cài thư viện
+                                              2. worker.py encode      (mã hóa mọi prompt một lần)
+dataset LoRA (tạo một lần) ----------------&gt;  3. worker.py worker i n  (mỗi GPU một tiến trình)
+videos/001/generated/out/ &lt;-- tải về -------  /kaggle/working/out/*.png + *.json</code></pre>
+  <p>Lệnh ở máy local: <code>python tools/run_kaggle.py videos/001</code>. Thêm <code>--dry-run</code> để chỉ dựng thư mục gửi đi và in các lệnh.</p>
+
+  <h3>jobs.json</h3>
+<pre><code>{"jobs": [
+  {"name": "001_base", "prompt": "irasutoya_style, ...", "refs": ["ref__repairman_front.png"]},
+  {"name": "002_var",  "prompt": "irasutoya_style, change the facial expression to ...", "refs": ["@001_base"]},
+  {"name": "bg_street", "prompt": "detailed anime background, ...", "lora": false, "width": 768, "height": 1344}
+]}</code></pre>
+  <ul>
+    <li><code>ref__&lt;tên file&gt;</code> là ảnh chuẩn lấy từ <code>config/refs/</code>; <code>@&lt;name&gt;</code> là ảnh do một job khác trong cùng lần chạy sinh ra.</li>
+    <li>Job có <code>@</code> phải đứng sau job nó tham chiếu, và job được tham chiếu không được có <code>@</code>. Đây là cấu trúc cây hai tầng, và nó bảo đảm hai worker không chờ nhau vô hạn.</li>
+    <li><code>lora: false</code> cho ảnh nền; worker sinh hết ảnh có LoRA rồi mới tháo LoRA để sinh nền.</li>
+    <li>Mỗi ảnh có một file <code>.json</code> ghi prompt, seed, LoRA, ảnh tham chiếu và thời gian sinh.</li>
+  </ul>
+
+  <h3>File cấu hình</h3>
+  <p>Mọi khóa và thông số nằm trong <code>config.toml</code> ở gốc dự án, sao chép từ <code>config.example.toml</code> và đã có trong <code>.gitignore</code>. Chỉ mục <code>[generation]</code> được gửi lên Kaggle; không khóa nào rời khỏi máy local.</p>
+<pre><code>[kaggle]
+username = "ten-tai-khoan-kaggle"
+key = ""
+lora_dataset = "irasutoya-style-lora"
+job_dataset = "shorts-job"
+kernel = "shorts-gen"
+
+[generation]
+model = "black-forest-labs/FLUX.2-klein-4B"
+lora_file = "irasutoya_style_v1_000000750.safetensors"
+size_text = 1024
+size_ref = 768
+ref_size = 512
+steps = 4
+seed = 42
+
+[keys]
+anthropic_api_key = ""
+tts_api_key = ""
+hf_token = ""</code></pre>
+
+  <h3>Trạng thái mã nguồn</h3>
+  <ul>
+    <li>Mã nguồn nằm trong gói <code>shorts_pipeline_handoff.zip</code>, kèm <code>HANDOFF.md</code> ghi thứ tự việc cần làm.</li>
+    <li><code>run_kaggle.py</code>: đã chạy chế độ <code>--dry-run</code> và phần kiểm tra <code>jobs.json</code>; các lệnh <code>kaggle</code> thật chưa được chạy.</li>
+    <li><code>worker.py</code>: tổng quát hóa từ script đã sinh được 31 ảnh trên hai T4; bản tổng quát chưa chạy trên GPU.</li>
+    <li>Cần xác nhận kernel đẩy qua API được cấp hai T4. Nếu chỉ có một GPU, script vẫn chạy và chậm hơn.</li>
+    <li>Điều khoản sử dụng của Kaggle cho mục đích này chưa được đối chiếu với nguồn chính thức.</li>
+  </ul>
+</section>
+
+<section id="aws">
+  <h2>Hạ tầng AWS</h2>
+  <p class="sub">Thiết kế theo một nguyên tắc: không có máy nào chạy khi không có việc. GPU chỉ bật khi có hàng đợi, và tự về 0 khi hết.</p>
+  <div class="arch"><svg viewBox="0 0 960 600" role="img" aria-labelledby="aws-t aws-d"><title id="aws-t">Sơ đồ hạ tầng AWS</title><desc id="aws-d">Step Functions điều phối mỗi video và gọi Bedrock, SageMaker Async Endpoint, dịch vụ TTS và ECS trên Fargate Spot. CloudWatch alarm cùng Application Auto Scaling đưa endpoint từ 0 máy lên khi có hàng đợi và về 0 khi hết việc. SageMaker Training Job dùng Managed Spot để train LoRA. Mọi thành phần đọc và ghi vào một bucket S3.</desc><defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect class="band" x="20" y="20" width="920" height="100" rx="12"/><text class="lb" x="36" y="36" dominant-baseline="central">Điều phối</text><rect class="bx" x="40" y="50" width="190" height="56" rx="8"/><text class="t1" x="135.0" y="69.0" text-anchor="middle" dominant-baseline="central">EventBridge / thủ công</text><text class="t2" x="135.0" y="89.0" text-anchor="middle" dominant-baseline="central">bắt đầu một video</text><rect class="bx" x="280" y="50" width="400" height="56" rx="8"/><text class="t1" x="480.0" y="69.0" text-anchor="middle" dominant-baseline="central">Step Functions</text><text class="t2" x="480.0" y="89.0" text-anchor="middle" dominant-baseline="central">một lần chạy cho mỗi video</text><rect class="bx" x="730" y="50" width="190" height="56" rx="8"/><text class="t1" x="825.0" y="69.0" text-anchor="middle" dominant-baseline="central">SNS</text><text class="t2" x="825.0" y="89.0" text-anchor="middle" dominant-baseline="central">báo xong, lỗi, vượt ngân sách</text><line class="ar" x1="230" y1="78" x2="272" y2="78" marker-end="url(#ah2)"/><line class="ar" x1="680" y1="78" x2="722" y2="78" marker-end="url(#ah2)"/><rect class="band" x="20" y="150" width="920" height="140" rx="12"/><text class="lb" x="36" y="168" dominant-baseline="central">Xử lý, chỉ tốn tiền khi đang chạy</text><rect class="bx" x="40" y="190" width="205" height="62" rx="8"/><text class="t1" x="142.5" y="212.0" text-anchor="middle" dominant-baseline="central">Bedrock: Claude</text><text class="t2" x="142.5" y="232.0" text-anchor="middle" dominant-baseline="central">viết kịch bản</text><rect class="bx own" x="265" y="190" width="205" height="62" rx="8"/><text class="t1" x="367.5" y="212.0" text-anchor="middle" dominant-baseline="central">SageMaker Async</text><text class="t2" x="367.5" y="232.0" text-anchor="middle" dominant-baseline="central">klein + LoRA, 0 đến 2 máy</text><rect class="bx" x="490" y="190" width="205" height="62" rx="8"/><text class="t1" x="592.5" y="212.0" text-anchor="middle" dominant-baseline="central">Polly hoặc TTS ngoài</text><text class="t2" x="592.5" y="232.0" text-anchor="middle" dominant-baseline="central">giọng đọc</text><rect class="bx" x="715" y="190" width="205" height="62" rx="8"/><text class="t1" x="817.5" y="212.0" text-anchor="middle" dominant-baseline="central">ECS trên Fargate Spot</text><text class="t2" x="817.5" y="232.0" text-anchor="middle" dominant-baseline="central">tách nền, ghép, ffmpeg</text><path class="ar" d="M300 106 L300 135 L142 135 L142 182" marker-end="url(#ah2)"/><line class="ar" x1="367" y1="106" x2="367" y2="182" marker-end="url(#ah2)"/><line class="ar" x1="592" y1="106" x2="592" y2="182" marker-end="url(#ah2)"/><path class="ar" d="M660 106 L660 135 L817 135 L817 182" marker-end="url(#ah2)"/><rect class="band" x="20" y="320" width="560" height="126" rx="12"/><text class="lb" x="36" y="428" dominant-baseline="central">Tự co giãn về 0</text><rect class="bx" x="40" y="336" width="240" height="62" rx="8"/><text class="t1" x="160.0" y="358.0" text-anchor="middle" dominant-baseline="central">CloudWatch alarm</text><text class="t2" x="160.0" y="378.0" text-anchor="middle" dominant-baseline="central">HasBacklogWithoutCapacity</text><rect class="bx" x="320" y="336" width="240" height="62" rx="8"/><text class="t1" x="440.0" y="358.0" text-anchor="middle" dominant-baseline="central">Application Auto Scaling</text><text class="t2" x="440.0" y="378.0" text-anchor="middle" dominant-baseline="central">min 0, theo độ dài hàng đợi</text><path class="ar" d="M300 252 L300 305 L160 305 L160 328" marker-end="url(#ah2)"/><line class="ar" x1="280" y1="367" x2="312" y2="367" marker-end="url(#ah2)"/><line class="ar" x1="420" y1="336" x2="420" y2="260" marker-end="url(#ah2)"/><rect class="band" x="600" y="320" width="340" height="126" rx="12"/><text class="lb" x="616" y="428" dominant-baseline="central">Huấn luyện, chạy khi cần</text><rect class="bx" x="620" y="336" width="130" height="62" rx="8"/><text class="t1" x="685.0" y="358.0" text-anchor="middle" dominant-baseline="central">ECR</text><text class="t2" x="685.0" y="378.0" text-anchor="middle" dominant-baseline="central">image container</text><rect class="bx own" x="790" y="336" width="130" height="62" rx="8"/><text class="t1" x="855.0" y="358.0" text-anchor="middle" dominant-baseline="central">Training Job</text><text class="t2" x="855.0" y="378.0" text-anchor="middle" dominant-baseline="central">Managed Spot</text><line class="ar" x1="750" y1="367" x2="782" y2="367" marker-end="url(#ah2)"/><rect class="band" x="20" y="476" width="920" height="104" rx="12"/><text class="lb" x="36" y="492" dominant-baseline="central">Lưu trữ</text><rect class="bx" x="40" y="508" width="880" height="56" rx="8"/><text class="t1" x="480.0" y="527.0" text-anchor="middle" dominant-baseline="central">S3: dataset, LoRA, cấu hình, ảnh, âm thanh, video</text><text class="t2" x="480.0" y="547.0" text-anchor="middle" dominant-baseline="central">lifecycle: xóa file tạm, chuyển video cũ sang lớp lưu trữ rẻ</text><line class="ar" x1="590" y1="296" x2="590" y2="500" marker-start="url(#ah2)" marker-end="url(#ah2)"/><line class="ar" x1="855" y1="404" x2="855" y2="500" marker-start="url(#ah2)" marker-end="url(#ah2)"/><text class="t2" x="602" y="461" dominant-baseline="central">đọc và ghi</text></svg></div>
+  <p class="key"><i></i>Viền xanh: nơi model tự train được tạo ra và được dùng.</p>
+
+  <h3>Vai trò từng dịch vụ</h3>
+  <div class="scroll"><table>
+    <tr><th>Dịch vụ</th><th>Làm gì</th><th>Tính tiền khi nào</th></tr>
+    <tr><td>Step Functions</td><td>Điều phối một video: kịch bản, rồi song song nền, nhân vật và giọng đọc, rồi ghép và dựng. Tự thử lại bước lỗi.</td><td>Theo số lần chuyển trạng thái, rất nhỏ ở quy mô này</td></tr>
+    <tr><td>Bedrock (Claude)</td><td>Viết <code>script.json</code> từ chủ đề</td><td>Theo token</td></tr>
+    <tr><td>SageMaker Asynchronous Inference</td><td>Sinh ảnh nền và nhân vật bằng klein 4B gắn LoRA. Yêu cầu vào hàng đợi, kết quả ghi ra S3.</td><td>Theo giờ máy, chỉ khi có máy đang chạy</td></tr>
+    <tr><td>Polly hoặc TTS ngoài</td><td>Giọng đọc từng câu. Polly có giọng tiếng Nhật; ngôn ngữ khác cần kiểm tra danh sách hỗ trợ.</td><td>Theo ký tự</td></tr>
+    <tr><td>ECS trên Fargate Spot</td><td>Tách nền, ghép cảnh, chạy <code>build_video.py</code>. Chỉ cần CPU.</td><td>Theo giây chạy, giá Spot</td></tr>
+    <tr><td>SageMaker Training Job</td><td>Train LoRA bằng Managed Spot, checkpoint ghi ra S3 để chạy tiếp nếu bị thu hồi máy</td><td>Theo giây chạy, giá Spot</td></tr>
+    <tr><td>ECR</td><td>Chứa image container cho train, inference và dựng</td><td>Theo dung lượng</td></tr>
+    <tr><td>S3</td><td>Nơi duy nhất lưu dữ liệu; các thành phần trao đổi qua đây</td><td>Theo dung lượng</td></tr>
+    <tr><td>CloudWatch, Application Auto Scaling, SNS, Budgets</td><td>Co giãn endpoint, cảnh báo lỗi và chi phí</td><td>Gần như bằng 0</td></tr>
+  </table></div>
+
+  <h3>Cơ chế co giãn bằng alarm</h3>
+  <p>Endpoint dạng asynchronous là loại endpoint SageMaker cho phép số máy tối thiểu bằng 0. Việc co giãn dùng hai chính sách:</p>
+  <ol>
+    <li><b>Từ 0 lên 1.</b> Khi có yêu cầu trong hàng đợi mà chưa có máy nào, metric <code>HasBacklogWithoutCapacity</code> bằng 1. Một CloudWatch alarm trên metric này kích hoạt chính sách step scaling để thêm một máy.</li>
+    <li><b>Từ 1 lên nhiều hơn, và về lại 0.</b> Chính sách target tracking bám theo metric <code>ApproximateBacklogSizePerInstance</code> (số yêu cầu đang chờ chia cho số máy). Hàng đợi dài thì thêm máy; hàng đợi về 0 thì sau thời gian chờ, số máy giảm về 0.</li>
+  </ol>
+<pre><code>import boto3
+
+ENDPOINT = "klein-lora-async"
+RESOURCE = f"endpoint/{ENDPOINT}/variant/AllTraffic"
+aas = boto3.client("application-autoscaling")
+cw = boto3.client("cloudwatch")
+DIM = [{"Name": "EndpointName", "Value": ENDPOINT}]
+
+# Cho phép số máy từ 0 đến 2
+aas.register_scalable_target(
+    ServiceNamespace="sagemaker", ResourceId=RESOURCE,
+    ScalableDimension="sagemaker:variant:DesiredInstanceCount",
+    MinCapacity=0, MaxCapacity=2)
+
+# Bám theo độ dài hàng đợi; hết việc thì về 0 sau 5 phút
+aas.put_scaling_policy(
+    PolicyName="backlog-target-tracking", ServiceNamespace="sagemaker",
+    ResourceId=RESOURCE, ScalableDimension="sagemaker:variant:DesiredInstanceCount",
+    PolicyType="TargetTrackingScaling",
+    TargetTrackingScalingPolicyConfiguration={
+        "TargetValue": 60.0,              # khoảng 60 ảnh đang chờ cho mỗi máy
+        "CustomizedMetricSpecification": {
+            "MetricName": "ApproximateBacklogSizePerInstance",
+            "Namespace": "AWS/SageMaker", "Dimensions": DIM, "Statistic": "Average"},
+        "ScaleInCooldown": 300, "ScaleOutCooldown": 120})
+
+# Từ 0 lên 1 khi có hàng đợi mà chưa có máy
+step = aas.put_scaling_policy(
+    PolicyName="wake-from-zero", ServiceNamespace="sagemaker",
+    ResourceId=RESOURCE, ScalableDimension="sagemaker:variant:DesiredInstanceCount",
+    PolicyType="StepScaling",
+    StepScalingPolicyConfiguration={
+        "AdjustmentType": "ChangeInCapacity", "MetricAggregationType": "Average", "Cooldown": 300,
+        "StepAdjustments": [{"MetricIntervalLowerBound": 0, "ScalingAdjustment": 1}]})
+
+cw.put_metric_alarm(
+    AlarmName="klein-has-backlog-without-capacity",
+    Namespace="AWS/SageMaker", MetricName="HasBacklogWithoutCapacity", Dimensions=DIM,
+    Statistic="Average", Period=60, EvaluationPeriods=2, DatapointsToAlarm=2,
+    Threshold=1, ComparisonOperator="GreaterThanOrEqualToThreshold",
+    TreatMissingData="missing", AlarmActions=[step["PolicyARN"]])</code></pre>
+  <p>Tên metric và cách ghép hai chính sách theo tài liệu của AWS. Các con số <code>TargetValue</code>, thời gian chờ và số máy tối đa là gợi ý ban đầu, cần chỉnh theo tốc độ sinh ảnh thực tế. Đoạn code này chưa được chạy thử trên tài khoản AWS.</p>
+  <div class="note">
+    <p><b>Cái giá của việc về 0 là thời gian khởi động.</b> Yêu cầu đầu tiên sau khi endpoint ngủ phải chờ máy bật và nạp model, thường vài phút. Với việc sinh ảnh theo lô cho video thì chấp nhận được; Step Functions chỉ cần chờ kết quả xuất hiện trên S3 hoặc nhận thông báo qua SNS.</p>
+  </div>
+
+  <h3>Alarm bảo vệ chi phí</h3>
+  <ul class="check">
+    <li><b>Endpoint thức quá lâu.</b> Alarm khi số máy lớn hơn 0 liên tục quá 2 giờ, gửi SNS. Đây là dấu hiệu hàng đợi bị kẹt hoặc chính sách về 0 không hoạt động.</li>
+    <li><b>Yêu cầu lỗi.</b> Cấu hình endpoint gửi kết quả lỗi vào một SNS topic, để yêu cầu hỏng không lặng lẽ biến mất.</li>
+    <li><b>Step Functions thất bại.</b> Alarm trên số lần chạy thất bại.</li>
+    <li><b>AWS Budgets.</b> Đặt ngân sách tháng với cảnh báo ở 50%, 80% và 100%.</li>
+    <li><b>Training job chạy quá lâu.</b> Đặt thời gian tối đa cho job, ví dụ 4 giờ, để job treo tự dừng.</li>
+  </ul>
+
+  <h3>Các quyết định giúp giảm chi phí</h3>
+  <div class="scroll"><table>
+    <tr><th>Quyết định</th><th>Tác dụng</th></tr>
+    <tr><td>Endpoint asynchronous với số máy tối thiểu bằng 0</td><td>Tránh khoản trên 1.100 USD mỗi tháng của một máy <code>ml.g5.2xlarge</code> chạy liên tục</td></tr>
+    <tr><td>Managed Spot cho training</td><td>Giảm khoảng 50-70% so với giá thường; checkpoint mỗi 250 bước nên bị thu hồi máy không mất công</td></tr>
+    <tr><td>ECS trên Fargate Spot cho phần CPU</td><td>Không cần giữ máy chủ nào; việc bị ngắt thì Step Functions chạy lại</td></tr>
+    <tr><td>Một máy GPU đơn (<code>ml.g5</code> hoặc <code>ml.g6</code>)</td><td>klein 4B chỉ cần khoảng 13GB VRAM, không cần máy nhiều GPU</td></tr>
+    <tr><td>Gom yêu cầu theo lô</td><td>Gửi toàn bộ ảnh của một video cùng lúc để máy chỉ thức một lần</td></tr>
+    <tr><td>Không dùng NAT Gateway</td><td>Tránh khoản phí cố định hằng tháng; dùng S3 gateway endpoint (miễn phí) và subnet công khai cho task Fargate</td></tr>
+    <tr><td>Lifecycle trên S3</td><td>Tự xóa <code>build_tmp/</code> và ảnh trung gian sau vài ngày; chuyển video cũ sang lớp lưu trữ rẻ</td></tr>
+    <tr><td>Dùng lại nền trong <code>library/</code></td><td>Giảm số ảnh phải sinh cho mỗi video</td></tr>
+  </table></div>
+
+  <h3>Ước tính cho mỗi video</h3>
+  <p>Với video 1-2 phút, khoảng 250-350 ảnh cộng thời gian khởi động thường nằm trong 30-45 phút máy GPU, tức khoảng 1 USD ở giá khoảng 1,5 USD mỗi giờ. Phần Bedrock, TTS và Fargate cộng lại thường nhỏ hơn khoản này. Đây là ước tính, chưa phải số đo; số thật phụ thuộc thời gian khởi động và tốc độ sinh ảnh trên máy bạn chọn.</p>
+
+  <div class="note">
+    <p><b>Phương án đơn giản hơn khi mới bắt đầu.</b> Với một vài video mỗi ngày, bạn có thể bỏ hẳn endpoint và chạy bước sinh ảnh như một job theo lô cho từng video: không có gì để co giãn, không có alarm cần cấu hình, và chi phí tương đương. Endpoint asynchronous đáng dùng khi nhiều video xếp hàng cùng lúc, vì máy đang thức sẽ xử lý tiếp mà không phải khởi động lại.</p>
+  </div>
+</section>
+
+<section id="chuan-bi">
+  <h2>Chuẩn bị</h2>
+  <p class="sub">Những thứ cần có trước khi chạy bước đầu tiên.</p>
+
+  <h3>Quyết định cần chốt trước</h3>
+  <ul class="check">
+    <li><b>Nguồn nét vẽ.</b> Điều khoản và trang hỏi đáp của irasutoya.com hiện không nói gì về việc dùng tranh để train AI: không cho phép rõ, cũng không cấm rõ. Trước khi dùng LoRA cho kênh kiếm tiền, hãy hỏi qua trang liên hệ của họ, hoặc dùng công cụ chính thức AIいらすとや, hoặc train trên ảnh tự sinh để có nét riêng.</li>
+    <li><b>Nhân vật.</b> Dùng nhân vật tự thiết kế. Nhân vật có bản quyền chỉ hợp để thử nghiệm.</li>
+    <li><b>Ngôn ngữ và giọng đọc</b> của kênh, vì nó quyết định công cụ TTS và font phụ đề.</li>
+    <li><b>Tên kênh và tiêu đề</b> không chứa chữ いらすとや: trang gốc cấm cách đặt tên gây hiểu nhầm là hợp tác chính thức.</li>
+  </ul>
+
+  <h3>Quy tắc thiết kế nhân vật</h3>
+  <ul class="check">
+    <li>Mỗi nhân vật nhận ra được chỉ bằng hai ba mảng màu lớn: màu áo, màu quần, kiểu tóc.</li>
+    <li>Không dùng họa tiết nhỏ, chữ, logo hay phụ kiện lặt vặt. Đây là những thứ trôi đầu tiên giữa các ảnh.</li>
+    <li>Hai nhân vật trong cùng một truyện không trùng màu áo.</li>
+    <li>Mỗi nhân vật có một bảng ảnh chuẩn ba góc: trước, nghiêng, sau.</li>
+  </ul>
+
+  <h3>Phần cứng</h3>
+  <div class="scroll"><table>
+    <tr><th>Việc</th><th>Cần</th><th>Ghi chú</th></tr>
+    <tr><td>Train LoRA</td><td>GPU NVIDIA từ 24GB VRAM</td><td>Máy riêng, Colab (L4 hoặc A100), hoặc SageMaker <code>ml.g5.2xlarge</code> khoảng 1,5 USD/giờ</td></tr>
+    <tr><td>Sinh ảnh</td><td>GPU khoảng 13GB VRAM</td><td>Bản klein 4B distilled; không có GPU thì gọi API của BFL với LoRA đã tải lên</td></tr>
+    <tr><td>Tách nền, ghép, dựng</td><td>CPU thường</td><td>Chạy được trên laptop</td></tr>
+  </table></div>
+
+  <h3>Phần mềm và tài khoản</h3>
+  <ul class="check">
+    <li>Python 3.10 trở lên, <code>ffmpeg</code> và <code>ffprobe</code> trong PATH, Node.js (cho giao diện web của AI Toolkit).</li>
+    <li>Tài khoản Hugging Face và token đọc, để tải FLUX.2 klein.</li>
+    <li>Quyền dùng Claude (ứng dụng chat hoặc API) cho bước kịch bản.</li>
+    <li>Một công cụ TTS: VOICEVOX chạy máy riêng (tiếng Nhật, miễn phí), hoặc một dịch vụ trả phí cho ngôn ngữ khác.</li>
+    <li>Font có đủ ký tự của ngôn ngữ phụ đề, ví dụ Noto Sans CJK JP cho tiếng Nhật, Be Vietnam Pro cho tiếng Việt.</li>
+    <li>Nhạc nền có giấy phép dùng cho video kiếm tiền.</li>
+  </ul>
+
+  <h3>Cấu trúc thư mục dự án</h3>
+<pre><code>shorts-pipeline/
+  config/
+    characters.json      mô tả cố định của từng nhân vật
+    locations.json       mô tả cố định của từng bối cảnh
+    refs/                ảnh chuẩn của từng nhân vật: trước, nghiêng, sau
+  loras/
+    style.safetensors    style LoRA sau khi train
+  library/backgrounds/   ảnh nền dùng lại giữa các video
+  videos/
+    001-ten-video/
+      script.json        kịch bản (đầu ra bước 1)
+      backgrounds/       nền dùng trong video này
+      characters/        ảnh nhân vật nền trắng (bước 3)
+      cutouts/           ảnh nhân vật đã tách nền (bước 4)
+      scenes/            ảnh cảnh đã ghép (bước 5)
+      audio/             giọng đọc từng câu (bước 6)
+      output.mp4         video hoàn chỉnh (bước 7)
+  build_video.py         script dựng</code></pre>
+</section>
+
+<section id="repo">
+  <h2>Repository nền</h2>
+  <p class="sub">Bạn không cần viết lại phần nào trong bảng này. Phần tự viết chỉ là các script nối chúng lại.</p>
+  <div class="scroll"><table>
+    <tr><th>Dùng cho</th><th>Repository</th><th>Vai trò</th></tr>
+    <tr><td>Train LoRA</td><td><a href="https://github.com/ostris/ai-toolkit">ostris/ai-toolkit</a></td><td>Trainer được Black Forest Labs giới thiệu, có giao diện web. Đây là repo nền chính của phần training.</td></tr>
+    <tr><td>Train LoRA (thay thế)</td><td><a href="https://github.com/huggingface/diffusers/blob/main/examples/dreambooth/README_flux2.md">huggingface/diffusers</a></td><td>Script DreamBooth LoRA cho FLUX.2, hợp khi muốn đóng gói thành SageMaker Training Job.</td></tr>
+    <tr><td>Base model để train</td><td><code>black-forest-labs/FLUX.2-klein-base-4B</code></td><td>Bản chưa distill, giấy phép Apache 2.0.</td></tr>
+    <tr><td>Base model để sinh ảnh</td><td><code>black-forest-labs/FLUX.2-klein-4B</code></td><td>Bản distilled 4 bước, nhanh. Gắn LoRA đã train trên bản base.</td></tr>
+    <tr><td>Code inference tham khảo</td><td><a href="https://github.com/black-forest-labs/flux2">black-forest-labs/flux2</a></td><td>Code tối thiểu để sinh và chỉnh sửa ảnh bằng FLUX.2.</td></tr>
+    <tr><td>Tách nền</td><td><a href="https://github.com/danielgatis/rembg">danielgatis/rembg</a></td><td>Thư viện Python tách nền hàng loạt.</td></tr>
+    <tr><td>Giọng đọc tiếng Nhật</td><td><a href="https://github.com/VOICEVOX/voicevox_engine">VOICEVOX/voicevox_engine</a></td><td>Engine TTS chạy máy riêng, gọi qua HTTP. Mỗi giọng có điều khoản ghi nguồn riêng.</td></tr>
+    <tr><td>Ghép ảnh</td><td>Pillow</td><td>Dán nhân vật lên nền.</td></tr>
+    <tr><td>Dựng video</td><td>ffmpeg</td><td>Chuyển động, phụ đề ASS, trộn âm thanh.</td></tr>
+  </table></div>
+  <p>Tài liệu train chính thức: <a href="https://docs.bfl.ai/flux_2/flux2_klein_training.md">docs.bfl.ai</a> và bài hướng dẫn <a href="https://huggingface.co/blog/black-forest-labs/flux-2-klein-lora">trên Hugging Face</a>.</p>
+</section>
+
+<section id="train">
+  <h2>Train model</h2>
+  <p class="sub">Chỉ có hai loại model đáng tự train. Mọi thứ khác dùng model có sẵn.</p>
+
+  <div class="step own">
+    <h3>Style LoRA: dạy nét vẽ</h3>
+    <p>Bắt buộc. Đây là thứ tạo ra nét riêng cho mọi ảnh nhân vật.</p>
+    <div class="io">
+      <div><b>Đầu vào</b>100-150 ảnh cùng nét, mỗi ảnh một file caption <code>.txt</code> cùng tên</div>
+      <div><b>Công cụ</b>AI Toolkit, base <code>FLUX.2-klein-base-4B</code></div>
+      <div><b>Đầu ra</b>Các file <code>.safetensors</code> theo từng mốc và ảnh mẫu của mỗi mốc</div>
+    </div>
+    <h3>Chuẩn bị dataset</h3>
+    <ul>
+      <li>Ảnh PNG hoặc JPG, nền trắng (đổ nền trắng cho PNG trong suốt), cạnh ngắn từ khoảng 700px.</li>
+      <li>Đa dạng chủ thể: người theo độ tuổi và nghề, cảm xúc mạnh, hai người tương tác, góc nhìn từ sau và nghiêng, con vật, đồ vật.</li>
+      <li>Mỗi nhóm ảnh gần trùng nhau chỉ giữ 1-2 ảnh. Bỏ biểu đồ, ảnh chữ, sơ đồ, ảnh chỉ có nét viền.</li>
+      <li>Caption dạng <code>irasutoya_style, a firefighter holding a hose, serious face, white background</code>. Mô tả nội dung, không mô tả phong cách.</li>
+    </ul>
+    <h3>Thông số</h3>
+    <div class="scroll"><table>
+      <tr><th>Thông số</th><th>Giá trị</th><th>Nguồn</th></tr>
+      <tr><td>Kiến trúc model</td><td>FLUX.2 Klein 4B Base</td><td>Tài liệu BFL</td></tr>
+      <tr><td>Learning rate</td><td>8e-5 đến 1e-4</td><td>Tài liệu BFL</td></tr>
+      <tr><td>Lưu checkpoint</td><td>Mỗi 250 bước</td><td>Ví dụ của BFL</td></tr>
+      <tr><td>Độ phân giải</td><td>1024</td><td>Gợi ý ban đầu</td></tr>
+      <tr><td>Rank</td><td>16 đến 32</td><td>Gợi ý ban đầu</td></tr>
+      <tr><td>Tổng số bước</td><td>1500 đến 3000</td><td>Gợi ý ban đầu, chọn mốc bằng ảnh mẫu</td></tr>
+    </table></div>
+    <p>Các dòng "gợi ý ban đầu" là điểm xuất phát thường gặp, chưa phải giá trị đã kiểm chứng cho bộ ảnh của bạn.</p>
+    <h3>Cách chọn checkpoint</h3>
+    <ul>
+      <li>Khai báo 6-8 prompt mẫu cố định, trong đó một nửa là thứ không có trong dataset (phi hành gia ăn mì, con mèo lái xe).</li>
+      <li>Chọn mốc sớm nhất đã ra đúng nét mà vẫn theo đúng prompt.</li>
+      <li>Dấu hiệu train quá tay: prompt khác nhau ra cùng một nhân vật, hoặc ảnh mẫu giống hệt ảnh trong dataset.</li>
+    </ul>
+  </div>
+
+  <div class="step own">
+    <h3>Character LoRA: giữ nguyên một nhân vật</h3>
+    <p>Tùy chọn, làm sau khi style LoRA đã ổn. Điều kiện để train nằm ở mục <a href="#on-dinh">Giữ nhân vật ổn định</a>.</p>
+    <div class="io">
+      <div><b>Đầu vào</b>15-20 ảnh của đúng một nhân vật, sinh bằng style LoRA rồi chọn tay</div>
+      <div><b>Công cụ</b>AI Toolkit, cùng base model</div>
+      <div><b>Đầu ra</b>Một file <code>.safetensors</code> cho mỗi nhân vật</div>
+    </div>
+    <ul>
+      <li>Ảnh phải cùng mặt, cùng trang phục, khác tư thế, biểu cảm và góc nhìn.</li>
+      <li>Caption dùng trigger riêng, ví dụ <code>chr_repairman, fixing a bicycle tire, angry face, white background</code>. Không mô tả ngoại hình, vì trigger gánh phần đó.</li>
+      <li>Khi sinh ảnh, gắn cùng lúc style LoRA và character LoRA.</li>
+    </ul>
+  </div>
+
+  <h3>Model không tự train</h3>
+  <div class="scroll"><table>
+    <tr><th>Model</th><th>Dùng ở bước</th><th>Cần chuẩn bị</th></tr>
+    <tr><td>Claude</td><td>Kịch bản</td><td>Prompt hệ thống kèm schema và hai file cấu hình</td></tr>
+    <tr><td>FLUX.2 klein 4B (không LoRA)</td><td>Background</td><td>Tải weights, mẫu prompt nền</td></tr>
+    <tr><td>Model tách nền của rembg</td><td>Tách nền</td><td>Tự tải ở lần chạy đầu</td></tr>
+    <tr><td>TTS</td><td>Giọng đọc</td><td>Chọn giọng cho từng nhân vật, ghi lại mã giọng</td></tr>
+    <tr><td>Image-to-video (tùy chọn)</td><td>Dựng</td><td>Chỉ dùng cho vài cảnh cao trào, trả tiền theo clip</td></tr>
+  </table></div>
+</section>
+
+<section id="on-dinh">
+  <h2>Giữ nhân vật ổn định</h2>
+  <p class="sub">Cùng một nhân vật phải giống nhau giữa các khung trong một phân cảnh, giữa các phân cảnh, và giữa các video.</p>
+  <div class="arch"><svg viewBox="0 0 920 310" role="img" aria-labelledby="tree-t tree-d"><title id="tree-t">Cấu trúc cây giữ nhân vật ổn định</title><desc id="tree-d">Ảnh chuẩn của nhân vật ở gốc. Ảnh gốc của từng phân cảnh đều sinh từ ảnh chuẩn. Các khung biến thể trong một phân cảnh được sửa từ ảnh gốc của phân cảnh đó.</desc><defs><marker id="ah3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect class="bx own" x="320" y="20" width="280" height="56" rx="8"/><text class="t1" x="460.0" y="39.0" text-anchor="middle" dominant-baseline="central">Ảnh chuẩn nhân vật</text><text class="t2" x="460.0" y="59.0" text-anchor="middle" dominant-baseline="central">ba góc, tạo một lần, dùng cho mọi video</text><rect class="bx" x="110" y="126" width="280" height="56" rx="8"/><text class="t1" x="250.0" y="145.0" text-anchor="middle" dominant-baseline="central">Ảnh gốc phân cảnh A</text><text class="t2" x="250.0" y="165.0" text-anchor="middle" dominant-baseline="central">ảnh chuẩn + tư thế ngồi sửa xe</text><rect class="bx" x="530" y="126" width="280" height="56" rx="8"/><text class="t1" x="670.0" y="145.0" text-anchor="middle" dominant-baseline="central">Ảnh gốc phân cảnh B</text><text class="t2" x="670.0" y="165.0" text-anchor="middle" dominant-baseline="central">ảnh chuẩn + tư thế đứng khoanh tay</text><path class="ar" d="M400 76 L400 100 L250 100 L250 118" marker-end="url(#ah3)"/><path class="ar" d="M520 76 L520 100 L670 100 L670 118" marker-end="url(#ah3)"/><rect class="bx" x="60" y="236" width="120" height="46" rx="8"/><text class="t1" x="120.0" y="259.0" text-anchor="middle" dominant-baseline="central">mặt nghiêm</text><rect class="bx" x="190" y="236" width="120" height="46" rx="8"/><text class="t1" x="250.0" y="259.0" text-anchor="middle" dominant-baseline="central">nhíu mày</text><rect class="bx" x="320" y="236" width="120" height="46" rx="8"/><text class="t1" x="380.0" y="259.0" text-anchor="middle" dominant-baseline="central">ngạc nhiên</text><line class="ar" x1="250" y1="182" x2="250" y2="228" marker-end="url(#ah3)"/><path class="ar" d="M250 208 L120 208 L120 228" marker-end="url(#ah3)"/><path class="ar" d="M250 208 L380 208 L380 228" marker-end="url(#ah3)"/><rect class="bx" x="480" y="236" width="120" height="46" rx="8"/><text class="t1" x="540.0" y="259.0" text-anchor="middle" dominant-baseline="central">mặt giận</text><rect class="bx" x="610" y="236" width="120" height="46" rx="8"/><text class="t1" x="670.0" y="259.0" text-anchor="middle" dominant-baseline="central">mỉm cười</text><rect class="bx" x="740" y="236" width="120" height="46" rx="8"/><text class="t1" x="800.0" y="259.0" text-anchor="middle" dominant-baseline="central">thở dài</text><line class="ar" x1="670" y1="182" x2="670" y2="228" marker-end="url(#ah3)"/><path class="ar" d="M670 208 L540 208 L540 228" marker-end="url(#ah3)"/><path class="ar" d="M670 208 L800 208 L800 228" marker-end="url(#ah3)"/></svg></div>
+  <p class="key"><i></i>Viền xanh: ảnh chuẩn, điểm neo duy nhất của nhân vật.</p>
+  <ul>
+    <li><b>Ảnh gốc của mỗi phân cảnh luôn sinh từ ảnh chuẩn.</b> Hai phân cảnh giống nhau vì cùng nhìn vào một ảnh mẫu.</li>
+    <li><b>Các khung trong một phân cảnh sửa từ ảnh gốc của phân cảnh đó.</b> Chỉ đổi mặt hoặc tay.</li>
+    <li><b>Không nối chuỗi từ phân cảnh này sang phân cảnh khác.</b> Mỗi lần sao chép qua model lệch một chút; với cấu trúc cây, mọi ảnh cách ảnh chuẩn tối đa hai bước.</li>
+  </ul>
+
+  <h3>Ảnh tham chiếu hay character LoRA</h3>
+  <div class="scroll"><table>
+    <tr><th></th><th>Ảnh tham chiếu</th><th>Character LoRA</th></tr>
+    <tr><td>Chuẩn bị</td><td>Một bảng ảnh chuẩn ba góc</td><td>15-20 ảnh đã chọn, một lần train cho mỗi nhân vật</td></tr>
+    <tr><td>Thêm nhân vật mới</td><td>Vài phút</td><td>Hàng giờ; trên Kaggle T4, lần train 1500 bước của bạn chạy khoảng 5 giờ</td></tr>
+    <tr><td>Độ ổn định</td><td>Tốt với nét phẳng đơn giản; yếu hơn ở tư thế khó và góc lạ</td><td>Tốt nhất, kể cả tư thế khó</td></tr>
+    <tr><td>Hợp với</td><td>Nhân vật chỉ xuất hiện trong một vài video</td><td>Nhân vật dùng lại ở nhiều video</td></tr>
+  </table></div>
+
+  <h3>Hướng đề xuất</h3>
+  <ol>
+    <li><b>Làm video đầu tiên bằng ảnh tham chiếu và cấu trúc cây.</b> Không cần lần train nào thêm, và các ảnh gốc được duyệt trở thành dữ liệu train cho bước 4.</li>
+    <li><b>Dựng một dàn diễn viên cố định 8-10 nhân vật kiểu mẫu</b> dùng lại cho mọi truyện: ông chú, cậu bé, người mẹ, bà cụ, ông cụ, cô gái trẻ, nhân viên văn phòng, bác sĩ. Mỗi truyện chọn vai từ dàn này thay vì thiết kế nhân vật mới. Người xem quen mặt, và công sức đầu tư vào từng nhân vật được dùng lại.</li>
+    <li><b>Đo tỷ lệ ảnh gốc bị loại ở bước 3b</b> cho từng nhân vật qua vài video đầu.</li>
+    <li><b>Train character LoRA cho 2-3 nhân vật chính của dàn ngay khi có đủ 15-20 ảnh gốc đã duyệt</b>, tức là sau video đầu tiên. Với các nhân vật còn lại, train khi tỷ lệ ảnh gốc bị loại vẫn cao (ví dụ trên một phần ba) dù đã có ảnh chuẩn ba góc.</li>
+    <li><b>Không train LoRA cho nhân vật chỉ dùng một lần.</b> Thời gian train lớn hơn nhiều so với phần ổn định thu được.</li>
+  </ol>
+  <p>Ưu tiên của dự án là độ ổn định của nhân vật, không phải số ảnh hay thời gian train. Mức một phần ba là gợi ý ban đầu, chỉnh theo số liệu thật.</p>
+
+  <h3>Những thứ không giữ được nhân vật</h3>
+  <ul>
+    <li><b>Giữ nguyên seed.</b> Seed chỉ cố định nhiễu ban đầu; đổi prompt thì khuôn mặt vẫn đổi.</li>
+    <li><b>Chỉ dựa vào style LoRA.</b> Nó giữ nét vẽ, không giữ nhận dạng của từng người.</li>
+    <li><b>Mô tả thật dài.</b> Mô tả cố định giữ được trang phục và màu, nhưng mặt vẫn trôi nếu không có ảnh tham chiếu.</li>
+  </ul>
+</section>
+
+<section id="cham-diem">
+  <h2>Chấm điểm độ ổn định</h2>
+  <p class="sub">Cách quyết định một ảnh có đúng nhân vật hay không, và cách đặt ngưỡng.</p>
+
+  <h3>Hai thước đo</h3>
+  <div class="scroll"><table>
+    <tr><th></th><th>Danh sách kiểm tra bằng model thị giác</th><th>Độ giống embedding (DINOv2)</th></tr>
+    <tr><td>Cách làm</td><td>Hỏi từng đặc điểm có hoặc không, sinh từ trường <code>prompt</code> của nhân vật</td><td>Cắt vùng nhân vật, tính độ giống cosine với ảnh chuẩn</td></tr>
+    <tr><td>Bắt được</td><td>Sai đặc điểm cụ thể: màu áo, kiểu tóc, thiếu giày</td><td>Tổng thể trông khác: tỷ lệ cơ thể, hình dạng đầu</td></tr>
+    <tr><td>Chi phí</td><td>Một lượt gọi API mỗi ảnh</td><td>Gần như bằng 0, chạy trên CPU</td></tr>
+    <tr><td>Ngưỡng</td><td>Mọi mục đều phải đúng</td><td>Phải đo trên ảnh của mình, xem bên dưới</td></tr>
+    <tr><td>Vai trò</td><td>Quyết định đạt hay không</td><td>Loại ảnh nhầm nhân vật, xếp hạng các ứng viên</td></tr>
+  </table></div>
+<pre><code>{
+  "toc_den_ngan": true,
+  "ao_lien_quan_xanh_navy": true,
+  "giay_nau": false,
+  "long_may_day": true,
+  "dung_do_tuoi": true
+}</code></pre>
+  <p>Không hỏi model thị giác "giống bao nhiêu điểm": điểm kiểu đó dao động giữa các lần gọi. Danh sách có hoặc không ổn định hơn.</p>
+
+  <h3>Tính độ giống bằng DINOv2</h3>
+  <p>DINOv2 là model nhúng ảnh mã nguồn mở đã train sẵn; không cần train thêm. Bản small khoảng 22 triệu tham số, chạy được trên CPU.</p>
+<pre><code>import torch
+from PIL import Image
+from transformers import AutoImageProcessor, AutoModel
+
+processor = AutoImageProcessor.from_pretrained("facebook/dinov2-small")
+model = AutoModel.from_pretrained("facebook/dinov2-small").eval()
+
+def embed(path):
+    inputs = processor(images=Image.open(path).convert("RGB"), return_tensors="pt")
+    with torch.no_grad():
+        return torch.nn.functional.normalize(model(**inputs).pooler_output, dim=-1)
+
+similarity = (embed("config/refs/repairman_front.png") @ embed("characters/001.png").T).item()</code></pre>
+  <p>Đây là cách dùng chuẩn của model, chưa được chạy trong dự án này.</p>
+
+  <h3>Đặt ngưỡng cho độ giống</h3>
+  <p>Không có con số chung. Với ảnh nét phẳng trên nền trắng, điểm thường dồn về phía cao vì nét vẽ và nền giống nhau: cùng nhân vật khác tư thế thường khoảng 0,6-0,9, khác nhân vật cùng nét thường khoảng 0,4-0,7. Hai khoảng này là ước lượng, chưa phải số đo, và chúng chồng lên nhau, nên phải đo:</p>
+  <ol>
+    <li>Lấy 20 ảnh của một nhân vật đã được người xác nhận là đúng, và 10 ảnh của các nhân vật khác trong dàn.</li>
+    <li>Tính độ giống của cả 30 ảnh với ảnh chuẩn.</li>
+    <li>Xếp theo điểm, tìm chỗ hai nhóm tách nhau, đặt ngưỡng ngay trên điểm cao nhất của nhóm sai.</li>
+    <li>Ưu tiên không cho ảnh sai lọt qua, chấp nhận loại nhầm một số ảnh đúng.</li>
+  </ol>
+  <p>Nếu hai nhóm chồng lên nhau, không dùng ngưỡng tuyệt đối; dựa vào kiểm tra khoảng cách bên dưới và danh sách kiểm tra.</p>
+
+  <h3>Kiểm tra khoảng cách với nhân vật khác</h3>
+  <p>So ảnh ứng viên với ảnh chuẩn của mọi nhân vật trong dàn. Ảnh chỉ đạt khi nó giống ảnh chuẩn của đúng nhân vật hơn mọi nhân vật khác, với một khoảng cách tối thiểu (điểm xuất phát gợi ý 0,05-0,10, cũng cần đo). Kiểm tra này bắt được lỗi nguy hiểm nhất là nhân vật này bị vẽ thành nhân vật kia, và ổn định hơn ngưỡng tuyệt đối khi đổi tư thế hoặc đổi checkpoint.</p>
+
+  <h3>Cấu hình</h3>
+<pre><code>{
+  "embedding_model": "facebook/dinov2-small",
+  "min_similarity": null,
+  "min_margin_vs_other_characters": null,
+  "checklist_must_all_pass": true,
+  "candidates_per_base_pose": 5,
+  "max_retries": 4
+}</code></pre>
+  <p>Hai giá trị <code>null</code> được điền sau bước đo; khi còn <code>null</code> thì bỏ qua kiểm tra tương ứng. Đo lại mỗi khi đổi model nhúng hoặc đổi checkpoint LoRA.</p>
+
+  <h3>Đọc tỷ lệ ảnh đạt</h3>
+  <ul>
+    <li><b>Phần lớn ảnh đạt mà nhân vật vẫn trôi:</b> ngưỡng lỏng, hoặc danh sách kiểm tra thiếu đặc điểm đang trôi. Thêm đặc điểm đó vào.</li>
+    <li><b>Rất ít ảnh đạt:</b> không hạ ngưỡng. Xem lại thiết kế nhân vật, ảnh chuẩn, hoặc train character LoRA cho nhân vật đó.</li>
+  </ul>
+</section>
+
+<section id="chuyen-dong">
+  <h2>Chuyển động</h2>
+  <p class="sub">Mỗi cảnh có kiểu chuyển động riêng tùy nội dung. Claude chọn kiểu khi viết kịch bản, từ một bộ từ vựng cố định; cùng một mục trong kịch bản sinh ra cả prompt ảnh lẫn lệnh chuyển động nên hai thứ luôn khớp nhau.</p>
+
+  <h3>Bộ kiểu cơ bản của trường <code>motion</code></h3>
+  <div class="scroll"><table>
+    <tr><th>Nhóm</th><th>Giá trị</th><th>Tác động lên</th><th>Số ảnh nhân vật</th></tr>
+    <tr><td>Máy quay</td><td><code>zoom_in</code>, <code>zoom_out</code>, <code>pan_left</code>, <code>pan_right</code>, <code>shake</code>, <code>none</code></td><td>Cả khung hình</td><td>1</td></tr>
+    <tr><td>Di chuyển nhân vật</td><td><code>approach</code>, <code>recede</code>, <code>enter_left</code>, <code>enter_right</code>, <code>exit_left</code>, <code>exit_right</code></td><td>Riêng lớp nhân vật; nền gần như đứng yên</td><td>1</td></tr>
+    <tr><td>Tại chỗ</td><td><code>bob</code>, <code>jump</code>, <code>pop_in</code></td><td>Riêng lớp nhân vật</td><td>1</td></tr>
+    <tr><td>Dự phòng</td><td><code>i2v</code></td><td>Cả cảnh, qua model image-to-video</td><td>1, hoặc 2 nếu có khung cuối</td></tr>
+  </table></div>
+  <p>Với <code>approach</code>, lớp nhân vật phóng to dần (ví dụ từ 50% lên 100%) và trượt xuống cùng lúc để chân bám theo mặt đường; <code>recede</code> làm ngược lại. Bảng này là điểm xuất phát: video đầu tiên chỉ cần <code>zoom_in</code>, <code>zoom_out</code>, <code>shake</code>, <code>approach</code>, <code>none</code> và <code>alt_pose</code>.</p>
+
+  <h3>Trường <code>alt_pose</code>: hai tư thế luân phiên</h3>
+  <p>Đây là kiểu tổng quát nhất và kết hợp được với mọi giá trị <code>motion</code> trừ <code>i2v</code>. Khi <code>alt_pose</code> có nội dung:</p>
+  <ol>
+    <li>Bước 3 sinh ảnh gốc như thường, rồi sửa ra một ảnh thứ hai theo mô tả trong <code>alt_pose</code>, lưu thành <code>characters/003_alt.png</code>.</li>
+    <li>Bước dựng đổi qua lại giữa hai ảnh mỗi khoảng 0,25 giây.</li>
+  </ol>
+  <p>Cùng một cơ chế làm được bước chân, vẫy tay, gõ búa, đạp xe, ăn, nói chuyện. Ảnh thứ hai sửa từ ảnh gốc nên nhân vật giữ nguyên; cần kiểm tra hai ảnh chồng khít nhau ở phần thân.</p>
+
+  <h3>Cảnh <code>i2v</code></h3>
+  <ul>
+    <li>Dùng cho hành động không diễn tả được bằng bộ cơ bản: ôm nhau, ngã, leo lên xe.</li>
+    <li>Đầu vào là ảnh cảnh đã ghép và trường <code>i2v_prompt</code>, ví dụ "The boy runs to his mother and they hug, camera static". Model nào nhận cả khung đầu và khung cuối thì đưa thêm ảnh kết thúc để dễ kiểm soát.</li>
+    <li>Clip sinh ra lưu thành <code>clips/031.mp4</code>; bước dựng dùng clip đó thay cho ảnh tĩnh, cắt hoặc kéo cho khớp độ dài giọng đọc.</li>
+    <li>Giới hạn tối đa 5 cảnh <code>i2v</code> mỗi video, ghi rõ trong lệnh cho Claude. Đây là bước tốn tiền theo clip và hay phải sinh lại.</li>
+  </ul>
+
+  <h3>Quy tắc để hệ thống không vỡ</h3>
+  <ul class="check">
+    <li>Schema của kịch bản liệt kê các giá trị hợp lệ; script kiểm tra trước khi chạy và báo lỗi rõ ràng.</li>
+    <li>Giá trị lạ lọt qua thì bước dựng dùng <code>zoom_in</code> làm mặc định, không dừng cả video.</li>
+    <li>Trường <code>motion</code> đọc được và sửa tay được trước khi sinh ảnh.</li>
+    <li>Khi một kiểu chuyển động lặp lại ở nhiều video mà chưa có tên, thêm nó vào bộ cơ bản.</li>
+  </ul>
+</section>
+
+<section id="hieu-ung">
+  <h2>Hiệu ứng</h2>
+  <p class="sub">Lớp hiệu ứng chồng lên cảnh ở khâu dựng, lấy từ một thư viện dùng lại và chọn theo cảm xúc của cảnh.</p>
+  <h3>Thứ tự các lớp trong một cảnh, từ dưới lên</h3>
+  <div class="scroll"><table>
+    <tr><th>Lớp</th><th>Gồm</th><th>Tạo bằng</th></tr>
+    <tr><td>1. Nền</td><td>Bối cảnh, bầu trời; hoặc nền cảm xúc như nền xoáy tối, nền đỏ tia</td><td>klein không LoRA; nền cảm xúc sinh một lần rồi dùng lại</td></tr>
+    <tr><td>2. Nhân vật</td><td>Người, tư thế, biểu cảm, nước mắt, giọt mồ hôi trên mặt</td><td>klein + style LoRA, rồi tách nền</td></tr>
+    <tr><td>3. Hiệu ứng</td><td>Đường tốc độ, lấp lánh, hoa, sao; nhãn dán cạnh đầu như dấu chấm than</td><td>Vẽ bằng code, hoặc sinh bằng LoRA trên nền trắng rồi tách nền và cho chuyển động bằng code</td></tr>
+    <tr><td>4. Chữ</td><td>Tiêu đề, phụ đề</td><td>Bước dựng</td></tr>
+  </table></div>
+  <h3>Trường <code>effect</code></h3>
+  <p>Để <code>null</code> hoặc một tên có trong <code>library/effects/</code>. Bộ khởi đầu gợi ý:</p>
+  <div class="scroll"><table>
+    <tr><th>Giá trị</th><th>Loại</th><th>Dùng khi</th></tr>
+    <tr><td><code>gloom_swirl</code></td><td>Nền cảm xúc</td><td>Tuyệt vọng, kiệt sức</td></tr>
+    <tr><td><code>red_burst</code></td><td>Nền cảm xúc</td><td>Sốc, hốt hoảng</td></tr>
+    <tr><td><code>blue_glow</code></td><td>Nền cảm xúc</td><td>Quyết tâm</td></tr>
+    <tr><td><code>speed_lines</code></td><td>Lớp phủ, vẽ bằng code</td><td>Nhấn mạnh, bất ngờ</td></tr>
+    <tr><td><code>sparkles</code></td><td>Lớp phủ</td><td>Vui, hy vọng</td></tr>
+    <tr><td><code>flowers</code></td><td>Lớp phủ</td><td>Hạnh phúc, cảm động</td></tr>
+    <tr><td><code>exclaim</code>, <code>sweat</code>, <code>anger_mark</code></td><td>Nhãn dán cạnh đầu nhân vật</td><td>Ngạc nhiên, lo lắng, tức giận</td></tr>
+  </table></div>
+  <ul>
+    <li>Nhãn dán được đặt theo khung bao của nhân vật ghi trong <code>scenes/NNN.json</code>, không cần căn tay.</li>
+    <li>Hoa và sao không ghi vào prompt nhân vật: bước tách nền hay xóa các chi tiết nhỏ quanh người.</li>
+    <li>Video đầu tiên chỉ cần hai nền cảm xúc và <code>speed_lines</code>.</li>
+  </ul>
+</section>
+
+<section id="file">
+  <h2>Các file cấu hình</h2>
+  <p class="sub">Ba file này nối mọi bước với nhau. Hai file đầu viết một lần cho cả kênh, file thứ ba sinh mới cho mỗi video.</p>
+  <h3>config/characters.json</h3>
+<pre><code>{
+  "repairman": {
+    "prompt": "middle-aged man, short black hair, thick eyebrows, navy coverall, brown shoes",
+    "reference": ["config/refs/repairman_front.png", "config/refs/repairman_side.png", "config/refs/repairman_back.png"],
+    "lora": "loras/chr_repairman.safetensors",
+    "voice": "voice_id_cua_giong_nam_tram",
+    "colour": "#4FC3F7"
+  },
+  "boy": {
+    "prompt": "ten-year-old boy, short black hair, green striped t-shirt, orange pants",
+    "reference": ["config/refs/boy_front.png", "config/refs/boy_side.png", "config/refs/boy_back.png"],
+    "lora": null,
+    "voice": "voice_id_cua_giong_tre_em",
+    "colour": "#7CD992"
+  }
+}</code></pre>
+  <h3>config/locations.json</h3>
+<pre><code>{
+  "shop_inside": "detailed anime background, inside a small bicycle repair shop, tools on the wall, warm afternoon light, no people, vertical 9:16",
+  "street":      "detailed anime background, quiet residential street in Japan, warm afternoon light, no people, vertical 9:16"
+}</code></pre>
+  <h3>videos/&lt;tên&gt;/script.json</h3>
+<pre><code>{
+  "title": ["Dòng tiêu đề 1", "Dòng tiêu đề 2"],
+  "font": "Noto Sans CJK JP",
+  "speakers": { "narrator": "#4FC3F7", "boy": "#7CD992", "mother": "#F48FB1" },
+  "scenes": [
+    {
+      "id": 1,
+      "text": "Câu thoại hiện trên màn hình",
+      "speaker": "narrator",
+      "characters": ["repairman"],
+      "action": "kneeling and fixing a bicycle tire",
+      "emotion": "serious",
+      "location": "shop_inside",
+      "position": "center",
+      "motion": "zoom_in",
+      "alt_pose": null,
+      "effect": null,
+      "based_on": null
+    },
+    {
+      "id": 2,
+      "text": "Câu thoại tiếp theo, cùng tư thế",
+      "speaker": "narrator",
+      "characters": ["repairman"],
+      "action": "same pose",
+      "emotion": "surprised",
+      "location": "shop_inside",
+      "position": "center",
+      "motion": "none",
+      "alt_pose": null,
+      "effect": "red_burst",
+      "based_on": 1
+    },
+    {
+      "id": 3,
+      "text": "Cảnh có chuyển động thật",
+      "speaker": "narrator",
+      "characters": ["boy"],
+      "action": "pushing a bicycle, walking toward the camera",
+      "emotion": "shy",
+      "location": "street",
+      "position": "center",
+      "motion": "approach",
+      "alt_pose": "the other leg stepping forward",
+      "effect": null,
+      "based_on": null
+    }
+  ]
+}</code></pre>
+  <p><code>based_on</code> để <code>null</code> nghĩa là cảnh có tư thế mới và cần một ảnh gốc sinh từ ảnh chuẩn. Ghi số của một cảnh khác nghĩa là cảnh này chỉ là biến thể: lấy ảnh gốc của cảnh đó rồi sửa biểu cảm hoặc tay. <code>based_on</code> chỉ được trỏ tới một cảnh có <code>based_on</code> bằng <code>null</code>, không trỏ tới một biến thể khác.</p>
+  <p>Giá trị hợp lệ của <code>motion</code> và <code>alt_pose</code> nằm ở mục <a href="#chuyen-dong">Chuyển động</a>; của <code>effect</code> ở mục <a href="#hieu-ung">Hiệu ứng</a>. Cảnh dùng image-to-video có thêm trường <code>i2v_prompt</code>.</p>
+</section>
+
+<section id="buoc">
+  <h2>Từng bước của pipeline</h2>
+  <p class="sub">Mỗi bước ghi rõ nhận gì, làm gì, trả ra gì.</p>
+
+  <div class="step" id="b1">
+    <h3><span class="n">1</span>Kịch bản</h3>
+    <div class="io">
+      <div><b>Đầu vào</b>Chủ đề, <code>characters.json</code>, <code>locations.json</code>, schema</div>
+      <div><b>Công cụ</b>Claude</div>
+      <div><b>Đầu ra</b><code>script.json</code> 45-90 cảnh</div>
+    </div>
+    <ul>
+      <li>Yêu cầu Claude chỉ dùng tên nhân vật và bối cảnh có trong hai file cấu hình, mỗi câu thoại ngắn (đọc trong 1-2 giây), và trả về JSON đúng schema.</li>
+      <li>Công thức của thể loại: kể ngôi thứ nhất, mở đầu bằng tình huống, cú twist cảm động ở cuối.</li>
+      <li>Video 1-2 phút cần cấu trúc rõ hơn video dưới 1 phút: tình huống trong 5 giây đầu, hai hoặc ba nấc phát triển, mỗi nấc có một chi tiết mới giữ người xem, rồi twist và câu kết. Yêu cầu Claude ghi rõ mỗi cảnh thuộc nấc nào.</li>
+      <li>Người duyệt: đọc to một lượt, cắt câu thừa. Bước này ảnh hưởng tới lượt xem nhiều nhất.</li>
+    </ul>
+  </div>
+
+  <div class="step" id="b2">
+    <h3><span class="n">2</span>Background</h3>
+    <div class="io">
+      <div><b>Đầu vào</b>Danh sách <code>location</code> trong kịch bản, <code>locations.json</code></div>
+      <div><b>Công cụ</b>FLUX.2 klein 4B, không gắn LoRA</div>
+      <div><b>Đầu ra</b><code>backgrounds/&lt;location&gt;.png</code>, 1080×1920</div>
+    </div>
+    <ul>
+      <li>Video 1-2 phút thường cần 8-12 nền. Nền đã có trong <code>library/backgrounds/</code> thì lấy lại, không sinh mới.</li>
+      <li>Luôn ghi "no people" trong prompt để nền không có sẵn nhân vật lạ.</li>
+      <li>Không gắn style LoRA ở bước này, để nền giữ độ chi tiết kiểu anime tương phản với nhân vật phẳng.</li>
+    </ul>
+  </div>
+
+  <div class="step own" id="b3">
+    <h3><span class="n">3</span>Ảnh nhân vật</h3>
+    <div class="io">
+      <div><b>Đầu vào</b>Mỗi cảnh: <code>characters</code>, <code>action</code>, <code>emotion</code>, <code>based_on</code>; cùng <code>characters.json</code> và ảnh chuẩn trong <code>config/refs/</code></div>
+      <div><b>Công cụ</b>FLUX.2 klein 4B + style LoRA (+ character LoRA), chế độ có ảnh tham chiếu</div>
+      <div><b>Đầu ra</b><code>characters/001.png</code>, nền trắng, mỗi cảnh một ảnh</div>
+    </div>
+    <p>Bước này chia làm ba phần, theo cấu trúc cây ở mục <a href="#on-dinh">Giữ nhân vật ổn định</a>.</p>
+
+    <h3>3a. Ảnh gốc cho tư thế mới</h3>
+    <p>Áp dụng cho cảnh có <code>based_on</code> bằng <code>null</code>. Đưa ảnh chuẩn của nhân vật làm tham chiếu, prompt mô tả tư thế:</p>
+<pre><code>irasutoya_style, the same character as in the reference images, {characters.json → prompt}, {action}, {emotion} face, full body, white background</code></pre>
+<pre><code>import torch
+from diffusers import Flux2KleinPipeline
+from PIL import Image
+
+pipe = Flux2KleinPipeline.from_pretrained(
+    "black-forest-labs/FLUX.2-klein-4B", torch_dtype=torch.bfloat16
+).to("cuda")
+pipe.load_lora_weights("loras/style.safetensors")
+
+refs = [Image.open(p) for p in character["reference"]]      # trước, nghiêng, sau
+image = pipe(prompt=prompt, image=refs, height=1024, width=1024,
+             num_inference_steps=4, guidance_scale=1.0).images[0]
+image.save("characters/001.png")</code></pre>
+    <p>Đây là khung tham khảo. Tên lớp, tên tham số nhận ảnh tham chiếu và số bước cần đối chiếu với model card của klein trước khi dùng.</p>
+    <ul>
+      <li>Sinh 4-6 ảnh cho mỗi tư thế với seed khác nhau. Ảnh gốc là nơi nhân vật dễ lệch nhất, nên đây là chỗ đáng chi nhiều lần sinh.</li>
+      <li>Ảnh gốc luôn sinh từ ảnh chuẩn, không lấy ảnh của phân cảnh trước làm mẫu, để sai lệch không cộng dồn.</li>
+      <li>Cảnh có hai nhân vật: sinh từng người riêng rồi ghép ở bước 5.</li>
+    </ul>
+
+    <h3>3b. Kiểm tra ảnh gốc</h3>
+    <p>Chi tiết ở mục <a href="#cham-diem">Chấm điểm độ ổn định</a>. Thứ tự áp dụng cho các ứng viên của một tư thế:</p>
+    <ol>
+      <li>Loại ảnh hỏng theo luật cứng: bị cắt cụt, quá nhỏ, nhiều mảnh rời.</li>
+      <li>Loại ảnh giống một nhân vật khác trong dàn hơn nhân vật đúng.</li>
+      <li>Loại ảnh không qua danh sách kiểm tra của model thị giác; mọi mục đều phải đúng.</li>
+      <li>Trong số còn lại, chọn ảnh có độ giống với ảnh chuẩn cao nhất.</li>
+    </ol>
+    <ul>
+      <li>Không ảnh nào đạt thì sinh thêm với seed khác, tối đa 4 lần, sau đó đánh dấu cho người xem.</li>
+      <li>Một video chỉ có 10-25 ảnh gốc, nên đây là chỗ kiểm tra kỹ nhất.</li>
+    </ul>
+
+    <h3>3c. Khung biến thể</h3>
+    <p>Áp dụng cho cảnh có <code>based_on</code> trỏ tới một cảnh khác. Lấy ảnh gốc của cảnh đó làm ảnh đầu vào và chỉ yêu cầu thay đổi:</p>
+<pre><code>irasutoya_style, change the expression to {emotion}, {action}, keep the character, clothes, pose and white background unchanged</code></pre>
+    <ul>
+      <li>Phần không được nhắc tới trong lệnh sẽ giữ nguyên, nên các khung trong một phân cảnh khớp nhau.</li>
+      <li>Biến thể thừa hưởng nhận dạng từ ảnh gốc, chỉ cần kiểm tra nhanh lỗi hình.</li>
+    </ul>
+  </div>
+
+  <div class="step" id="b4">
+    <h3><span class="n">4</span>Tách nền</h3>
+    <div class="io">
+      <div><b>Đầu vào</b><code>characters/*.png</code></div>
+      <div><b>Công cụ</b>rembg</div>
+      <div><b>Đầu ra</b><code>cutouts/*.png</code>, nền trong suốt</div>
+    </div>
+<pre><code>from pathlib import Path
+from PIL import Image
+from rembg import remove
+
+for p in sorted(Path("characters").glob("*.png")):
+    remove(Image.open(p)).save(Path("cutouts") / p.name)</code></pre>
+    <p>Nét phẳng trên nền trắng tách rất sạch. Chỗ hay lỗi là chi tiết màu trắng sát mép (áo trắng, khói), nên lướt qua kết quả một lượt.</p>
+  </div>
+
+  <div class="step" id="b5">
+    <h3><span class="n">5</span>Ghép cảnh</h3>
+    <div class="io">
+      <div><b>Đầu vào</b><code>cutouts/</code>, <code>backgrounds/</code>, <code>location</code> và <code>position</code> của từng cảnh</div>
+      <div><b>Công cụ</b>Pillow; klein chế độ edit cho cảnh có tương tác</div>
+      <div><b>Đầu ra</b><code>scenes/001.png</code> (ảnh xem trước, 1080×1920) và <code>scenes/001.json</code> (bố cục các lớp)</div>
+    </div>
+<pre><code>from PIL import Image
+
+bg = Image.open("backgrounds/shop_inside.png").convert("RGBA").resize((1080, 1920))
+ch = Image.open("cutouts/001.png")
+ch.thumbnail((820, 1100))                      # nhân vật chiếm khoảng 3/4 chiều ngang
+x = (1080 - ch.width) // 2                     # position: center
+y = 1920 - ch.height - 260                     # đứng trên "mặt đất"
+bg.alpha_composite(ch, (x, y))
+bg.convert("RGB").save("scenes/001.png")</code></pre>
+    <ul>
+      <li>Phần trên cùng của khung (khoảng 300px) dành cho tiêu đề, phần ngay dưới dành cho phụ đề, nên đặt nhân vật ở nửa dưới.</li>
+      <li>Cảnh nhân vật phải chạm vào đồ vật trong nền: đưa ảnh nhân vật và ảnh nền vào klein edit kèm lệnh đặt nhân vật vào cảnh.</li>
+    </ul>
+  </div>
+
+  <div class="step" id="b6">
+    <h3><span class="n">6</span>Giọng đọc</h3>
+    <div class="io">
+      <div><b>Đầu vào</b><code>text</code> và <code>speaker</code> của từng cảnh, mã giọng trong <code>characters.json</code></div>
+      <div><b>Công cụ</b>VOICEVOX hoặc một dịch vụ TTS</div>
+      <div><b>Đầu ra</b><code>audio/001.wav</code>, mỗi cảnh một file</div>
+    </div>
+    <ul>
+      <li>Mỗi câu một file riêng, để độ dài file quyết định thời lượng cảnh.</li>
+      <li>Bỏ dấu ngoặc và ký hiệu khỏi câu trước khi gửi cho TTS; phụ đề vẫn giữ nguyên.</li>
+      <li>Nghe lại toàn bộ một lượt: lỗi đọc sai tên riêng và ngắt nghỉ là phổ biến nhất.</li>
+    </ul>
+  </div>
+
+  <div class="step" id="b7">
+    <h3><span class="n">7</span>Dựng video</h3>
+    <div class="io">
+      <div><b>Đầu vào</b><code>script.json</code>, <code>scenes/</code>, <code>audio/</code>, <code>music.mp3</code></div>
+      <div><b>Công cụ</b><code>build_video.py</code> (ffmpeg)</div>
+      <div><b>Đầu ra</b><code>output.mp4</code>, 1080×1920, 30fps</div>
+    </div>
+    <ul>
+      <li>Mỗi cảnh dài bằng file giọng đọc cộng 0,15 giây nghỉ.</li>
+      <li>Chuyển động lấy từ trường <code>motion</code>; phụ đề viền màu theo <code>speaker</code>; tiêu đề cố định ở trên suốt video.</li>
+      <li>Bản hiện tại của script (v1) dựng từ ảnh đã ghép và chỉ có các kiểu chuyển động máy quay. Các kiểu di chuyển nhân vật, <code>alt_pose</code>, hiệu ứng và cảnh image-to-video cần bản v2 dựng từ các lớp tách rời; xem mục <a href="#ban-giao">Bàn giao</a>.</li>
+      <li>Nhạc nền lặp lại và hạ âm lượng xuống 12% so với giọng đọc.</li>
+      <li>Muốn dùng image-to-video cho vài cảnh: thay clip của cảnh đó trong <code>build_tmp/</code> trước bước nối.</li>
+    </ul>
+    <p>Mã nguồn đầy đủ ở phần <a href="#script">Script dựng video</a>.</p>
+  </div>
+
+  <div class="step" id="b8">
+    <h3><span class="n">8</span>Kiểm tra và đăng</h3>
+    <div class="io">
+      <div><b>Đầu vào</b><code>output.mp4</code></div>
+      <div><b>Công cụ</b>Mắt và tai người</div>
+      <div><b>Đầu ra</b>Video đã đăng, số liệu sau 48 giờ</div>
+    </div>
+    <ul class="check">
+      <li>Nhân vật đúng người, đúng trang phục ở mọi cảnh.</li>
+      <li>Phụ đề khớp lời đọc, không tràn ra ngoài khung, không che mặt nhân vật.</li>
+      <li>Không có cảnh lỗi hình (thừa tay, mặt méo, viền trắng quanh nhân vật).</li>
+      <li>Ba giây đầu đã nêu được tình huống.</li>
+      <li>Cảnh hỏng thì sinh lại riêng cảnh đó rồi chạy lại bước 7.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="script">
+  <h2>Script dựng video</h2>
+  <p class="sub">Đã chạy thử với dữ liệu giả gồm 6 cảnh và đủ 6 kiểu chuyển động. Chưa thử với ảnh và giọng đọc thật của bạn.</p>
+  <details>
+    <summary>Xem mã nguồn build_video.py</summary>
+<pre><code>&quot;&quot;&quot;Dựng video dọc từ ảnh cảnh + giọng đọc + kịch bản.
+
+Đầu vào (cùng thư mục dự án):
+  script.json       kịch bản (xem ví dụ bên dưới)
+  scenes/001.png    ảnh cảnh đã ghép, tỉ lệ 9:16 (nên 1080x1920 trở lên)
+  audio/001.wav     giọng đọc của từng cảnh
+  music.mp3         nhạc nền (không bắt buộc)
+Đầu ra:
+  output.mp4        1080x1920, 30fps
+
+Chạy:  python build_video.py            (cần ffmpeg và ffprobe trong PATH)
+
+script.json:
+{
+  &quot;title&quot;: [&quot;Dòng tiêu đề 1&quot;, &quot;Dòng tiêu đề 2&quot;],
+  &quot;font&quot;: &quot;Noto Sans CJK JP&quot;,
+  &quot;speakers&quot;: {&quot;narrator&quot;: &quot;#4FC3F7&quot;, &quot;boy&quot;: &quot;#7CD992&quot;, &quot;mother&quot;: &quot;#F48FB1&quot;},
+  &quot;scenes&quot;: [
+    {&quot;id&quot;: 1, &quot;text&quot;: &quot;Câu thoại&quot;, &quot;speaker&quot;: &quot;narrator&quot;, &quot;motion&quot;: &quot;zoom_in&quot;}
+  ]
+}
+motion: zoom_in | zoom_out | pan_left | pan_right | shake | none
+&quot;&quot;&quot;
+import json
+import subprocess
+from pathlib import Path
+
+W, H, FPS = 1080, 1920, 30
+PAD = 0.15           # giây nghỉ sau mỗi câu
+MUSIC_VOLUME = 0.12  # nhạc nền so với giọng đọc
+TMP = Path(&quot;build_tmp&quot;)
+
+
+def run(*args):
+    subprocess.run([&quot;ffmpeg&quot;, &quot;-y&quot;, &quot;-loglevel&quot;, &quot;error&quot;, *map(str, args)], check=True)
+
+
+def duration(path):
+    out = subprocess.run([&quot;ffprobe&quot;, &quot;-v&quot;, &quot;error&quot;, &quot;-show_entries&quot;, &quot;format=duration&quot;,
+                          &quot;-of&quot;, &quot;csv=p=0&quot;, str(path)], capture_output=True, text=True, check=True)
+    return float(out.stdout.strip())
+
+
+def motion_filter(kind, frames):
+    &quot;&quot;&quot;Trả về chuỗi filter tạo chuyển động cho một ảnh tĩnh.&quot;&quot;&quot;
+    big = f&quot;scale={W * 2}:{H * 2}:force_original_aspect_ratio=increase,crop={W * 2}:{H * 2}&quot;
+    centre = &quot;x=&#x27;iw/2-(iw/zoom/2)&#x27;:y=&#x27;ih/2-(ih/zoom/2)&#x27;&quot;
+    zp = lambda z, pos=centre: f&quot;{big},zoompan=z=&#x27;{z}&#x27;:{pos}:d={frames}:s={W}x{H}:fps={FPS}&quot;
+    step = 0.12 / max(frames, 1)
+    if kind == &quot;zoom_in&quot;:
+        return zp(f&quot;1+{step}*on&quot;)
+    if kind == &quot;zoom_out&quot;:
+        return zp(f&quot;1.12-{step}*on&quot;)
+    if kind in (&quot;pan_left&quot;, &quot;pan_right&quot;):
+        travel = f&quot;(iw-iw/zoom)*on/{frames}&quot;
+        x = travel if kind == &quot;pan_right&quot; else f&quot;(iw-iw/zoom)-{travel}&quot;
+        return zp(&quot;1.1&quot;, f&quot;x=&#x27;{x}&#x27;:y=&#x27;ih/2-(ih/zoom/2)&#x27;&quot;)
+    if kind == &quot;shake&quot;:
+        return (f&quot;{zp(&#x27;1.06&#x27;)},crop={W - 40}:{H - 40}:&quot;
+                f&quot;20+14*sin(2*PI*t*9):20+14*cos(2*PI*t*7),scale={W}:{H}&quot;)
+    return zp(&quot;1&quot;)
+
+
+def ass_colour(hex_colour):
+    r, g, b = hex_colour[1:3], hex_colour[3:5], hex_colour[5:7]
+    return f&quot;&amp;H00{b}{g}{r}&quot;.upper()
+
+
+def ass_time(t):
+    h, rem = divmod(t, 3600)
+    m, s = divmod(rem, 60)
+    return f&quot;{int(h)}:{int(m):02d}:{s:05.2f}&quot;
+
+
+def write_subtitles(script, timings, total, path):
+    font = script.get(&quot;font&quot;, &quot;Arial&quot;)
+    lines = [
+        &quot;[Script Info]&quot;, &quot;ScriptType: v4.00+&quot;, f&quot;PlayResX: {W}&quot;, f&quot;PlayResY: {H}&quot;, &quot;WrapStyle: 0&quot;, &quot;&quot;,
+        &quot;[V4+ Styles]&quot;,
+        &quot;Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, &quot;
+        &quot;BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV&quot;,
+        f&quot;Style: Title,{font},92,&amp;H0066D9FF,&amp;H00000000,&amp;H00000000,1,1,8,0,8,40,40,90&quot;,
+    ]
+    for name, colour in script[&quot;speakers&quot;].items():
+        lines.append(f&quot;Style: {name},{font},72,&amp;H00FFFFFF,{ass_colour(colour)},&amp;H00000000,1,1,9,0,8,70,70,470&quot;)
+    lines += [&quot;&quot;, &quot;[Events]&quot;, &quot;Format: Layer, Start, End, Style, Text&quot;]
+    title = r&quot;\N&quot;.join(script.get(&quot;title&quot;, []))
+    if title:
+        lines.append(f&quot;Dialogue: 0,{ass_time(0)},{ass_time(total)},Title,{title}&quot;)
+    for scene, (start, end) in zip(script[&quot;scenes&quot;], timings):
+        text = scene[&quot;text&quot;].replace(&quot;\n&quot;, r&quot;\N&quot;)
+        lines.append(f&quot;Dialogue: 1,{ass_time(start)},{ass_time(end)},{scene[&#x27;speaker&#x27;]},{text}&quot;)
+    path.write_text(&quot;\n&quot;.join(lines), encoding=&quot;utf-8&quot;)
+
+
+def main():
+    script = json.loads(Path(&quot;script.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+    TMP.mkdir(exist_ok=True)
+    clips, timings, clock = [], [], 0.0
+
+    for scene in script[&quot;scenes&quot;]:
+        name = f&quot;{scene[&#x27;id&#x27;]:03d}&quot;
+        audio = Path(&quot;audio&quot;) / f&quot;{name}.wav&quot;
+        length = duration(audio) + PAD
+        frames = round(length * FPS)
+        clip = TMP / f&quot;{name}.mp4&quot;
+        run(&quot;-i&quot;, Path(&quot;scenes&quot;) / f&quot;{name}.png&quot;, &quot;-i&quot;, audio,
+            &quot;-vf&quot;, motion_filter(scene.get(&quot;motion&quot;, &quot;zoom_in&quot;), frames) + &quot;,format=yuv420p&quot;,
+            &quot;-af&quot;, f&quot;apad=whole_dur={frames / FPS}&quot;, &quot;-frames:v&quot;, frames, &quot;-r&quot;, FPS,
+            &quot;-c:v&quot;, &quot;libx264&quot;, &quot;-preset&quot;, &quot;fast&quot;, &quot;-crf&quot;, 18, &quot;-c:a&quot;, &quot;aac&quot;, &quot;-ar&quot;, 48000, &quot;-ac&quot;, 2, clip)
+        clips.append(clip)
+        timings.append((clock, clock + frames / FPS))
+        clock += frames / FPS
+        print(f&quot;cảnh {name}: {length:.2f}s&quot;)
+
+    concat = TMP / &quot;concat.txt&quot;
+    concat.write_text(&quot;&quot;.join(f&quot;file &#x27;{c.name}&#x27;\n&quot; for c in clips), encoding=&quot;utf-8&quot;)
+    joined = TMP / &quot;joined.mp4&quot;
+    run(&quot;-f&quot;, &quot;concat&quot;, &quot;-safe&quot;, 0, &quot;-i&quot;, concat, &quot;-c&quot;, &quot;copy&quot;, joined)
+
+    subs = TMP / &quot;subs.ass&quot;
+    write_subtitles(script, timings, clock, subs)
+    video_filter = f&quot;ass={subs.as_posix()}&quot;
+    common = [&quot;-c:v&quot;, &quot;libx264&quot;, &quot;-preset&quot;, &quot;medium&quot;, &quot;-crf&quot;, 20, &quot;-c:a&quot;, &quot;aac&quot;, &quot;-b:a&quot;, &quot;192k&quot;,
+              &quot;-movflags&quot;, &quot;+faststart&quot;, &quot;output.mp4&quot;]
+    if Path(&quot;music.mp3&quot;).exists():
+        run(&quot;-i&quot;, joined, &quot;-stream_loop&quot;, -1, &quot;-i&quot;, &quot;music.mp3&quot;, &quot;-filter_complex&quot;,
+            f&quot;[0:v]{video_filter}[v];[1:a]volume={MUSIC_VOLUME}[m];&quot;
+            f&quot;[0:a][m]amix=inputs=2:duration=first:normalize=0[a]&quot;,
+            &quot;-map&quot;, &quot;[v]&quot;, &quot;-map&quot;, &quot;[a]&quot;, &quot;-t&quot;, clock, *common)
+    else:
+        run(&quot;-i&quot;, joined, &quot;-vf&quot;, video_filter, *common)
+    print(f&quot;Xong: output.mp4 ({clock:.1f}s, {len(clips)} cảnh)&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+  </details>
+  <p>Chạy trong thư mục của video: <code>python ../../build_video.py</code>. File tạm nằm trong <code>build_tmp/</code>, xóa được sau khi xong.</p>
+</section>
+
+<section id="chi-phi">
+  <h2>Chi phí và rủi ro</h2>
+  <div class="scroll"><table>
+    <tr><th>Khoản</th><th>Ước tính</th><th>Ghi chú</th></tr>
+    <tr><td>Train một lần style LoRA</td><td>2-5 USD</td><td>1-3 giờ trên <code>ml.g5.2xlarge</code>; thời gian là ước lượng, chưa đo</td></tr>
+    <tr><td>Cả quá trình thử nghiệm train</td><td>10-30 USD</td><td>Thường cần 3-6 lần chạy</td></tr>
+    <tr><td>Sinh ảnh cho một video</td><td>Không có phí theo ảnh nếu tự chạy GPU; dưới 5 USD nếu gọi API</td><td>250-350 ảnh. Phí theo ảnh chỉ có khi thuê API của BFL chạy hộ, từ 0,014 USD mỗi megapixel cho klein 4B</td></tr>
+    <tr><td>Endpoint inference chạy liên tục</td><td>Trên 1.100 USD mỗi tháng</td><td>Nên tránh: chạy theo đợt rồi tắt</td></tr>
+  </table></div>
+  <div class="note">
+    <p><b>Rủi ro lớn nhất không nằm ở kỹ thuật.</b> Làm tay một video trọn vẹn bằng công cụ có sẵn trước khi train và viết code. Nếu video đó không giữ được người xem, vấn đề nằm ở kịch bản, và LoRA hay pipeline không sửa được chuyện đó.</p>
+  </div>
+  <h3>Các lưu ý khác</h3>
+  <ul class="check">
+    <li><b>Chính sách kiếm tiền của YouTube.</b> Chính sách "inauthentic content" loại nội dung sản xuất hàng loạt theo khuôn mẫu khỏi chương trình kiếm tiền, trong khi vẫn cho phép dùng công cụ AI để hỗ trợ kể chuyện. Pipeline này nằm sát ranh giới đó. Đọc trang trợ giúp chính thức của YouTube trước khi đầu tư nhiều; giữ khâu viết và duyệt kịch bản cho người; không đăng số lượng lớn chỉ vì pipeline làm được.</li>
+    <li><b>Truyện phải là của mình.</b> Học công thức từ kênh khác, không dùng lại cốt truyện hay lời thoại của họ.</li>
+    <li><b>Độ phân giải lúc train.</b> Lần train hiện tại chạy ở khoảng 512px. Với nét phẳng thì nhiều khả năng vẫn ổn khi sinh ở 1024px. Chỉ train lại ở 768 hoặc 1024 nếu ảnh thử có mép nhòe hoặc bố cục lạ, và khi đó chỉ đổi độ phân giải.</li>
+    <li><b>Ghi lại nguồn gốc mỗi ảnh:</b> prompt, seed, tên checkpoint LoRA, ảnh tham chiếu đã dùng.</li>
+    <li><b>Khóa phiên bản thư viện</b> vào <code>requirements.txt</code> ngay khi mọi thứ chạy được; diffusers cài từ nhánh chính thay đổi hằng ngày.</li>
+    <li><b><code>.gitignore</code></b> cho khóa API, file <code>.safetensors</code>, dataset và thư mục <code>videos/</code>.</li>
+    <li><b>Giấy phép giọng đọc và nhạc.</b> Mỗi giọng VOICEVOX có điều khoản ghi nguồn riêng; nhạc nền cần giấy phép cho video kiếm tiền.</li>
+    <li><b>Trần chi phí cho API:</b> số lần thử tối đa cho mỗi cảnh và một trần tổng cho mỗi video, áp dụng cho giám khảo thị giác, TTS và image-to-video.</li>
+  </ul>
+
+  <h3>Thứ tự làm hợp lý</h3>
+  <ol>
+    <li>Chốt nguồn nét vẽ và thiết kế 3-5 nhân vật.</li>
+    <li>Làm tay video đầu tiên.</li>
+    <li>Lọc dataset, viết caption, train style LoRA.</li>
+    <li>Viết các script nối bước 2 đến 7, chạy thử với một kịch bản.</li>
+    <li>Đăng 3-5 video, đọc số liệu, rồi mới tính tới character LoRA và image-to-video.</li>
+  </ol>
+</section>
+
+<section id="ban-giao">
+  <h2>Bàn giao để triển khai</h2>
+  <p class="sub">Trạng thái hiện tại, thứ tự việc cần làm, và điều kiện hoàn thành của từng việc. Phạm vi là chặng 1 và 2 ở local; chưa làm phần AWS.</p>
+
+  <h3>Đã có</h3>
+  <div class="scroll"><table>
+    <tr><th>Thứ</th><th>Trạng thái</th></tr>
+    <tr><td>Style LoRA</td><td>Đã train xong trên Kaggle T4 bằng ai-toolkit 0.13.23, base FLUX.2 klein 4B, rank 16, 1500 bước, lưu mỗi 250 bước, 178 ảnh theo log train, trigger <code>irasutoya_style</code>. Đã chọn checkpoint 750 bước sau khi so sánh sáu mốc ở 1024px; file này được lưu thành loras/style.safetensors.</td></tr>
+    <tr><td><code>build_video.py</code> (v1)</td><td>Đã chạy thử với 6 cảnh giả: ghép ảnh đã dựng sẵn với giọng đọc, 6 kiểu chuyển động máy quay, phụ đề ASS theo người nói, tiêu đề, nhạc nền. Chưa thử với dữ liệu thật.</td></tr>
+    <tr><td><code>download_irasutoya.py</code></td><td>Đã viết, chưa chạy thử trong môi trường viết ra nó.</td></tr>
+    <tr><td>Các đoạn code trong tài liệu này</td><td>Là khung tham khảo, chưa chạy trên GPU.</td></tr>
+  </table></div>
+
+  <h3>Cần xác minh trước khi viết code</h3>
+  <ul class="check">
+    <li>API của diffusers cho FLUX.2 klein: tên lớp pipeline, tham số nhận ảnh tham chiếu, cách gọi chế độ sửa ảnh, số bước và guidance của bản distilled. Đối chiếu với model card và tài liệu diffusers hiện hành.</li>
+    <li><code>load_lora_weights</code> có nhận file do ai-toolkit xuất ra không. Tên khóa trong file có dạng <code>diffusion_model.double_blocks.N...lora_A.weight</code>.</li>
+    <li>Gắn đồng thời hai LoRA (style và character) và đặt trọng số cho từng cái.</li>
+    <li>Điều khoản của Irasutoya về việc dùng tranh để train vẫn chưa có câu trả lời rõ; cần hỏi trước khi dùng LoRA cho kênh kiếm tiền.</li>
+  </ul>
+
+  <h3>Thứ tự triển khai</h3>
+  <div class="scroll"><table>
+    <tr><th>#</th><th>Việc</th><th>Hoàn thành khi</th></tr>
+    <tr><td>1</td><td>Khung dự án theo cấu trúc thư mục ở phần Chuẩn bị; ba file cấu hình mẫu; hàm kiểm tra <code>script.json</code> theo schema (giá trị hợp lệ của <code>motion</code>, <code>effect</code>; <code>based_on</code> chỉ trỏ tới cảnh gốc; tên nhân vật và bối cảnh có trong cấu hình)</td><td>Kịch bản mẫu hợp lệ thì qua; kịch bản sai thì báo đúng dòng sai</td></tr>
+    <tr><td>2</td><td>Một module sinh ảnh dùng chung: sinh từ chữ, sinh có ảnh tham chiếu, sửa ảnh; nạp và tháo LoRA; nạp model một lần cho cả lô; ghi kèm mỗi ảnh một dòng nguồn gốc (prompt, seed, checkpoint LoRA, ảnh tham chiếu)</td><td>Ba hàm chạy được trên GPU với checkpoint LoRA đã chọn</td></tr>
+    <tr><td>3</td><td>Một module chấm điểm theo mục Chấm điểm độ ổn định: luật cứng (cắt cụt, quá nhỏ, nhiều mảnh), độ giống DINOv2 với ảnh chuẩn, khoảng cách với các nhân vật khác trong dàn, và danh sách kiểm tra có hoặc không do model thị giác trả về dạng JSON; kèm một lệnh đo để tìm ngưỡng từ ảnh đã gắn nhãn</td><td>Chấm được một thư mục ảnh và xuất bảng điểm; ngưỡng đã được đo trên khoảng 30 ảnh gắn nhãn tay cho mỗi nhân vật</td></tr>
+    <tr><td>4</td><td><code>00_make_cast.py</code>: sinh ứng viên mặt trước, lọc, chấm, thử độ bền bằng vài tư thế, sinh góc nghiêng và sau lưng, xuất tấm tổng hợp chờ duyệt</td><td>Một lệnh cho ra <code>config/refs/</code> và tấm tổng hợp của từng nhân vật</td></tr>
+    <tr><td>5</td><td><code>02_backgrounds.py</code> và <code>03_characters.py</code> (3a ảnh gốc từ ảnh chuẩn, 3b chấm và sinh lại, 3c biến thể theo <code>based_on</code> và <code>alt_pose</code>)</td><td>Chạy trên kịch bản mẫu, bỏ qua ảnh đã có, xuất danh sách cảnh cần người xem</td></tr>
+    <tr><td>6</td><td><code>04_cutouts.py</code>, <code>05_compose.py</code> (xuất ảnh xem trước và file bố cục các lớp), <code>06_voice.py</code></td><td>Mỗi cảnh có ảnh xem trước, file bố cục và file giọng đọc</td></tr>
+    <tr><td>7</td><td><code>07_build.py</code> (v2): dựng từ các lớp tách rời; thêm các kiểu di chuyển nhân vật, <code>alt_pose</code>, lớp hiệu ứng, và dùng <code>clips/NNN.mp4</code> cho cảnh <code>i2v</code>. Giữ cách xử lý phụ đề, tiêu đề, nhạc của v1.</td><td>Video thử có đủ một cảnh cho mỗi kiểu chuyển động và mỗi loại hiệu ứng</td></tr>
+    <tr><td>8</td><td><code>run_local.py</code> và một báo cáo cuối: thời gian từng bước, số ảnh sinh lại, các cảnh bị đánh dấu</td><td>Một lệnh chạy từ <code>script.json</code> ra <code>output.mp4</code></td></tr>
+  </table></div>
+
+  <h3>Quy ước chung cho mọi script</h3>
+  <ul>
+    <li>Mỗi bước là một file chạy độc lập, tham số duy nhất là đường dẫn thư mục video.</li>
+    <li>Chỉ đọc và ghi file trong thư mục đó và trong <code>config/</code>, <code>loras/</code>, <code>library/</code>; không bước nào gọi hàm của bước khác, trừ hai module dùng chung ở việc 2 và 3.</li>
+    <li>Kết quả đã có thì bỏ qua; có cờ để ép chạy lại một cảnh.</li>
+    <li>Khóa API và đường dẫn model đọc từ biến môi trường.</li>
+    <li>Có <code>.gitignore</code> cho khóa, model, dataset và <code>videos/</code>; phiên bản thư viện được ghi cố định trong <code>requirements.txt</code>.</li>
+    <li>Mọi vòng tự sinh lại và mọi lệnh gọi API trả phí đều có số lần tối đa.</li>
+    <li>Ưu tiên code ngắn, dễ đọc; không thêm lớp trừu tượng khi chưa cần.</li>
+  </ul>
+
+  <h3>Để sau, không làm trong đợt này</h3>
+  <ul>
+    <li>Hạ tầng AWS.</li>
+    <li>Character LoRA, cho tới khi có nhân vật thỏa điều kiện ở mục Giữ nhân vật ổn định.</li>
+    <li>Phân tích video tham khảo để dựng thư viện ví dụ cho bước "đạo diễn dựng": tách cảnh, đo vị trí và độ to nhân vật, đọc phụ đề, gắn nhãn cảm xúc và hiệu ứng, rồi cho Claude dùng các cảnh tương tự làm ví dụ khi chọn loại cảnh, chuyển động và hiệu ứng. Chỉ giữ số đo, không giữ video.</li>
+    <li>Fine-tune model dựng.</li>
+  </ul>
+</section>
+
+</main>
+</div>
+<footer>Thông số có ghi nguồn BFL lấy từ tài liệu của Black Forest Labs; giá SageMaker và API là giá tra cứu tại thời điểm viết, cần kiểm tra lại trước khi dùng.</footer>
+</div>
+</body>
+</html>

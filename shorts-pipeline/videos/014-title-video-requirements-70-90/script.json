@@ -1,0 +1,1672 @@
+{
+  "title": [
+    "泣ける実話",
+    "〜卒業式の日、誰も来なかった〜"
+  ],
+  "genre": "2ch感動スレ",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "ore_senior": "#64B5F6",
+    "teacher_kimura": "#FFB74D",
+    "classmate_girl": "#F48FB1",
+    "classmate_boy": "#FFD54F",
+    "classmate_quiet_girl": "#80CBC4",
+    "parent_mother": "#CE93D8"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "俺のところには、\n誰も来なかった。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seated, holding one black diploma tube in his right hand, left hand resting on his knee, staring down blankly",
+      "emotion": "lonely",
+      "shot": "close",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "卒業式の日。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "quiet",
+      "shot": "full",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "シーン",
+          "size": 80,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "周りには、\nみんなの家族がいた。",
+      "speaker": "narrator",
+      "characters": [
+        "parent_mother",
+        "classmate_girl"
+      ],
+      "action": "standing, facing the other person, smiling proudly, hands clasped in front of the chest",
+      "emotion": "proud",
+      "shot": "half",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "parent_mother",
+          "image": "cutouts/003_parent_mother.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/003_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "parent_mother.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "おめでとう。\nよく頑張ったね。",
+      "speaker": "parent_mother",
+      "characters": [
+        "parent_mother",
+        "classmate_girl"
+      ],
+      "action": "facing the other person, smiling warmly with slightly teary eyes, holding one bouquet of pink and white flowers in both hands",
+      "emotion": "tender",
+      "shot": "half",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "alt_pose": "facing the other person, mouth open while talking, holding one bouquet of pink and white flowers in both hands",
+      "layers": [
+        {
+          "id": "parent_mother",
+          "image": "cutouts/004_parent_mother.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/004_classmate_girl.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "ありがとう、\nお母さん！",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl"
+      ],
+      "action": "hugging one bouquet of pink and white flowers to her chest with both arms, smiling with teary eyes",
+      "emotion": "touched",
+      "shot": "close",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/005.png"
+        },
+        {
+          "effect": "hearts",
+          "on": "classmate_girl"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "俺の家族の席は、\n空いたままだった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "empty",
+      "shot": "full",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "motion": "pan_right",
+      "layers": [
+        {
+          "effect": "gloom"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "setup",
+      "text": "うちの親は、\n一度も来たことがない。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seated, in side view, looking back over his shoulder, holding one black diploma tube in his right hand, left hand on his knee",
+      "emotion": "resigned",
+      "shot": "half",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/007.png"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "setup",
+      "text": "入学式も、\n運動会も。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "hollow",
+      "object": "a black diploma tube with a red and white ribbon",
+      "shot": "full",
+      "location": "school_gym_graduation_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/008.png"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "式のあと、\n校門の前。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "bright",
+      "shot": "full",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": []
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "みんな花束を抱えて、\n笑っていた。",
+      "speaker": "narrator",
+      "characters": [
+        "classmate_girl",
+        "classmate_boy"
+      ],
+      "action": "standing, grinning, holding one bouquet of flowers in the right hand, making a peace sign with the left hand",
+      "emotion": "cheerful",
+      "shot": "full",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/010_classmate_girl.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_boy",
+          "image": "cutouts/010_classmate_boy.png",
+          "at": "right"
+        },
+        {
+          "effect": "sparkles",
+          "on": "classmate_girl"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "はい、撮るよー！",
+      "speaker": "parent_mother",
+      "characters": [
+        "parent_mother"
+      ],
+      "action": "holding one smartphone horizontally in both hands, taking a photo, smiling",
+      "emotion": "excited",
+      "shot": "half",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "parent_mother",
+          "image": "cutouts/011.png"
+        },
+        {
+          "word": "パシャ",
+          "size": 80,
+          "at": "parent_mother.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise1",
+      "text": "俺はその横を、\n一人で通り過ぎた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seen from behind, walking away, holding one black diploma tube in his right hand, left hand in his trouser pocket",
+      "emotion": "detached",
+      "shot": "full",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "alt_pose": "seen from behind, mid-step with the other foot forward, holding one black diploma tube in his right hand, left hand in his trouser pocket",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/012.png",
+          "anim": "exit_left"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise1",
+      "text": "友達も、\n何も言わなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "classmate_boy",
+        "classmate_girl"
+      ],
+      "action": "glancing sideways awkwardly, holding one bouquet of flowers in the right hand, left hand at the side",
+      "emotion": "awkward",
+      "shot": "half",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_boy",
+          "image": "cutouts/013_classmate_boy.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/013_classmate_girl.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "classmate_boy.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise1",
+      "text": "俺も、気づかない\nふりをした。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "in side view, walking with eyes lowered, holding one black diploma tube in his right hand, left hand empty",
+      "emotion": "guarded",
+      "shot": "half",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/014.png"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise1",
+      "text": "先生だけが、\n心配そうに見ていた。",
+      "speaker": "narrator",
+      "characters": [
+        "teacher_kimura"
+      ],
+      "action": "standing, hands clasped in front, looking toward the left with a worried face",
+      "emotion": "worried",
+      "shot": "full",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/015.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise1",
+      "text": "ご家族は……\n今日は？",
+      "speaker": "teacher_kimura",
+      "characters": [
+        "teacher_kimura",
+        "ore_senior"
+      ],
+      "action": "standing, facing the other person, hands at the sides, speaking quietly",
+      "emotion": "concerned",
+      "shot": "half",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/016_teacher_kimura.png",
+          "at": "left"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/016_ore_senior.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "teacher_kimura.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise1",
+      "text": "大丈夫です。",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "smiling brightly with eyes closed, scratching the back of his head with his left hand",
+      "emotion": "forced smile",
+      "shot": "close",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/017.png"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise1",
+      "text": "慣れてるから。",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "smiling faintly, eyes looking down to the side",
+      "emotion": "hollow",
+      "shot": "close",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/018.png"
+        },
+        {
+          "word": "ズーン",
+          "size": 80,
+          "vertical": true,
+          "at": "ore_senior.beside_left"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise1",
+      "text": "先生は、それ以上\n何も聞かなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "teacher_kimura"
+      ],
+      "action": "looking down sadly, touching the rim of his glasses with his right hand",
+      "emotion": "pained",
+      "shot": "half",
+      "location": "school_gate_sakura_spring_noon",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/019.png"
+        },
+        {
+          "image": "stickers/gloom.png",
+          "at": "teacher_kimura.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise1",
+      "text": "笑うのは、\n得意だった。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seen from behind, head lowered, both hands in his trouser pockets",
+      "emotion": "melancholy",
+      "shot": "half",
+      "location": "mood_rain_sad",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/020.png"
+        },
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise2",
+      "text": "その日の放課後。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "still",
+      "shot": "full",
+      "location": "school_hallway_spring_dusk",
+      "filter": "none",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 22,
+      "beat": "rise2",
+      "text": "忘れ物を取りに、\n教室へ戻った。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "in side view, walking forward, holding one black diploma tube in his right hand, left hand empty",
+      "emotion": "tired",
+      "shot": "full",
+      "location": "school_hallway_spring_dusk",
+      "filter": "none",
+      "alt_pose": "in side view, mid-step with the other foot forward, holding one black diploma tube in his right hand, left hand empty",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/022.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 1.0
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise2",
+      "text": "すると、\n俺の机の上に――",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "stopping suddenly, eyes widening, holding one black diploma tube in his right hand, left hand empty",
+      "emotion": "startled",
+      "shot": "half",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/023.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "ore_senior.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "rise2",
+      "text": "小さな箱が、\n置いてあった。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "mysterious",
+      "object": "a small white paper box tied with a pink ribbon",
+      "shot": "full",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/024.png"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "rise2",
+      "text": "誰かの忘れ物か？",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "tilting his head, holding one small white paper box with a pink ribbon in both hands, no diploma tube in his hands",
+      "emotion": "puzzled",
+      "shot": "half",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/025.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "ore_senior.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "rise2",
+      "text": "まさか……\nイタズラか？",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "frowning, eyes narrowed, looking down at something in front of him",
+      "emotion": "suspicious",
+      "shot": "close",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/026.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "ore_senior.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "rise2",
+      "text": "おそるおそる、\nリボンをほどく。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "nervous",
+      "object": "two hands untying a pink ribbon on a small white box",
+      "shot": "full",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/027.png"
+        },
+        {
+          "word": "ドキドキ",
+          "size": 80,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "rise2",
+      "text": "中には、\n手紙がぎっしり。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "surprising",
+      "object": "an open white box full of folded colorful letters",
+      "shot": "full",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/028.png",
+          "anim": "pop"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "rise2",
+      "text": "クラス全員から\nだった……！",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "mouth slightly open, eyes wide in disbelief",
+      "emotion": "astonished",
+      "shot": "close",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/029.png"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "rise2",
+      "text": "いつも朝、\n教室の窓を――",
+      "speaker": "classmate_girl",
+      "characters": [
+        "classmate_girl",
+        "classmate_quiet_girl"
+      ],
+      "action": "smiling gently, holding one folded pink letter in both hands in front of the chest",
+      "emotion": "grateful",
+      "shot": "half",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "classmate_girl",
+          "colour": "#FFB3D1"
+        },
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/030_classmate_girl.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/030_classmate_quiet_girl.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "rise2",
+      "text": "開けてくれて、\nありがとう。",
+      "speaker": "classmate_girl",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seen from behind, both arms raised forward as if sliding something open, hands empty",
+      "emotion": "calm",
+      "shot": "full",
+      "location": "homeroom_winter_dawn",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/031.png"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "rise2",
+      "text": "誰に頼まれた\nわけでもない。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "rubbing his empty hands together, breathing out white breath, small quiet smile",
+      "emotion": "content",
+      "shot": "half",
+      "location": "homeroom_winter_dawn",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/032.png"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "rise2",
+      "text": "誰より早く、\n学校に来てたよね。",
+      "speaker": "classmate_boy",
+      "characters": [
+        "classmate_boy"
+      ],
+      "action": "grinning, holding one folded yellow letter in his right hand, giving a thumbs up with his left hand",
+      "emotion": "playful",
+      "shot": "half",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_boy",
+          "image": "cutouts/033.png"
+        },
+        {
+          "image": "stickers/spark.png",
+          "at": "classmate_boy.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "rise2",
+      "text": "まだ暗い校門を、\n毎朝くぐってた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "in side view, walking forward with a black school bag over his right shoulder, left hand empty, white breath",
+      "emotion": "solitary",
+      "shot": "full",
+      "location": "school_gate_winter_dawn",
+      "filter": "sepia",
+      "alt_pose": "in side view, mid-step with the other foot forward, black school bag over his right shoulder, left hand empty, white breath",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/034.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 1.0
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "rise2",
+      "text": "辛い時、\n何も言わずに……",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl"
+      ],
+      "action": "seated on the floor, hugging her knees, crying with her face half hidden",
+      "emotion": "heartbroken",
+      "shot": "half",
+      "location": "school_stairwell_rain_afternoon",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/035.png"
+        },
+        {
+          "effect": "tears",
+          "on": "classmate_quiet_girl"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "beat": "rise2",
+      "text": "隣にいてくれて、\nありがとう。",
+      "speaker": "classmate_quiet_girl",
+      "characters": [
+        "classmate_quiet_girl",
+        "ore_senior"
+      ],
+      "action": "sitting on the floor with knees drawn up, looking down quietly, hands resting on knees",
+      "emotion": "comforted",
+      "shot": "full",
+      "location": "school_stairwell_rain_afternoon",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/036_classmate_quiet_girl.png",
+          "at": "left"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/036_ore_senior.png",
+          "at": "right"
+        },
+        {
+          "effect": "rain"
+        },
+        {
+          "word": "ザーッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "beat": "rise2",
+      "text": "知らなかった。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "holding one folded pink letter in both hands, lips trembling",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/037.png"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "beat": "rise2",
+      "text": "みんなが、俺を\n見てたなんて。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "holding a thick stack of folded colorful letters in both hands, gazing at them",
+      "emotion": "moved",
+      "shot": "half",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/038.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "ore_senior"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "beat": "rise3",
+      "text": "一通、また一通。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "warm",
+      "object": "many folded colorful letters spread out",
+      "shot": "full",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/039.png"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "beat": "rise3",
+      "text": "どれも、俺の知らない\n俺のことだった。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seated, reading one open yellow letter held in both hands, eyes glistening",
+      "emotion": "wistful",
+      "shot": "half",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/040.png"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "beat": "rise3",
+      "text": "俺はずっと、\n一人だと思ってた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "biting his lower lip, eyes teary, looking down",
+      "emotion": "choked up",
+      "shot": "close",
+      "location": "mood_rain_sad",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/041.png"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "ore_senior.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "beat": "rise3",
+      "text": "箱の底に、\n最後の一通。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "anticipating",
+      "object": "one plain white envelope inside an empty white box",
+      "shot": "full",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/042.png"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "beat": "rise3",
+      "text": "白い、無地の封筒。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "holding one plain white envelope in both hands, looking at it closely",
+      "emotion": "curious",
+      "shot": "half",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/043.png"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "beat": "rise3",
+      "text": "この字……\n先生だ。",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "eyes widening, holding one open white letter with handwritten lines in both hands",
+      "emotion": "realizing",
+      "shot": "close",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/044.png"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "ore_senior.beside_left",
+          "size": "tiny"
+        },
+        {
+          "word": "ハッ",
+          "size": 80,
+          "at": "ore_senior.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "beat": "twist",
+      "text": "君は毎朝、\n一番に来ていましたね。",
+      "speaker": "teacher_kimura",
+      "characters": [
+        "teacher_kimura"
+      ],
+      "action": "standing, hands behind his back, looking toward the right with a gentle smile, white breath",
+      "emotion": "gentle",
+      "shot": "half",
+      "location": "school_gate_winter_dawn",
+      "filter": "sepia",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "teacher_kimura"
+        },
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/045.png"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "beat": "twist",
+      "text": "先生も、\n見ていたんだ。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior",
+        "teacher_kimura"
+      ],
+      "action": "standing quietly in the cold morning, hands at the sides, breathing white breath",
+      "emotion": "quiet",
+      "shot": "full",
+      "location": "school_gate_winter_dawn",
+      "filter": "sepia",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/046_ore_senior.png",
+          "at": "left"
+        },
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/046_teacher_kimura.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "beat": "twist",
+      "text": "でも、本当は――",
+      "speaker": "teacher_kimura",
+      "characters": [
+        "teacher_kimura"
+      ],
+      "action": "looking straight ahead with a soft, sad smile",
+      "emotion": "compassionate",
+      "shot": "close",
+      "location": "school_gate_winter_dawn",
+      "filter": "sepia",
+      "music_stop": true,
+      "layers": [
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/047.png"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "beat": "twist",
+      "text": "誰かに来てほしかった\nんじゃないですか？",
+      "speaker": "teacher_kimura",
+      "characters": [
+        "teacher_kimura"
+      ],
+      "action": "placing his right hand on his chest, eyes kind and slightly teary",
+      "emotion": "heartfelt",
+      "shot": "half",
+      "location": "school_gate_winter_dawn",
+      "filter": "sepia",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "teacher_kimura"
+        },
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/048.png"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "beat": "twist",
+      "text": "その瞬間――",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "frozen, eyes wide, holding one open white letter in both hands",
+      "emotion": "shattered",
+      "shot": "close",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "transition": "flash",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/049.png"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "beat": "twist",
+      "text": "涙が、\n止まらなくなった。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "crying with tears streaming down, holding one open white letter in both hands",
+      "emotion": "crying",
+      "shot": "close",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "alt_pose": "sobbing with shoulders shaking, eyes squeezed shut, holding one open white letter in both hands",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/050.png"
+        },
+        {
+          "effect": "tears",
+          "on": "ore_senior"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "beat": "twist",
+      "text": "本当は、\nずっと待ってたんだ。",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "clutching one white letter and a stack of colorful letters to his chest with both arms, crying",
+      "emotion": "vulnerable",
+      "shot": "half",
+      "location": "mood_rain_sad",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/051.png"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "beat": "twist",
+      "text": "誰かが、\n来てくれるのを……",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "kneeling on the floor, head bowed, holding a stack of colorful letters against his chest with both arms, tears falling",
+      "emotion": "sobbing",
+      "shot": "full",
+      "location": "mood_rain_sad",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/052.png",
+          "anim": "sink"
+        },
+        {
+          "word": "ポロ",
+          "size": 70,
+          "at": "ore_senior.beside_right"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "beat": "ending",
+      "text": "誰も来なかったと、\n思っていた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "looking up, tear streaks on his cheeks, a small trembling smile, hands empty",
+      "emotion": "relieved",
+      "shot": "half",
+      "location": "mood_sakura",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/053.png"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "beat": "ending",
+      "text": "でも本当は、\nちゃんといたんだ。",
+      "speaker": "narrator",
+      "characters": [
+        "classmate_girl",
+        "classmate_quiet_girl",
+        "classmate_boy"
+      ],
+      "action": "standing, smiling warmly, waving one hand",
+      "emotion": "affectionate",
+      "shot": "full",
+      "location": "mood_warm_memory",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "classmate_girl",
+          "image": "cutouts/054_classmate_girl.png",
+          "at": "left"
+        },
+        {
+          "id": "classmate_quiet_girl",
+          "image": "cutouts/054_classmate_quiet_girl.png",
+          "at": "center"
+        },
+        {
+          "id": "classmate_boy",
+          "image": "cutouts/054_classmate_boy.png",
+          "at": "right"
+        },
+        {
+          "effect": "hearts",
+          "on": "classmate_quiet_girl"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "beat": "ending",
+      "text": "ずっと俺を\n見てくれてた人たちが。",
+      "speaker": "narrator",
+      "characters": [
+        "teacher_kimura"
+      ],
+      "action": "smiling gently, nodding slightly, hands clasped in front",
+      "emotion": "warm",
+      "shot": "half",
+      "location": "mood_sakura",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "teacher_kimura",
+          "colour": "#FFB3D1"
+        },
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/055.png"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "beat": "ending",
+      "text": "卒業証書を、\n握りしめた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "standing, gripping one black diploma tube tightly in his right hand, holding one small white box under his left arm, determined face",
+      "emotion": "resolved",
+      "shot": "full",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/056.png"
+        },
+        {
+          "word": "ギュッ",
+          "size": 70,
+          "at": "ore_senior.hand_right"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "beat": "ending",
+      "text": "最後に、\n黒板を見る。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seen from behind, looking back over his shoulder, holding one black diploma tube in his right hand, one small white box under his left arm",
+      "emotion": "reflective",
+      "shot": "half",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/057.png"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "beat": "ending",
+      "text": "そこには――",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "revealing",
+      "shot": "full",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "transition": "zoom",
+      "motion": "punch_in",
+      "layers": [
+        {
+          "word": "卒業おめでとう",
+          "size": 100,
+          "vertical": true,
+          "at": "center"
+        },
+        {
+          "effect": "confetti"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "beat": "ending",
+      "text": "みんなの字で、\n書かれていた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "smiling through tears, eyes shining, looking up ahead",
+      "emotion": "overwhelmed",
+      "shot": "close",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/059.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "ore_senior"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "beat": "ending",
+      "text": "窓は、もう\n開いていた。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "gentle",
+      "shot": "full",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "motion": "pan_left",
+      "layers": [
+        {
+          "word": "ヒュー",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "beat": "ending",
+      "text": "今日だけは、誰かが\n開けてくれていた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "smiling softly with wet eyes, holding one black diploma tube in his right hand, one small white box under his left arm",
+      "emotion": "grateful",
+      "shot": "half",
+      "location": "homeroom_spring_sunset",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "ore_senior"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/061.png"
+        },
+        {
+          "image": "stickers/heart.png",
+          "at": "ore_senior.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "beat": "ending",
+      "text": "誰もいない廊下を、\n胸を張って歩いた。",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "in side view, walking tall with his chin up, holding one black diploma tube in his right hand, one small white box under his left arm",
+      "emotion": "proud",
+      "shot": "full",
+      "location": "school_hallway_spring_dusk",
+      "filter": "none",
+      "alt_pose": "in side view, mid-step with the other foot forward, chin up, holding one black diploma tube in his right hand, one small white box under his left arm",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/062.png",
+          "anim": "exit_right"
+        },
+        {
+          "word": "スタスタ",
+          "size": 70,
+          "at": "floor_left"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "beat": "ending",
+      "text": "夕焼けの校門に――",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "serene",
+      "shot": "full",
+      "location": "school_gate_sakura_spring_dusk",
+      "filter": "none",
+      "motion": "tilt_up",
+      "layers": []
+    },
+    {
+      "id": 64,
+      "beat": "ending",
+      "text": "一人、待っている\n人がいた。",
+      "speaker": "narrator",
+      "characters": [
+        "teacher_kimura"
+      ],
+      "action": "standing, hands clasped in front, smiling gently, looking toward the left",
+      "emotion": "patient",
+      "shot": "full",
+      "location": "school_gate_sakura_spring_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/064.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "teacher_kimura"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "beat": "ending",
+      "text": "卒業、\nおめでとう。",
+      "speaker": "teacher_kimura",
+      "characters": [
+        "teacher_kimura",
+        "ore_senior"
+      ],
+      "action": "standing, facing the other person, smiling warmly with teary eyes, hands at the sides",
+      "emotion": "tearful joy",
+      "shot": "half",
+      "location": "school_gate_sakura_spring_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/065_teacher_kimura.png",
+          "at": "left"
+        },
+        {
+          "id": "ore_senior",
+          "image": "cutouts/065_ore_senior.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "beat": "ending",
+      "text": "ありがとう\nございました！",
+      "speaker": "ore_senior",
+      "characters": [
+        "ore_senior",
+        "teacher_kimura"
+      ],
+      "action": "bowing deeply at the waist, hands at the sides",
+      "emotion": "sincere",
+      "shot": "full",
+      "location": "school_gate_sakura_spring_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/066_ore_senior.png",
+          "at": "left",
+          "anim": "nod"
+        },
+        {
+          "id": "teacher_kimura",
+          "image": "cutouts/066_teacher_kimura.png",
+          "at": "right"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "ore_senior.above",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "beat": "ending",
+      "text": "あなたなら、",
+      "speaker": "narrator",
+      "characters": [],
+      "action": null,
+      "emotion": "reflective",
+      "shot": "full",
+      "location": "mood_sakura",
+      "filter": "none",
+      "transition": "fade",
+      "layers": []
+    },
+    {
+      "id": 68,
+      "beat": "ending",
+      "text": "誰にも\n気づかれなくても、",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "looking into the distance with a calm, gentle smile, eyes still slightly red",
+      "emotion": "peaceful",
+      "shot": "close",
+      "location": "school_gate_sakura_spring_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/068.png"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "beat": "ending",
+      "text": "誰かに、\n優しくできますか？",
+      "speaker": "narrator",
+      "characters": [
+        "ore_senior"
+      ],
+      "action": "seen from behind, walking away, holding one black diploma tube in his right hand, one small white box under his left arm",
+      "emotion": "hopeful",
+      "shot": "half",
+      "location": "school_gate_sakura_spring_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore_senior",
+          "image": "cutouts/069.png",
+          "anim": "recede"
+        }
+      ]
+    }
+  ]
+}

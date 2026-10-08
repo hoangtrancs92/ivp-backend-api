@@ -1,0 +1,1004 @@
+{
+  "characters/001.png": {
+    "checks": {
+      "object": 5,
+      "count": 5,
+      "extras": 4,
+      "shape": 5
+    },
+    "problems": [
+      "Nhãn tên có chữ ký tự lạ/không rõ nghĩa, hơi lệch so với nhãn tên trống thông thường."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218922555800
+  },
+  "characters/002.png": {
+    "checks": {
+      "object": 5,
+      "count": 5,
+      "extras": 4,
+      "shape": 5
+    },
+    "problems": [
+      "Tên viết trên nhãn không khớp rõ ràng với 高橋蓮; ký tự cuối trông giống 棲 hơn 蓮."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218941553700
+  },
+  "characters/003.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [
+      "Kiểu tóc ở ảnh 2 hơi khác ảnh chuẩn, phần mái ít lệch sang bên hơn."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218951554300
+  },
+  "characters/003_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218961538400
+  },
+  "characters/004.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 4,
+      "objects": 4,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình gần toàn thân, chưa đúng yêu cầu nửa người từ thắt lưng.",
+      "Tư thế nhìn xuống chưa thật rõ."
+    ],
+    "score": 4.3,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218972532300
+  },
+  "characters/004_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng; nhân vật không nhìn xuống rõ ràng."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218981532800
+  },
+  "characters/005.png": {
+    "checks": {
+      "object": 5,
+      "count": 5,
+      "extras": 5,
+      "shape": 5
+    },
+    "problems": [],
+    "fix": "",
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218991560400
+  },
+  "characters/006.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219003538300
+  },
+  "characters/007.png": {
+    "checks": {
+      "object": 5,
+      "count": 5,
+      "extras": 5,
+      "shape": 5
+    },
+    "problems": [],
+    "fix": "",
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219014554100
+  },
+  "characters/008.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219026533900
+  },
+  "characters/008_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Cằm chưa hơi ngẩng rõ như yêu cầu, nhưng tư thế đang bước đi và quay đầu nhẹ sang trái phù hợp."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219036559000
+  },
+  "characters/009.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng như yêu cầu."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219046557300
+  },
+  "characters/010.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Biểu cảm trông tức giận hơn là lén lút, nhưng tư thế cúi thấp và hành động cầm sổ phù hợp."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219063560500
+  },
+  "characters/011.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Đầu chưa cúi rõ như yêu cầu, nhưng tư thế đi bộ chậm và cảm xúc thu mình vẫn phù hợp."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219072556400
+  },
+  "characters/011_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Đầu và vai chưa cúi, hơi tròn rõ như yêu cầu; tư thế đi bộ và tay trống phù hợp."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219083558300
+  },
+  "characters/012.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình rộng hơn yêu cầu cận mặt và vai, hiển thị thêm phần thân và đùi."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219092559400
+  },
+  "characters/013.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình là gần toàn thân thay vì nửa người từ thắt lưng."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219102555700
+  },
+  "characters/013_alt.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 4,
+      "action": 3
+    },
+    "problems": [
+      "Kiểu tóc và phần mái hơi khác ảnh chuẩn.",
+      "Có ghế xuất hiện dù cảnh không yêu cầu rõ đồ vật này.",
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng; môi không khép chặt hoàn toàn."
+    ],
+    "score": 4.3,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219111557000
+  },
+  "characters/014.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng.",
+      "Cằm chưa được nâng nhẹ rõ ràng và biểu cảm chưa thể hiện rõ vẻ smug."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219121564700
+  },
+  "characters/015.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219131552500
+  },
+  "characters/017.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 4,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [
+      "Khóa kéo chính của ba lô không thể hiện rõ đang mở."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219140570100
+  },
+  "characters/018.png": {
+    "checks": {
+      "object": 5,
+      "count": 5,
+      "extras": 5,
+      "shape": 5
+    },
+    "problems": [],
+    "fix": "",
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791370296378978900
+  },
+  "characters/019.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [
+      "Kiểu tóc và nét mặt hơi khác nhẹ so với ảnh chuẩn."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219159554100
+  },
+  "characters/019_alt.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 3,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Cuốn sổ không thể hiện rõ gáy vải xanh cobalt và nhãn tên viền xanh trắng.",
+      "Tư thế đang đứng dang chân, chưa thể hiện rõ quỳ một gối hoặc bắt đầu đứng lên."
+    ],
+    "score": 4.2,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219168553700
+  },
+  "characters/020.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219179555500
+  },
+  "characters/021.png": {
+    "checks": {
+      "object": 4,
+      "count": 5,
+      "extras": 4,
+      "shape": 5
+    },
+    "problems": [
+      "Chữ viết trông giống ký tự Nhật giả nhưng không thể hiện rõ các cụm bắt buộc 消えろ, 臭い và 誰も味方いない.",
+      "Không thấy rõ nét cũ/mực đen hằn xuyên từ các trang trước."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219188553600
+  },
+  "characters/022.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219198553700
+  },
+  "characters/023.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Kiểu tóc và khuôn mặt có khác nhẹ so với ảnh chuẩn.",
+      "Khung hình là gần toàn thân thay vì cận mặt và vai như yêu cầu."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219207553700
+  },
+  "characters/023_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 4,
+      "extras": 5,
+      "action": 2
+    },
+    "problems": [
+      "Không đúng khung hình cận mặt và vai, ảnh là toàn thân.",
+      "Nhân vật không nâng ánh mắt rõ về phía bên phải.",
+      "Sổ được giữ ở ngang ngực thay vì ngay dưới cằm.",
+      "Không thấy rõ phần gáy màu xanh cobalt của sổ."
+    ],
+    "score": 4.3,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219218535500
+  },
+  "characters/024.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình là gần toàn thân thay vì cận mặt và vai.",
+      "Mặt vẫn hồng, chưa thể hiện rõ trạng thái mặt tái nhợt.",
+      "Hai bàn tay vẫn hiện rõ trong khung hình thay vì nằm dưới khung hình."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219228536600
+  },
+  "characters/025_student_victim.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219248532900
+  },
+  "characters/025_me_teen.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219239536000
+  },
+  "characters/026.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì cận mặt và vai như yêu cầu."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219257531300
+  },
+  "characters/027.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219266532700
+  },
+  "characters/027_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 4,
+      "objects": 4,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [
+      "Bàn tay phải hơi đơn giản, các ngón tay chưa thật rõ.",
+      "Nhãn tên viền xanh trên sổ không nhìn thấy rõ."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219274553700
+  },
+  "characters/028.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 4,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình gần như toàn thân thay vì nửa người từ thắt lưng.",
+      "Nhãn trên sổ có ký hiệu chữ K giống logo, không hoàn toàn là nhãn tên đơn giản."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219283556600
+  },
+  "characters/029.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng.",
+      "Nhân vật có quay mặt nhìn sang phải và biểu cảm xấu hổ, nhưng tư thế hạ vai chưa thể hiện rõ."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219291554300
+  },
+  "characters/030_popular_tanaka.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219299556600
+  },
+  "characters/030_student_victim.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng.",
+      "Tóc và phần mái hơi khác ảnh chuẩn."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219308553200
+  },
+  "characters/031.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 2
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì cận mặt và vai.",
+      "Kiểu tóc hơi khác ảnh chuẩn, phần mái rũ xuống và che trán nhiều hơn."
+    ],
+    "score": 4.3,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219317551900
+  },
+  "characters/031_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 2
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì cận mặt và vai.",
+      "Hai tay lộ rõ trong khung hình thay vì ở dưới khung hình.",
+      "Tư thế chưa thể hiện rõ việc hạ cằm và ánh mắt mềm, dù miệng đang mở như đang xin lỗi."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219326552100
+  },
+  "characters/032.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Biểu cảm hơi lo lắng/buồn, chưa thể hiện rõ sự hy vọng thận trọng."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219334535500
+  },
+  "characters/034.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219342699800
+  },
+  "characters/035.png": {
+    "checks": {
+      "object": 4,
+      "count": 5,
+      "extras": 5,
+      "shape": 4
+    },
+    "problems": [
+      "The blue-bordered name label appears mostly intact rather than clearly torn into fragments.",
+      "Some paper strips and label pieces have irregular overlaps and rough edges, slightly reducing shape clarity."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219350758700
+  },
+  "characters/036.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 5
+    },
+    "problems": [],
+    "fix": "",
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791369918140136700
+  },
+  "characters/037.png": {
+    "checks": {
+      "object": 5,
+      "count": 5,
+      "extras": 5,
+      "shape": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219377494700
+  },
+  "characters/038.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 4,
+      "extras": 5,
+      "action": 3
+    },
+    "problems": [
+      "Khung hình là toàn thân thay vì cận mặt và vai.",
+      "Biểu cảm hơi mỉm cười, chưa hoàn toàn unflinching.",
+      "Sổ có màu xanh lá khá đậm, chưa rõ sắc mint-green."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219387471600
+  },
+  "characters/039.png": {
+    "checks": {
+      "character": 4,
+      "outfit": 5,
+      "body": 5,
+      "objects": 5,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Tóc ở ảnh 2 dài hơn và khác nhẹ so với kiểu tóc ngắn trong ảnh chuẩn.",
+      "Khung hình là toàn thân thay vì nửa người từ thắt lưng."
+    ],
+    "score": 4.7,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219403112400
+  },
+  "characters/040.png": {
+    "checks": {
+      "object": 5,
+      "count": 5,
+      "extras": 5,
+      "shape": 5
+    },
+    "problems": [],
+    "score": 5.0,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368219420751000
+  },
+  "backgrounds/classroom_autumn_morning.png": {
+    "checks": {
+      "place": 5,
+      "empty": 5,
+      "shape": 4,
+      "mood": 4
+    },
+    "problems": [
+      "Không có dấu hiệu rõ ràng của đầu mùa thu ngoài ánh sáng buổi sáng mát và nhiều mây."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218845555200
+  },
+  "backgrounds/school_courtyard_autumn_noon.png": {
+    "checks": {
+      "place": 5,
+      "empty": 5,
+      "shape": 4,
+      "mood": 5
+    },
+    "problems": [
+      "Một vài chi tiết phối cảnh và hình dạng ở đài phun nước, băng ghế và lối đi hơi lệch nhẹ, nhưng không ảnh hưởng đáng kể đến tổng thể."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218867552700
+  },
+  "backgrounds/school_hallway_autumn_afternoon.png": {
+    "checks": {
+      "place": 5,
+      "empty": 4,
+      "shape": 5,
+      "mood": 5
+    },
+    "problems": [
+      "Có một số ký hiệu và chữ nhỏ trên biển báo, bảng thông tin và tủ đồ; không hoàn toàn đáp ứng yêu cầu không có chữ."
+    ],
+    "score": 4.8,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218881552500
+  },
+  "backgrounds/school_staffroom_autumn_sunset.png": {
+    "checks": {
+      "place": 5,
+      "empty": 4,
+      "shape": 4,
+      "mood": 5
+    },
+    "problems": [
+      "Lịch treo tường có chữ và số đọc được, chưa đáp ứng hoàn toàn yêu cầu không có text."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218902553400
+  },
+  "backgrounds/classroom_autumn_next_morning.png": {
+    "checks": {
+      "place": 5,
+      "empty": 4,
+      "shape": 4,
+      "mood": 5
+    },
+    "problems": [
+      "Có dấu chữ/ký hiệu nhỏ giống watermark ở góc dưới bên phải, không phù hợp yêu cầu không có chữ hoặc logo lạ.",
+      "Một số chân bàn và ghế hơi rối, phối cảnh có biến dạng nhẹ nhưng không nghiêm trọng."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218857552700
+  },
+  "backgrounds/school_staffroom_autumn_next_morning.png": {
+    "checks": {
+      "place": 5,
+      "empty": 4,
+      "shape": 4,
+      "mood": 4
+    },
+    "problems": [
+      "Lịch treo tường có nhiều chữ và số nhỏ nhìn thấy được, chưa hoàn toàn đáp ứng yêu cầu không có chữ.",
+      "Phong cách có shading và chuyển sắc nhẹ, chưa thật sự phẳng và tối giản như Irasutoya.",
+      "Mùa đầu thu không có dấu hiệu đặc trưng rõ ràng, chủ yếu thể hiện qua ánh sáng ban mai và thời tiết quang."
+    ],
+    "score": 4.2,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218891552600
+  },
+  "backgrounds/stationery_shop_autumn_afternoon.png": {
+    "checks": {
+      "place": 5,
+      "empty": 4,
+      "shape": 4,
+      "mood": 5
+    },
+    "problems": [
+      "Có một số thẻ giá và biển nhỏ chứa ký tự hoặc chữ giả khó đọc, chưa hoàn toàn đáp ứng yêu cầu không có chữ."
+    ],
+    "score": 4.5,
+    "verdict": "đạt",
+    "failed": [],
+    "pass_score": 3,
+    "mtime": 1791368218913553700
+  },
+  "characters/036_alt.png": {
+    "checks": {
+      "character": 5,
+      "outfit": 5,
+      "body": 5,
+      "objects": 1,
+      "extras": 5,
+      "action": 4
+    },
+    "problems": [
+      "Không có quyển sổ B5 màu xanh bạc hà mới trong tay phải.",
+      "Tay trái cần để trống nhưng hiện cả hai tay đều không cầm vật."
+    ],
+    "fix": "holding exactly one new mint-green B5 notebook with a plain unmarked cover and white stitched spine in his right hand, left hand empty, no old notebook",
+    "score": 4.2,
+    "verdict": "vẽ lại",
+    "failed": [
+      "objects"
+    ],
+    "pass_score": 3,
+    "mtime": 1791370296386981300
+  }
+}

@@ -1,0 +1,865 @@
+{
+  "title": [
+    "満員電車で",
+    "スマホから顔を上げない男"
+  ],
+  "genre": "Bài học, ngụ ngôn",
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "ore": "#42A5F5",
+    "hood_man": "#FFA726",
+    "grandpa_umbrella": "#8D6E63",
+    "obasan_passenger": "#BA68C8",
+    "station_staff": "#5C6BC0"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "beat": "setup",
+      "text": "その男は、一度も\n顔を上げなかった。",
+      "speaker": "ore",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "seated, head bowed, looking down at one black smartphone held in both hands, white earbuds in both ears",
+      "emotion": "expressionless",
+      "shot": "close",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "motion": "focus",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/001.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "beat": "setup",
+      "text": "雨の月曜、朝。",
+      "speaker": "ore",
+      "characters": [],
+      "action": "",
+      "emotion": "quiet",
+      "shot": "full",
+      "location": "station_platform_rain_spring_morning",
+      "filter": "none",
+      "motion": "tilt_up",
+      "transition": "fade",
+      "layers": [
+        {
+          "effect": "rain"
+        },
+        {
+          "word": "ザーッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "beat": "setup",
+      "text": "いつもの満員電車に\n乗り込んだ。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "walking forward, holding one brown leather briefcase in his left hand, right hand empty, slightly tired face",
+      "emotion": "weary",
+      "shot": "half",
+      "location": "station_platform_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/003.png",
+          "path": [
+            "off_left",
+            "center"
+          ],
+          "over": 0.8
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "beat": "setup",
+      "text": "目の前に、\nおじいさんが立っていた。",
+      "speaker": "ore",
+      "characters": [
+        "grandpa_umbrella"
+      ],
+      "action": "standing hunched, right hand raised above his head as if holding a strap, holding one folded wet navy umbrella in his left hand",
+      "emotion": "strained",
+      "shot": "full",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "ガタンゴトン",
+          "size": 60,
+          "vertical": true,
+          "at": "top_left"
+        },
+        {
+          "id": "grandpa_umbrella",
+          "image": "cutouts/004.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "beat": "setup",
+      "text": "少し、苦しそうだった。",
+      "speaker": "ore",
+      "characters": [
+        "grandpa_umbrella"
+      ],
+      "action": "breathing heavily, eyes half closed, brow furrowed, right hand raised above his head as if holding a strap",
+      "emotion": "pained",
+      "shot": "close",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "grandpa_umbrella",
+          "image": "cutouts/005.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "grandpa_umbrella.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "beat": "setup",
+      "text": "その前に座る、\n若い男。",
+      "speaker": "ore",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "seated, hands resting on his lap holding one black smartphone, eyes fixed on the screen, white earbuds in both ears",
+      "emotion": "indifferent",
+      "shot": "half",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/006.png"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "beat": "setup",
+      "text": "足元には、\n大きなトートバッグ。",
+      "speaker": "ore",
+      "characters": [],
+      "action": "",
+      "emotion": "curious",
+      "object": "a navy tote bag on the floor with a grey metal tip poking out",
+      "shot": "close",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "motion": "zoom_in",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/007.png"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "beat": "rise1",
+      "text": "なんで、\n席を譲らないんだ？",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "frowning down toward the left, jaw tight, right hand raised above his head as if holding a strap",
+      "emotion": "irritated",
+      "shot": "close",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/008.png"
+        },
+        {
+          "image": "stickers/anger.png",
+          "at": "ore.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "beat": "rise1",
+      "text": "周りの人も、\n男を見ていた。",
+      "speaker": "ore",
+      "characters": [
+        "obasan_passenger"
+      ],
+      "action": "glaring toward the left, holding one purple leather handbag in both hands in front of her chest",
+      "emotion": "disapproving",
+      "shot": "half",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "obasan_passenger",
+          "image": "cutouts/009.png"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "beat": "rise1",
+      "text": "冷たいわね…",
+      "speaker": "obasan_passenger",
+      "characters": [
+        "obasan_passenger"
+      ],
+      "action": "whispering with one hand raised beside her mouth, eyes narrowed toward the left",
+      "emotion": "contemptuous",
+      "shot": "close",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "motion": "dutch",
+      "layers": [
+        {
+          "id": "obasan_passenger",
+          "image": "cutouts/010.png"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "beat": "rise1",
+      "text": "俺も、同じことを\n思っていた。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "looking down coldly toward the left, lips pressed together",
+      "emotion": "judgmental",
+      "shot": "close",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "ore",
+          "image": "cutouts/011.png"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "beat": "rise2",
+      "text": "次の駅。",
+      "speaker": "ore",
+      "characters": [],
+      "action": "",
+      "emotion": "tense",
+      "shot": "full",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "layers": [
+        {
+          "word": "プシュー",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "beat": "rise2",
+      "text": "おじいさんが、\n突然しゃがみ込んだ。",
+      "speaker": "ore",
+      "characters": [
+        "grandpa_umbrella"
+      ],
+      "action": "crouching down low on the floor, right hand pressed against his chest, left hand empty, umbrella no longer in his hands",
+      "emotion": "agonized",
+      "shot": "full",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "grandpa_umbrella",
+          "image": "cutouts/013.png",
+          "anim": "sink"
+        },
+        {
+          "word": "ドサッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "beat": "rise2",
+      "text": "男が、すぐに\n立ち上がった。",
+      "speaker": "ore",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "standing up quickly, pulling one white earbud out of his ear with his right hand, left hand empty, no smartphone in his hands",
+      "emotion": "alarmed",
+      "shot": "full",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/014.png",
+          "anim": "rise"
+        },
+        {
+          "image": "stickers/exclaim.png",
+          "at": "hood_man.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "beat": "rise2",
+      "text": "大丈夫ですか？",
+      "speaker": "hood_man",
+      "characters": [
+        "hood_man",
+        "grandpa_umbrella"
+      ],
+      "action": "kneeling low, leaning forward with a worried look, both hands empty",
+      "emotion": "concerned",
+      "shot": "half",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "alt_pose": "kneeling low, leaning forward, mouth open while talking",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/015_hood_man.png",
+          "at": "left"
+        },
+        {
+          "id": "grandpa_umbrella",
+          "image": "cutouts/015_grandpa_umbrella.png",
+          "at": "right"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "beat": "rise2",
+      "text": "そして、\n電車を降りていった。",
+      "speaker": "ore",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "seen from behind, walking quickly toward the right with a slight limp, both hands empty",
+      "emotion": "urgent",
+      "shot": "full",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/016.png",
+          "anim": "exit_right"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "beat": "rise3",
+      "text": "助けを呼びに\n行ったんだと思った。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "looking toward the right with a slightly relieved sigh, holding one brown leather briefcase in his left hand, right hand empty",
+      "emotion": "relieved",
+      "shot": "half",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/017.png"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "beat": "rise3",
+      "text": "でも、違った。",
+      "speaker": "ore",
+      "characters": [],
+      "action": "",
+      "emotion": "ominous",
+      "shot": "full",
+      "location": "station_platform_rain_spring_morning",
+      "filter": "none",
+      "transition": "whip",
+      "layers": [
+        {
+          "effect": "rain"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "beat": "rise3",
+      "text": "これを、早く！",
+      "speaker": "station_staff",
+      "characters": [
+        "station_staff"
+      ],
+      "action": "holding out one small white medicine box in his right hand and one clear plastic water bottle in his left hand toward the left",
+      "emotion": "urgent",
+      "shot": "half",
+      "location": "station_platform_rain_spring_morning",
+      "filter": "none",
+      "alt_pose": "holding out one small white medicine box in his right hand and one clear plastic water bottle in his left hand, mouth open while talking",
+      "layers": [
+        {
+          "id": "station_staff",
+          "image": "cutouts/019.png",
+          "anim": "lean_in"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "beat": "rise3",
+      "text": "数分後、\n男が戻ってきた。",
+      "speaker": "ore",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "in side view, running with an uneven limp, holding one small white medicine box and one clear plastic water bottle against his chest with both hands, gritting his teeth",
+      "emotion": "determined",
+      "shot": "full",
+      "location": "station_platform_rain_spring_morning",
+      "filter": "none",
+      "alt_pose": "in side view, running with an uneven limp, other leg forward, holding one small white medicine box and one clear plastic water bottle against his chest with both hands",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/020.png",
+          "path": [
+            "off_right",
+            "center"
+          ],
+          "over": 0.9
+        },
+        {
+          "effect": "rain"
+        },
+        {
+          "word": "ダッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "beat": "rise3",
+      "text": "手には、薬と水。",
+      "speaker": "ore",
+      "characters": [],
+      "action": "",
+      "emotion": "surprised",
+      "object": "a small white medicine box and a clear water bottle held in two hands",
+      "shot": "close",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "objects",
+          "image": "cutouts/021.png"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "beat": "rise3",
+      "text": "駅員さんから、\nもらってきました。",
+      "speaker": "hood_man",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "kneeling, holding out one small white medicine box in his right hand and one clear plastic water bottle in his left hand, soft smile, slightly out of breath",
+      "emotion": "gentle",
+      "shot": "half",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "alt_pose": "kneeling, holding out one small white medicine box in his right hand and one clear plastic water bottle in his left hand, mouth open while talking",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/022.png"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "beat": "rise3",
+      "text": "すまんねえ…\nありがとう…",
+      "speaker": "grandpa_umbrella",
+      "characters": [
+        "grandpa_umbrella"
+      ],
+      "action": "bowing his head again and again, holding one clear plastic water bottle in both hands, teary eyes",
+      "emotion": "grateful",
+      "shot": "half",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "grandpa_umbrella",
+          "colour": "#FFE0B2"
+        },
+        {
+          "id": "grandpa_umbrella",
+          "image": "cutouts/023.png",
+          "anim": "nod"
+        },
+        {
+          "image": "stickers/tear.png",
+          "at": "grandpa_umbrella.beside_left",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "beat": "twist",
+      "text": "その時、\n俺は見てしまった。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "eyes widening, looking down toward the floor on the left, holding one brown leather briefcase in his left hand",
+      "emotion": "startled",
+      "shot": "half",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/024.png"
+        },
+        {
+          "word": "ハッ",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "beat": "twist",
+      "text": "ズボンの裾に、ギプス。\nそして、松葉杖。",
+      "speaker": "ore",
+      "characters": [],
+      "action": "",
+      "emotion": "shocking",
+      "object": "a grey folding crutch in a navy tote bag beside a white leg cast",
+      "shot": "close",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "motion": "punch_in",
+      "transition": "flash",
+      "layers": [
+        {
+          "effect": "speed_lines"
+        },
+        {
+          "id": "objects",
+          "image": "cutouts/025.png"
+        },
+        {
+          "effect": "flash"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "beat": "twist",
+      "text": "男も、\n足を怪我していた。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "frozen with mouth slightly open, eyes wide in disbelief",
+      "emotion": "stunned",
+      "shot": "close",
+      "location": "train_car_rain_doors_open",
+      "filter": "none",
+      "motion": "shake",
+      "layers": [
+        {
+          "effect": "rays",
+          "on": "ore"
+        },
+        {
+          "id": "ore",
+          "image": "cutouts/026.png"
+        },
+        {
+          "word": "ガーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "beat": "twist",
+      "text": "譲らなかったんじゃない。",
+      "speaker": "ore",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "seated, wincing quietly, rubbing his right knee with his right hand, left hand empty, earbuds out",
+      "emotion": "hurting",
+      "shot": "close",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "hood_man",
+          "image": "cutouts/027.png"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "beat": "twist",
+      "text": "譲れなかったんだ。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "lowering his head, right hand pressed over his mouth, left hand holding one brown leather briefcase",
+      "emotion": "remorseful",
+      "shot": "half",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "gloom"
+        },
+        {
+          "id": "ore",
+          "image": "cutouts/028.png"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "beat": "ending",
+      "text": "それでも、\n誰より先に動いた。",
+      "speaker": "ore",
+      "characters": [
+        "hood_man"
+      ],
+      "action": "seated, looking down at his knee with a small tired smile, both hands resting on his lap",
+      "emotion": "quietly proud",
+      "shot": "half",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "hood_man"
+        },
+        {
+          "id": "hood_man",
+          "image": "cutouts/029.png"
+        },
+        {
+          "effect": "sparkles",
+          "on": "hood_man"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "beat": "ending",
+      "text": "誰も、\n何も言えなかった。",
+      "speaker": "ore",
+      "characters": [
+        "obasan_passenger"
+      ],
+      "action": "looking down at the floor, clutching one purple leather handbag tightly against her chest with both hands",
+      "emotion": "ashamed",
+      "shot": "half",
+      "location": "train_car_rain_spring_morning",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "obasan_passenger",
+          "image": "cutouts/030.png"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "at": "obasan_passenger.beside_right",
+          "size": "tiny"
+        },
+        {
+          "word": "シーン",
+          "size": 70,
+          "vertical": true,
+          "at": "top_right"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "beat": "ending",
+      "text": "その夜、\n帰りの電車。",
+      "speaker": "ore",
+      "characters": [],
+      "action": "",
+      "emotion": "calm",
+      "shot": "full",
+      "location": "train_car_spring_dusk",
+      "filter": "none",
+      "transition": "fade",
+      "layers": [
+        {
+          "word": "ガタンゴトン",
+          "size": 60,
+          "vertical": true,
+          "at": "top_left"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "beat": "ending",
+      "text": "スマホから、\n顔を上げない人がいた。",
+      "speaker": "ore",
+      "characters": [
+        "commuter_student"
+      ],
+      "action": "seated, head bowed, looking down at one white smartphone held in both hands",
+      "emotion": "absorbed",
+      "shot": "half",
+      "location": "train_car_spring_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "commuter_student",
+          "image": "cutouts/032.png"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "beat": "ending",
+      "text": "人は、見えている\n部分だけじゃ分からない。",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "in side view, standing, right hand raised above his head as if holding a strap, holding one brown leather briefcase in his left hand, gazing out with soft eyes",
+      "emotion": "reflective",
+      "shot": "half",
+      "location": "train_car_spring_dusk",
+      "filter": "none",
+      "motion": "drift",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/033.png"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "beat": "ending",
+      "text": "あなたなら、\nあの男を責めますか？",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "looking straight at the viewer, serious but kind eyes",
+      "emotion": "earnest",
+      "shot": "close",
+      "location": "train_car_spring_dusk",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "ore",
+          "image": "cutouts/034.png"
+        },
+        {
+          "image": "stickers/question.png",
+          "at": "ore.beside_right",
+          "size": "tiny"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "beat": "ending",
+      "text": "それとも、\n少しだけ待ちますか？",
+      "speaker": "ore",
+      "characters": [
+        "ore"
+      ],
+      "action": "looking straight at the viewer with a small warm smile",
+      "emotion": "hopeful",
+      "shot": "close",
+      "location": "train_car_spring_dusk",
+      "filter": "none",
+      "motion": "zoom_out",
+      "layers": [
+        {
+          "effect": "aura",
+          "on": "ore",
+          "colour": "#FFCC80"
+        },
+        {
+          "id": "ore",
+          "image": "cutouts/035.png"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "at": "ore.beside_left",
+          "size": "tiny"
+        }
+      ]
+    }
+  ]
+}

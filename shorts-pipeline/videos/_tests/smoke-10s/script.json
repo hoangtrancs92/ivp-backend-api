@@ -1,0 +1,197 @@
+{
+  "title": [
+    "父の",
+    "2つのジョッキ"
+  ],
+  "font": "Noto Sans CJK JP",
+  "font_file": "fonts/NotoSansCJKjp-Black.otf",
+  "speakers": {
+    "narrator": "#4FC3F7",
+    "me": "#4FC3F7",
+    "father": "#FFB74D"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "text": "父は毎晩、ジョッキを冷やす。",
+      "speaker": "narrator",
+      "characters": [
+        "father"
+      ],
+      "action": "holding up an empty glass beer mug with no beer inside, frosted white with ice crystals, in one hand",
+      "emotion": "calm",
+      "location": "kitchen",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/001.png",
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "size": "tiny",
+          "at": "father.beside_right",
+          "anim": "pop",
+          "start": 0.4
+        }
+      ],
+      "shot": "half"
+    },
+    {
+      "id": 2,
+      "text": "なんで2つも？",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "tilting her head",
+      "emotion": "confused",
+      "location": "kitchen",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/002.png",
+          "path": [
+            "off_left",
+            "floor"
+          ],
+          "over": 0.5,
+          "anim": "bounce"
+        },
+        {
+          "image": "stickers/question.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop",
+          "start": 0.5
+        }
+      ],
+      "shot": "half"
+    },
+    {
+      "id": 3,
+      "text": "……お前の分だ",
+      "speaker": "father",
+      "characters": [
+        "father"
+      ],
+      "action": "standing, looking away shyly",
+      "emotion": "embarrassed",
+      "alt_pose": "mouth open while talking",
+      "location": "kitchen",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "father",
+          "image": "cutouts/003.png",
+          "anim": "none"
+        },
+        {
+          "image": "stickers/sweat.png",
+          "size": "tiny",
+          "at": "father.beside_left",
+          "anim": "pop",
+          "start": 0.2
+        }
+      ],
+      "shot": "close"
+    },
+    {
+      "id": 4,
+      "text": "5年ぶりの乾杯。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "",
+      "location": "dining_room",
+      "motion": "zoom_in",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mugs",
+          "image": "cutouts/004.png",
+          "size": "large",
+          "at": "center",
+          "anim": "pop"
+        },
+        {
+          "word": "カチン",
+          "size": 90,
+          "at": "mugs.above",
+          "anim": "pop_fade",
+          "start": 0.4
+        }
+      ],
+      "object": "two glass beer mugs full of golden beer with white foam clinking together, foam splashing"
+    },
+    {
+      "id": 5,
+      "text": "お父さん、ただいま。",
+      "speaker": "me",
+      "characters": [
+        "me"
+      ],
+      "action": "standing with hands together in front",
+      "emotion": "happy tears",
+      "alt_pose": "mouth open while talking",
+      "location": "dining_room",
+      "motion": "none",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "me",
+          "image": "cutouts/005.png",
+          "anim": "approach"
+        },
+        {
+          "image": "stickers/heart.png",
+          "size": "tiny",
+          "at": "me.beside_left",
+          "anim": "pop",
+          "start": 0.3
+        },
+        {
+          "image": "stickers/tear.png",
+          "size": "tiny",
+          "at": "me.beside_right",
+          "anim": "drop",
+          "start": 0.5
+        }
+      ],
+      "shot": "full"
+    },
+    {
+      "id": 6,
+      "text": "冷凍庫には今も、ジョッキが2つ。",
+      "speaker": "narrator",
+      "characters": [],
+      "action": "",
+      "emotion": "",
+      "location": "kitchen",
+      "motion": "zoom_out",
+      "filter": "none",
+      "layers": [
+        {
+          "id": "mugs",
+          "image": "cutouts/006.png",
+          "size": "medium",
+          "at": "center",
+          "anim": "pop"
+        },
+        {
+          "image": "stickers/sparkle.png",
+          "size": "tiny",
+          "at": "mugs.beside_right",
+          "anim": "pop",
+          "start": 0.4
+        }
+      ],
+      "object": "two empty glass beer mugs with no beer inside, frosted white with ice crystals, side by side"
+    }
+  ]
+}
