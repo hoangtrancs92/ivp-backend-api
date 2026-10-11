@@ -26,7 +26,10 @@ GROUPS = {
     "ayashii": "image_ayashii",    # 怪しい: bí ẩn, hồi hộp
     "honobono": "image_honobono",  # ほのぼの: tình yêu, thanh xuân, đời thường ấm áp
     "serious": "image_serious",    # シリアス: công sở, xã hội, trả thù
+    "hageshii": "image_hageshii",  # 激しい: kịch tính, đối đầu (video so sánh Nhật vs nước khác)
+    "shissoukan": "image_shissoukan",   # 疾走感: dồn dập, tốc độ
 }
+MORE = {"hageshii": 6, "shissoukan": 6}   # nhóm kịch tính: tải nhiều bài hơn để người dùng nghe chọn
 
 
 def get(url, referer=None):
@@ -43,7 +46,7 @@ def main():
         folder = OUT / group
         folder.mkdir(parents=True, exist_ok=True)
         html = get(f"{SITE}/{page}.html").decode("utf-8", "replace")
-        mp3s = list(dict.fromkeys(re.findall(r"(mp3/[^\"']+\.mp3)", html)))[:PER_GROUP]
+        mp3s = list(dict.fromkeys(re.findall(r"(mp3/[^\"']+\.mp3)", html)))[:MORE.get(group, PER_GROUP)]
         for mp3 in mp3s:
             target = folder / Path(mp3).name
             if not target.exists():

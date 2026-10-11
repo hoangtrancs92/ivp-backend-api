@@ -3,6 +3,657 @@
 Mỗi mục: ngày, thay đổi gì, vì sao, và kết quả kiểm tra. Mục mới nhất ở trên.
 Quyết định đang có hiệu lực được tóm tắt ở bảng "Quyết định đã chốt" trong `README.md`.
 
+## 2026-10-11: video tối thiểu 61 giây (cảnh cuối giữ thêm)
+
+Người dùng: video 048 dài 57,4 giây, cần lên 60 giây. Video so sánh đọc nhanh (`voice_speed`) và không tự đọc chậm lại nên hụt.
+`build_video.py`: trước khi dựng tính tổng giọng + nghỉ; thiếu so với `[video] min_seconds` (61, `settings.toml`) thì cảnh cuối
+(câu hỏi cho người xem) giữ thêm phần thiếu (`_hold`), không chèn khoảng nghỉ giữa video. Áp cho mọi video.
+Kiểm tra: dựng lại 048: cảnh cuối giữ thêm 3,6 giây, ffprobe 60,97 giây (TikTok làm tròn 61).
+
+## 2026-10-11: nhạc nền video 048 nhỏ lại
+
+Người dùng: nhạc nền video 048 (so sánh, bài comical/retroparty, 14 dB dưới giọng) to quá chút. `build_video.py`: trường
+`"music_quieter": N` trong script.json hạ nhạc thêm N dB cho riêng video đó. Video 048 đặt 4 dB, dựng lại: âm lượng nhạc
+x0,145 -> x0,091 (57,4 giây, 50 cảnh). Bản cũ: `work/output_nhac_to.mp4`.
+
+## 2026-10-11: ảnh thật từ Wikimedia Commons
+
+Người dùng muốn thêm kho ảnh, chọn Wikimedia Commons và không muốn tự ghi nguồn. Ảnh xe trên Wikimedia hầu hết là CC BY-SA 4.0;
+người dùng chọn "lấy cả CC BY-SA, tự lưu nguồn" (đã báo: CC BY / BY-SA đòi ghi tác giả, dùng vài giây cũng vậy).
+- `steps/fetch_photos.py`: nguồn Wikimedia (API không cần khóa, có User-Agent), chỉ giấy phép công cộng / CC0 / CC BY / CC BY-SA
+  (bỏ NC, ND, không rõ); nhãn = tên file + thể loại + mô tả; ưu tiên ảnh ngang. Thứ tự tìm: Pixabay, Pexels, Wikimedia; từ khóa
+  có tên hãng thì Wikimedia trước (Pixabay "toyota prius" ra ảnh khoang máy). Không có khóa nào vẫn tìm được ở Wikimedia.
+- Nguồn ảnh Wikimedia: `photos/credits.json` (tác giả, giấy phép, link) và dòng 「写真: tác giả / giấy phép (link)」 trong
+  `credits.txt` của video. `06_voice.py` đọc credits.txt theo dòng (trước tách theo khoảng trắng, sẽ làm vỡ dòng nguồn ảnh).
+- Trang Cài đặt: ghi rõ Wikimedia luôn được tìm thêm.
+Kiểm tra (khóa Pixabay thật): "byd dolphin" ra BYD Dolphin (CC BY-SA), "geely coolray" ra Geely Coolray (CC BY), "toyota prius"
+ra Prius đời XW60 (sau khi đổi thứ tự); credits.txt có 2-3 dòng nguồn.
+
+## 2026-10-11: ảnh thật theo tên hãng / mẫu xe
+
+Người dùng chụp màn hình Pixabay có ảnh Hyundai Tucson, muốn dùng ảnh đúng hãng làm ví dụ.
+- `steps/01_script.py` (kaigai): được ghi hãng + mẫu (Toyota, Hyundai, BYD...) khi khen hoặc nêu thông tin trung lập / có thật
+  (giá, kích thước, năm, đặc điểm); lời chê chung không gắn tên một hãng / mẫu cụ thể; hãng phải đúng nước (Hyundai, Kia là Hàn
+  Quốc; BYD, Geely, Chery là Trung Quốc). Từ khóa ảnh được có tên hãng + mẫu trong các cảnh đó.
+- `steps/fetch_photos.py`: từ khóa có tên hãng (`BRANDS`) thì ảnh bắt buộc có đúng tên đó trong nhãn, không có thì bỏ trống cảnh
+  ảnh (thử "byd electric car" ra Tesla Model 3 trước khi sửa).
+Kiểm tra với khóa thật: "hyundai tucson" ra Tucson (đúng ảnh người dùng gửi), "toyota corolla" ra Toyota GR Corolla, "byd electric
+car" sau khi sửa: không có ảnh (thay vì Tesla).
+
+## 2026-10-11: khóa Pixabay, chọn ảnh khớp từ khóa hơn
+
+Người dùng gửi khóa Pixabay: lưu ở `data/settings.json` (`pixabay_key`, thư mục data/ nằm trong .gitignore). Gọi API thật lần đầu:
+tải được ảnh nhưng lạc đề (ảnh dọc đầu tiên: "old car mountain road" ra xe Tesla trong phố, "used car dealership" ra đuôi xe
+Cadillac). `steps/fetch_photos.py: search`: ưu tiên ảnh ngang (khung polaroid ngang 9:7, nhiều kết quả hơn), lấy 40 kết quả và
+chọn ảnh có nhãn khớp nhiều từ khóa nhất. Thử lại 3 từ khóa: xe cổ trên đường núi, xưởng sửa xe đúng ý; "used car dealership" vẫn
+ra bãi lốp xe (kho Pixabay ít ảnh này) -> người duyệt bỏ ảnh, lần sau lấy ảnh khác.
+
+## 2026-10-11: video so sánh: nhịp nhanh, không khoảng lặng, có tiếng hiệu ứng, nhạc vui cố định, bỏ clip AI
+
+Người dùng xem video 045: không có tiếng hiệu ứng, nhạc phải vui / kịch tính / hài (cố định cũng được), nhịp chậm, có khoảng nghỉ,
+không cần clip AI. Đo video 045: 9 cảnh không lời (thẻ so sánh 2,57 giây, clip 3,07 giây) = ~25 giây im trên 71,8 giây (lỗi do
+`silent_seconds` thêm sáng nay); nhạc tắt 3 lần cuối video; tiếng tự gắn rất thưa (`SFX_SPARSE_SHARE` 10%), kịch bản không ghi `sfx`.
+- `steps/01_script.py` (kaigai): bỏ cảnh clip AI (cảnh minh họa là ghép lớp); MỌI cảnh có lời (thẻ so sánh đọc to kết quả),
+  câu 6-16 ký tự, thoại dồn dập; ghi `"sfx"` ở cảnh thẻ / khoe / cứng họng (danh sách tiếng có sẵn). Sau khi AI viết: bỏ
+  `full`, `motion_level`, `i2v_prompt`; thẻ so sánh không lời thì tự đặt câu 「耐久性、日本20年、中国8年！」; `bgm` cố định
+  `comical/retroparty.mp3`, `voice_speed` 1.35.
+- `steps/06_voice.py`: tốc độ VOICEVOX lấy `voice_speed` của kịch bản và không tự đọc chậm lại cho đủ 62 giây; cảnh thẻ không lời
+  im 1,2 giây (trước 2,5), bỏ mức 3 giây của cảnh clip.
+- `build_video.py`: thẻ so sánh tự có tiếng `jan` lúc bật ra và `correct` / `wrong` / `boyon` theo bên thắng; `bgm` nhận
+  "nhóm/file.mp3"; video so sánh (`country`) không tắt nhạc giữa chừng. Nhạc nhóm comical đã to hơn (14 dB dưới giọng).
+Áp cho video mới; video 045 không dựng lại. Kiểm tra: đủ 15 tiếng có trong library/sfx/lab; sfx_events thẻ Nhật thắng ra
+jan + correct; pick_music ra retroparty; music_breaks rỗng. Chưa nghe bài retroparty, chưa viết kịch bản thật với luật mới.
+
+## 2026-10-11: ảnh thật (Pixabay, Pexels dự phòng) cho video Nhật Bản vs nước khác; sửa dựng cảnh clip AI
+
+**Ảnh thật.** Người dùng muốn ảnh thật cho trực quan, áp cho video mới. Pexels đang tạm ngừng cấp khóa API mới (người dùng
+chụp màn hình pexels.com/api/key) nên dùng Pixabay trước, Pexels khi có khóa.
+- `steps/fetch_photos.py` (mới): cảnh `"photo": {"query", "caption"}` -> `photos/NNN.jpg` + `credits.json` (nguồn, tác giả,
+  link); ảnh dọc trước, không có thì ngang; bỏ ảnh có id trong `rejected_ids.json`. Không khóa / lỗi mạng: cảnh dựng không ảnh.
+- `tools/auto.py`: bước "Ảnh thật (Pixabay / Pexels)" ngay trước Duyệt ảnh (lỗi không chặn video).
+- `steps/common.py`: ảnh thật hiện trong duyệt ảnh (loại "Ảnh thật"); bỏ ảnh thì ghi id bị bỏ, lần chạy sau lấy ảnh khác.
+- `compare.py: photo_card`: khung polaroid (viền trắng, chú thích tiếng Nhật, nghiêng 3°, bóng đổ). `build_video.py`: cảnh
+  có ảnh chèn khung như thẻ so sánh (y 0.45, cỡ 0.34), linh vật hai bên, máy đứng yên.
+- `steps/01_script.py` (kaigai): 3-5 cảnh ảnh thật, từ khóa tiếng Anh chung (không tên hãng, người nổi tiếng, cờ, bản đồ).
+- Trang Cài đặt AI: ô khóa Pixabay và Pexels (admin, không gửi về trình duyệt); server truyền `PIXABAY_API_KEY`,
+  `PEXELS_API_KEY`.
+Kiểm tra: dựng xem trước một cảnh với ảnh thay thế: khung ảnh giữa, hai linh vật hai bên; `search` Pixabay với dữ liệu giả bỏ
+đúng ảnh bị loại. **Chưa gọi API thật** (chưa có khóa).
+
+**Dựng cảnh clip AI** (video 045 dừng ở Dựng video, lần đầu có clip thật): `clip_backgrounds` gọi `ffprobe` / `ffmpeg` qua
+`run()` vốn tự thêm `ffmpeg -y` ở đầu, ra lệnh `ffmpeg ffprobe ...`. Gọi thẳng `subprocess.run`. Kiểm tra: đọc được
+`clips/025.mp4`, `044.mp4` (121 khung, 576x1024 -> 1080x1920).
+
+## 2026-10-11: chặn lỗi của video 044, 045 từ lúc viết kịch bản cho các video sau
+
+Người dùng: áp những sai sót đã gặp để cải thiện các video sau.
+- `steps/01_script.py`: quy tắc lớp ảnh chủ thể ghi rõ tên nhân vật đầy đủ (`cutouts/012_mascot_chn.png`, không viết tắt), mỗi
+  nhân vật một lớp, `"text"` luôn là chuỗi (cảnh không lời ghi ""). `fix_subject_layers()` chạy ngay sau khi AI viết: đổi tên
+  viết tắt về đúng tên file, tách lớp gộp nhiều nhân vật; kịch bản ghi ra đã đúng nên các bước sau (make_jobs, duyệt ảnh, dựng)
+  không phải đoán. Thử trên kịch bản 045: sửa 15 chỗ (1 lớp gộp, 14 tên viết tắt).
+- `web/app.py`: `state` trả `stale` khi app.py sửa sau giờ server khởi động; trang web hiện dải cảnh báo "khởi động lại
+  chay_web.bat" (video 044 chạy bằng server cũ). Có tác dụng từ lần khởi động lại tới.
+- Các sửa ở bước dựng (text null, thời lượng cảnh không lời, xếp chỗ hai linh vật, máy quay êm) đã nằm trong code, áp cho mọi video.
+
+## 2026-10-11: video 045 (xe Nhật vs xe Trung Quốc) dừng ở "Bố cục cảnh"; sửa bố cục hai linh vật
+
+Lô Kaggle đầu tiên của kiểu so sánh chạy được: 2 linh vật (中国くん giống ảnh mẫu; 日本くん đầu bản đồ dài mảnh, mặt hơi lạ),
+cảnh ghép, 3 tranh minh họa, 2 clip AI (`clips/025.mp4`, `044.mp4`). Bước xem trước lỗi, sửa lần lượt:
+- 9 cảnh không lời (thẻ so sánh, clip) có `"text": null` -> `variety.fill` lỗi `TypeError`. `common.normalize_script`: text
+  không phải chuỗi thành `""`. `06_voice.py: silent_seconds`: cảnh không lời có thẻ so sánh im 2,5 giây, cảnh clip 3 giây
+  (trước 0,5 giây mọi cảnh, quá ngắn để đọc thẻ / xem clip).
+- Kịch bản ghi tên viết tắt `cutouts/047_chn.png` (file thật `047_mascot_chn.png`): `repair` tìm theo id lớp / đuôi tên.
+- Kịch bản gộp hai linh vật vào một lớp không có thật `cutouts/006_mascot_jpn_mascot_chn.png`: `split_group_layer` tách thành
+  một lớp mỗi nhân vật (chỉ khi cảnh có đúng một lớp nhân vật; lần đầu chạy cả khi đủ lớp nên sinh lớp trùng, đã sửa), chạy
+  trước bước xếp chỗ thẻ so sánh.
+- Hai linh vật che nhau (đầu bản đồ Trung Quốc gần vuông): cảnh có 2 linh vật đứng x 0.27 / 0.73, cảnh có thẻ đứng 0.25 / 0.75;
+  cỡ giới hạn để mỗi lớp rộng tối đa nửa khung (`half_width`, đọc được cả tên viết tắt chưa sửa); máy lia / zoom mạnh đổi thành
+  `zoom_in`, bỏ `focus`.
+Kiểm tra: `build_video.py --preview` video 045 ra đủ 52 khung; xem bằng mắt cảnh 1, 6, 12, 18, 25, 47, 52.
+
+## 2026-10-11: video 044 dừng ở viết kịch bản
+
+Server web vẫn chạy code từ 10/10 9:42 (chưa khởi động lại) nên video 044 lưu `story_mode: auto`, `style: new`, không có `country`:
+AI nhận lời dặn bí mật + cú lật cho đề tài so sánh xe, trả lời bằng đoạn giải thích trước JSON và `json_reply` báo hỏng.
+- `steps/llm.py: json_reply`: không đọc được khối từ "{" đầu tới "}" cuối thì thử từng "{", lấy đối tượng JSON hợp lệ lớn nhất.
+- Sửa `videos/044-so-sanh-xe-hoi-nhat/meta.json` thành kaigai / classic / CHN như người dùng chọn.
+Kiểm tra: json_reply với câu trả lời có chữ và ngoặc trước khối ```json. Cần khởi động lại server rồi bấm Chạy tiếp.
+
+## 2026-10-11: Nhật Bản vs nước khác: bỏ tranh tĩnh, ghép lớp có chuyển động + clip AI + thẻ so sánh
+
+Người dùng: video so sánh không nên là tranh tĩnh; chọn "kết hợp cả hai" (ghép lớp có chuyển động và vài clip AI); "Tương phản →
+Ngẫu nhiên" giữ tranh tĩnh như ô 2.
+- Web: "Nhật Bản vs nước khác" gửi `style: classic` (ghép lớp), các ô khác như cũ.
+- `steps/01_script.py` (kaigai): cảnh hai linh vật là ghép lớp thường (anim sôi động, hiệu ứng, chữ tượng thanh); mỗi hiệp một cảnh
+  `"compare"`; cảnh kết `"round": "最終結果"`; 3-4 cảnh minh họa `"full": true, "motion_level": "low", "i2v_prompt"` (clip AI
+  Wan 2.2 trên Kaggle, hạ tầng từ 10/10), không đặt linh vật vào cảnh clip (dễ méo đầu bản đồ). Ghi `script.json "country"`.
+- `compare.py` (mới): thẻ so sánh vẽ bằng code: dải tên hiệp, tên chỉ số, hai cột cờ + tên nước + giá trị, cột thắng tô vàng có
+  vương miện, tỉ số dưới cùng. `build_video.py`: cảnh có `"compare"` chèn thẻ (y 0.45, cỡ 0.3, pop), máy đứng yên, hai lớp linh
+  vật tự đặt hai bên dưới thẻ (cỡ 0.32); `"country"` lấy từ script.json.
+Kiểm tra: vẽ 3 thẻ mẫu (耐久性 Nhật thắng, 価格 Trung Quốc thắng, 最終結果 với Hàn Quốc); dựng xem trước video thử 3 cảnh bằng ảnh giữ
+chỗ: thẻ trọn trong khung, hai linh vật hai bên. Benchmark clip 10/10: ~170-220 giây / clip 576x1024 / seed trên T4, mỗi cảnh 2
+seed. **Chưa chạy** một video so sánh thật trên Kaggle (linh vật, cảnh ghép, clip).
+
+## 2026-10-11: "Nhật Bản vs nước khác" thành video so sánh đối đầu (không còn là truyện kể)
+
+Người dùng: đề tài so xe Nhật với xe Trung Quốc "không giống kể chuyện". `steps/01_script.py` `STORY_MODES["kaigai"]` viết lại:
+日本くん vs 〇〇くん (hai linh vật) đối đầu 4-6 hiệp theo chủ đề người dùng nhập (giá, độ bền, an toàn, bán lại...), mỗi hiệp
+có chữ tên hiệp, nước kia khoe, 日本くん đáp bằng chi tiết / con số, nước kia được thắng 1 hiệp nhỏ để còn tranh cãi; kết tỉ số
+Nhật thắng áp đảo + câu hỏi cho người xem. Không nêu tên hãng thật để chê; số chỉ lấy từ đề tài hoặc số liệu World Bank khi liên
+quan chủ đề (lời dặn số liệu thêm "chỉ khi liên quan"). Gợi ý trên web đổi theo. Kiểm tra: nạp 01_script (kaigai, CHN) có lời
+dặn mới; build web. Chưa viết kịch bản thật.
+
+## 2026-10-11: "Tương phản" viết dàn ý trước; linh vật quốc gia (đầu bản đồ + cờ)
+
+1. **Dàn ý trước kịch bản.** Người dùng: tương phản (kể cả ngẫu nhiên) phải dựa trên đề tài nhập vào, chỉnh theo quy tắc móc câu,
+   tương phản rồi mới gửi AI viết kịch bản. `steps/01_script.py: brief()`: với `contrast` và `kaigai`, gọi AI một lần viết dàn
+   ý 7 mục (hai phe và lý lẽ, câu hỏi tranh cãi, kiểu móc câu + câu cảnh 1-2, các nấc, twist giả / thật, câu kết, tiêu đề) từ
+   đề tài + quy tắc (+ số liệu); lưu `work/brief.md` (chạy lại dùng lại); kịch bản viết từ đề tài + dàn ý. `CONTROVERSY` dặn
+   giữ đúng đề tài người dùng. Lỗi AI ở bước dàn ý thì viết thẳng từ đề tài.
+2. **Linh vật quốc gia** (theo ảnh mẫu người dùng gửi: đầu là bản đồ Trung Quốc tô cờ, thân nhỏ). `tools/country_mascot.py`:
+   đầu vẽ bằng code từ đường biên thật (Natural Earth 1:50m, tải một lần vào `library/maps/`) tô cờ thật (flagcdn.com): cờ có
+   màu nền chính (Nhật, Trung, Hàn, Việt) đặt hoa văn vào khối chính của bản đồ, cờ sọc (Mỹ, Pháp, Nga, Đức) trải theo hình
+   nước; bỏ đảo xa / lãnh thổ hải ngoại. Ra `config/refs/mascot_<nước>_head.png` và mục `characters.json` `mascot_<nước>`
+   (`head_ref`). `tools/make_jobs.py`: ảnh chuẩn linh vật sửa từ ảnh đầu đó (`MASCOT_CAST`), giữ nguyên hình bản đồ và cờ, thêm
+   mặt, thân. Kiểu kaigai tự thêm `mascot_jpn` và linh vật nước đem so, dặn AI cho hai linh vật dẫn chuyện (mở đầu, so số liệu,
+   kết; ít nhất 1/3 số cảnh).
+Kiểm tra: ảnh đầu 9 nước (xem bằng mắt); `mascots()` + `brief()` (AI giả) chạy; make_jobs ra `ref_mascot_jpn`, `ref_mascot_chn`
+có tham chiếu ảnh đầu, cảnh 2 linh vật tham chiếu cả hai; `run_kaggle.py --dry-run` qua. **Chưa sinh trên Kaggle**: chưa biết
+model có giữ đúng hình bản đồ khi thêm thân không.
+
+## 2026-10-11: 3 ô cách dựng; Tương phản: ngẫu nhiên / Nhật Bản vs nước khác có số liệu thật
+
+Người dùng: giao diện rối; muốn 3 ô: (1) Dựng hiện tại, (2) Tĩnh có anime, (3) Tương phản với lựa chọn ngẫu nhiên hoặc Nhật Bản
+so với một nước (chọn nước, tìm số liệu rồi tân bốc Nhật).
+- Web (`Studio.jsx`, `api.js: BUILD_MODES, CONTRAST_KINDS, COUNTRIES`): 3 thẻ; chọn "Tương phản" thì hiện hàng chip
+  🎲 Ngẫu nhiên / 🗾 Nhật Bản vs nước khác + ô chọn nước (13 nước). Gửi `style`, `story_mode`, `country` như cũ:
+  1 = classic + auto; 2 = new + twist; 3 = new + contrast (ngẫu nhiên) hoặc kaigai (so nước). Bỏ hàng "Kiểu chuyện" 6 lựa chọn.
+- `steps/compare_facts.py` (mới): số liệu World Bank (API miễn phí, không khóa) Nhật vs nước chọn: tuổi thọ, tỉ lệ giết người,
+  tử vong giao thông, tử vong trẻ sơ sinh, PM2.5, vệ sinh, nước sạch, thất nghiệp, GDP đầu người, internet; giá trị mới nhất.
+- `steps/01_script.py`: `SHORTS_COUNTRY` (meta.json `country`); kiểu kaigai kể qua người nước đó (trước cố định Trung Quốc);
+  `facts_note()` đưa các chỉ số Nhật hơn vào lời dặn, chỉ được dùng đúng số này (không bịa). Kiểu mới `contrast` = bí mật +
+  cú lật + `CONTROVERSY`. Ô 2 (twist) **không còn** lời dặn gây tranh cãi (trước áp cho mọi kịch bản cách dựng mới).
+- `web/app.py`: nhận `contrast`, lưu `country`, truyền `SHORTS_COUNTRY`.
+Kiểm tra: nạp 01_script với 4 tổ hợp (kaigai/KOR, contrast, twist, classic) đúng lời dặn; Hàn Quốc ra 6 chỉ số Nhật hơn
+(tuổi thọ 84,04 / 83,63, giết người 0,23 / 0,48...). Build web, chụp màn hình 3 ô + chọn nước. Chưa viết kịch bản thật.
+
+## 2026-10-11: gom "Cách dựng" và "Kiểu chuyện" thành một khối
+
+Người dùng: hai hàng thẻ lớn (2 cách dựng + 6 kiểu chuyện) tràn lan, khó chọn. `Studio.jsx`: kiểu chuyện thành hàng chip gọn
+(biểu tượng + tên) nằm ngay dưới hai thẻ cách dựng, trong một khung; một dòng giải thích của kiểu đang chọn (cách dựng mới +
+AI tự chọn: "bí mật + cú lật, có tranh cãi hai phe"). CSS `.story-picker` (điện thoại: chip xuống dòng).
+Kiểm tra: build web, chụp màn hình trang Tạo video ở cả hai cách dựng.
+
+## 2026-10-11: kiểu chuyện "Người nước ngoài khen Nhật" (海外の反応); chọn kiểu chuyện lại trên trang Tạo video
+
+Người dùng muốn video so sánh Trung Quốc với Nhật rồi tôn Nhật, chê nước khác cũng được.
+- `steps/01_script.py`: `STORY_MODES["kaigai"]`: người nước ngoài (mặc định Trung Quốc) sang Nhật, mỗi nấc một cú sốc văn hóa
+  cụ thể, so với quê nhà; được chê hệ thống, dịch vụ, thói quen, tình trạng xã hội của nước đó; không miệt thị con người theo
+  dân tộc, không từ xúc phạm, chính trị, chiến tranh, lịch sử, lãnh thổ, người thật (để video không bị gỡ vì nội dung thù ghét).
+  Có nhân vật đồng hương cãi lại để tạo hai phe; kết bằng quyết định ở lại hoặc câu hỏi cho người xem.
+- Cách dựng mới dùng kiểu chuyện người dùng chọn ("AI tự chọn" = bí mật + cú lật như trước). Lời dặn gây tranh cãi
+  (`CONTROVERSY`) áp cho mọi kiểu trừ 海外の反応 (kiểu này có luật riêng về so sánh nước).
+- Web: hàng "Kiểu chuyện" trên trang Tạo video (cạnh "Cách dựng"), gửi `story_mode`; `web/app.py` nhận thêm `kaigai`.
+Kiểm tra: nạp `01_script.py` với kaigai ở cả hai cách dựng có lời dặn 海外の反応 và không có `CONTROVERSY`; cách dựng mới mặc
+định vẫn twist + tranh cãi. Build web, chụp màn hình trang Tạo video: đủ 6 kiểu chuyện. Cần khởi động lại server để nhận `kaigai`.
+
+## 2026-10-11: móc câu mạnh ở 3 giây đầu
+
+Người dùng: cần hook mạnh cho những giây đầu. Áp cho mọi cách dựng.
+- `steps/01_script.py`: lời dặn `HOOK` gửi kèm mọi kịch bản: cảnh 1-2 `"beat": "hook"`; cảnh 1 là câu mạnh nhất video, tối đa
+  12 ký tự, không chào / giới thiệu / bối cảnh; chọn một trong 5 kiểu (nhảy tới khoảnh khắc căng nhất rồi 「3日前――」, câu thoại
+  sốc giữa trận cãi, sự thật lạ, chi tiết cụ thể gây tò mò, câu hỏi chọn phe); cảnh 2 làm câu hỏi lớn hơn; cảnh 1 cận mặt,
+  cảm xúc mạnh. Schema thêm beat `hook`.
+- `variety.py`: cảnh đầu chưa ghi `motion` thì `punch_in` (giật zoom vào ngay), kể cả tranh cả cảnh.
+- `build_video.py`: cảnh đầu có tiếng nện `dodon` ngay giây 0 (nếu kịch bản không ghi tiếng khác).
+Kiểm tra: `variety.fill` cho cảnh đầu `punch_in`; `sfx_events` cảnh đầu ra `dodon` ở 0 giây; `01_script.py` nạp được.
+Chưa viết kịch bản thật, chưa dựng video trọn vẹn với thay đổi này.
+
+## 2026-10-11: cách dựng mới: kịch bản tương phản, gây tranh cãi
+
+Người dùng: kịch bản cách dựng mới phải có tương phản, gây tranh cãi để người xem chia hai phe và bình luận.
+`steps/01_script.py`: thêm `CONTROVERSY` vào lời dặn của cách dựng mới (`NEW_STYLE`): một câu hỏi đạo đức đời thường
+「どっちが悪い？」, hai nhân vật đối lập rõ, mỗi bên có lý và có lỗi, không phản diện thuần túy; cú lật cuối làm đổi phe;
+tiêu đề dòng 2 nêu thế giằng co; câu hỏi ngắn cho người xem (「あなたなら、どっちの味方？」). Chỉ chuyện đời thường, không
+chính trị, tôn giáo, dân tộc, miệt thị, người thật. Cách dựng cũ không đổi.
+Kiểm tra: nạp `01_script.py` với `SHORTS_STYLE=new` thì lời dặn có phần mới; với `classic` thì không. Chưa viết kịch bản thật.
+
+## 2026-10-11: tư thế thứ hai của nhân vật anime
+
+Video 043 dừng ở "Sinh ảnh trên Kaggle" ngay khi kiểm tra jobs.json (chưa gửi Kaggle, không tốn giờ GPU): `ch_002_alt`
+(tư thế thứ hai của nhân vật anime `linh_anime`) mặc định LoRA Irasutoya 1.0 trong khi ảnh gốc `ch_002` không LoRA, nên
+`run_kaggle.py` báo "cường độ LoRA thấp hơn, sẽ bị sinh sau". `tools/make_jobs.py`: tư thế thứ hai của nhân vật anime dùng
+lời vẽ anime và `lora` 0 như ảnh gốc. Kiểm tra: tạo lại jobs.json của 043 (55 job), `run_kaggle.py --dry-run` qua.
+
+## 2026-10-10 (tối): khôi phục mã nguồn bị lùi về 8/10; skit có nhạc nền; nữ anime gợi cảm ở cách dựng mới
+
+**Sự cố.** Khoảng 18:00 ngày 10/10 toàn bộ mã nguồn bị lùi về commit `f2e24af` (8/10 sáng): mất phần tiểu phẩm (`skit/*.py`,
+`Skits.jsx`, phần server), cách dựng mới (`phone.py`, tranh cả cảnh), nhân vật anime, clip image-to-video. Trang web vẫn chạy
+nhờ bản build cũ, nhưng phiên sửa tối 10/10 build lại web từ mã nguồn thiếu nên phần tiểu phẩm biến mất khỏi giao diện.
+**Khôi phục** từ bản sao lưu file của Claude Code (`~/.claude/file-history`, phiên 8-9/10 và sáng 10/10), rồi chạy lại các lệnh
+sửa file không có bản sao lưu (lấy nguyên văn trong nhật ký phiên): `effects.py` (ký hiệu cảm xúc, chữ tượng thanh rải quanh đầu),
+`run_local.py`, lệnh cuối phiên 9/10 (`patch_cover.py`: dời tranh cả cảnh xuống dưới phụ đề), và phiên clip sáng 10/10
+(`kernel_main.py`, `run_kaggle.py`, `make_jobs.py`, `build_video.py`, `[i2v]` trong settings.toml, `tools/i2v_bench.py`).
+Bản trước khi khôi phục cất ở thư mục tạm của phiên (`scratchpad/before_restore`).
+Kiểm tra: so với file `.pyc` còn sót (dịch từ bản cuối trước sự cố): `skit/build.py`, `skit/jobs.py`, `skit/sounds.py`, `phone.py`,
+`effects.py`, `kernel_main.py`, `run_kaggle.py`, `i2v_runner.py`, `i2v_bench.py`, `tools/auto.py`, `fix_scenes.py`... khớp từng lệnh.
+Build lại web ra đúng tên file của bản cũ (`index-Dka3NNWG.js`), tức mã giao diện giống hệt. Dựng xem trước video 033 (42 cảnh)
+và `_tests/smoke-10s` chạy được.
+Chưa kiểm chứng được: file chỉ sửa bằng tay ngoài Claude Code (không có bản sao lưu); `README.md` không có bản sao lưu.
+
+**Skit có nhạc nền.** `skit/add_music.py` trộn nhạc `library/bgm/comical` (đổi bằng `"bgm"` trong skit.json) vào output.mp4,
+nhỏ hơn giọng `music_below_voice` dB; `skit/auto.py` gọi sau bước dựng. Bản không nhạc: `work/output_khong_nhac.mp4`;
+`work/music_done.txt` ngăn trộn hai lần. Skit 005 đã trộn tay. Chưa chạy trong một lần tạo skit thật.
+
+**Cách dựng mới: nữ trẻ đẹp nét anime gợi cảm.** `steps/01_script.py`: lời dặn cách dựng mới cho phụ nữ trẻ đẹp (mẹ trẻ, người
+mẫu, siêu mẫu, idol…) làm nhân vật mới `art: anime`, từ 20 tuổi, trang phục gợi cảm lịch sự; nhân vật anime nữ (`voice` woman /
+young_woman) tạo trong cách dựng mới được thêm `GLAM` (đẹp, quyến rũ, kín đáo) vào mô tả cố định. Cách dựng cũ không đổi.
+
+## 2026-10-10: clip image-to-video trên Kaggle (Wan2.2 TI2V-5B Turbo, chưa chạy thật)
+
+Theo tài liệu "Ảnh và clip trên Kaggle cho video いらすとや": cảnh `"motion_level": "low"` (có `"full"`) được sinh clip
+4 bước bằng Wan 5B Turbo GGUF qua ComfyUI headless, cùng kernel với sinh ảnh (giai đoạn ảnh xong mới tới giai đoạn clip).
+- `kaggle_job/i2v_runner.py` (mới): cài ComfyUI + ComfyUI-GGUF vào /kaggle/temp, tải model theo `[i2v]` (tên file GGUF dò theo
+  quant, không đoán), mỗi GPU một server, server thứ hai chỉ bật sau khi server đầu xong một job (RAM). Mỗi cảnh 2 seed, giữ
+  clip điểm QA cao hơn (QA thô: độ chuyển động giữa frame, trừ điểm khi frame cuối trôi xa frame đầu). Hết VRAM: thử lại với
+  3/4 số frame rồi `failed_oom`; server chết: khởi động lại; còn < 30 phút phiên thì ngừng. Ghi `clips_results.json`.
+- `kaggle_job/wan5b_i2v.json` (mới): workflow API, node tìm theo `_meta.title` (IN_IMAGE, IN_PROMPT, IN_LATENT, IN_SAMPLER,
+  OUT_FRAMES); upscale bỏ đi khi `upscale_url` trống.
+- `make_jobs.py`: mục `clips` trong jobs.json; ảnh đầu là `@full_NNN` (cùng lô) hoặc `full/NNN.png`; số frame theo giọng đọc
+  nếu đã có, không thì 4 giây; clip cũ hơn tranh (tranh vẽ lại khi duyệt) thì sinh lại. `"high"` (gửi API) chưa làm.
+- `run_kaggle.py`: gửi kèm runner/workflow/ảnh, cộng `minutes_per_clip` vào thời hạn kernel, tải clip về `clips/NNN.mp4`,
+  gộp `clips/results.json`. `build_video.py`: cảnh có clip dùng clip làm nền chuyển động (đặt như tranh cả cảnh, clip ngắn
+  thì giữ khung cuối). `tools/i2v_bench.py` (mới): benchmark cỡ / quant / 1 hay 2 GPU.
+- Lệch tài liệu: cỡ sinh mặc định 576x1024 (= tranh cả cảnh, 9:16) thay vì 704x960 (khung clip của layout ghép trong tài liệu,
+  ở đây clip phủ cả màn hình); ComfyUI đặt ở /kaggle/temp thay vì /kaggle/working để không bị tải về; upscale tắt mặc định.
+
+Kiểm tra (máy local, không GPU): make_jobs trên bản sao video 031 ra đúng 3 clip; run_kaggle --dry-run dựng đủ dataset và
+thời hạn; dựng workflow, kiểm cỡ/4k+1, ghép mp4, đo QA chạy đúng với frame giả; build_video đọc clip thành khung nền.
+**Chưa chạy trên Kaggle**: tên input của các node, shift, chất lượng, tốc độ, RAM đều chưa xác nhận; chạy tools/i2v_bench.py trước.
+
+## 2026-10-09: sửa lô Kaggle bị từ chối khi có nhân vật anime
+
+Video 031 (phuctran) dừng ở "Sinh ảnh trên Kaggle" (người dùng tưởng Kaggle kẹt): run_kaggle.py từ chối lô trước khi gửi vì
+`full_003` (LoRA 0,55) tham chiếu `@ref_mama_ageless` (ảnh chuẩn anime, LoRA 0) cùng lô; worker chạy theo LoRA giảm dần nên
+tranh sẽ chờ mãi. `make_jobs.py`: tranh cả cảnh cần ảnh chuẩn "@ref" có LoRA thấp hơn thì hoãn sang lượt sau (auto.py chạy tối
+đa 3 lượt; lượt sau ảnh chuẩn đã là file). 031: hoãn full_003, 028, 033; chạy thử gửi lô qua được; đã chạy tiếp.
+
+## 2026-10-09: chữ tượng thanh rải quanh đầu; biểu cảm cường điệu + góc mặt
+
+Theo ảnh mẫu (người cười đểu, 「ニヤ」 rải quanh mặt, đầu nghiêng):
+- `effects.py`: hiệu ứng `murmur` ({"effect": "murmur", "text": "ニヤ", "on": id}): 5-7 chữ nhỏ màu cam viền trắng, nghiêng ngẫu
+  nhiên quanh đầu từ má trái qua đỉnh sang má phải, bật ra lần lượt rồi nhấp nháy; không có "on" (tranh vẽ cả cảnh) thì quanh
+  vùng mặt giữa khung. `build_video` truyền `text`; `01_script.py` hướng dẫn (ニヤ, ドキッ, イライラ, ソワソワ, ジー...), ~1/6 cảnh.
+- `make_jobs.py: expressive()`: "emotion" khớp từ khóa (smug, angry, shocked, scared, sad, happy, embarrassed, cold, creepy,
+  confused, despair) -> mô tả mặt cường điệu kiểu manga; cảnh close / half thêm góc mặt đổi theo cảnh (nghiêng đầu, ba phần tư,
+  chồm tới, ngả đầu nhìn xuống). Dùng cho ảnh cắt rời và tranh vẽ cả cảnh.
+
+## 2026-10-09: nhân vật nét anime (art: "anime")
+
+Video mẫu 5 trộn nét: cô mẹ anime (mắt to, tóc bóng, đổ bóng mềm) giữa các nhân vật Irasutoya. `01_script.py`: nhân vật mới có
+`art` (mặc định irasutoya; "anime" khi đề tài yêu cầu, tối đa 1 nhân vật / video), ghi vào characters.json. `make_jobs.py`:
+ảnh chuẩn anime vẽ không LoRA (`ANIME_CAST`); tranh cả cảnh có nhân vật anime: LoRA 0 nếu chỉ người đó, 0,55 nếu có cả người
+Irasutoya, kèm dặn nét từng người; ảnh cắt rời (cách dựng cũ) của nhân vật anime cũng không LoRA. Đã thử lập danh sách ảnh;
+chưa vẽ thật trên Kaggle (trộn hai nét trong một tranh chưa chắc model giữ được).
+
+## 2026-10-09: Tạo video: "Cách dựng mới" (theo video mẫu) và cảnh màn hình điện thoại
+
+Người dùng bỏ hàng "Kiểu chuyện", thay bằng lựa chọn "Cách dựng: hiện tại / mới (theo video mẫu スカッと迷言集)".
+- Màn hình điện thoại vẽ bằng code (`phone.py`: chat kiểu LINE, cuộc gọi nhỡ, thông báo màn hình khóa, hộp thoại chặn, hồ sơ
+  app hẹn hò; chữ Nhật sắc, phông không có ▮ / 📞 nên tự vẽ biểu tượng). Kịch bản cả hai cách dựng được ghi `phone` (~1/10 cảnh).
+  `build_video.new_style_layers()`: cảnh phone vẽ ảnh `phone/NNN.png`, đặt giữa khung trên nền mờ, bỏ lớp ảnh cắt rời.
+- Cách dựng mới (`SHORTS_STYLE=new` từ meta `style`): `01_script.py` thêm yêu cầu tranh cả cảnh 1-2 người + công thức bí mật
+  lộ dần / cú lật, đánh dấu `full` mọi cảnh trừ phone; `make_jobs.py` sinh job `full_NNN` (576x1024, tham chiếu ảnh chuẩn từng
+  người, tối đa 2) -> `run_kaggle.py` tiền tố `full` -> `videos/<tên>/full/NNN.png`; `character_files` / `missing_images` /
+  `review_items` hiểu cảnh `full`; `build_video.background()` dùng tranh đó, bỏ lớp cutouts, chữ neo vào nhân vật chuyển góc trên
+  phải; nhạc nền 13 dB dưới giọng (video mẫu đo 11-14 dB). Thử dựng khung: tranh cả cảnh, điện thoại, cảnh cũ đều đúng.
+  Chưa chạy một video thật bằng cách dựng mới.
+
+## 2026-10-09: Tạo video: lựa chọn "Kiểu chuyện"
+
+Từ phân tích 2 video viral kênh 「スカッと迷言集」 (kể ngôi thứ nhất, bí mật lộ dần, câu cuối lật ngược rồi hết, cảnh màn hình điện
+thoại). Trang Tạo video thêm hàng "Kiểu chuyện": AI tự chọn (mặc định, như cũ) / Bí mật + cú lật / Sảng khoái trả đũa / Cảm động
+/ Hài. Lưu `meta.json` `story_mode` -> env `SHORTS_STORY_MODE` -> `01_script.py: STORY_MODES` đưa công thức vào đề bài (sau
+"Kiểu kể"), ghi `script["story_mode"]`.
+
+## 2026-10-09: bỏ tông đen trắng "noir", tông màu chỉ phủ nhẹ
+
+skit-006 bị AI đạo diễn chọn `grade: noir` (sát thủ) -> cả video đen trắng tương phản, mặt lem xám. `write.py` bỏ "noir" khỏi
+`GRADES` (guide cũng bỏ); `build.py: grade()` chỉ phủ 40% (`GRADE_MIX`) để giữ màu gốc. skit-006 đặt `grade: none`, dựng lại.
+Đen trắng chỉ còn là kỹ xảo một câu (`freeze`).
+
+## 2026-10-09: tiểu phẩm: nhân vật đứng trên sàn trống, bàn ghế vẽ liền người ngồi
+
+Người dùng: skit-008 vẫn nhiều lỗi (hình dạng nhân vật kỳ, nền làm khó). Gốc: bắt nhân vật cắt dán ngồi vào bàn ghế của nền
+(nửa người trôi, ngồi xếp bằng lơ lửng; toàn cảnh vẽ cả người thì thừa người, người nhỏ). Như video mẫu: nền là phông sau lưng có
+sàn trống, nhân vật đứng; ai cần ngồi thì bàn ghế vẽ liền trong ảnh nhân vật (chỉ huy ngồi sau bàn).
+- guide: `sets` có sàn trống phía trước, đồ đạc chỉ phía sau / hai bên; `pose` mặc định đứng + đồ cầm tay; ngồi thì kèm bàn ghế
+  của chính họ, nền không có bàn ghế ở đó.
+- `jobs.py`: người ngồi dùng `SEATED_BASE` (giữ bàn ghế trong câu tư thế, cả người); người đứng vẫn lọc đồ đạc; nền thêm "open
+  empty floor ... no desk, table or chair in the middle"; `MAKE_SCENES = False` (tắt toàn cảnh vẽ cả người). `stage.py`: chân /
+  chân ghế chạm sàn trống của nền.
+- skit-008: dùng lại bộ ảnh đầu (ngồi có bàn ghế liền người), mô tả nơi thành văn phòng có sàn trống, vẽ lại 1 nền.
+
+## 2026-10-09: tiểu phẩm: toàn cảnh vẽ sẵn có người trong bối cảnh
+
+Người dùng: skit-008 "không hợp lý chút nào": toàn cảnh ghép ảnh cắt lên nền thì người nhỏ, lơ lửng, không ngồi được sau bàn
+(ảnh cắt luôn đè lên nền), khác phối cảnh; tranh chèn (Kaggle vẽ cả cảnh) thì luôn ăn khớp. Đổi: câu góc rộng dùng ảnh toàn cảnh
+Kaggle vẽ cả người trong bối cảnh. `skit/jobs.py: wide_states()` gom các câu góc rộng theo (nơi, ai có mặt, tư thế từng người),
+tối đa 8 ảnh `skit_<tên>_sceneNN` (nền nơi đó làm tham chiếu 1 qua tiền tố mới `bg__` của `run_kaggle.py`, ảnh chuẩn từng vai
+2, 3...; tư thế nguyên văn có bàn ghế); câu ghi `scene`. `skit/build.py: scene_frame()` dùng ảnh đó (phóng chậm, chữ phía trên);
+cận / nhóm vẫn ghép ảnh cắt (đổi mặt, mấp máy miệng). skit-008: 6 ảnh toàn cảnh cho 11 câu góc rộng.
+
+## 2026-10-09: tiểu phẩm: ảnh nhân vật không kèm bàn ghế
+
+skit-008: ảnh nhân vật ngồi bị Kaggle vẽ kèm bàn, ghế, bàn phím (tư thế AI viết "sitting at desk", "feet up against desk edge",
+"hands typing on keyboard") trong khi nền văn phòng đã có bàn. `skit/jobs.py`: `body_pose()` bỏ cụm nơi chốn / đồ đạc khỏi lời
+vẽ nhân vật (at / on / behind / around... + desk, chair, sofa, keyboard, monitor, door...), "typing" -> "hands moving as if
+typing"; lời vẽ cấm rõ bàn, ghế, sofa, bàn phím, máy tính, sàn; người ngồi vẽ nửa người trên cắt ngang eo; tư thế phụ của người
+đang ngồi vẫn là ngồi (`seated_pose`). `guide.md`: pose chỉ tả cơ thể + đồ cầm tay, đồ đạc ghi ở `place`. `stage.py`: ảnh nửa
+người đặt đáy (eo) ngay mặt bàn / ghế / sofa của nền để trông như ngồi sau bàn của nền. Ảnh skit-008 đã vẽ vẫn còn bàn ghế.
+
+## 2026-10-09: sửa lỗi Bố cục cảnh khi neo vào tên nhân vật (video 028)
+
+Video 028 (tustruyen) dừng ở "Bố cục cảnh": kịch bản ghi ảnh `cutouts/025_best_friend.png` và chữ neo `best_friend.beside_right`;
+ảnh không có nên `repair()` đổi sang `025.png` (lớp mang tên "025") nhưng neo vẫn trỏ "best_friend" -> check() báo lỗi. Đồng thời
+repair() chỉ tính lớp ảnh có "id" riêng nên tưởng cảnh không có lớp ảnh và bỏ hiệu ứng (rays, sweat, tears, aura, hearts).
+`build_video.repair()`: id lớp ảnh = "id" hoặc tên file (như check()); neo vào lớp không có thì chuyển sang lớp ảnh vừa đổi tên
+hoặc lớp ảnh chủ thể của cảnh; hiệu ứng bám vào lớp đó; hiệu ứng ghi "on" trỏ vào lớp không có (vd "me") cũng chuyển về lớp đó (từng KeyError trong effect_box). Thử 028: bố cục xuất đủ 40 ảnh. Đã chạy tiếp 028.
+
+## 2026-10-09: ô "Đã đăng TikTok"; cổng AI: thử lại luồng rỗng, model dự phòng
+
+- Đã đăng TikTok: `app.py` `/api/posted` (chủ video / admin, chỉ video đã dựng xong) ghi `meta.json` `posted: {by, at}`;
+  `video_info` / `skit_info` trả `posted`. `PostedToggle` (common.jsx) ở ô Thư viện (truyện kể + tiểu phẩm), thẻ và cửa sổ chi
+  tiết trang Tiểu phẩm; Thư viện thêm lọc "Chưa đăng" (video xong chưa đăng) / "Đã đăng".
+- skit-008, 009 kẹt ở bước viết: ShopAIKey trả luồng rỗng rồi 503 "No available channel for model claude-sonnet-5-5 under group
+  cheap" (Sonnet 5 / Opus 5.5 / Opus 5 vẫn chạy). `steps/llm.py`: luồng rỗng không lý do kết thúc (`EmptyReply`) và đứt luồng
+  được thử lại; 503 hết đường chạy thì đổi sang model dự phòng (`FALLBACK`: sonnet-5-5 -> sonnet-5, opus-5-5 -> opus-5).
+  Đã dừng và chạy lại skit-008, 009.
+
+## 2026-10-09: tiểu phẩm: giữ chân người xem video ngắn
+
+`guide.md` thêm mục "Giữ chân người xem": câu 1-2 là móc câu (xung đột / vô lý, không chào hỏi), tiêu đề 2 dòng ≤ 12 chữ tạo
+tò mò không lộ chốt, mỗi 10-15 giây một nhịp mới, cú chốt ở 3-5 câu cuối, nối về câu đầu để lặp, 60-80 giây; khuôn `story`
+hết "mở đầu bình thường"; đạo diễn dựng mạnh câu 1 và cú chốt. `write.py`: ước > 84 giây thì viết lại ngắn hơn (skit-005, 007
+đọc thật ~101 giây), giữ bản gần 72 giây nhất trong các lần viết.
+
+## 2026-10-09: tiểu phẩm: khung cận riêng, tỉ lệ thật, dàn cảnh theo nền
+
+Góp ý skit-007: mọi nhân vật luôn chung một khung, mèo / chó cao bằng người, nhân vật không liên quan tới nền.
+- `skit/build.py`: `View` thay `Stage`. Cận (`close:`) / nhóm (`group:`) giờ dựng khung riêng chỉ có người được nhắc (tối đa 3),
+  vẽ từ ảnh gốc (nét, không phóng to cả hàng), nền phóng gần chỗ họ đứng + mờ nhẹ; đổi khung = cắt + lia nhòe. Chiều cao theo
+  `height` của vai (đoán theo mô tả nếu thiếu: cat 0.32, dog 0.45, retriever 0.55, child 0.7...).
+- Bước mới "Dàn cảnh" (`skit/stage.py`, sau Tách nền): AI đọc ảnh nền có lưới tọa độ, đặt từng vai đúng chỗ (sofa, cửa, ổ chó)
+  với cỡ theo phối cảnh, rồi xem ảnh ghép thử và tự sửa; ghi `blocking`, ảnh `work/blocking_<nơi>.jpg`. Lỗi thì xếp hàng.
+  Thử skit-007: người ở cửa (cao 0,30), chó cạnh ổ (0,21), mèo trên sofa (0,10).
+- Nền skit-007 hỏng (tranh nhỏ giữa khung + chữ nhảm) vì mô tả nơi lẫn lời dặn "9:16 composition, subtitle space, BGM...".
+  `jobs.py: place_prompt` bỏ câu kỹ thuật / chữ trong 「」, tối đa ~300 ký tự, thêm "full-bleed scene filling the whole frame";
+  guide: `sets` chỉ tả nơi chốn, thêm `height`, `place` cho vai.
+
+## 2026-10-09: tiếng hiệu ứng: nghĩ tự do trước, tra kho sau
+
+Người dùng thấy tiếng của skit-004 (đạo diễn tả tự do, trước khi có danh mục) chuẩn; chép tên từ kho thì dễ bị danh sách dẫn
+dắt. Đạo diễn giờ: 1) tự nghĩ khoảnh khắc cần tiếng gì, 2) tra kho, có tên khớp thì chép đúng tên, không thì giữ mô tả tự do
+cho `sounds.py` tìm (đường cũ). skit-004 đưa vào guide làm mẫu tốt.
+
+## 2026-10-09: tiểu phẩm nhiều tiếng hiệu ứng hơn
+
+Người dùng: 7 tiếng / video ít quá, cần sống động hơn. `guide.md`: 3-8 -> 12-18 tiếng, thêm chỗ được dùng tiếng
+(vào / ra cảnh chèn, đổi tư thế mạnh, biểu cảm sốc, câu hét, lia máy, bigword); vẫn không cho câu thường, không hai tiếng liền,
+không lấy tiếng gần nghĩa. Áp dụng cho tiểu phẩm qua lượt đạo diễn sau thay đổi.
+
+## 2026-10-09: Thư viện có cả tiểu phẩm
+
+`Library.jsx`: bộ chuyển Tất cả / 🎬 Truyện kể / 🎭 Tiểu phẩm (nhớ lựa chọn), danh sách gộp xếp theo thời gian cập nhật, số
+đếm theo người tạo tính theo loại đang chọn; ô tiểu phẩm (ảnh bìa hoặc ảnh vai, số câu, giây, tải, xóa) mở cửa sổ chi tiết
+tiểu phẩm; khi xem "Tất cả" mỗi ô có nhãn loại. `Skits.jsx` tách `SkitModal`, `deleteSkit`, `resumeSkit`, `skitThumb` dùng chung.
+
+## 2026-10-09: thêm 23 giọng VOICEVOX (18 -> 41)
+
+Người dùng muốn giọng đa dạng hơn. VOICEVOX 0.25.2 trên máy có 43 nhân vật / 127 kiểu giọng, cấu hình mới dùng 18.
+Đọc điều khoản từng giọng (`/speaker_info`): thêm 23 giọng dùng thương mại được khi ghi nguồn (後鬼, Voidoll: cá nhân được,
+công ty / pháp nhân phải hỏi); BỎ ユーレイちゃん (chỉ phi thương mại) và ぞん子 (thương mại phải hỏi trước). Giới tính, tuổi
+theo cao độ đo bằng audio_query (nam: 離途 114 Hz, 紅桜 155, 黒沢冴白 157, 栗田まろん 162). Trường `credit` cho giọng ghi
+nguồn đặc biệt (Voidoll(CV:丹下桜), 里石ユカ（つぼみ）), `06_voice.py` và `skit/voice.py` ghi đúng chuỗi đó vào credits.txt.
+Bảng tone thêm các kiểu giọng mới (おどおど, こわがり, 絶望と敗北, 呆れ, シリアス...). File cấu hình dùng chung: AI viết kịch bản
+truyện kể cũng thấy 41 giọng.
+
+## 2026-10-08: AI đạo diễn chọn tiếng hiệu ứng từ kho
+
+Người dùng: AI nên dựa vào kho tiếng để viết cho chuẩn. Trước: đạo diễn tả tiếng tự do rồi `sounds.py` đi tìm (có lúc kho không
+có, vd 消防車のサイレン). Giờ `write.py --direct` gửi kèm danh mục gọn (`sounds.compact()`: 1.520 tên sau khi gộp bản đánh số
+và bỏ tiếng bị loại, ~13.000 ký tự) và bắt `sfx` là tên chép đúng trong kho hoặc null. `sounds.py` khớp đúng tên thì tải luôn
+(không gọi AI; nhiều bản đánh số thì chọn theo tên tiểu phẩm), tên không khớp mới chạy đường tìm cũ. Chưa chạy thử lượt đạo
+diễn thật (khóa AI hết tiền); đã thử phần khớp tên: カークラッシュ, ショック -> ショック2, チーン -> チーン2, ショック3 đúng.
+
+## 2026-10-08: tiểu phẩm: tiếng hiệu ứng ít và nhỏ, nhạc nền rất nhỏ
+
+Người dùng: tiếng hiệu ứng chỉ khi thật sự hợp, không quá to; nhạc nền có cũng được nhưng nhỏ hơn giọng nhiều.
+`guide.md`: `sfx` chỉ khi tiếng làm câu buồn cười / rõ hơn (vật có tiếng thật, cú chốt, im lặng ngượng), không cho câu thường,
+không hai tiếng liền nhau, thường 3-8 tiếng cả video. `skit/build.py`: mỗi tiếng chỉnh theo độ to giọng (RMS, bỏ đoạn lặng) để
+nhỏ hơn giọng 9 dB (`SFX_BELOW`), đỉnh tối đa 0,6; nhạc nền nhỏ hơn giọng 27 dB (`MUSIC_BELOW`; truyện kể 21, nhạc hài 14).
+
+## 2026-10-08: tiểu phẩm nhiều biểu cảm, tư thế hơn
+
+Người dùng muốn đa dạng hơn. Giới hạn mỗi vai: biểu cảm 4 -> 6 (thêm embarrassed, thinking, disgusted, sleepy), tư thế khác
+2 -> 4, bản sao 5 -> 6; guide dặn vai chính 5-6 biểu cảm, 2-4 tư thế, đổi tư thế theo hành động ~4-8 câu một lần. Sân khấu đến
+10 người. Ước GPU: lô thật 22 ảnh mất 19 phút (kể cả nạp model) -> ~0,7 phút / ảnh; 3 vai đầy đủ + 8 tranh chèn ~50 ảnh ~40 phút.
+
+## 2026-10-08: sửa lỗi tiểu phẩm kẹt ở bước Giọng đọc
+
+skit-003 đọc lại 32 lần không dừng: tổng 61,9 giây < ngưỡng 62, tốc độ mới `round(1.17 * 61.9 / 62, 2)` vẫn = 1.17.
+`skit/voice.py`: ngưỡng >= 60 giây (yêu cầu người dùng), khi đọc chậm lại nhắm 61,5 giây và mỗi lượt chậm hơn ít nhất 0,02,
+tối đa 6 lượt. Đã dừng lần chạy kẹt và chạy tiếp skit-003.
+
+## 2026-10-08: tiểu phẩm thêm khuôn, người dùng chọn được khuôn
+
+3 tiểu phẩm đầu đều `loop` (kể cả ý tưởng một câu chuyện tuyến tính 「遅刻した理由」) vì guide đặt loop đầu tiên, ví dụ dài nhất.
+`guide.md`: thêm `story`, `misunderstanding`, `interview`, `reaction`; dặn chọn khuôn hợp ý tưởng, không mặc định loop.
+Trang Tiểu phẩm có hàng chọn khuôn (mặc định "AI tự chọn"); lựa chọn lưu `meta.json` -> env `SKIT_FORMAT` -> `write.py` ghi
+"Khuôn bắt buộc" vào đề bài và ép `format`. Khuôn `free`: đề tài lạ không hợp khuôn nào thì AI tự thiết kế 3-6 nhịp
+(`structure`, hiện ở cửa sổ chi tiết) rồi viết theo; model đặt khuôn lạ cũng được coi là `free`. Sidebar: số ở "Tạo video" không đếm việc tiểu phẩm nữa.
+
+## 2026-10-08: tắt miệng bằng Gemini; giao diện trang Tiểu phẩm mới
+
+- `[faces] talk = false` (settings.toml, đọc trong `tools/make_faces.py`): không gọi model ảnh vẽ miệng mở (tốn tiền
+  ShopAIKey); chớp mắt vẽ bằng code vẫn chạy. Bật lại: `talk = true`.
+- Trang Tiểu phẩm (`Skits.jsx`, CSS `.sk-*`): khung nhập có gợi ý dạng thẻ + cột quy trình 6 bước; lưới thẻ 9:13 có ảnh bìa
+  (`work/poster.jpg`, `skit/build.py` cắt từ video, bỏ dải tiêu đề), nhãn trạng thái, thời lượng, nút phát / chạy tiếp / xóa khi
+  rê chuột; lọc Tất cả / Đang chạy / Xong / Lỗi; cửa sổ chi tiết hai cột (video, thông tin, ảnh vai, tiến trình / nhật ký).
+  `app.py: skit_info` thêm `poster`, `faces`, `step`, `steps_done/total`, `grade`, `directed`.
+
+## 2026-10-08: loại tiếng 「ジャン！」 (jan/jean1.wav)
+
+Người dùng: tiếng ở giây 37-38 video 025 (cảnh 29, chữ 「ジャーン」 -> nhóm `jan`) "rõ ràng không hợp, không dùng nữa".
+File chuyển sang `library/sfx/_banned/jan_jean1.wav`; danh sách loại `library/sfx/banned.txt` (tên file không đuôi) được
+`build_video.sfx_file`, `tools/fetch_sfx.py` (không tải lại) và `skit/sounds.py` (bỏ khỏi danh mục) cùng đọc. Nhóm `jan` còn
+ジャジャーン, 運命1, 運命2. Video đã dựng (025) vẫn còn tiếng cũ cho tới khi dựng lại.
+
+## 2026-10-08: chức năng mới "Tiểu phẩm" (skit/, skits/, trang web Tiểu phẩm)
+
+Theo 5 video mẫu tiểu phẩm hài lồng tiếng (ぶつかりおじさん, 焼肉の反応集, 励ましてくれる先輩, 銃持つ向き逆のスナイパー,
+飲み会ミッション). Tách hẳn khỏi pipeline truyện kể: code ở `skit/`, dữ liệu ở `skits/<skit-NNN-...>/`; chỉ gọi lại
+`tools/run_kaggle.py`, `steps/04_cutouts.py`, hàm VOICEVOX của `06_voice.py`, `build_video.music_gain`, không sửa chúng.
+- `skit/guide.md`: một sân khấu chính (tối đa 2 nơi cắt qua lại khi gọi điện), khuôn loop / list / incident, 40-55 câu ngắn,
+  góc máy wide / close / group, cỡ chữ small..shout, từ nhấn, `stack`; thêm từ 2 video sau: `insert` (tranh chèn minh họa,
+  chữ chồng giữa khung), `silent` (chỉ dẫn 「（過呼吸）」 không đọc), `mark` (gloom / sweat / anger / sparkle / shock vẽ bằng code),
+  `glow`. Mục "Sáng tạo": mẫu chỉ để học nhịp, ý tưởng + cú chốt phải riêng, gài chi tiết đầu để nổ ở cuối.
+- `write.py` (AI viết, ước ≥64 giây, `--extend` viết thêm), `voice.py` (VOICEVOX 1.3, mốc chữ hiện dần theo cụm từ; ngắn hơn
+  62 giây thì đọc chậm lại, vẫn ngắn thì thoát mã 5 để viết thêm), `jobs.py` (ảnh gốc mỗi nhân vật + mỗi biểu cảm vẽ từ ảnh gốc,
+  nền từng nơi, tranh chèn), `build.py` (sân khấu, máy quay, chữ, dấu cảm xúc, nhạc comical), `auto.py` (điều phối, progress.json).
+- Chuyển động kiểu "rối giấy" (xem video mẫu ở 8 khung/giây: ảnh tĩnh đổi qua lại, không vẽ từng khung): mỗi ảnh nhân vật
+  có bản miệng mở `_talk` (Kaggle vẽ từ chính ảnh đó), người nói mấp máy theo độ to giọng (3 khung / nhịp); `poses` (0-2 tư thế
+  khác mỗi nhân vật, đổi bằng `pose` theo câu); lắc lư quanh chân (người nói ±2°, người nghe ±0,7°), nhún theo tiếng, nảy lên khi
+  đổi biểu cảm / tư thế, rung mạnh khi hét. Ảnh chuẩn lưu riêng từng tiểu phẩm (`config/refs/<tiểu phẩm>_<vai>_front.png`).
+- Tiếng hiệu ứng (chỉ tiểu phẩm), theo yêu cầu "tìm tiếng mới, đừng dùng lại tiếng cũ không khớp": `sfx` từng câu là mô tả
+  tiếng Nhật; `skit/sounds.py` quét danh mục 効果音ラボ (2.215 tiếng, `library/sfx/lab_catalog.json`, làm mới sau 30 ngày),
+  AI nghĩ từ khóa đồng nghĩa -> lọc ~40 ứng viên -> AI chọn đúng một hoặc "không có" (câu đó im), tải về
+  `library/sfx/lab/_skit/`. Thử 8 mô tả: 7 khớp (お茶を吹き出す -> 飲み物をブーッと噴き出す, 車がぶつかる -> カークラッシュ...),
+  消防車のサイレン: kho không có -> im. OtoLogic chặn tải tự động (403), chưa thêm nguồn thứ hai.
+- Dựng sáng tạo (chỉ tiểu phẩm): `grade` cả video (noir / retro có hạt phim / warm / cool / night), `fx` từng câu (zoom_punch,
+  shake, flash, invert, focus_lines 集中線, gloom_lines, sparkle_bg, speed_lines, spotlight, freeze, blackout, split chia đôi hai
+  nơi), `bigword` chữ tượng thanh khổng lồ bật ra. Lượt AI "đạo diễn" riêng (`write.py --direct`, bước "Kế hoạch dựng") đọc
+  kịch bản xong mới chọn kỹ xảo / chữ / tiếng / tông màu, không đổi lời thoại. Kiểm tra bằng ảnh tạm: các kỹ xảo ra đúng.
+- Web: action `skit`, `/api/skit/generate|resume|delete`, `state.skits`, phục vụ `/skits/...`; trang `Skits.jsx`.
+- Kiểm tra: AI viết tiểu phẩm thử 55 câu (có gài 「毎年新築」 nổ ở cuối, 8 tranh chèn, 3 câu im lặng); VOICEVOX 64,0 giây;
+  dựng khung hình bằng ảnh tạm: cận / rộng / tranh chèn / chữ tím phát sáng / dấu cảm xúc đúng chỗ. Chạy Kaggle thật: đang chạy.
+
+## 2026-10-08: hết nhấp nháy do tư thế thứ hai
+
+Nhân vật hay nhấp nháy: tư thế 2 (`alt_pose`) đổi qua lại mỗi 0,25 giây ở mọi cảnh có nó; hai ảnh vẽ riêng luôn lệch nét,
+có cặp khác hẳn bề ngang (024: ảnh 008 rộng 290 / 398 px); 024 có 20/48 cảnh dùng (do lời dặn ~1/2 cảnh). `build_video.py`:
+mặc định đổi MỘT lần ở giữa câu (`ALT_SWITCH`); chỉ khi mô tả tư thế 2 là động tác lặp lại (walking, waving, typing, eating,
+shaking, sobbing... `LOOP_WORDS`) mới luân phiên, chậm hơn (0,4 giây). Thử 024: 8 cảnh luân phiên (đi, lắc đầu, run vai), 12 đổi
+một lần. `script_guide.md`, `01_script.py`: alt_pose ~1/4 cảnh có nhân vật, chỉ khi cần; tư thế 2 chỉ đổi tay / chân.
+
+## 2026-10-08: tiếng hiệu ứng chỉ khi thật cần; cảnh nhiều nhân vật chỉ khi hợp lý
+
+Góp ý video 024 (gia đình, nghiêm túc): 36 tiếng / 48 cảnh, nhiều tiếng sai nghĩa (tiếng ăn ở 「また学校に電話したってよ」,
+gõ phím, bước chân, ドドン ở cảnh khóc); cảnh nhiều nhân vật bị lặp người (con trai hai lần, bố hai lần), chen chúc, cắt mép.
+- Tiếng (`build_video.py: sfx_events` viết lại): không gắn theo chuyển cảnh, hiệu ứng, sticker, động tác, cảm xúc, không
+  đoán theo action tiếng Anh. Chỉ: `sfx` ghi rõ, chữ tượng thanh trên hình, lời thoại nhắc sự việc có tiếng thật (`SFX_REAL`:
+  điện thoại, tin nhắn, gõ / mở cửa, chuông, chụp ảnh, ngã, tát, tàu, chúc mừng, đúng / sai, ツッコミ), câu chốt, vào twist,
+  vào hồi tưởng, kết hài; tự gắn ~10% số cảnh, mỗi tiếng tối đa 2 lần, 1 tiếng / cảnh. Thử: 024 36 -> 11 tiếng, 022 -> 7,
+  015 (hài) -> 19 (phần lớn theo chữ tượng thanh). `script_guide.md`: chữ tượng thanh ~1/8 cảnh, truyện nghiêm túc rất ít.
+- Lặp người: nguyên nhân là action "facing right toward the waiter / handing ... to the girl" làm model vẽ luôn người kia
+  vào ảnh riêng. `make_jobs.py: alone()`: cảnh nhiều nhân vật bỏ cụm nhắc NGƯỜI (giữ đồ vật: "looking at the clock"), thêm
+  "alone, the only person in the image, nobody else".
+- Chen chúc: `build_video.py MULTI_SCALE`: 2 người mỗi người x0.8, 3 người x0.7 (vd half 0.70 -> 0.56).
+- `script_guide.md`: nhiều nhân vật chỉ khi cùng chỗ, cùng lúc, làm gì đó với nhau trong câu (~1/4 cảnh có nhân vật, không
+  ép; câu kể, tự nghĩ, nói về người vắng mặt thì một người), action mỗi người không nhắc người kia.
+Video 024 hiện vẫn là bản cũ: ảnh lặp người đã vẽ sẵn, cần vẽ lại các cảnh đó mới hết.
+
+## 2026-10-08: action theo từng nhân vật
+
+Video 026 dừng ở bước lên danh sách ảnh: cảnh nhiều nhân vật ghi `"action": {nhân vật: hành động}` (17/44 cảnh), `make_jobs.py` đưa nguyên bảng vào câu lệnh vẽ và `key_for` lỗi (TypeError: expected str, dict found). `per_character()`: mỗi ảnh nhân vật lấy đúng action / emotion của nhân vật đó (chuỗi thì dùng cho mọi nhân vật). Kiểm tra: 026 ra 86 job, ảnh mỗi nhân vật có đúng hành động của mình.
+
+## 2026-10-08: VOICEVOX tốc độ 1.2; video luôn trên 1 phút
+
+Video 023 đọc 9,2 ký tự/giây (giọng No.7 / WhiteCUL ở speedScale 1.35) nên chỉ 57 giây và nghe quá nhanh. `voicevox_speed`
+1.35 -> 1.2 (người dùng chọn). `steps/06_voice.py`: đọc xong, tổng giọng + nghỉ (`pad`) dưới `[voice] min_video_seconds = 62`
+thì đọc lại các câu VOICEVOX với tốc độ chậm hơn vừa đủ (không dưới 1.0). Đọc lại 023 ở 1.2: 64,3 giây (giọng nhanh cũ ở
+work/audio_nhanh/, video cũ work/output_truoc_sua.mp4).
+
+## 2026-10-08: trang Hoạt động chia nhóm, lọc, thao tác tại chỗ
+
+`web/src/components/Activity.jsx` viết lại (trước là một bảng dài): 4 ô tổng quan (đang chạy, chờ duyệt, lỗi hôm nay, xong
+hôm nay; bấm để lọc); lọc theo trạng thái, người dùng, loại việc (🎬 tạo video, ✨ sửa cảnh, 🛠 áp dụng, ☁️ LoRA), ô tìm;
+"Đang chạy" ghim trên cùng; còn lại chia theo ngày (Hôm nay, Hôm qua, thứ / ngày). Mỗi dòng: tên video thật (bấm mở video),
+trạng thái, người chạy / người bấm hộ, giờ, thời gian chạy; nút Dừng (đang chạy), Chạy tiếp (tạo video bị lỗi / dừng / ngắt),
+Log mở ngay dưới dòng. Chỉ chủ việc hoặc admin thấy nút Dừng / Chạy tiếp.
+
+## 2026-10-08: 7 góp ý: khói, tiếng hiệu ứng, tương tác, hai cú máy, nhân vật to, tiêu đề, nhạc
+
+1. Khói: bỏ khỏi cấu hình hiệu ứng; `FX_BANNED = {"smoke"}` không bao giờ dùng dù file có trong thư viện. (Lỡ bỏ cả magic, gold, glitter; người dùng chỉ muốn bỏ khói: đã tải lại 3 nhóm này.)
+2. Tiếng hiệu ứng (`build_video.py`): bỏ tiếng vút mỗi lần cắt sang bối cảnh khác (chỉ chuyển cảnh có chuyển động mới kêu);
+   nhân vật đi vào khung kêu bước chân (đồ vật: vút); `SFX_TEXT`: tiếng theo nội dung câu (lời tiếng Nhật / action tiếng Anh:
+   điện thoại, tin nhắn, gõ cửa, mở cửa, chuông trường, chạy, đi, ăn, chụp ảnh, tiền, tàu, bàn phím, tim đập, đồng hồ, ngã,
+   tát, đúng / sai, chúc mừng, ツッコミ, nước mắt, rợn, nhẹ nhõm, ý tưởng), ưu tiên như tiếng ghi tay nhưng mỗi tiếng tối đa 2
+   lần / video và không lặp 3 cảnh liền. Thử 022 / 003 / 015: 16-19 loại tiếng, mỗi loại tối đa 4 lần.
+3. Tương tác: `script_guide.md`: ~1/2 cảnh có nhân vật là cảnh 2-3 nhân vật tương tác (trước 1/3; 022 chỉ 3/46, 003 chỉ
+   1/58), câu thoại hai người để cả hai trong khung, action tả động tác với người kia. `variety.add_interaction`: mọi nhân vật
+   trong cảnh đều cử động, người nói (nod / lean_in / sway / hop) khác người nghe (tilt / nod / breathe / jelly).
+4. Hai cú máy trong một cảnh: `"focus": {"on": "<id>" | "<id>.hand_right" | [x, y], "at": 0.45, "zoom": 1.45}`: nửa đầu
+   toàn cảnh (nhích rất chậm), tới `at` đẩy nhanh (0,35 giây) vào mặt / đồ trên tay / điểm đó rồi giữ; thay chuyển động máy
+   quay thường. AI ghi khi lời nhắc tới thứ trong khung (~1/6 cảnh); cảnh hai người nói chuyện không ghi thì cách một cảnh tự
+   đẩy vào người nói. Dựng thử 015 cảnh 4: giữ cả hai rồi đẩy vào friend_papa đang nói.
+5. Nhân vật to hơn ~10%: shots full 0.64 -> 0.70, half 0.66 -> 0.73, close 0.62 -> 0.69; sizes large 0.62 -> 0.68, huge -> 0.74.
+6. Tiêu đề (điện thoại che mép trên): `title_size` 190 -> 160, `TITLE_SIDE` 40 -> 100 px, `TITLE_TOP` 70 px (đẩy xuống).
+7. Nhạc nền nhỏ hơn ~3 dB: `music_below_voice` 18 -> 21; hài 11 -> 14, ấm áp 15 -> 18.
+
+## 2026-10-08: bỏ mọi hiệu ứng kiểu 3D / quay thật
+
+Người dùng: đảm bảo không còn hiệu ứng như khói 3D. Bỏ hẳn khỏi `library/fx/` và `tools/fetch_fx.py` các nhóm smoke, magic
+(hạt 3D), gold (kim tuyến 3D), glitter (giấy kim loại quay cận); còn 4 nhóm ánh sáng mềm kiểu ống kính: sparkle, bokeh,
+light_leak, dust. `variety.py`: bảng tự gắn chỉ dùng 4 nhóm này (vui / đắc ý / ăn mừng / ý tưởng -> sparkle);
+`drop_unknown_fx()` bỏ lớp `fx_` mà thư viện không có (kịch bản lỡ ghi khói...) thay vì báo lỗi dừng dựng.
+`script_guide.md`: chỉ 4 nhóm; cấm khói, sương, lửa, nổ, tia lửa, hạt 3D, kim tuyến, giấy màu kim loại (cả trong `action`,
+bối cảnh); không khí u ám dùng hiệu ứng vẽ phẳng (gloom, shock_lines, rain, nền mood_dark_swirl / mood_rain_sad).
+`steps/common.py`: `"path": "off_left"` (chuỗi một điểm, kịch bản 022 cảnh 2) đổi thành [off_left, chỗ đứng].
+Kiểm tra: chèn `fx_smoke`, `fx_glitter` vào kịch bản 022 -> bị bỏ; `check()` của mọi video đạt (020 chỉ thiếu ảnh chưa vẽ).
+
+## 2026-10-08: không tự gắn khói; không chồng hiệu ứng video lên cảnh đã có hiệu ứng mạnh
+
+Video 022 cảnh 39-41 (nền mood_dark_swirl, cảm xúc sợ): video khói thật trên nét vẽ phẳng trông như vết bẩn, cảnh 41 khói
+chồng lên tia sáng. `variety.py`: bỏ `smoke` khỏi bảng tự gắn (cảm xúc và mood_dark_swirl; kịch bản ghi `fx_smoke` vẫn dùng);
+cảnh có `rays`, `speed_lines`, `flash`, `gloom`, `aura`, `shock_lines` thì không thêm hiệu ứng video.
+
+## 2026-10-08: VOICEVOX đọc nhanh hơn; sửa video 022
+
+- Video 022 (VOICEVOX, giọng kể No.7 読み聞かせ) dài 98,6 giây, chỉ 5,7 ký tự/giây (edge-tts ~8). `steps/06_voice.py`: đặt
+  `speedScale` trong audio_query theo `[voice] voicevox_speed = 1.35` (cộng tempo 1.2 như cũ). Đọc lại 022: 7,6 ký tự/giây,
+  giọng 70,7 giây (ước video ~75 giây, trên 1 phút). Giọng cũ cất ở work/audio_cham/.
+- 022 cảnh 2: ảnh chính thiếu một mắt (kịch bản: cô bé bước vào, tò mò, không phải nháy mắt) -> AI sửa đủ hai mắt, dùng.
+  Ảnh tư thế 2 vẽ sai nội dung (ngồi trước bàn có màn hình máy tính); bản AI sửa thành dáng đứng nghiêng hẳn, khác hướng
+  ảnh chính nên luân phiên sẽ giật -> bỏ, tắt `alt_pose` cảnh 2 (kịch bản cũ: work/script_truoc_sua.json).
+
+## 2026-10-08: cài VOICEVOX; khung Tạo video mới
+
+- Cài VOICEVOX 0.25.2 bản CPU bằng winget (HiroshibaKazuyuki.VOICEVOX.CPU). Engine: `vv-engine/run.exe` trong thư mục gói
+  winget (`[voice] voicevox_engine`). `steps/06_voice.py` tự bật engine (chạy nền) khi chưa chạy; `chay_web.bat` bật luôn.
+- Kiểm tra: cả 18 giọng trong `voicevox_voices.json` có đúng tên trong VOICEVOX (43 giọng); đọc thử 8 câu theo tone
+  (build/voice_samples/, kèm 1 câu edge-tts để so).
+- Khung Tạo video: "Kiểu kể" và "Duyệt ảnh" thành thẻ lựa chọn (biểu tượng, tên, mô tả ngắn trong thẻ); model gom vào mục
+  "⚙ Tùy chọn model" thu gọn; dòng tóm tắt lựa chọn cạnh nút Tạo video. Mặc định duyệt ảnh: "Không duyệt" (cả server).
+  Bỏ 3 nút gợi ý đề tài.
+
+## 2026-10-08: chọn kiểu kể; AI chọn giọng VOICEVOX cho từng nhân vật
+
+Người dùng chỉ chọn kiểu kể khi tạo video; AI tự chọn giọng cho từng nhân vật khi viết kịch bản.
+- Trang Tạo video: "Kiểu kể" 🎙 Một giọng kể chính (`narration`, mặc định) / 🎭 Nhân vật nói chuyện (`dialogue`); lưu ở
+  meta.json (`voice_mode`), truyền SHORTS_VOICE_MODE. Cửa sổ video hiện kiểu kể và ô "Ghi ở mô tả khi đăng" (credits.txt).
+- `config/voicevox_voices.json`: 18 giọng VOICEVOX (giới tính, tuổi, chất giọng) và bảng `tones` -> tên kiểu giọng.
+- `steps/01_script.py`: lời dặn theo kiểu kể (~2/3 lời kể hoặc ~2/3 thoại), danh sách giọng; kịch bản thêm `voices`
+  {speaker: tên giọng} và `tone` mỗi cảnh (normal, happy, excited, sad, crying, angry, whisper, scared, calm, narration);
+  ghi `voice_mode` vào kịch bản. (Đổi tên biến thành VOICEVOX_VOICES: `VOICES` đã là bảng giọng edge-tts.)
+- `steps/06_voice.py`: kịch bản có `voices` và VOICEVOX đang mở (`[voice] engine = "voicevox"`): lấy /speakers, chọn kiểu
+  giọng theo `tone` (không có thì ノーマル), giọng không có trong VOICEVOX thì dùng giọng cùng giới tính; ghi credits.txt
+  "VOICEVOX:<tên>". VOICEVOX chưa mở: cảnh báo, đọc bằng edge-tts như cũ.
+Kiểm tra: câu lệnh gửi AI hiện đúng danh sách giọng và lời dặn kiểu kể; ghép tone -> kiểu giọng với danh sách giả lập
+(sad -> かなしみ, excited -> 熱血, narration -> 読み聞かせ, angry -> ツンツン, giọng thiếu -> cùng giới tính).
+Chưa đọc thử bằng VOICEVOX thật (máy chưa cài VOICEVOX).
+
+## 2026-10-08: video 70-80 giây, nhân vật cử động nhiều hơn
+
+Người dùng: 70-80 giây là đủ, tăng mật độ hình động (hành động nhân vật). Video đo thật: 70 cảnh ra 105 giây.
+- `script_guide.md`: 44-52 cảnh, 450-560 ký tự lời, 3 nấc; `alt_pose` (hai tư thế luân phiên) cho ~1/2 cảnh có nhân vật
+  (trước 1/4), ưu tiên cảnh nói (khoa tay, gật đầu), hành động, phản ứng mạnh; tư thế 2 khác rõ tư thế 1. Số ảnh gần như
+  không đổi vì ít cảnh hơn.
+- `steps/01_script.py`: khoảng 68-86 giây (ước 8 ký tự/giây + 0,35 giây/cảnh), tối thiểu 40 cảnh; ngắn thì nhờ viết dài thêm,
+  dài thì nhờ viết gọn lại (`SHORTER`), tối đa 2 lần, giữ bản sát khoảng nhất (`fit`).
+
+## 2026-10-08: hiệu ứng ánh sáng bằng video thật (Mixkit)
+
+Hiệu ứng tự vẽ (effects.py) phẳng; video mẫu dùng video hiệu ứng thật (bokeh, lấp lánh...).
+- `tools/fetch_fx.py`: tải 14 video nền đen từ Mixkit (dùng thương mại miễn phí, không ghi nguồn, cấm phát tán lại file gốc;
+  `library/fx/` trong .gitignore), đổi sẵn sang khung dọc 540x960, 30 fps, ≤10 giây. Đã xem từng file, bỏ 5 file (nền tím /
+  hồng, trắng xóa, vàng phủ kín, gần như đen). 8 nhóm: sparkle, gold, bokeh, light_leak, dust, magic, glitter, smoke.
+- `build_video.py`: hiệu ứng `fx_<nhóm>` chọn file và điểm bắt đầu theo cảnh, phóng lên 1080x1920, chồng kiểu screen (phần
+  đen biến mất), mờ vào / ra 0,3 giây, độ mạnh `FX_OPACITY` và tăng sáng `FX_GAIN` theo nhóm (nền Irasutoya sáng nên phải
+  tăng sáng mới thấy). Tiếng: sparkle / glitter / magic キラン, gold シャキーン.
+- `variety.py: add_overlay`: tự gắn theo `emotion`, cảnh `sepia` (vệt sáng), nền cảm xúc `mood_*`; tối đa ~30% số cảnh,
+  không lặp nhóm hai cảnh liền; kịch bản đã đặt `fx_` thì giữ. `script_guide.md`: bảng nhóm `fx_`.
+Kiểm tra: 015 / 012 / 003 nhận 21 / 11 / 14 hiệu ứng, `check()` đạt; dựng thử cảnh 1, 3, 4, 12, 20 của 015 (khói, vệt sáng,
+lấp lánh, bokeh, kỳ diệu): thấy rõ sau khi tăng sáng, nhân vật không bị che.
+
+## 2026-10-08: chớp mắt, mấp máy miệng, máy quay nhích khi nhân vật cất lời
+
+Theo góp ý "nâng tầm chuyển động" (camera 2 nhịp, phản ứng khi nói, cú chốt, chuyển động nhỏ). Cú chốt (`punchline`:
+`build` → cắt → `impact` + ドドン) đã có từ trước; thêm:
+- `tools/make_faces.py` (bước mới "Mắt, miệng" trong tools/auto.py, sau Tách nền; lỗi thì bỏ qua, video vẫn dựng):
+  cảnh close / half, mỗi ảnh nhân vật (kể cả tư thế 2, nhiều nhân vật) -> `cutouts/faces/<ảnh>_blink.png`, `_talk.png`.
+  Chớp mắt vẽ bằng code (tìm chấm mắt trong vùng da mặt, tô màu da, vẽ nét cong; không thấy mắt dạng chấm thì bỏ), không
+  tốn API, khớp tuyệt đối. Miệng mở nhờ model ảnh, chỉ lấy thay đổi trong dải miệng của mặt và dán lên ảnh gốc (model hay
+  đổi luôn mắt, mũi -> bỏ phần đó), căn lệch ±8 px. Chỉ nhân vật đang nói câu thoại mới cần ảnh miệng (~25 ảnh / video).
+  Cấu hình `[faces]` trong settings.toml.
+- `build_video.py`: chớp mắt ngẫu nhiên mỗi 2,2-4,2 giây (0,13 giây); miệng mở theo âm lượng giọng của câu, nhịp 3 khung.
+  Máy quay `talk_in`: nhích vào ~108% trong 0,18 giây rồi trôi chậm.
+- `variety.py`: `main_voice()` / `is_dialogue()`: câu thoại = không phải giọng kể chính (kể cả nhân vật chính tự kể), hoặc có
+  「」. Câu thoại: cách một câu một lần `talk_in`, tối đa ~15% số cảnh; chỉ câu thoại mới mấp máy miệng.
+- `tools/fix_scenes.py --apply`: ảnh được thay thì xóa ảnh mắt / miệng cũ của nó và tạo lại.
+Kiểm tra: video 015 cảnh 2, 4, 7, 17: chớp mắt đúng cả mặt đang nháy một mắt, mặt nhăn; ảnh miệng chỉ đổi miệng; dựng thử
+cảnh 4 (friend_papa nói): miệng mấp máy theo giọng, máy quay nhích vào; `check()` đạt với 015, 012.
+
 ## 2026-10-08: sửa cảnh có xem trước (Dùng / Vẽ lại / Bỏ)
 
 Người dùng: xem trước bản AI sửa, chưa ưng thì cho AI vẽ lại. `tools/fix_scenes.py` tách 2 bước:

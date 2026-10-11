@@ -29,6 +29,8 @@ def character_files(scene):
     """(tên nhân vật, tên file) của từng ảnh chủ thể trong một cảnh, đều nằm ở characters/.
     Một nhân vật: 001.png. Nhiều nhân vật: mỗi người một ảnh, 001_father.png, 001_mother.png.
     Cảnh không có nhân vật mà có "object" (đồ vật là chủ thể): (None, 001.png)."""
+    if scene.get("full") or scene.get("phone"):   # cách dựng mới: tranh vẽ cả cảnh (full/NNN.png); màn hình điện thoại vẽ code
+        return []
     names = scene.get("characters", [])
     if not names:
         return [(None, f"{scene['id']:03d}.png")] if scene.get("object") else []
@@ -58,6 +60,12 @@ def review_items(video, script=None):
                 if path.exists() and name not in seen:
                     seen.add(name)
                     items.append({"key": f"characters/{name}", "path": path, "kind": "character", "scene": scene["id"]})
+        full = video / "full" / f"{scene['id']:03d}.png"      # cách dựng mới: tranh vẽ cả cảnh
+        if scene.get("full") and full.exists():
+            items.append({"key": f"full/{full.name}", "path": full, "kind": "character", "scene": scene["id"]})
+        photo = video / "photos" / f"{scene['id']:03d}.jpg"      # ảnh thật Pexels (steps/fetch_photos.py)
+        if scene.get("photo") and photo.exists():
+            items.append({"key": f"photos/{photo.name}", "path": photo, "kind": "photo", "scene": scene["id"]})
     for loc in dict.fromkeys(s["location"] for s in script["scenes"]):
         path = background_file(video, loc)
         if path.exists():
@@ -77,6 +85,21 @@ def reject_image(video, key):
     Ảnh nhân vật gốc bị bỏ thì bỏ luôn tư thế _alt (vẽ từ ảnh gốc). Ảnh nền nằm ở thư viện chung: chuyển sang
     library/backgrounds/rejected/."""
     kind, _, name = key.partition("/")
+    if kind == "photos":                       # ảnh Pexels: ghi id ảnh bị bỏ, fetch_photos.py lấy kết quả tìm kiếm kế tiếp
+        src = video / "photos" / Path(name).name
+        if not src.exists():
+            return []
+        credits_file, rejected_file = video / "photos" / "credits.json", video / "photos" / "rejected_ids.json"
+        credits = json.loads(credits_file.read_text(encoding="utf-8")) if credits_file.exists() else {}
+        rejected = json.loads(rejected_file.read_text(encoding="utf-8")) if rejected_file.exists() else []
+        if src.name in credits:
+            rejected.append(credits.pop(src.name)["id"])
+        rejected_file.write_text(json.dumps(rejected), encoding="utf-8")
+        credits_file.write_text(json.dumps(credits, ensure_ascii=False, indent=1), encoding="utf-8")
+        (video / "rejected").mkdir(exist_ok=True)
+        src.replace(video / "rejected" / f"photo_{src.stem}_{len(rejected)}.jpg")
+        (video / "photos" / f"{src.stem}_card.png").unlink(missing_ok=True)
+        return [key]
     if kind == "characters":
         src, dest_dir = video / "characters" / name, video / "rejected"
     elif kind == "backgrounds":
@@ -121,6 +144,8 @@ def normalize_script(script):
             changes.append(f"cảnh {scene.get('id')}: bỏ \"{key}\": null")
         if scene.get("characters") is None:
             scene["characters"] = []
+        if not isinstance(scene.get("text"), str):   # cảnh không lời (thẻ so sánh, clip minh họa; video 045): chuỗi rỗng
+            scene["text"] = ""
         if scene.get("shot") not in (None, "full", "half", "close"):
             changes.append(f"cảnh {scene.get('id')}: shot '{scene['shot']}' không hợp lệ, dùng full")
             scene["shot"] = "full"
@@ -161,6 +186,9 @@ def normalize_layers(script):
             if not any(k in layer for k in ("image", "word", "effect")):
                 changes.append(f"cảnh {scene.get('id')}: bỏ lớp không có ảnh, chữ hay hiệu ứng {layer}")
                 continue
+            if isinstance(layer.get("path"), str):    # "path": "off_left" (một điểm): đi vào từ đó tới chỗ đứng của lớp
+                layer["path"] = [layer["path"], layer.get("at", "center")]
+                changes.append(f"cảnh {scene.get('id')}: 'path' một điểm → {layer['path']}")
             layers.append(layer)
         scene["layers"] = layers
     return changes

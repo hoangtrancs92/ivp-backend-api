@@ -8,6 +8,8 @@ Vào:    videos/001/jobs.json  (tạo bằng tools/make_jobs.py)
 Ra:     videos/001/work/kaggle/out/<name>.png và <name>.json (nguồn gốc từng ảnh), rồi chép theo tiền tố tên:
         bg_x -> library/backgrounds/x.png, ref_x -> config/refs/x_front.png,
         ch_x -> videos/001/characters/x.png  (ảnh đã có thì giữ)
+        clip_x -> videos/001/clips/x.mp4 (mục "clips" của jobs.json, kaggle_job/i2v_runner.py; clip mới luôn ghi đè),
+        kết quả từng clip (seed, điểm QA, lỗi) gộp vào videos/001/clips/results.json
 
 Cần lệnh `kaggle` (pip install kaggle), config.toml (tài khoản) và config/settings.toml (mục [generation]).
 --dry-run chỉ dựng thư mục gửi đi và in các lệnh, không gọi Kaggle.
@@ -34,9 +36,14 @@ def lora_scale(job):
 
 
 def ref_source(video, ref):
-    """File trên máy của một tham chiếu không phải '@': ref__x = ảnh chuẩn, char__x = ảnh gốc trong characters/."""
+    """File trên máy của một tham chiếu không phải '@': ref__x = ảnh chuẩn, char__x = ảnh gốc trong characters/,
+    bg__x = ảnh nền library/backgrounds/x (tiểu phẩm: vẽ toàn cảnh có người trong đúng căn phòng của nền)."""
     if ref.startswith("char__"):
         return video / "characters" / ref.removeprefix("char__")
+    if ref.startswith("bg__"):
+        return ROOT / "library" / "backgrounds" / ref.removeprefix("bg__")
+    if ref.startswith("full__"):                # ảnh đầu của clip: tranh cả cảnh đã có
+        return video / "full" / ref.removeprefix("full__")
     return REFS / ref.removeprefix("ref__")
 
 
@@ -62,6 +69,16 @@ def validate(jobs, video):
         seen[name] = job
 
 
+def validate_clips(clips, jobs, video):
+    names = {j["name"] for j in jobs}
+    for clip in clips:
+        image = clip["image"]
+        if image.startswith("@") and image[1:] not in names:
+            sys.exit(f"jobs.json: {clip['name']} cần ảnh {image} nhưng lô này không sinh ảnh đó")
+        if not image.startswith("@") and not ref_source(video, image).exists():
+            sys.exit(f"jobs.json: {clip['name']} cần {ref_source(video, image)}")
+
+
 def main():
     args = [a for a in sys.argv[1:] if a not in ("--dry-run", "--upload-lora", "--fetch")]
     dry = "--dry-run" in sys.argv
@@ -77,7 +94,8 @@ def main():
     if os.environ.get("SHORTS_KAGGLE_USERNAME"):
         kg.update(username=os.environ["SHORTS_KAGGLE_USERNAME"], key=os.environ.get("SHORTS_KAGGLE_KEY", ""))
         hf_token = os.environ.get("SHORTS_HF_TOKEN", "")
-    gen = tomllib.loads((ROOT / "config" / "settings.toml").read_text(encoding="utf-8"))["generation"]
+    settings = tomllib.loads((ROOT / "config" / "settings.toml").read_text(encoding="utf-8"))
+    gen = settings["generation"]
     user = kg["username"]
     env = dict(os.environ)
     key = kg.get("key", "")
@@ -131,13 +149,20 @@ def main():
 
     spec = json.loads((video / "jobs.json").read_text(encoding="utf-8"))
     validate(spec["jobs"], video)
+    clips = spec.get("clips", [])
+    validate_clips(clips, spec["jobs"], video)
+    if not spec["jobs"] and not clips:
+        return print("jobs.json không có ảnh hay clip nào cần sinh")
     spec["settings"] = gen                      # cấu hình sinh ảnh đi theo job; không có khóa nào
+    if clips:
+        # giai đoạn clip chạy sau giai đoạn ảnh, cùng kernel; "i2v_override" (tools/i2v_bench.py) đè vài thông số
+        spec["i2v"] = {**settings["i2v"], **spec.pop("i2v_override", {})}
     # mã lô: kernel chỉ chạy khi dataset job đúng là lô này (Kaggle đôi khi gắn phiên bản cũ, xem kernel_main.py)
     batch = time.strftime("%Y%m%d%H%M%S") + "-" + video.name[:3]
     spec["batch"] = batch
     kernel_id = f"{user}/{kg['kernel']}"
     marker = ROOT / "build" / user / "last_run.json"    # lần gửi gần nhất của tài khoản: video nào, đã tải về chưa
-    names = [j["name"] for j in spec["jobs"]]
+    names = [j["name"] for j in spec["jobs"]] + [c["name"] for c in clips]
     if not dry and resume(video, kaggle, kernel_id, names, marker, kg.get("poll_seconds", 60)):
         return
 
@@ -147,9 +172,13 @@ def main():
     data.mkdir(parents=True)
     (data / "jobs.json").write_text(json.dumps(spec, ensure_ascii=False, indent=1), encoding="utf-8")
     shutil.copy(ROOT / "kaggle_job" / "worker.py", data)
+    if clips:
+        shutil.copy(ROOT / "kaggle_job" / "i2v_runner.py", data)
+        shutil.copy(ROOT / "kaggle_job" / "wan5b_i2v.json", data)
     if hf_token:                                # dataset job là riêng tư; kernel đọc file này để tải model có đăng nhập
         (data / "hf_token").write_text(hf_token, encoding="utf-8")
-    for ref in {r for j in spec["jobs"] for r in j.get("refs", []) if not r.startswith("@")}:
+    for ref in {r for j in spec["jobs"] for r in j.get("refs", []) if not r.startswith("@")} | \
+            {c["image"] for c in clips if not c["image"].startswith("@")}:
         shutil.copy(ref_source(video, ref), data / ref)
     (data / f"batch_{batch}.txt").write_text(batch)  # tên file riêng của lô: thấy file này là phiên bản mới đã xong
     (data / "dataset-metadata.json").write_text(json.dumps(
@@ -182,9 +211,12 @@ def main():
         "language": "python", "kernel_type": "script", "is_private": True,
         "enable_gpu": True, "enable_internet": True,
         "machine_shape": kg.get("machine_shape", "NvidiaTeslaT4"),     # NvidiaTeslaT4 = GPU T4 x2
-        "dataset_sources": [f"{user}/{kg['lora_dataset']}", f"{user}/{kg['job_dataset']}"],
+        "dataset_sources": [f"{user}/{kg['lora_dataset']}", f"{user}/{kg['job_dataset']}"]
+        + ([f"{user}/{spec['i2v']['models_dataset']}"] if clips and spec["i2v"].get("models_dataset") else []),
         "competition_sources": [], "kernel_sources": []}, indent=1))
-    timeout = int(kg.get("run_timeout_minutes", 90)) * 60   # kernel quá hạn thì Kaggle tự dừng, không treo mãi
+    # kernel quá hạn thì Kaggle tự dừng, không treo mãi; mỗi clip cộng thêm thời gian, tối đa 12 giờ một phiên
+    minutes = int(kg.get("run_timeout_minutes", 90)) + len(clips) * settings["i2v"].get("minutes_per_clip", 6)
+    timeout = min(minutes, 720) * 60
 
     def push():
         pushed = kaggle("kernels", "push", "-p", kernel, "-t", timeout)
@@ -207,7 +239,7 @@ def main():
         print(time.strftime("%H:%M:%S"), status.strip(), flush=True)
         started = started or "running" in status or "queued" in status
         if started and "running" in status and os.environ.get("SHORTS_PROGRESS"):
-            report(kaggle, f"{user}/{kg['kernel']}", [j["name"] for j in spec["jobs"]], os.environ["SHORTS_PROGRESS"])
+            report(kaggle, f"{user}/{kg['kernel']}", names, os.environ["SHORTS_PROGRESS"])
         if "complete" in status and started:
             if "STALE_BATCH" in kaggle("kernels", "logs", f"{user}/{kg['kernel']}", check=False) and stale < 3:
                 stale += 1                      # kernel gắn phải dataset cũ và đã tự dừng: chờ rồi gửi lại
@@ -273,7 +305,7 @@ def resume(video, kaggle, kernel_id, names, marker, poll):
     for _ in range(20):
         files = kaggle("kernels", "files", kernel_id, "--page-size", "200", *(["--page-token", token] if token else []),
                        check=False)
-        have |= {Path(line.split()[0]).stem for line in files.splitlines() if line.split() and line.split()[0].endswith(".png")}
+        have |= {Path(line.split()[0]).stem for line in files.splitlines() if line.split() and line.split()[0].endswith((".png", ".mp4"))}
         found = re.search(r"Next Page Token = (\S+)", files)
         token = found.group(1) if found else None
         if not token:
@@ -342,6 +374,23 @@ def fetch(video, kaggle, kernel, dry):
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy(png, target)
         print(f"  -> {target.relative_to(ROOT)}")
+    # clip chép SAU ảnh: clip không cũ hơn tranh cả cảnh của nó (make_jobs.clip_ready); luôn ghi đè clip cũ
+    for mp4 in sorted(out.rglob("clip_*.mp4")):
+        target = video / "clips" / f"{mp4.stem.removeprefix('clip_')}.mp4"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(mp4, target)
+        print(f"  -> {target.relative_to(ROOT)}")
+    for found in out.rglob("clips_results.json"):
+        local = video / "clips" / "results.json"
+        local.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            merged = json.loads(local.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            merged = {}
+        merged.update(json.loads(found.read_text(encoding="utf-8")))
+        local.write_text(json.dumps(merged, ensure_ascii=False, indent=1), encoding="utf-8")
+        failed = {k: v.get("status") for k, v in merged.items() if not k.startswith("_") and v.get("status") != "done"}
+        print(f"Clip: {sum(1 for k, v in merged.items() if v.get('status') == 'done')} xong. Lỗi: {failed or 'không'}")
 
 
 def destination(video, name):
@@ -349,7 +398,8 @@ def destination(video, name):
     prefix, _, rest = name.partition("_")
     return {"bg": ROOT / "library" / "backgrounds" / f"{rest}.png",      # nền dùng chung mọi video
             "ref": REFS / f"{rest}_front.png",                           # ảnh chuẩn dùng chung mọi video
-            "ch": video / "characters" / f"{rest}.png"}.get(prefix)
+            "ch": video / "characters" / f"{rest}.png",
+            "full": video / "full" / f"{rest}.png"}.get(prefix)            # cách dựng mới: tranh vẽ cả cảnh có người
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ kể cả lỗ kín như lỗ quai cốc; chỗ trắng của nhân vật (áo t
 import numpy as np
 from PIL import Image
 
-from common import SETTINGS, video_dir
+from common import SETTINGS, load_script, video_dir
 
 CUT = SETTINGS["cutout"]
 
@@ -54,9 +54,11 @@ def main():
     video = video_dir()
     session = None
     (video / "cutouts").mkdir(exist_ok=True)
+    script = load_script(video) if (video / "script.json").exists() else {"scenes": []}
+    whole = {f"{sc['id']:03d}.png" for sc in script["scenes"] if sc.get("full_scene")}   # cách dựng mới: giữ nguyên tranh
     for path in sorted((video / "characters").glob("*.png")):
         out = video / "cutouts" / path.name
-        if out.exists():
+        if out.exists() or path.name in whole:
             continue
         img = Image.open(path).convert("RGB")
         colour = key_colour(np.asarray(img))

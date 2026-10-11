@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "steps"))
-from common import character_files   # noqa: E402
+from common import character_files, normalize_script   # noqa: E402
 
 
 def run(name, args, cwd=None):
@@ -27,11 +27,16 @@ def run(name, args, cwd=None):
 def missing_images(video):
     """Ảnh phải có trước khi dựng: nền theo bối cảnh, ảnh chủ thể (nhân vật hoặc đồ vật) theo cảnh."""
     script = json.loads((video / "script.json").read_text(encoding="utf-8"))
+    normalize_script(script)                      # "style": "new" -> mọi cảnh full_scene
     missing = []
     for scene in script["scenes"]:
         bg = f"backgrounds/{scene['location']}.png"
-        if not (video / bg).exists() and not (ROOT / "library" / bg).exists():
+        if not scene.get("full_scene") and not (video / bg).exists() and not (ROOT / "library" / bg).exists():
             missing.append(bg)
+        if scene.get("full"):                        # cách dựng mới: tranh vẽ cả cảnh
+            if not (video / "full" / f"{scene['id']:03d}.png").exists():
+                missing.append(f"full/{scene['id']:03d}.png")
+            continue
         files = [f for _, f in character_files(scene)]
         if scene.get("alt_pose"):                   # tư thế thứ hai của từng nhân vật có alt_pose
             pose = scene["alt_pose"]

@@ -11,9 +11,11 @@ import Login from "./components/Login.jsx";
 import ConfirmHost from "./components/Confirm.jsx";
 import Settings from "./components/Settings.jsx";
 import FeedbackPage from "./components/FeedbackPage.jsx";
+import Skits from "./components/Skits.jsx";
 
 const PAGES = {
   studio: ["Tạo video", "Nhập đề tài, mọi bước còn lại chạy tự động"],
+  skits: ["Tiểu phẩm", "Tiểu phẩm hài một sân khấu: nhân vật lồng tiếng, chữ thoại theo người nói, cảnh chèn"],
   library: ["Thư viện", "Tất cả video đã và đang làm"],
   activity: ["Hoạt động", "Ai đã chạy gì, khi nào"],
   feedback: ["Góp ý", "Tổng hợp nhận xét của mọi người về các video, để cải thiện quy trình"],
@@ -93,11 +95,13 @@ export default function App() {
       <Sidebar {...ctx} page={current} pages={pages} logout={logout} />
       <main className="content">
         {offline && <div className="banner">Mất kết nối tới server, đang thử lại...</div>}
+        {state.stale && <div className="banner">Code server vừa được cập nhật nhưng server chưa khởi động lại: tắt cửa sổ "Shorts web" rồi chạy lại chay_web.bat (lựa chọn mới trên trang này chưa có tác dụng).</div>}
         <header className="page-head">
           <h1>{pages[current][0]}</h1>
           <p>{pages[current][1]}</p>
         </header>
         {current === "studio" && <Studio {...ctx} />}
+        {current === "skits" && <Skits {...ctx} />}
         {current === "library" && <Library {...ctx} />}
         {current === "activity" && <Activity {...ctx} />}
         {current === "members" && <Members {...ctx} />}

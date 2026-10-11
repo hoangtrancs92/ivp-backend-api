@@ -24,6 +24,14 @@ class LLMError(RuntimeError):
     pass
 
 
+# Cổng AI tạm hết đường chạy cho một model (503 "No available channel ... model_not_found"): dùng model gần nhất còn chạy
+FALLBACK = {"claude-sonnet-5-5": "claude-sonnet-5"}
+
+
+class EmptyReply(LLMError):
+    """Cổng AI đóng luồng mà không gửi chữ nào, không báo lỗi (ShopAIKey thỉnh thoảng bị): thử lại được."""
+
+
 def headers(key=None):
     key = key or API_KEY
     if not key:
@@ -83,8 +91,25 @@ def chat(prompt, model, image=None, max_tokens=16000, images=None):
             error = f"mạng: {e}"
         else:
             if r.status_code == 200:
-                return read_stream(r, model)
+                try:
+                    return read_stream(r, model)
+                except EmptyReply as e:
+                    error = str(e)
+                    if body["model"] in FALLBACK:          # luồng rỗng thường là dấu hiệu cổng sắp báo hết đường chạy model này
+                        print(f"  {body['model']}: luồng trả lời rỗng, thử lại bằng {FALLBACK[body['model']]}", flush=True)
+                        body["model"] = FALLBACK[body["model"]]
+                    else:
+                        print(f"  {body['model']}: luồng trả lời rỗng, thử lại ({attempt + 1}/4)", flush=True)
+                    continue
+                except requests.RequestException as e:        # đứt kết nối giữa luồng
+                    error = f"mạng giữa luồng: {e}"
+                    print(f"  {model}: đứt luồng ({e.__class__.__name__}), thử lại ({attempt + 1}/4)", flush=True)
+                    continue
             error = f"{r.status_code}: {r.text[:400]}"
+            if r.status_code == 503 and ("No available channel" in r.text or "model_not_found" in r.text)                     and body["model"] in FALLBACK:
+                print(f"  {body['model']} đang không có trên cổng AI, dùng {FALLBACK[body['model']]}", flush=True)
+                body["model"] = FALLBACK[body["model"]]
+                continue
             if r.status_code == 400 and "max_tokens" in r.text and "max_tokens" in body:
                 body["max_completion_tokens"] = body.pop("max_tokens")   # model OpenAI đời mới đổi tên tham số này
                 continue
@@ -117,13 +142,30 @@ def read_stream(r, model):
     if finish == "length":
         raise LLMError(f"Model {model} hết max_tokens giữa chừng, câu trả lời bị cắt.")
     if not text:
+        if finish is None:                                  # luồng bị cắt, không có lý do kết thúc: lỗi tạm thời
+            raise EmptyReply(f"Model {model} không trả về chữ nào (finish_reason=None).")
         raise LLMError(f"Model {model} không trả về chữ nào (finish_reason={finish}).")
     return text
 
 
 def json_reply(text):
-    """Lấy đối tượng JSON trong câu trả lời (bỏ chữ thừa, khối ```json)."""
-    return json.loads(text[text.index("{"):text.rindex("}") + 1])
+    """Lấy đối tượng JSON trong câu trả lời (bỏ chữ thừa, khối ```json). Model hay viết vài câu giải thích trước JSON (video 044),
+    có khi có cả dấu ngoặc trong đó: thử từng dấu "{" và lấy đối tượng hợp lệ lớn nhất."""
+    try:
+        return json.loads(text[text.index("{"):text.rindex("}") + 1])
+    except ValueError:
+        pass
+    decoder, best = json.JSONDecoder(), None
+    for start in (i for i, ch in enumerate(text) if ch == "{"):
+        try:
+            found, end = decoder.raw_decode(text, start)
+        except ValueError:
+            continue
+        if isinstance(found, dict) and (best is None or end - start > best[0]):
+            best = (end - start, found)
+    if best is None:
+        raise ValueError("không có JSON trong câu trả lời")
+    return best[1]
 
 
 if __name__ == "__main__":

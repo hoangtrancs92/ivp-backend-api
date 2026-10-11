@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { api } from "../api.js";
-import { Avatar, Empty } from "./common.jsx";
+import { api, store } from "../api.js";
+import { Avatar, Empty, PostedToggle } from "./common.jsx";
 import { ask } from "./Confirm.jsx";
 import Icon from "./Icon.jsx";
+import { deleteSkit, SkitModal, skitThumb } from "./Skits.jsx";
 
-const FILTERS = { all: "Tất cả", done: "Hoàn thành", running: "Đang chạy", todo: "Chưa xong / lỗi" };
+const FILTERS = { all: "Tất cả", done: "Hoàn thành", running: "Đang chạy", todo: "Chưa xong / lỗi", unposted: "Chưa đăng",
+  posted: "Đã đăng" };
 const NO_OWNER = "(chưa rõ)";
 
 export const videoStatus = (v) => v.fix ? ["✨ Đang sửa cảnh", "accent"]
@@ -43,22 +45,38 @@ export async function deleteVideo(video, notify, refresh) {
   }
 }
 
+const KINDS = { all: ["Tất cả", null], story: ["Truyện kể", "🎬"], skit: ["Tiểu phẩm", "🎭"] };
+const skitStatus = (s) => s.run?.status === "running" ? ["Đang chạy", "accent"] : s.output ? ["Hoàn thành", "ok"]
+  : s.progress?.error ? ["Lỗi", "bad"] : ["Chưa xong", "warn"];
+
 export default function Library({ state, me, admin, openVideo, notify, refresh }) {
   const comments = (name) => state.feedback.filter((f) => f.video === name && !f.parent).length;
   const [owner, setOwner] = useState(me);           // mặc định xem video của mình
   const [filter, setFilter] = useState("all");
   const [query, setQuery] = useState("");
+  const [kind, setKindState] = useState(KINDS[store.get("lib_kind")] ? store.get("lib_kind") : "all");
+  const setKind = (k) => { setKindState(k); store.set("lib_kind", k); };
+  const [openSkit, setOpenSkit] = useState(null);
 
+  // Truyện kể (videos/) và tiểu phẩm (skits/) chung một danh sách, mỗi mục ghi loại
+  const items = [
+    ...state.videos.map((v) => ({ ...v, kind: "story", status: videoStatus(v) })),
+    ...(state.skits || []).map((s) => ({ ...s, kind: "skit", status: skitStatus(s) })),
+  ].sort((a, b) => b.updated - a.updated);
+  const ofKind = items.filter((v) => kind === "all" || v.kind === kind);
   const ownerOf = (v) => v.owner || NO_OWNER;
-  const owners = [...new Set([me, ...state.users.map((u) => u.name), ...state.videos.map(ownerOf)])];
-  const count = (name) => state.videos.filter((v) => ownerOf(v) === name).length;
+  const owners = [...new Set([me, ...state.users.map((u) => u.name), ...ofKind.map(ownerOf)])];
+  const count = (name) => ofKind.filter((v) => ownerOf(v) === name).length;
+  const kindCount = (k) => items.filter((v) => k === "all" || v.kind === k).length;
 
-  const list = state.videos.filter((v) => {
-    const s = videoStatus(v)[0];
+  const list = ofKind.filter((v) => {
+    const s = v.status[0];
     if (owner !== "*" && ownerOf(v) !== owner) return false;
     if (filter === "done" && s !== "Hoàn thành") return false;
     if (filter === "running" && s !== "Đang chạy") return false;
     if (filter === "todo" && (s === "Hoàn thành" || s === "Đang chạy")) return false;
+    if (filter === "unposted" && (!v.output || v.posted)) return false;      // video xong mà chưa đăng TikTok
+    if (filter === "posted" && !v.posted) return false;
     const q = query.trim().toLowerCase();
     return !q || `${v.name} ${v.title} ${v.prompt}`.toLowerCase().includes(q);
   });
@@ -78,8 +96,16 @@ export default function Library({ state, me, admin, openVideo, notify, refresh }
           </button>
         ))}
         <button className={owner === "*" ? "active" : ""} onClick={() => setOwner("*")}>
-          <span className="all-icon"><Icon name="users" size={14} /></span><span>Mọi người</span><em>{state.videos.length}</em>
+          <span className="all-icon"><Icon name="users" size={14} /></span><span>Mọi người</span><em>{ofKind.length}</em>
         </button>
+      </div>
+
+      <div className="kind-tabs" role="tablist" aria-label="Loại video">
+        {Object.entries(KINDS).map(([k, [label, icon]]) => (
+          <button key={k} role="tab" aria-selected={kind === k} className={kind === k ? "on" : ""} onClick={() => setKind(k)}>
+            {icon && <span>{icon}</span>}{label}<em>{kindCount(k)}</em>
+          </button>
+        ))}
       </div>
 
       <div className="toolbar">
@@ -92,8 +118,9 @@ export default function Library({ state, me, admin, openVideo, notify, refresh }
       </div>
 
       {list.length === 0 && (
-        <Empty icon="▦" title="Không có video nào">
-          {owner === me ? "Bạn chưa có video nào. Tạo video mới ở trang Tạo video." : "Thử bỏ bộ lọc hoặc chọn người khác."}
+        <Empty icon="▦" title={kind === "skit" ? "Không có tiểu phẩm nào" : "Không có video nào"}>
+          {owner === me ? (kind === "skit" ? "Bạn chưa có tiểu phẩm nào. Tạo ở trang Tiểu phẩm."
+            : "Bạn chưa có video nào. Tạo video mới ở trang Tạo video hoặc Tiểu phẩm.") : "Thử bỏ bộ lọc hoặc chọn người khác."}
         </Empty>
       )}
       {groups.map(([name, videos]) => (
@@ -102,24 +129,61 @@ export default function Library({ state, me, admin, openVideo, notify, refresh }
             <h2 className="section-title"><Avatar name={name} size={26} /> {name} <span className="muted">({videos.length})</span></h2>
           )}
           <div className="grid">
-            {videos.map((v) => (
-              <Tile key={v.name} v={v} comments={comments(v.name)} manage={canManage(v, me, admin)} onOpen={() => openVideo(v.name)}
-                onDelete={() => deleteVideo(v, notify, refresh)} />
-            ))}
+            {videos.map((v) => v.kind === "skit"
+              ? <SkitTile key={v.name} s={v} showKind={kind === "all"} manage={admin || v.owner === me} onOpen={() => setOpenSkit(v.name)}
+                onDelete={() => deleteSkit(v, notify, refresh)} notify={notify} refresh={refresh} />
+              : <Tile key={v.name} v={v} showKind={kind === "all"} comments={comments(v.name)} manage={canManage(v, me, admin)}
+                onOpen={() => openVideo(v.name)} onDelete={() => deleteVideo(v, notify, refresh)} notify={notify} refresh={refresh} />)}
           </div>
         </section>
       ))}
+      {openSkit && (state.skits || []).some((s) => s.name === openSkit) && (
+        <SkitModal skit={state.skits.find((s) => s.name === openSkit)} manage={admin || state.skits.find((s) => s.name === openSkit).owner === me}
+          notify={notify} refresh={refresh} onClose={() => setOpenSkit(null)} />
+      )}
     </>
   );
 }
 
-function Tile({ v, comments, manage, onOpen, onDelete }) {
+function SkitTile({ s, showKind, manage, onOpen, onDelete, notify, refresh }) {
+  const [text, cls] = s.status;
+  const thumb = skitThumb(s);
+  return (
+    <article className="tile" onClick={onOpen}>
+      <div className={`thumb ${s.poster ? "" : "thumb-faces"}`}>
+        {thumb ? <img src={thumb} alt="" loading="lazy" /> : <span>🎭</span>}
+        <span className={`badge ${cls}`}>{text}</span>
+        {showKind && <span className="kind-chip skit">🎭 Tiểu phẩm</span>}
+        {s.output && <span className="play">▶</span>}
+      </div>
+      <div className="tile-body">
+        <h3>{s.title || "(đang viết...)"}</h3>
+        <p className="prompt-line">{s.prompt || s.name}</p>
+        <div className="tile-foot" onClick={(e) => e.stopPropagation()}>
+          <span className="muted small">{s.lines ? `${s.lines} câu${s.seconds ? ` · ${Math.round(s.seconds)} giây` : ""}` : "chưa có kịch bản"}</span>
+          <span className="tile-actions">
+            {s.output && <PostedToggle kind="skit" name={s.name} posted={s.posted} manage={manage} notify={notify} refresh={refresh} />}
+            {s.output && (
+              <a className="tile-btn" href={`/skits/${s.name}/output.mp4?download=1`} title="Tải về máy bạn" aria-label="Tải về máy bạn"><Icon name="download" /></a>
+            )}
+            {manage && (
+              <button className="tile-btn danger" onClick={onDelete} title="Xóa tiểu phẩm" aria-label="Xóa tiểu phẩm"><Icon name="trash" /></button>
+            )}
+          </span>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function Tile({ v, showKind, comments, manage, onOpen, onDelete, notify, refresh }) {
   const [text, cls] = videoStatus(v);
   return (
     <article className="tile" onClick={onOpen}>
       <div className="thumb">
         {v.thumb ? <img src={`/videos/${encodeURIComponent(v.name)}/${v.thumb}`} alt="" loading="lazy" /> : <span>▶</span>}
         <span className={`badge ${cls}`}>{text}</span>
+        {showKind && <span className="kind-chip">🎬 Truyện kể</span>}
         {v.output && <span className="play">▶</span>}
       </div>
       <div className="tile-body">
@@ -131,6 +195,7 @@ function Tile({ v, comments, manage, onOpen, onDelete }) {
             {comments > 0 && <span className="comment-count" title="Số góp ý"> · 💬 {comments}</span>}
           </span>
           <span className="tile-actions">
+            {v.output && <PostedToggle kind="video" name={v.name} posted={v.posted} manage={manage} notify={notify} refresh={refresh} />}
             {v.output && (
               <a className="tile-btn" href={downloadUrl(v)} title="Tải về máy bạn" aria-label="Tải về máy bạn"><Icon name="download" /></a>
             )}

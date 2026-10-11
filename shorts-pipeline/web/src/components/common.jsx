@@ -192,3 +192,33 @@ export function Modal({ title, onClose, children, wide }) {
     </div>
   );
 }
+
+// Ô đánh dấu đã đăng TikTok (video truyện kể: kind "video", tiểu phẩm: "skit"). Lưu ở meta.json, mọi người thấy như nhau.
+export function PostedToggle({ kind, name, posted, manage, notify, refresh }) {
+  const [busy, setBusy] = useState(false);
+  const [on, setOn] = useState(Boolean(posted));
+  useEffect(() => setOn(Boolean(posted)), [posted]);
+  const toggle = async (e) => {
+    e.stopPropagation();
+    if (!manage || busy) return;
+    setBusy(true);
+    setOn(!on);
+    try {
+      await api("/api/posted", { kind, name, posted: !on });
+      refresh?.();
+    } catch (err) {
+      setOn(on);
+      notify?.(err.message, "bad");
+    } finally {
+      setBusy(false);
+    }
+  };
+  const when = posted?.at ? new Date(posted.at * 1000).toLocaleDateString("vi-VN") : "";
+  return (
+    <button type="button" role="checkbox" aria-checked={on} disabled={!manage}
+      className={`posted-toggle ${on ? "on" : ""}`} onClick={toggle}
+      title={on ? `Đã đăng TikTok${posted?.by ? ` (${posted.by}${when ? `, ${when}` : ""})` : ""}` : manage ? "Bấm khi đã đăng lên TikTok" : "Chưa đăng TikTok"}>
+      <span className="posted-box">{on ? "✓" : ""}</span>{on ? "Đã đăng" : "Chưa đăng"}
+    </button>
+  );
+}

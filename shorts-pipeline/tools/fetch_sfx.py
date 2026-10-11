@@ -22,6 +22,8 @@ import numpy as np
 SITE = "https://soundeffect-lab.info/sound"
 OUT = Path(__file__).resolve().parent.parent / "library" / "sfx" / "lab"
 RATE = 48000
+BANNED = {l.strip() for l in (OUT.parent / "banned.txt").read_text(encoding="utf-8").splitlines()
+          if l.strip() and not l.startswith("#")} if (OUT.parent / "banned.txt").exists() else set()   # tiếng bị loại
 MAX_SECONDS = 3.0           # cắt bớt đuôi dài (chuông, nhạc) cho vừa một cảnh
 AMBIENT_SECONDS = 40.0      # tiếng nền (nhóm amb_*): giữ dài để lặp lại suốt các cảnh cùng bối cảnh
 
@@ -30,7 +32,7 @@ PICKS = {
     "don": [("anime", "和太鼓でドン"), ("anime", "ドーン"), ("anime", "バーン"), ("anime", "文字表示の衝撃音1"),
             ("anime", "文字表示の衝撃音2")],
     "dodon": [("anime", "和太鼓でドドン"), ("anime", "文字表示の衝撃音3")],
-    "jan": [("anime", "ジャン！"), ("anime", "ジャジャーン"), ("anime", "運命1"), ("anime", "運命2")],
+    "jan": [("anime", "ジャジャーン"), ("anime", "運命1"), ("anime", "運命2")],
     "gaan": [("anime", f"ショック{i}") for i in range(1, 7)] + [("anime", "絶望")],
     "shoboon": [("anime", "落ち込む"), ("anime", "しょげる")],
     "chiin": [("anime", "チーン1"), ("anime", "チーン2"), ("anime", "木魚ポク・ポク・ポク")],
@@ -163,6 +165,8 @@ def main():
                 continue
             for url in urls:
                 wav = folder / f"{Path(url).stem}.wav"
+                if Path(url).stem in BANNED:
+                    continue
                 if wav.exists():
                     continue
                 mp3 = wav.with_suffix(".mp3")

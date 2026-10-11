@@ -16,3 +16,12 @@ library/sfx/lab/
 
 # 甘茶の音楽工房: cấm phát tán lại nhạc, cấm Content ID (tools/fetch_bgm.py)
 library/bgm/
+
+# bản đồ, cờ tải về (tools/country_mascot.py tải lại khi thiếu)
+library/maps/
+videos/**/*.jpg
+
+# tiểu phẩm: như videos/, chỉ lưu skit.json, jobs, meta; ảnh, âm thanh sinh lại được
+skits/**/*.png
+skits/**/*.jpg
+skits/**/*.wav

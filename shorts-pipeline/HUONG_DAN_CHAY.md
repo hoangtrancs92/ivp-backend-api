@@ -11,6 +11,9 @@ File nằm ở `D:\videoprogenai\shorts-pipeline\chay_web.bat`. Bấm đúp là 
 
 **Đừng tắt hai cửa sổ này** khi còn dùng trang. Tắt cửa sổ "Shorts web" là tắt trang web.
 
+File .bat cũng bật **VOICEVOX** (giọng đọc nhân vật) chạy nền, thu nhỏ dưới thanh tác vụ. Quên bật cũng không sao: bước giọng
+đọc tự bật VOICEVOX khi cần. Khi đăng video có giọng VOICEVOX, chép dòng "VOICEVOX:..." ở cửa sổ video vào phần mô tả.
+
 ## Lấy link Cloudflare
 
 1. Nhìn cửa sổ **Cloudflare**, tìm khung có dòng dạng:

@@ -1,0 +1,305 @@
+{
+ "_ghi_chu": "Giọng VOICEVOX để AI chọn khi viết kịch bản (steps/01_script.py). Tên phải đúng tên trong VOICEVOX (steps/06_voice.py so tên với danh sách /speakers của VOICEVOX đang chạy; tên lệch thì dùng giọng mặc định theo giới tính). Mô tả tiếng Anh cho AI. Khi đăng video phải ghi 'VOICEVOX:<tên>' ở mô tả; mỗi giọng có điều khoản riêng. Giọng có 'credit' thì ghi đúng chuỗi đó thay cho 'VOICEVOX:<tên>'. Giọng có 'note': điều kiện thêm của điều khoản. Không thêm ユーレイちゃん (chỉ phi thương mại), ぞん子 (thương mại phải hỏi trước).",
+ "voices": {
+  "青山龍星": {
+   "gender": "male",
+   "age": "adult",
+   "desc": "deep calm adult male; great narrator, serious or warm storyteller, also hot-blooded"
+  },
+  "玄野武宏": {
+   "gender": "male",
+   "age": "young adult",
+   "desc": "young adult male, natural, can sound happy, irritated or sad"
+  },
+  "白上虎太郎": {
+   "gender": "male",
+   "age": "boy",
+   "desc": "energetic boy / teen, cheerful, timid, pouting or crying"
+  },
+  "剣崎雌雄": {
+   "gender": "male",
+   "age": "adult",
+   "desc": "cool composed adult male, office worker, rival, calm husband"
+  },
+  "雀松朱司": {
+   "gender": "male",
+   "age": "young adult",
+   "desc": "soft gentle young man, quiet and polite"
+  },
+  "麒ヶ島宗麟": {
+   "gender": "male",
+   "age": "middle-aged",
+   "desc": "dignified middle-aged man, father, boss, teacher"
+  },
+  "ちび式じい": {
+   "gender": "male",
+   "age": "old",
+   "desc": "old man, grandfather"
+  },
+  "No.7": {
+   "gender": "female",
+   "age": "adult",
+   "desc": "clear adult female, announcer-like; great female narrator (storytelling)"
+  },
+  "九州そら": {
+   "gender": "female",
+   "age": "adult",
+   "desc": "mature adult female, mother, office lady, elegant"
+  },
+  "もち子さん": {
+   "gender": "female",
+   "age": "adult",
+   "desc": "gentle warm adult woman, kind mother, can cry, get angry or laugh"
+  },
+  "冥鳴ひまり": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "calm soft young woman, quiet, melancholic"
+  },
+  "四国めたん": {
+   "gender": "female",
+   "age": "teen",
+   "desc": "teen girl / young woman, sweet or tsundere, whispering"
+  },
+  "春日部つむぎ": {
+   "gender": "female",
+   "age": "teen",
+   "desc": "bright cheerful high-school gal, friendly"
+  },
+  "WhiteCUL": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "young woman, cheerful, sad or crying"
+  },
+  "雨晴はう": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "soft kind young woman, nurse, caring"
+  },
+  "波音リツ": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "cool strong young woman, confident or queen-like"
+  },
+  "ずんだもん": {
+   "gender": "neutral",
+   "age": "child",
+   "desc": "cute childlike mascot voice; comedic, small kid, pet, funny sidekick"
+  },
+  "小夜/SAYO": {
+   "gender": "female",
+   "age": "child",
+   "desc": "small girl, innocent child, daughter"
+  },
+  "離途": {
+   "gender": "male",
+   "age": "young adult",
+   "desc": "low cool serious young man (114 Hz), dark hero, deadpan; styles normal / serious"
+  },
+  "黒沢冴白": {
+   "gender": "male",
+   "age": "adult",
+   "desc": "calm composed adult man (157 Hz), polite, intellectual, butler"
+  },
+  "栗田まろん": {
+   "gender": "male",
+   "age": "young adult",
+   "desc": "soft friendly young man (162 Hz), gentle, a bit naive"
+  },
+  "†聖騎士 紅桜†": {
+   "gender": "male",
+   "age": "young adult",
+   "desc": "theatrical self-proclaimed holy knight (155 Hz), dramatic chuunibyou speeches, over-the-top confidence; great for comic boasting"
+  },
+  "後鬼": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "cool mature older-sister type (281 Hz); styles human / plush toy / angry / oni (demon), the angry and oni styles are menacing",
+   "note": "cá nhân dùng thương mại được khi ghi nguồn; công ty tham gia thì phải hỏi trước"
+  },
+  "櫻歌ミコ": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "bright sweet idol-like young woman (284 Hz); styles normal / second form / childish"
+  },
+  "ナースロボ＿タイプＴ": {
+   "gender": "female",
+   "age": "adult",
+   "desc": "robotic nurse android (264 Hz), flat polite synthetic voice; styles normal / relaxed / fear / secret whisper; for robots, AI, machines"
+  },
+  "春歌ナナ": {
+   "gender": "female",
+   "age": "teen",
+   "desc": "high bright cheerful girl (384 Hz), sing-song, innocent"
+  },
+  "猫使アル": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "lively cat-like young woman (243 Hz); styles calm / excited / strong / exhausted"
+  },
+  "猫使ビィ": {
+   "gender": "male",
+   "age": "boy",
+   "desc": "very high-pitched young boy (401 Hz), cute, shy; styles calm / shy / strong"
+  },
+  "中国うさぎ": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "quirky rabbit-like woman (243 Hz), easily startled; styles surprised / scared / exhausted; great for panicking side characters"
+  },
+  "あいえるたん": {
+   "gender": "female",
+   "age": "child",
+   "desc": "very cute small child voice (388 Hz), mascot-like"
+  },
+  "満別花丸": {
+   "gender": "female",
+   "age": "teen",
+   "desc": "energetic genki girl (323 Hz); styles energetic / whisper / cutesy (burikko) / boyish; versatile comic heroine"
+  },
+  "琴詠ニア": {
+   "gender": "female",
+   "age": "adult",
+   "desc": "clear graceful adult woman (311 Hz), calm storyteller, elegant lady"
+  },
+  "Voidoll": {
+   "gender": "female",
+   "age": "adult",
+   "desc": "android robot girl (306 Hz), mechanical, emotionless polite; for robots, AI assistants, announcements",
+   "credit": "VOICEVOX:Voidoll(CV:丹下桜)",
+   "note": "cá nhân dùng thương mại được khi ghi nguồn; pháp nhân phải hỏi trước"
+  },
+  "中部つるぎ": {
+   "gender": "female",
+   "age": "teen",
+   "desc": "tsundere-ish girl (237 Hz); styles angry / whisper / timid / despair and defeat (dramatic collapse); very good for comic reactions"
+  },
+  "東北ずん子": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "gentle polite young woman (365 Hz), kind, earnest"
+  },
+  "東北きりたん": {
+   "gender": "female",
+   "age": "child",
+   "desc": "sharp sarcastic little girl (270 Hz), flat deadpan, gamer kid; great for blunt tsukkomi"
+  },
+  "東北イタコ": {
+   "gender": "female",
+   "age": "adult",
+   "desc": "mature calm woman (270 Hz), slightly sultry, big-sister, shrine medium"
+  },
+  "あんこもん": {
+   "gender": "neutral",
+   "age": "child",
+   "desc": "mascot creature voice (262 Hz); styles strong / weak / lazy listless / whisper; comic sidekick"
+  },
+  "夜語トバリ": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "calm late-night storyteller woman (242 Hz); styles bright / sad / exasperated (呆れ, perfect for straight-man tsukkomi)"
+  },
+  "暁記ミタマ": {
+   "gender": "female",
+   "age": "young adult",
+   "desc": "lowish composed young woman (201 Hz), shrine maiden, dignified; styles angry / sad / whisper"
+  },
+  "里石ユカ": {
+   "gender": "female",
+   "age": "teen",
+   "desc": "soft low-key teen girl (227 Hz), shy, gentle",
+   "credit": "VOICEVOX:里石ユカ（つぼみ）"
+  }
+ },
+ "tones": {
+  "normal": [
+   "ノーマル",
+   "ふつう"
+  ],
+  "happy": [
+   "喜び",
+   "わーい",
+   "たのしい",
+   "あまあま",
+   "うきうき",
+   "明るい",
+   "元気",
+   "ぶりっ子",
+   "楽々",
+   "甘々"
+  ],
+  "excited": [
+   "熱血",
+   "わーい",
+   "喜び",
+   "たのしい",
+   "つよつよ",
+   "元気",
+   "うきうき",
+   "覚醒"
+  ],
+  "sad": [
+   "悲しみ",
+   "かなしみ",
+   "かなしい",
+   "しっとり",
+   "なみだめ",
+   "哀しみ",
+   "絶望と敗北",
+   "よわよわ"
+  ],
+  "crying": [
+   "泣き",
+   "びえーん",
+   "なみだめ",
+   "悲しみ",
+   "かなしい",
+   "絶望と敗北",
+   "哀しみ"
+  ],
+  "angry": [
+   "怒り",
+   "ツンギレ",
+   "おこ",
+   "不機嫌",
+   "ツンツン",
+   "人間（怒り）ver.",
+   "つよつよ"
+  ],
+  "whisper": [
+   "ささやき",
+   "囁き",
+   "ヒソヒソ",
+   "内緒話",
+   "人見知り"
+  ],
+  "scared": [
+   "びくびく",
+   "なみだめ",
+   "ヘロヘロ",
+   "こわがり",
+   "おどろき",
+   "おどおど",
+   "恐怖",
+   "へろへろ",
+   "よわよわ",
+   "人見知り"
+  ],
+  "calm": [
+   "しっとり",
+   "読み聞かせ",
+   "のんびり",
+   "おちつき",
+   "シリアス",
+   "けだるげ",
+   "呆れ",
+   "ノーマル"
+  ],
+  "narration": [
+   "読み聞かせ",
+   "しっとり",
+   "ノーマル",
+   "おちつき"
+  ]
+ }
+}

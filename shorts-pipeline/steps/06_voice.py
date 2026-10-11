@@ -15,6 +15,7 @@ import subprocess
 import time
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
 from common import CONFIG, SETTINGS, load_json, load_script, video_dir
 
@@ -31,6 +32,13 @@ def clean(text):
 
 
 SILENT_SECONDS = 0.5   # câu không có chữ để đọc ("……。", "…！？"): chỉ một nhịp ngắn (1,2 giây người dùng thấy quá lâu)
+
+
+def silent_seconds(scene):
+    """Cảnh không lời: thẻ so sánh cần thời gian đọc số, clip minh họa cần thời gian chạy; còn lại một nhịp ngắn."""
+    if scene.get("compare"):          # 2,5 giây ở video 045 thành khoảng lặng dài, nhịp chậm: chỉ đủ liếc thẻ
+        return 1.2
+    return SILENT_SECONDS
 
 
 def speakable(text):
@@ -54,11 +62,59 @@ def edge(text, voice, path):
 def voicevox(text, voice, path):
     query = urllib.parse.urlencode({"text": text, "speaker": voice["speaker"]})
     with urllib.request.urlopen(urllib.request.Request(f"{VOICEVOX}/audio_query?{query}", method="POST")) as r:
-        body = r.read()
+        params = json.loads(r.read())
+    # VOICEVOX đọc chậm hơn edge-tts (video 022: 5,7 ký tự/giây sau khi đã tăng 1,2 lần, edge ~8): tăng tốc ngay trong
+    # VOICEVOX ([voice] voicevox_speed), giữ ngữ điệu tự nhiên hơn là chỉ tua nhanh file
+    params["speedScale"] = voice.get("speed", SETTINGS["voice"].get("voicevox_speed", 1.2))
+    body = json.dumps(params).encode("utf-8")
     request = urllib.request.Request(f"{VOICEVOX}/synthesis?speaker={voice['speaker']}", data=body,
                                      headers={"Content-Type": "application/json"}, method="POST")
     with urllib.request.urlopen(request) as r:
         path.write_bytes(r.read())
+
+
+CATALOG = load_json(CONFIG / "voicevox_voices.json")        # giọng AI được chọn + bảng tone -> tên kiểu giọng
+
+
+def voicevox_speakers():
+    """{tên giọng: {tên kiểu: id}} của VOICEVOX đang chạy ở máy, hoặc None nếu chưa mở."""
+    try:
+        with urllib.request.urlopen(f"{VOICEVOX}/speakers", timeout=5) as r:
+            data = json.loads(r.read().decode("utf-8"))
+    except (OSError, ValueError):
+        return None
+    return {sp["name"]: {st["name"]: st["id"] for st in sp["styles"]} for sp in data}
+
+
+def start_voicevox():
+    """VOICEVOX chưa chạy: tự bật engine (chạy nền, không mở cửa sổ) theo [voice] voicevox_engine, chờ tối đa 90 giây."""
+    exe = Path(os.path.expandvars(SETTINGS["voice"].get("voicevox_engine", "")))
+    if not exe.is_file():
+        return None
+    print(f"Bật VOICEVOX: {exe}", flush=True)
+    subprocess.Popen([str(exe), "--host", "127.0.0.1", "--port", "50021"], stdout=subprocess.DEVNULL,
+                     stderr=subprocess.DEVNULL, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)
+                     | getattr(subprocess, "DETACHED_PROCESS", 0))
+    for _ in range(45):
+        time.sleep(2)
+        speakers = voicevox_speakers()
+        if speakers:
+            return speakers
+    return None
+
+
+def voicevox_style(speakers, name, tone):
+    """id kiểu giọng của giọng `name` hợp với `tone` (happy, sad...); giọng không có thì lấy giọng cùng giới tính."""
+    styles = speakers.get(name)
+    if styles is None:
+        gender = CATALOG["voices"].get(name, {}).get("gender", "female")
+        name = next((n for n, v in CATALOG["voices"].items() if v["gender"] == gender and n in speakers),
+                    next(iter(speakers)))
+        styles = speakers[name]
+    for wanted in CATALOG["tones"].get(tone or "normal", []) + CATALOG["tones"]["normal"]:
+        if wanted in styles:
+            return name, styles[wanted]
+    return name, next(iter(styles.values()))
 
 
 def main():
@@ -66,22 +122,73 @@ def main():
     characters = load_json(CONFIG / "characters.json")
     out = video / "audio"
     out.mkdir(exist_ok=True)
-    for scene in load_script(video)["scenes"]:
+    script = load_script(video)
+    chosen = script.get("voices") or {}               # giọng VOICEVOX do AI chọn khi viết kịch bản
+    speakers = None
+    if chosen and SETTINGS["voice"].get("engine", "voicevox") == "voicevox":
+        speakers = voicevox_speakers() or start_voicevox()
+    if chosen and speakers is None:
+        print("CẢNH BÁO: VOICEVOX chưa mở (http://127.0.0.1:50021): đọc bằng edge-tts. Mở VOICEVOX rồi xóa audio/ "
+              "để đọc lại bằng giọng đã chọn.", flush=True)
+    credits = set()
+    speed = script.get("voice_speed") or SETTINGS["voice"].get("voicevox_speed", 1.2)   # video so sánh: 1.35
+    made = synthesize(script, out, characters, chosen, speakers, credits, speed)
+    # video phải trên 1 phút: giọng + nghỉ mỗi cảnh ngắn quá thì đọc lại các câu VOICEVOX chậm hơn vừa đủ (không dưới 1.0)
+    total = sum(wav_seconds(w) for w in out.glob("*.wav")) + len(script["scenes"]) * SETTINGS["video"].get("pad", 0.08)
+    goal = SETTINGS["voice"].get("min_video_seconds", 62)
+    if made and total < goal and speed > 1.0 and not script.get("voice_speed"):   # đã chọn nhịp nhanh: không đọc chậm lại
+        others = total - sum(wav_seconds(w) for w in made)
+        slower = max(1.0, speed * sum(wav_seconds(w) for w in made) / max(goal - others, 1.0))
+        print(f"Giọng chỉ {total:.1f} giây (< {goal}): đọc lại {len(made)} câu VOICEVOX với tốc độ {slower:.2f} "
+              f"(thay {speed})", flush=True)
+        for w in made:
+            w.unlink()
+        synthesize(script, out, characters, chosen, speakers, credits, slower)
+        total = sum(wav_seconds(w) for w in out.glob("*.wav")) + len(script["scenes"]) * SETTINGS["video"].get("pad", 0.08)
+    print(f"Tổng giọng + nghỉ: {total:.1f} giây", flush=True)
+    if credits:                                       # khi đăng video phải ghi tên giọng VOICEVOX ở phần mô tả
+        path = video / "credits.txt"
+        # theo dòng (không theo khoảng trắng): giữ nguyên dòng nguồn ảnh "写真: tác giả / giấy phép (link)" của fetch_photos.py
+        old = {x for x in path.read_text(encoding="utf-8").splitlines() if x.strip()} if path.exists() else set()
+        path.write_text("\n".join(sorted(old | {CATALOG["voices"].get(n, {}).get("credit", f"VOICEVOX:{n}") for n in credits})) + "\n", encoding="utf-8")
+
+
+def wav_seconds(path):
+    import wave
+    with wave.open(str(path), "rb") as w:
+        return w.getnframes() / w.getframerate()
+
+
+def synthesize(script, out, characters, chosen, speakers, credits, speed):
+    """Đọc mọi câu chưa có file; trả về các file đọc bằng VOICEVOX (để đọc lại chậm hơn nếu video quá ngắn)."""
+    made = []
+    for scene in script["scenes"]:
         wav = out / f"{scene['id']:03d}.wav"
         if wav.exists():
             continue
-        if not speakable(clean(scene["text"])):  # im lặng có chủ ý: tạo khoảng lặng, không gọi TTS
+        text = scene.get("text") or ""
+        if not speakable(clean(text)):          # im lặng có chủ ý: tạo khoảng lặng, không gọi TTS
+            seconds = silent_seconds(scene)
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=mono",
-                            "-t", str(SILENT_SECONDS), str(wav)], check=True)
-            print(f"audio/{wav.name}: (im lặng {SILENT_SECONDS}s) {scene['text']}")
+                            "-t", str(seconds), str(wav)], check=True)
+            print(f"audio/{wav.name}: (im lặng {seconds}s) {text}")
             continue
-        voice = characters[scene["speaker"]]["voice"]
+        label = ""
+        if speakers and scene["speaker"] in chosen:
+            name, style = voicevox_style(speakers, chosen[scene["speaker"]], scene.get("tone"))
+            voice, label = {"engine": "voicevox", "speaker": style, "speed": speed}, f" [{name} · {scene.get('tone', 'normal')}]"
+            credits.add(name)
+        else:
+            voice = characters[scene["speaker"]]["voice"]
         raw = out / f"{scene['id']:03d}_src.{'mp3' if voice['engine'] == 'edge' else 'wav'}"
         {"edge": edge, "voicevox": voicevox}[voice["engine"]](clean(scene["text"]), voice, raw)
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", TRIM,
                         "-ar", "48000", "-ac", "1", str(wav)], check=True)
         raw.unlink()
-        print(f"audio/{wav.name}: {scene['text']}")
+        if voice["engine"] == "voicevox":
+            made.append(wav)
+        print(f"audio/{wav.name}: {scene['text']}{label}")
+    return made
 
 
 if __name__ == "__main__":

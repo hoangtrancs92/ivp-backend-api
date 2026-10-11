@@ -29,8 +29,10 @@ STEPS = [
     ("script", "Viết kịch bản"),
     ("jobs", "Lên danh sách ảnh"),
     ("kaggle", "Sinh ảnh trên Kaggle"),
+    ("photos", "Ảnh thật (Pixabay / Pexels)"),
     ("review", "Duyệt ảnh"),
     ("cutouts", "Tách nền"),
+    ("faces", "Mắt, miệng"),
     ("preview", "Bố cục cảnh"),
     ("voice", "Giọng đọc"),
     ("build", "Dựng video"),
@@ -150,6 +152,14 @@ def main():
         if missing_images(video):
             fail("kaggle", f"Sau {ROUNDS} lượt vẫn thiếu {len(missing_images(video))} ảnh, xem log.")
 
+    # 3b. Ảnh thật Pexels cho cảnh "photo" (trước bước duyệt: người duyệt bỏ ảnh lạc đề, lần chạy sau lấy ảnh khác)
+    p.step("photos", "running")
+    if run(["steps/fetch_photos.py", rel]):
+        p.step("photos", "done", "bỏ qua (lỗi tải ảnh, xem log), dựng không có ảnh thật")
+    else:
+        got = len(list((video / "photos").glob("[0-9][0-9][0-9].jpg"))) if (video / "photos").exists() else 0
+        p.step("photos", "done", f"{got} ảnh" if got else "không có cảnh ảnh thật")
+
     # 4. Duyệt ảnh: người xem bằng mắt trên web (manual), hoặc tự qua khi chọn "ai" / "none"
     approved_file = video / "review" / "approved.json"
     if mode != "manual":
@@ -166,11 +176,15 @@ def main():
 
     # 5-8. Phần chạy ở máy (giống run_local.py)
     for key, args, cwd in [("cutouts", ["steps/04_cutouts.py", rel], ROOT),
+                           ("faces", ["tools/make_faces.py", rel], ROOT),
                            ("preview", [ROOT / "build_video.py", "--preview"], video),
                            ("voice", ["steps/06_voice.py", rel], ROOT),
                            ("build", [ROOT / "build_video.py"], video)]:
         p.step(key, "running")
         if not run(args, cwd=cwd):
+            if key == "faces":                  # chớp mắt / mấp máy miệng chỉ thêm sinh động: lỗi thì dựng không có
+                p.step(key, "done", "bỏ qua (lỗi tạo ảnh mắt, miệng, xem log)")
+                continue
             fail(key, f"Lỗi ở bước {p.data['steps'][key]['label']}, xem log.")
         p.step(key, "done")
     print(f"Xong: {video / 'output.mp4'}")

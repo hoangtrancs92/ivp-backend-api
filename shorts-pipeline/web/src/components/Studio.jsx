@@ -1,14 +1,8 @@
 import { useState } from "react";
-import { api, duration, hours, REVIEW_MODES, store } from "../api.js";
+import { api, BUILD_MODES, CONTRAST_KINDS, COUNTRIES, duration, hours, REVIEW_MODES, store, VOICE_MODES } from "../api.js";
 import { Avatar, Empty, FixProgress, KaggleProgress, Stepper } from "./common.jsx";
 import { canManage, deleteVideo } from "./Library.jsx";
 import Icon from "./Icon.jsx";
-
-const IDEAS = [
-  "Bố lén ướp lạnh hai cốc bia mỗi tối, chờ con trai đi làm về",
-  "Mẹ làm cơm hộp mỗi sáng suốt 6 năm, đến ngày tốt nghiệp con mới biết lý do",
-  "Chiếc ví cũ của bố và tấm ảnh bên trong",
-];
 
 export default function Studio({ state, me, user, admin, refresh, notify, openVideo, editUser }) {
   const [prompt, setPrompt] = useState(store.get("draft"));
@@ -17,8 +11,21 @@ export default function Studio({ state, me, user, admin, refresh, notify, openVi
   const pick = (key) => (conf.models.includes(store.get(key)) ? store.get(key) : conf[key]);   // nhớ lựa chọn lần trước
   const [models, setModels] = useState({ script_model: pick("script_model"), review_model: pick("review_model") });
   const choose = (key) => (e) => { store.set(key, e.target.value); setModels({ ...models, [key]: e.target.value }); };
-  const [reviewMode, setReviewMode] = useState(REVIEW_MODES[store.get("review_mode")] ? store.get("review_mode") : "manual");
-  const pickMode = (m) => { store.set("review_mode", m); setReviewMode(m); };
+  // mặc định "Không duyệt" (khóa nhớ mới: bỏ lựa chọn cũ "Tôi tự duyệt" đã lưu trong trình duyệt)
+  const [reviewMode, setReviewMode] = useState(REVIEW_MODES[store.get("review_mode_v2")] ? store.get("review_mode_v2") : "none");
+  const pickMode = (m) => { store.set("review_mode_v2", m); setReviewMode(m); };
+  const [voiceMode, setVoiceMode] = useState(VOICE_MODES[store.get("voice_mode")] ? store.get("voice_mode") : "narration");
+  const pickVoice = (m) => { store.set("voice_mode", m); setVoiceMode(m); };
+  // 3 ô cách dựng; "Tương phản" có thêm: ngẫu nhiên / Nhật Bản vs một nước (lấy số liệu thật để tân bốc Nhật)
+  const remembered = (key, list, fallback) => (list[store.get(key)] ? store.get(key) : fallback);
+  const [build, setBuild] = useState(remembered("build_mode", BUILD_MODES, "classic"));
+  const [contrast, setContrast] = useState(remembered("contrast_kind", CONTRAST_KINDS, "random"));
+  const [country, setCountry] = useState(remembered("country", COUNTRIES, "CHN"));
+  const keep = (key, set) => (v) => { store.set(key, v); set(v); };
+  const japanVs = build === "contrast" && contrast === "japan";
+  // Nhật vs nước khác: ghép lớp có chuyển động + vài clip AI (không tranh tĩnh); các ô khác theo BUILD_MODES
+  const style = japanVs ? "classic" : BUILD_MODES[build].style;
+  const storyMode = build === "contrast" ? (japanVs ? "kaigai" : "contrast") : BUILD_MODES[build].story;
 
   const change = (v) => { setPrompt(v); store.set("draft", v); };     // nháp giữ lại khi tải lại trang
   const missing = user && [!user.kaggle_key && "Kaggle token", !user.ai_api_key && "AI API key"].filter(Boolean);
@@ -26,7 +33,7 @@ export default function Studio({ state, me, user, admin, refresh, notify, openVi
   const submit = async () => {
     setBusy(true);
     try {
-      const r = await api("/api/generate", { prompt, ...models, review_mode: reviewMode });
+      const r = await api("/api/generate", { prompt, ...models, review_mode: reviewMode, voice_mode: voiceMode, style, story_mode: storyMode, country, contrast_mode: build === "contrast" });
       change("");
       notify(`Đã bắt đầu tạo ${r.video}`);
       refresh();
@@ -52,34 +59,58 @@ export default function Studio({ state, me, user, admin, refresh, notify, openVi
         <textarea value={prompt} onChange={(e) => change(e.target.value)} rows={5}
           placeholder="Nhập đề tài ngắn, hoặc dán cả câu chuyện. AI viết kịch bản tiếng Nhật, Kaggle vẽ ảnh, bạn duyệt ảnh, máy chủ dựng video."
           onKeyDown={(e) => { if ((e.ctrlKey || e.metaKey) && e.key === "Enter" && prompt.trim()) submit(); }} />
-        <div className="model-row">
-          <label>Model viết kịch bản
-            <select value={models.script_model} onChange={choose("script_model")}>
-              {conf.models.map((m) => <option key={m}>{m}</option>)}
-            </select>
-          </label>
-          <label title="Phải là model đọc được ảnh (vision)">Model duyệt ảnh (vision)
-            <select value={models.review_model} onChange={choose("review_model")}>
-              {conf.models.map((m) => <option key={m}>{m}</option>)}
-            </select>
-          </label>
-        </div>
-        <div className="mode-row">
-          <span className="mode-label">Duyệt ảnh</span>
-          <div className="mode-options" role="radiogroup" aria-label="Chế độ duyệt ảnh">
-            {Object.entries(REVIEW_MODES).map(([k, m]) => (
-              <button key={k} type="button" role="radio" aria-checked={reviewMode === k}
-                className={`mode-option ${reviewMode === k ? "on" : ""}`} onClick={() => pickMode(k)}>
-                <span className="mode-icon">{m.icon}</span>{m.label}
-              </button>
-            ))}
+        <div className="choice-grid story-grid">
+          <div className="choice-group">
+            <Choices title="Cách dựng" modes={BUILD_MODES} value={build} onPick={keep("build_mode", setBuild)} />
+            {build === "contrast" && (
+              <div className="story-picker" role="radiogroup" aria-label="Kiểu tương phản">
+                <span className="story-label">Tương phản</span>
+                <div className="story-chips">
+                  {Object.entries(CONTRAST_KINDS).map(([k, m]) => (
+                    <button key={k} type="button" role="radio" aria-checked={contrast === k} title={m.hint}
+                      className={`chip-btn ${contrast === k ? "on" : ""}`} onClick={() => keep("contrast_kind", setContrast)(k)}>
+                      <span aria-hidden="true">{m.icon}</span> {m.label}
+                    </button>
+                  ))}
+                  {contrast === "japan" && (
+                    <label className="country-pick">so với
+                      <select value={country} onChange={(e) => keep("country", setCountry)(e.target.value)}>
+                        {Object.entries(COUNTRIES).map(([k, name]) => <option key={k} value={k}>{name}</option>)}
+                      </select>
+                    </label>
+                  )}
+                </div>
+                <p className="story-hint">{contrast === "japan"
+                  ? `日本くん đấu ${COUNTRIES[country]} từng hiệp theo chủ đề bạn nhập, Nhật thắng áp đảo. Linh vật ghép lớp nhảy, đấm; thẻ tỉ số và ảnh thật; nhạc vui cố định, nhịp nhanh, nhiều tiếng hiệu ứng; số liệu thật (World Bank) nếu liên quan.`
+                  : CONTRAST_KINDS[contrast].hint}</p>
+              </div>
+            )}
           </div>
-          <p className="mode-hint">{REVIEW_MODES[reviewMode].hint}</p>
         </div>
+        <div className="choice-grid">
+          <Choices title="Kiểu kể" note="AI tự chọn giọng VOICEVOX cho từng nhân vật" modes={VOICE_MODES} value={voiceMode} onPick={pickVoice} />
+          <Choices title="Duyệt ảnh" modes={REVIEW_MODES} value={reviewMode} onPick={pickMode} />
+        </div>
+        <details className="model-box">
+          <summary>⚙ Tùy chọn model <span className="muted">· {models.script_model}{reviewMode === "ai" && ` · duyệt: ${models.review_model}`}</span></summary>
+          <div className="model-row">
+            <label>Viết kịch bản
+              <select value={models.script_model} onChange={choose("script_model")}>
+                {conf.models.map((m) => <option key={m}>{m}</option>)}
+              </select>
+            </label>
+            <label title="Phải là model đọc được ảnh (vision); dùng khi AI duyệt hoặc nhờ AI chấm ảnh">Duyệt ảnh (vision)
+              <select value={models.review_model} onChange={choose("review_model")}>
+                {conf.models.map((m) => <option key={m}>{m}</option>)}
+              </select>
+            </label>
+          </div>
+        </details>
         <div className="composer-foot">
-          <div className="ideas">
-            {IDEAS.map((idea) => <button key={idea} className="idea" onClick={() => change(idea)}>{idea}</button>)}
-          </div>
+          <span className="muted small summary-line">
+            {BUILD_MODES[build].icon} {BUILD_MODES[build].label}{build === "contrast" && ` (${contrast === "japan" ? `Nhật vs ${COUNTRIES[country]}` : "ngẫu nhiên"})`} · {VOICE_MODES[voiceMode].icon} {VOICE_MODES[voiceMode].label} · {REVIEW_MODES[reviewMode].icon} {REVIEW_MODES[reviewMode].label}
+            {" "}· video ~70-80 giây · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> để tạo
+          </span>
           <button className="primary big" disabled={busy || !prompt.trim() || !user || missing?.length > 0} onClick={submit}>
             {busy ? "Đang gửi..." : "✦ Tạo video"}
           </button>
@@ -157,5 +188,25 @@ export function JobCard({ video, onOpen, onDelete }) {
       </>}
       {video.progress?.error && <p className="note bad">{video.progress.error}</p>}
     </article>
+  );
+}
+
+
+// Nhóm thẻ lựa chọn (chọn một): biểu tượng, tên, mô tả ngắn ngay trong thẻ
+function Choices({ title, note, modes, value, onPick }) {
+  return (
+    <div className="choice-group" role="radiogroup" aria-label={title}>
+      <div className="choice-title">{title}{note && <span className="muted small"> · {note}</span>}</div>
+      <div className="choice-cards">
+        {Object.entries(modes).map(([k, m]) => (
+          <button key={k} type="button" role="radio" aria-checked={value === k} title={m.hint}
+            className={`choice-card ${value === k ? "on" : ""}`} onClick={() => onPick(k)}>
+            <span className="choice-icon">{m.icon}</span>
+            <span className="choice-text"><b>{m.label}</b><small>{m.short}</small></span>
+            <span className="choice-dot" />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }

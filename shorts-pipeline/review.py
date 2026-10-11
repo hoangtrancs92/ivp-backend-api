@@ -186,6 +186,8 @@ def review_layout(script, apply):
 def main():
     mode = sys.argv[1]
     script = json.loads(Path("script.json").read_text(encoding="utf-8"))
+    for scene in script["scenes"] if script.get("style") == "new" else []:
+        scene["full_scene"] = True                 # cách dựng mới: mỗi cảnh một tranh trọn
     if mode == "images":
         if "--only" in sys.argv:
             only = set(sys.argv[sys.argv.index("--only") + 1].split(","))

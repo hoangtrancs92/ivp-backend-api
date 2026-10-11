@@ -29,16 +29,22 @@ model = "isnet-general-use"   # chỉ dùng cho ảnh nền trắng cũ; ~0,7 gi
 [voice]             # bước 6; giọng của từng nhân vật nằm trong config/characters.json
 silence_db = -45     # cắt khoảng lặng đầu và cuối câu dưới ngưỡng này (dB)
 tempo = 1.2          # tốc độ đọc (giữ cao độ; góp ý 2026-10-08: TTS 1.2-1.5x, video 45-60 giây); áp cho file giọng mới
+engine = "voicevox"  # kịch bản có "voices" (AI chọn giọng VOICEVOX) thì đọc bằng VOICEVOX đang mở ở máy; "edge": luôn dùng edge-tts
+voicevox_engine = "%LOCALAPPDATA%/Microsoft/WinGet/Packages/HiroshibaKazuyuki.VOICEVOX.CPU_Microsoft.Winget.Source_8wekyb3d8bbwe/VOICEVOX/vv-engine/run.exe"   # bước giọng đọc tự bật nếu VOICEVOX chưa chạy
+voicevox_speed = 1.2    # tốc độ đọc trong VOICEVOX (1.0 = chậm như video 022; 1.35 nhanh quá ở video 023); sau đó còn tempo ở trên
+min_video_seconds = 62  # tổng giọng + nghỉ dưới mức này thì đọc lại chậm hơn cho video luôn trên 1 phút
 
 [video]             # bước 7
 pad = 0.08           # giây nghỉ sau mỗi câu (trước 0.15; góp ý: nhịp nhanh hơn)
+min_seconds = 61.0   # video ngắn hơn thì cảnh cuối giữ thêm cho đủ (TikTok tính tiền từ 60 giây; người dùng 2026-10-11)
+idle_motion = true   # nhân vật luôn thở, đung đưa nhẹ thân trên (dựng chậm hơn ~20%)
 sfx_below_voice = 7  # (12 → 7: người dùng muốn hiệu ứng to hơn chút, vẫn dưới giọng) hiệu ứng nhỏ hơn giọng nói của cảnh bao nhiêu dB (đo độ to từng file rồi chỉnh); số lớn = nhỏ hơn
 ambient_below_voice = 22 # tiếng nền (mưa, ga tàu, lớp học... library/sfx/lab/amb_*) nhỏ hơn giọng bao nhiêu dB
 sfx_volume = 1.0     # nhân thêm sau khi đã chỉnh theo giọng; 0 để tắt hiệu ứng
 ambient_volume = 1.0 # nhân thêm cho tiếng nền; 0 để tắt
 music_volume = 0.12  # (cũ) không còn dùng: nhạc nền chỉnh theo music_below_voice
-music_below_voice = 18 # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB (đo độ to rồi chỉnh); library/bgm, tools/fetch_bgm.py
-title_size = 190     # cỡ chữ dòng 1 tiêu đề (dòng 2 x0,8; dòng dài tự co cho vừa bề ngang) (chữ vàng viền nâu đậm trên dải đen, gần kín bề ngang như video mẫu)
+music_below_voice = 21 # nhạc nền nhỏ hơn giọng đọc bao nhiêu dB (đo độ to rồi chỉnh); library/bgm, tools/fetch_bgm.py
+title_size = 160     # cỡ chữ dòng 1 tiêu đề (dòng 2 x0,8; dòng dài tự co cho vừa bề ngang) (chữ vàng viền nâu đậm trên dải đen, gần kín bề ngang như video mẫu)
 title_band = 380     # chiều cao dải đen chứa tiêu đề ở trên cùng (px); 0 để bỏ dải
 subtitle_size = 122  # cỡ chữ phụ đề (144 → 122 theo video mẫu: 2 dòng ~8 chữ, chữ to viền trắng dày); tự ngắt dòng
 narration_colour = "#2747F5" # màu chữ lời kể (chữ màu, viền trắng như video mẫu); lời thoại dùng màu speaker, làm đậm
@@ -67,23 +73,62 @@ off_bottom = [0.50, 1.25]
 tiny = 0.07
 small = 0.15
 medium = 0.28
-large = 0.62         # nhân vật toàn thân (0.42 → 0.52 → 0.62: góp ý 2026-10-08 nhân vật chiếm khoảng 2/3 khung hình)
-huge = 0.62
+large = 0.68         # nhân vật toàn thân (0.42 → 0.52 → 0.62: góp ý 2026-10-08 nhân vật chiếm khoảng 2/3 khung hình)
+huge = 0.74
 
 [shots]             # khung hình của cảnh ("shot" trong script.json); quy tắc chọn: config/script_guide.md
 # prompt: chèn vào prompt ảnh nhân vật; size, at: cỡ và vị trí mặc định của lớp nhân vật khi kịch bản bỏ trống
 # at = "floor": đứng sát mép dưới khung hình (nửa người, cận mặt như máy quay cắt ngang người)
 [shots.full]
 prompt = "full body"
-size = 0.64          # khoảng 2/3 khung hình, chân sát mép dưới
+size = 0.70          # khoảng 2/3 khung hình, chân sát mép dưới
 at = "floor"
 
 [shots.half]
 prompt = "upper body from the waist up, cropped at the waist, filling the frame"
-size = 0.66
+size = 0.73
 at = "floor"
 
 [shots.close]
 prompt = "close-up of the face and shoulders, cropped at the chest, filling the frame"
-size = 0.62
+size = 0.69
 at = "floor"
+
+[faces]             # tools/make_faces.py: chớp mắt (vẽ bằng code) và mấp máy miệng (model ảnh) cho nhân vật
+enabled = true      # false: không tạo ảnh mắt / miệng (video vẫn dựng, nhân vật không chớp, không nói)
+shots = ["close", "half"]   # chỉ cảnh mặt đủ to; thêm "full" thì tốn thêm ảnh mà khó thấy
+workers = 4         # số ảnh miệng gửi model cùng lúc
+talk = false        # miệng mở bằng model ảnh (tốn tiền ShopAIKey); false: chỉ chớp mắt vẽ bằng code (2026-10-08 tạm tắt)
+model = ""          # model ảnh cho miệng; trống = model "Sửa ảnh lỗi" ở trang Cài đặt (AI_MODEL_IMAGE)
+
+[i2v]               # clip image-to-video trên Kaggle (Wan2.2 TI2V-5B Turbo GGUF qua ComfyUI), cho cảnh "motion_level": "low"
+# Chạy cùng kernel với sinh ảnh, sau giai đoạn ảnh (kaggle_job/i2v_runner.py). Cả mục này được gửi lên kèm jobs.json.
+# Mọi số dưới đây CHƯA benchmark: chạy tools/i2v_bench.py trước rồi chốt.
+comfyui_commit = "0df64eb242b7c5759c3e86afd5d1846d923b1033"  # pin: bản đã chạy benchmark 2026-10-10; "" = bản mới nhất
+gguf_commit = "6ea2651e7df66d7585f6ffee804b20e92fb38b8a"
+unet_repo = "hum-ma/Wan2.2-TI2V-5B-Turbo-GGUF"
+quant = "Q8_0"       # 5.4 GB; dự phòng "Q5_K_M" (3.8 GB)
+text_encoder_repo = "city96/umt5-xxl-encoder-gguf"
+text_encoder_quant = "Q5_K_M"   # Q5 trở xuống: 2 server mỗi cái nạp riêng text encoder, fp8 (~6.7 GB) dễ vượt 30 GB RAM
+vae_repo = "Comfy-Org/Wan_2.2_ComfyUI_Repackaged"
+vae_file = "split_files/vae/wan2.2_vae.safetensors"
+models_dataset = ""  # dataset Kaggle chứa sẵn các file model (vd "wan5b-models"): gắn vào kernel, khỏi tải lại ~12 GB
+upscale_url = ""     # "" = không upscale; vd "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-animevideov3.pth" (x4, nặng RAM)
+width = 576          # = cỡ tranh cả cảnh (full/NNN.png 576x1024), bội của 32, khỏi cắt mất hai bên khi dựng 9:16
+height = 1024
+out_size = []        # [w, h] để ffmpeg đổi cỡ clip; [] = giữ cỡ sinh (build_video.py tự phóng lên 1080x1920)
+fps = 24             # FPS gốc của model
+seconds = 4          # độ dài clip khi chưa có giọng đọc: 4 giây = 97 frame (4k+1)
+max_frames = 121     # 5 giây
+steps = 4            # bản Turbo: 4 bước, CFG 1 (negative prompt không có tác dụng)
+cfg = 1.0
+sampler = "euler"
+scheduler = "simple"
+shift = 8.0          # ModelSamplingSD3; VERIFY theo template ComfyUI chính thức cho 5B
+seeds = 2            # mỗi cảnh sinh 2 seed, giữ clip điểm QA cao hơn
+style_suffix = "flat 2D illustration in the same simple cute style, clean outlines, flat colors, static camera, gentle small movement only"
+qa_motion_good = 3.0 # QA thô: chênh lệch trung bình giữa hai frame (0-255) đạt mức này coi là đủ chuyển động
+qa_drift_max = 40.0  # frame cuối khác frame đầu quá mức này thì trừ điểm (cảnh / nét vẽ trôi)
+job_timeout = 1200   # giây tối đa cho một clip
+session_minutes = 720  # Kaggle 12 giờ/phiên; còn dưới 30 phút thì ngừng nhận clip mới
+minutes_per_clip = 6   # cộng vào thời hạn kernel (run_timeout_minutes) cho mỗi clip

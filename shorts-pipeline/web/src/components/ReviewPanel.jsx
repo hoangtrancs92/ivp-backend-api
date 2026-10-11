@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../api.js";
 import { ask } from "./Confirm.jsx";
 
-const KINDS = { all: "Tất cả", character: "Nhân vật, đồ vật", background: "Ảnh nền" };
+const KINDS = { all: "Tất cả", character: "Nhân vật, đồ vật", background: "Ảnh nền", photo: "Ảnh thật" };
 
 // Tên tiêu chí AI chấm (config/review_guide.md) để hiện khi rê chuột vào huy hiệu "AI x/5"
 const CRITERIA = {

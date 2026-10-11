@@ -75,6 +75,12 @@ def run_job(pipe, embeds, job, gpu):
     log(f"GPU {gpu} bắt đầu: {job['name']}")
     try:
         refs = [load_ref(r) for r in job.get("refs", [])]
+        if job.get("combine_refs") and len(refs) > 1:     # cách dựng mới, cảnh 2 người: ghép ngang thành MỘT ảnh (T4)
+            sheet = Image.new("RGB", (sum(r.width for r in refs), max(r.height for r in refs)), "white")
+            for k, r in enumerate(refs):
+                sheet.paste(r, (sum(x.width for x in refs[:k]), 0))
+            sheet.thumbnail((S["ref_size"], S["ref_size"]))
+            refs = [sheet]
         if refs:
             log(f"GPU {gpu} có ảnh tham chiếu cho {job['name']} sau {time.time() - start:.0f}s")
         side = S["size_ref"] if refs else S["size_text"]

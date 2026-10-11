@@ -40,9 +40,9 @@ Tiêu đề 2 dòng: dòng 1 tên series ngắn gây tò mò (vd 「感動の迷
 Lời kể có thể dùng giọng của chính nhân vật chính (đặt `speaker` là tên nhân vật đó).
 
 **Cấu trúc gợi ý** (đổi được theo thể loại): móc câu → 2-3 nấc phát triển, mỗi nấc một chi tiết mới → twist hoặc cao trào → câu kết.
-**50-60 cảnh, video 80-100 giây (1 phút 20 đến 1 phút 40), bắt buộc** (giọng đọc đã tăng tốc 1,2 lần). Mỗi cảnh vẫn một câu
+**44-52 cảnh, video 70-80 giây, bắt buộc** (giọng đọc đã tăng tốc 1,2 lần). Mỗi cảnh vẫn một câu
 ngắn đọc 1-1,5 giây (khoảng 6-14 ký tự tiếng Nhật); **video dài hơn nhờ nhiều cảnh hơn, không nhờ câu dài hơn**. Tổng lời
-khoảng 550-700 ký tự (video 003: 58 cảnh, ~700 ký tự ra 114 giây là hơi dài). Để đủ độ dài mà không lan man: câu chuyện có **3-4 nấc** (mỗi nấc 12-18 cảnh, một chi tiết mới), thêm
+khoảng 450-560 ký tự (đo thật: 015 có 70 cảnh ra 105 giây, 017 ra 84 giây; người dùng muốn 70-80 giây). Câu chuyện **3 nấc** (mỗi nấc 12-16 cảnh, một chi tiết mới), thêm
 cảnh phản ứng, cảnh chèn đồ vật, cảnh hồi tưởng, cảnh nền cảm xúc; một câu dài thì tách thành 2-3 cảnh liền nhau với hình
 khác nhau (đổi `shot`, nhân vật nói / nhân vật nghe, đồ vật). Không thêm câu thừa không đẩy truyện.
 
@@ -166,12 +166,23 @@ Mỗi cảnh có nhân vật chọn một khung hình:
   tức `anger`, sốc `lines`, vui hoặc tự hào `sparkle` hoặc `spark`, yêu thương `heart`.
 - Tối đa 2 sticker một cảnh. Khoảng một nửa số cảnh không cần sticker.
 - Chữ tượng thanh (`word`) dành cho câu cần nhấn: tiếng động (ガチャ, カチン, ドン, ザーッ, ピンポーン), cảm xúc (ホッ, ドキドキ, プンプン, ズーン).
-  Tối đa 1 mỗi cảnh, khoảng 1/4 số cảnh. Chọn từ hợp với âm thanh thật của cảnh, không lặp một từ quá 2 lần trong video.
+  Mỗi chữ tượng thanh đều phát tiếng, nên **chỉ dùng khi thật cần**: khoảng 1/8 số cảnh, ưu tiên tiếng động có thật
+  trong cảnh (cửa, điện thoại, chuông, ngã) và câu chốt hài. Truyện cảm động / nghiêm túc thì rất ít, có thể không có.
+  Không lặp một từ quá 2 lần trong video.
 
 ## 5. Hiệu ứng (vẽ bằng code, `effects.py`)
 
 Lớp hiệu ứng: `{"effect": "<tên>", "on": "<id nhân vật>", "start": 0.2, "duration": 1.2, "colour": "#RRGGBB"}`.
 `on`, `start`, `duration`, `colour` tùy chọn (hiệu ứng bám nhân vật thì bắt buộc có `on`). Thứ tự trong `layers` là thứ tự vẽ.
+
+**Hiệu ứng ánh sáng (video, phủ cả khung, đặt cuối `layers`)**: `{"effect": "fx_<nhóm>"}`, tùy chọn `"opacity": 0.6`,
+`start`, `duration`. Nhóm: `fx_sparkle` đốm sáng bay (vui) · `fx_gold` mưa vàng (đắc ý, chiến thắng) · `fx_bokeh` đốm tròn
+mờ (cảm động, ấm áp, kết có hậu) · `fx_light_leak` vệt sáng phim cũ (hồi tưởng, kỷ niệm) · `fx_dust` bụi sáng (lặng, đêm,
+buồn nhẹ) · `fx_magic` hạt sáng xanh (ý tưởng, kỳ diệu) · `fx_glitter` hạt bạc rơi (ăn mừng). Bước dựng tự gắn theo `emotion`
+cho ~30% số cảnh (cảnh `sepia` luôn có vệt sáng); chỉ ghi khi muốn chắc chắn có.
+**Không dùng khói** (không có `fx_smoke`; không ghi khói, sương mù trong `action`, mô tả bối cảnh hay `new_locations`): khói
+thật trên nét vẽ phẳng trông như vết bẩn. Không khí u ám, đáng sợ, tuyệt vọng thì dùng hiệu ứng vẽ phẳng: `gloom` (phủ tối),
+`shock_lines`, `rain`, nền cảm xúc `mood_dark_swirl` / `mood_rain_sad`.
 
 | Hiệu ứng | Bám nhân vật | Đặt trong `layers` | Dùng khi |
 |---|---|---|---|
@@ -185,10 +196,18 @@ Lớp hiệu ứng: `{"effect": "<tên>", "on": "<id nhân vật>", "start": 0.2
 | `gloom` | không | trước lớp nhân vật | Buồn, cô đơn, hối hận |
 | `rain` | không | sau lớp nhân vật | Buồn, cảnh ngoài trời (hợp với bối cảnh trời mưa) |
 | `confetti` | không | sau cùng | Ăn mừng, kết thúc vui |
+| `sweat` | có | sau lớp nhân vật | 漫符 giọt mồ hôi to cạnh đầu, trượt xuống: lúng túng, khó xử, bị bắt quả tang |
+| `anger` | có | sau lớp nhân vật | 漫符 💢 nhấp nháy trên góc đầu: bực, giận |
+| `shock_lines` | có | sau lớp nhân vật | 漫符 vạch dọc trên trán kiểu ガーン: sốc, tái mặt, nhận tin xấu |
+| `dizzy` | có | sau lớp nhân vật | 漫符 sao xoay vòng trên đầu: choáng, rối trí, quá tải |
+| `idea` | có | sau lớp nhân vật | 漫符 bóng đèn bật sáng trên đầu: nảy ra ý, chợt nhận ra |
+| `sigh` | có | sau lớp nhân vật | 漫符 làn hơi thở dài từ miệng: mệt, chán, nhẹ nhõm |
 
 - Hiệu ứng là điểm nhấn: khoảng 1/3 số cảnh có, tối đa 2 hiệu ứng một cảnh. Dồn nhiều vào cao trào và cú twist.
 - Có thể ghép: `aura` + `rays` + `sparkles` cho khoảnh khắc đẹp nhất; `gloom` + `rain` cho đoạn buồn nhất.
-- Không dùng sticker và hiệu ứng cùng ý trong một cảnh (vd sticker `tear` cùng hiệu ứng `tears`).
+- Không dùng sticker và hiệu ứng cùng ý trong một cảnh (vd sticker `tear` cùng hiệu ứng `tears`, sticker `sweat` cùng
+  hiệu ứng `sweat`). Ký hiệu 漫符 (`sweat`, `anger`, `shock_lines`, `dizzy`, `idea`, `sigh`) có chuyển động, nên ưu tiên hơn
+  sticker cùng ý; hợp nhất cho video hài và đời thường.
 - Mỗi video dùng ít nhất 4 loại hiệu ứng khác nhau; chọn theo thể loại (hài: `speed_lines`, `flash`; tình cảm: `hearts`, `aura`;
   bí ẩn: `gloom`, `rays`; ăn mừng: `confetti`, `sparkles`).
 
@@ -202,27 +221,44 @@ Vì bước dựng chọn anim theo `emotion`, hãy viết `emotion` **đa dạn
 
 | Loại | Giá trị | Ghi tay khi |
 |---|---|---|
-| `anim` nhân vật | `nod` gật, `shake_no` lắc, `sway` đung đưa, `tilt` nghiêng, `breathe` thở nhẹ, `shiver` run, `hop` nhảy lò cò, `sink` chùng xuống, `float` bồng bềnh, `punch` bật mạnh, `spin_in` xoay vào, `lean_in` chồm tới, `rise` trồi lên, `bounce`, `jump`, `pulse`, `approach`, `recede`, `exit_left`/`exit_right`, `slide_left`/`slide_right`, `drop`, `pop`, `none` | Hành động cụ thể: rời đi (`exit_*`), tiến lại (`approach`), dậm chân (`jump`), bước vào (`path` từ `off_left`/`off_right`) |
-| `motion` máy quay | `punch_in` giật zoom, `focus` zoom vào mặt, `dutch` nghiêng khung, `drift` trôi nhẹ, `dolly_left`/`dolly_right` trượt kèm zoom, `tilt_up`/`tilt_down` lia dọc, `zoom_in`, `zoom_out`, `pan_left`/`pan_right`, `shake` rung, `none` | `shake` khi sốc mạnh; `dutch` khi bất an; `tilt_up` khi mở đầu ở bối cảnh rộng ngoài trời |
+| `anim` nhân vật | `nod` gật, `shake_no` lắc, `sway` đung đưa, `tilt` nghiêng, `breathe` thở nhẹ, `shiver` run, `hop` nhảy lò cò, `sink` chùng xuống, `float` bồng bềnh, `punch` bật mạnh, `spin_in` xoay vào, `lean_in` chồm tới, `rise` trồi lên, `squash` bẹp rồi bật lên (hăng hái), `jelly` rung như thạch (giật mình, ngượng), `puff` phồng người (giận), `deflate` xẹp xuống (thất vọng), `stretch_up` vươn dài người (ngạc nhiên), `snap` giật người / quay đầu nhanh (thốt lên, phản bác), `bounce`, `jump`, `pulse`, `approach`, `recede`, `exit_left`/`exit_right`, `slide_left`/`slide_right`, `drop`, `pop`, `none` | Hành động cụ thể: rời đi (`exit_*`), tiến lại (`approach`), dậm chân (`jump`), bước vào (`path` từ `off_left`/`off_right`) |
+| `motion` máy quay | `impact` cú chốt (giật zoom ~120% + rung + ドドン), `build` zoom chậm nhanh dần (dồn nén trước câu chốt), `punch_in` giật zoom, `focus` zoom vào mặt, `dutch` nghiêng khung, `drift` trôi nhẹ, `dolly_left`/`dolly_right` trượt kèm zoom, `tilt_up`/`tilt_down` lia dọc, `zoom_in`, `zoom_out`, `pan_left`/`pan_right`, `shake` rung, `none` | `shake` khi sốc mạnh; `dutch` khi bất an; `tilt_up` khi mở đầu ở bối cảnh rộng ngoài trời |
 | `transition` chuyển cảnh | `cut`, `fade` mờ, `push_left`/`push_right`/`push_up` đẩy, `whip` lia nhanh, `zoom` zoom xuyên, `flash` chớp trắng, `wipe` quét chéo, `iris` mở vòng tròn | `flash` vào twist; `fade` vào hồi tưởng (tự chọn sẵn); `whip` khi nhảy địa điểm đột ngột |
 
 - Không quá 2 cảnh liền nhau cùng một `anim` hoặc cùng một `motion` (bước dựng cảnh báo khi lặp 3 cảnh).
-- `alt_pose` (hai tư thế luân phiên) cho cảnh cần cử động lặp lại: đi bộ, chạy, nói chuyện (`"mouth open while talking"`), vẫy tay,
-  gõ phím, ăn uống, khóc nấc. Mỗi `alt_pose` tốn thêm một ảnh; khoảng 1/4 số cảnh là vừa.
+- `alt_pose` (tư thế thứ hai, **khoảng 1/4 số cảnh có nhân vật, chỉ khi cần**): hai kiểu.
+  (a) Động tác lặp lại thật: đi bộ / chạy (`"other leg forward"`), vẫy tay, gõ phím, ăn, lắc đầu, run vai khi khóc: bước dựng
+  cho hai tư thế luân phiên. Ghi rõ động từ đó trong `alt_pose` (walking, waving, typing, eating, shaking, sobbing...).
+  (b) Đổi cử chỉ một lần trong câu (đang cầm điện thoại rồi gãi đầu; đang nói rồi chỉ tay): bước dựng đổi một lần ở giữa câu.
+  Tư thế 2 giữ nguyên người, quần áo, hướng mặt, cỡ; chỉ đổi tay / chân (đổi luân phiên hai ảnh khác nhau nhiều thì trông
+  nhấp nháy: góp ý video 024, 20/48 cảnh có `alt_pose`). Câu kể, cảnh đứng yên suy nghĩ thì không cần.
 - Nhân vật **bước vào khung** (`path` từ `off_left`/`off_right`) và **rời khung** (`exit_left`/`exit_right`) ít nhất 2 lần mỗi video:
   làm khung hình sống, không đứng yên một chỗ.
 - `filter: sepia` cho đoạn hồi tưởng.
+- **Câu chốt (`"punchline": true`)**: câu đinh của mỗi đoạn hài / twist (vd chuỗi chơi chữ 資格！死角！視覚！, câu phản bác
+  「それは免許！」). Tách câu chốt thành **một cảnh riêng**, câu dẫn ở cảnh ngay trước. Bước dựng tự làm: cảnh dẫn zoom chậm dồn nén
+  (`build`), cảnh chốt cắt thẳng + giật zoom ~120% + rung tắt dần + ドドン + nhạc im 0,7 giây, nhân vật giật người. 3-6 câu chốt mỗi
+  video; nhiều hơn thì mất tác dụng. Chuỗi chơi chữ thì mỗi vế một cảnh, chỉ vế cuối là `punchline`.
+- **Câu cảm thán (！)**: bước dựng tự cho nhân vật giật người (`snap`, `punch`...), và cách một câu thì máy quay giật zoom (`punch_in`).
+  Vì vậy chỉ dùng ！ khi nhân vật thật sự thốt lên.
+- **Chuyển động nhỏ luôn có**: mọi nhân vật tự thở và đung đưa nhẹ thân trên (trừ `anim: none` và các anim co giãn), nên không cần
+  ghi anim chỉ để nhân vật "sống".
 - **Luôn có chuyển động**: không đặt `motion: none` (bước dựng luôn chọn zoom, trôi, lia chậm khi bỏ trống).
 - **Cao trào, twist**: `transition: flash` + `motion: shake` hoặc `punch_in` + hiệu ứng `rays` / `speed_lines`; đổi biểu cảm mạnh
   thì `motion: punch_in` (zoom giật).
 
-**Cảm xúc phải có hiệu ứng (hình + tiếng)**: cảnh có `emotion` mạnh mà chưa ghi hiệu ứng / sticker / chữ thì bước dựng tự
+**Cảm xúc có hiệu ứng hình** (không kèm tiếng): cảnh có `emotion` mạnh mà chưa ghi hiệu ứng / sticker / chữ thì bước dựng tự
 gắn một gói phản ứng: bất ngờ (`shocked`, `surprised`, `stunned`) → 集中線 + ！ + zoom giật + ドン; khoe, đắc ý (`proud`, `smug`,
 `confident`) → tia sáng + ✦ lấp lánh + シャキーン; vui (`overjoyed`, `excited`, `laughing`) → lấp lánh; yêu, ngượng (`blushing`,
 `touched`) → tim; khóc (`crying`) → nước mắt; tuyệt vọng (`despair`) → tối + vạch ガーン; giận (`angry`) → 集中線 + 💢 + rung;
-sợ (`scared`) → tối + mồ hôi; lúng túng (`awkward`) → mồ hôi; khó hiểu (`confused`) → ？. Vì vậy ghi `emotion` bằng **đúng
+sợ (`scared`) → tối + mồ hôi; lúng túng (`awkward`) → mồ hôi; thở dài (`sighing`, `tired`, `bored`, `relieved`) → làn hơi;
+choáng (`dizzy`, `overwhelmed`) → sao xoay; nảy ý (`idea`, `realizing`, `scheming`) → bóng đèn + zoom giật;
+khó hiểu (`confused`) → ？. Vì vậy ghi `emotion` bằng **đúng
 các từ trên**, đổi cảm xúc thường xuyên (không 2 cảnh liền cùng cảm xúc), và dành cảm xúc mạnh cho khoảng 1/2 số cảnh.
-Tiếng hiệu ứng: khoảng 30% số cảnh, cảnh cảm xúc mạnh luôn có, nhỏ hơn giọng 7 dB (nghe rõ, không lấn lời). Nhạc nền tự chọn theo
+**Tiếng hiệu ứng: chỉ khi thật cần** (góp ý video 024: tiếng dày và sai nghĩa làm phản cảm). Bước dựng KHÔNG gắn tiếng
+theo hiệu ứng hình, sticker, cảm xúc; chỉ phát tiếng cho: `"sfx"` ghi rõ trong cảnh, chữ tượng thanh, câu nhắc sự việc có
+tiếng thật (điện thoại reo, gõ cửa, mở cửa, chuông, chụp ảnh, ngã, tát...), câu chốt, vào twist, vào hồi tưởng; khoảng 1/10
+số cảnh. Muốn chắc có tiếng ở một khoảnh khắc thì ghi `"sfx": ["door"]`. Nhạc nền tự chọn theo
 `genre` (cảm động → しみじみ, buồn → 悲しい, hài → コミカル, bí ẩn → 怪しい, tình yêu / đời thường → ほのぼの, công sở / xã hội →
 シリアス; `"bgm": "kanashii"` để chọn nhóm khác, `"bgm": "none"` để tắt). **Khoảng lặng ở câu chốt**: bước dựng tắt nhạc 0,7 giây
 ở đầu cảnh vào twist, cảnh `shake` / `flash` (tối đa 4 lần); thêm `"music_stop": true` cho cảnh chốt câu hài / câu đinh để câu
@@ -234,8 +270,8 @@ cảm động / buồn nhỏ hơn (18 dB). Bảng tiếng hiệu ứng (tiếng 
 |---|---|
 | **Chữ tượng thanh** (`word`) | ドン/バーン → taiko ドン · ドドン · ジャン → ジャジャーン · ガーン → ショック · ズーン/ショボ → しょげる · チーン → chuông chùa · ピコ/ピン → ピコッ · ハッ/エッ → 驚く · キラ/ピカ → きらーん · シャキ → シャキーン · ボヨ/ピョン → ボヨン · ヒュー → ヒューン · ドキ → tim đập · ゴゴゴ · ダッ/タタ → chạy · ブル/カタカタ/ガクガク → run · ズキ/グキ → グキッ · ポロ → giọt nước mắt · ポタ → giọt nước · ジャラ/チャリ → tiền xu · ガチャ/ギィ → mở cửa · コンコン → gõ cửa · スタスタ/テクテク → bước chân · ビシ → ツッコミ · ズコ → ずっこける · ガタンゴトン → tàu chạy · プシュー → cửa tàu · ジリリ → chuông reo · プルル/ピロ → điện thoại · ブーッ/ヴー → rung · パシャ/カシャ → máy ảnh · カタカタカタ → gõ phím · カチッ/ポチ → bấm nút · **シーン → cố ý im lặng** · chữ khác → ポン |
 | Sticker | `exclaim` 驚く · `question` 目が点 · `sweat` ヒューン · `gloom` しょげる · `tear` giọt nước mắt · `anger` ドン · `lines` ショック · `heart`, `sparkle` きらーん · `spark` ピコッ |
-| Hiệu ứng | `flash` ドドン · `speed_lines` ドン · `gloom` ショック · `tears` giọt nước mắt · `rays` シャキーン · `sparkles`, `hearts`, `confetti`, `aura` きらきら |
-| Chuyển động | `shake`, `punch_in` ドン · anim `hop`/`jump`/`bounce` ボヨン · `punch` ドン · `pop`/`spin_in`/`drop` ポン · `shiver` run · `sink` しょげる |
+| Hiệu ứng | `flash` ドドン · `speed_lines` ドン · `gloom` ショック · `tears` giọt nước mắt · `rays` シャキーン · `sparkles`, `hearts`, `confetti`, `aura` きらきら · `sweat` ヒューン · `anger` ドン · `shock_lines` ショック · `idea` ピコッ · `sigh` しょげる · `dizzy` 目が点 |
+| Chuyển động | `shake`, `punch_in` ドン · anim `hop`/`jump`/`bounce`/`squash`/`jelly` ボヨン · `punch`/`puff` ドン · `pop`/`spin_in`/`drop` ポン · `shiver` run · `sink`/`deflate` しょげる · `stretch_up` 驚く |
 | Nhịp truyện | chuyển cảnh, đổi bối cảnh → シーン切り替え (whoosh) · vào `twist` → ジャジャーン · vào hồi tưởng (`sepia`) → 回想 · cảnh cuối video hài → ちゃんちゃん♪ |
 
 Thêm: バシッ/ボコッ → đấm · パチン/ビンタ → tát · バタン/ドサッ → ngã · ブン/シュッ/ヒュン → vung · ピンポーン → đúng ·
@@ -261,9 +297,20 @@ Cứ khoảng 5 cảnh nên có ít nhất một cảnh khác kiểu "một nhâ
 - **Nhìn từ sau lưng** (`action`: `"seen from behind, ..."`): nhân vật rời đi, đứng nhìn ra cửa sổ, đứng trước cửa.
 - **Nghiêng, nhìn nghiêng** (`"in side view, ..."`): đang đi, đang ngồi làm việc, đạp xe.
 - **Hai, ba nhân vật cùng khung** (`"characters": ["clerk", "girl"]`): đối thoại, đưa đồ cho nhau, cúi đầu cảm ơn, gia đình
-  quây quần. **Khoảng 1/3 số cảnh có từ 2 nhân vật trở lên** (video mẫu: cô gái và nhân viên ở quầy, hai mẹ con cúi đầu, cả nhà
-  nâng ly). Mỗi người một ảnh riêng, đặt `at` `left` / `right` (3 người: thêm `center`), `action` mỗi người tả riêng hướng nhìn
-  về phía người kia (`"facing right toward the clerk"`).
+  quây quần. **Chỉ khi hợp lý**: hai người đang ở CÙNG chỗ, CÙNG lúc và làm gì đó VỚI NHAU ngay trong câu này (đưa / nhận
+  đồ, cãi nhau mặt đối mặt, ôm, cúi chào, thì thầm, người nói và người nghe trong một câu thoại trực tiếp). Khoảng 1/4 số cảnh
+  có nhân vật, không ép. KHÔNG thêm người vào: câu kể (「その夜、母は父に打ち明けた」 thì một người, hoặc hai người nhưng chỉ
+  khi đúng là cảnh hai người nói chuyện), câu một người tự nghĩ / phản ứng, câu nói về người vắng mặt (góp ý video 024:
+  ép nhiều người làm khung chen chúc, nhân vật bị lặp). Tối đa 3 người. Mỗi người một ảnh riêng, đặt `at` `left` / `right`
+  (3 người: thêm `center`). `action` mỗi người chỉ tả CHÍNH người đó: tư thế, hướng mặt (`"facing right"`), đồ trên tay
+  (`"holding out a lunch box with both hands"`); không nhắc người kia trong action (mỗi ảnh vẽ riêng một người; nhắc người kia
+  thì model vẽ luôn người kia vào, ghép lại thành hai người giống nhau). Bước dựng tự thu nhỏ khi nhiều người, cho người nói
+  và người nghe cử động khác nhau.
+- **Hai cú máy trong một cảnh (`"focus"`)**: `{"on": "<id nhân vật>" | "<id>.hand_right" | "<id>.hand_left" | [x, y],
+  "at": 0.45, "zoom": 1.45}`: nửa đầu câu máy giữ toàn cảnh, tới `at` (tỉ lệ cảnh, hoặc số giây nếu ≥ 1) thì đẩy nhanh vào
+  điểm đó và giữ. Dùng khi lời thoại nhắc tới một thứ trong khung: nhìn đồng hồ đang đeo / cầm (`"father.hand_left"`), mở điện
+  thoại thấy tin nhắn, phát hiện tấm ảnh trên tay, người nghe sững lại (`"on": "girl"`). Khoảng 1/6 số cảnh. Cảnh cặp đôi
+  nói chuyện mà không ghi `focus` thì bước dựng tự đẩy vào mặt người nói ở một nửa số cảnh đó.
 - **Nhân vật bước vào hoặc rời khung** (`path` từ `off_left`/`off_right`, `exit_left`/`exit_right`).
 - **Cảnh trống chỉ có bối cảnh** (`"characters": []`, không `object`, layers chỉ có chữ tượng thanh hoặc hiệu ứng): khoảng lặng,
   chuyển thời gian ("その夜。", "半年後。"), giới thiệu nơi chốn mới. Mỗi khi đổi sang bối cảnh ngoài trời mới, cân nhắc mở bằng một cảnh trống.
@@ -295,7 +342,7 @@ Người xem quyết định lướt qua trong 1-2 giây đầu và rời đi �
 - **Nhịp nhanh:** mỗi cảnh 1-2 giây, đổi khung hình, bối cảnh hoặc chuyển động liên tục; không để 2 cảnh liền nhau giống hệt nhau về hình.
 - **Lời thoại trực tiếp ở các điểm căng** (câu hỏi, cãi nhau, lời thú nhận); lời kể dùng để nối, ngắn gọn.
 - **Cao trào cảm xúc có hình rõ:** cận mặt, hiệu ứng (`rays`, `aura`, `tears`), không nói giảm.
-- **Độ dài:** 80-100 giây (50-60 cảnh), không ngắn hơn, không dài hơn. Dài nhờ thêm nấc truyện, cảnh phản ứng, cảnh chèn, hồi tưởng,
+- **Độ dài:** 70-80 giây (44-52 cảnh), không ngắn hơn, không dài hơn. Dài nhờ thêm nấc truyện, cảnh phản ứng, cảnh chèn, hồi tưởng,
   không nhờ câu thừa. Cứ khoảng 10 cảnh phải có ít nhất 1 cảnh nhiều lớp hiệu ứng (sticker + chữ tượng thanh + `effect`).
 
 ## 9. Tự kiểm trước khi trả kết quả
@@ -306,5 +353,5 @@ Người xem quyết định lướt qua trong 1-2 giây đầu và rời đi �
 - [ ] Đủ 3 loại `shot`, không quá 3 cảnh liền cùng `shot`; có cảnh chèn đồ vật, cảnh nhìn sau lưng hoặc nghiêng, cảnh bước vào/rời khung.
 - [ ] `emotion` đa dạng; ít nhất 4 loại hiệu ứng; sticker và chữ tượng thanh không lặp quá 2 lần.
 - [ ] Móc câu ở 2 giây đầu, twist gắn với chi tiết đã cài, câu kết nối về đầu.
-- [ ] **50-60 cảnh, tổng lời 550-700 ký tự** (đếm lại trước khi trả). Không `action` nào có ghế, cửa, tay vịn, quầy, bàn... (đồ cố định nằm trong nền); nhân vật ngồi dùng `half` / `close`.
+- [ ] **44-52 cảnh, tổng lời 450-560 ký tự; ~1/4 cảnh có nhân vật dùng `alt_pose`, chỉ khi cần** (đếm lại trước khi trả). Không `action` nào có ghế, cửa, tay vịn, quầy, bàn... (đồ cố định nằm trong nền); nhân vật ngồi dùng `half` / `close`.
 - [ ] Đồ cầm tay ghi số lượng và tay cầm; trạng thái đồ vật (cầm, đưa, cởi mũ) liên tục giữa các cảnh; trang phục không đổi.

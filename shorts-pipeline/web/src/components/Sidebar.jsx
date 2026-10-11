@@ -1,10 +1,13 @@
 import { Avatar, Logo, QuotaBar } from "./common.jsx";
 import Icon from "./Icon.jsx";
 
-const ICONS = { studio: "sparkles", library: "grid", activity: "activity", members: "users", feedback: "message", settings: "settings" };
+const ICONS = { studio: "sparkles", skits: "film", library: "grid", activity: "activity", members: "users", feedback: "message", settings: "settings" };
 
 export default function Sidebar({ state, me, user, admin, page, pages, goto, editUser, logout }) {
-  const running = state.stats.running + state.videos.filter((v) => v.review && (admin || v.owner === me)).length;
+  // Tạo video và Tiểu phẩm độc lập: mỗi mục chỉ đếm việc của mình
+  const running = state.runs.filter((r) => r.status === "running" && r.action !== "skit").length
+    + state.videos.filter((v) => v.review && (admin || v.owner === me)).length;
+  const skitsRunning = (state.skits || []).filter((s) => s.run?.status === "running").length;
   const openFeedback = state.feedback.filter((f) => !f.parent && !f.resolved).length;
   return (
     <aside className="sidebar">
@@ -18,6 +21,7 @@ export default function Sidebar({ state, me, user, admin, page, pages, goto, edi
           <button key={key} className={page === key ? "active" : ""} onClick={() => goto(key)}>
             <span className="nav-icon"><Icon name={ICONS[key]} size={18} /></span>{label}
             {key === "studio" && running > 0 && <span className="pill">{running}</span>}
+            {key === "skits" && skitsRunning > 0 && <span className="pill">{skitsRunning}</span>}
             {key === "feedback" && openFeedback > 0 && <span className="pill">{openFeedback}</span>}
           </button>
         ))}

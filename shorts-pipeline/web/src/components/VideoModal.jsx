@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { api, duration, hours, REVIEW_MODES, RUN_STATUS, when } from "../api.js";
+import { api, duration, hours, REVIEW_MODES, RUN_STATUS, VOICE_MODES, when } from "../api.js";
 import { FixProgress, KaggleLog, KaggleProgress, LogView, Modal, Stepper } from "./common.jsx";
 import { canManage, deleteVideo, downloadUrl, videoStatus } from "./Library.jsx";
 import { ask } from "./Confirm.jsx";
@@ -65,11 +65,23 @@ export default function VideoModal({ video, state, me, admin, notify, refresh, o
             <div className="detail-meta">
               <span className="chip plain muted small">Kịch bản: <b>{video.models.script_model}</b></span>
               <span className="chip plain muted small">Model duyệt: <b>{video.models.review_model}</b></span>
+              {video.models.voice_mode && (
+                <span className="chip plain muted small">
+                  {VOICE_MODES[video.models.voice_mode]?.icon} {VOICE_MODES[video.models.voice_mode]?.label}
+                </span>
+              )}
               {video.models.review_mode && (
                 <span className="chip plain muted small">
                   {REVIEW_MODES[video.models.review_mode]?.icon} {REVIEW_MODES[video.models.review_mode]?.label}
                 </span>
               )}
+            </div>
+          )}
+          {video.credits && (
+            <div className="credits-box">
+              <span className="muted small">Ghi ở mô tả khi đăng (giọng VOICEVOX):</span>
+              <code>{video.credits.replace(/\n/g, " / ")}</code>
+              <button className="ghost small-btn" onClick={() => { navigator.clipboard?.writeText(video.credits.replace(/\n/g, " / ")); notify("Đã chép tên giọng"); }}>Chép</button>
             </div>
           )}
           <h4>Đề tài</h4>

@@ -32,13 +32,16 @@ alt_pose (của cảnh): có giá trị thì mỗi lớp ảnh có bản <tên>_
 import json
 import math
 import os
+import random
+import re
 import subprocess
 import sys
 import tomllib
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
+import pytweening
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont, ImageOps
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import variety  # noqa: E402                       tự đa dạng anim, motion, chuyển cảnh còn trống
@@ -101,14 +104,9 @@ def font_path(script):
 
 # ---------- chuyển động của từng lớp ----------
 
-def ease_out(p):
-    return 1 - (1 - p) ** 3
-
-
-def overshoot(p):
-    """0 → 1, vượt quá 1 một chút rồi về lại, tạo cảm giác bật ra."""
-    c = 1.70158
-    return 1 + (c + 1) * (p - 1) ** 3 + c * (p - 1) ** 2
+ease_out = pytweening.easeOutCubic          # chậm dần khi tới nơi
+overshoot = pytweening.easeOutBack          # 0 → 1, vượt quá 1 một chút rồi về lại: cảm giác bật ra
+landing = pytweening.easeOutBounce          # rơi chạm đất rồi nảy hai nhịp nhỏ
 
 
 def animate(kind, t, life):
@@ -128,11 +126,11 @@ def animate(kind, t, life):
         if kind == "pop_fade":                 # rồi mờ dần ở cuối
             alpha = min(max((life - t) / 0.4, 0.0), 1.0)
     elif kind == "drop":                       # rơi từ trên xuống
-        dy = -(1 - ease_out(min(t / 0.45, 1.0))) * 0.6
+        dy = -(1 - landing(min(t / 0.6, 1.0))) * 0.6
     elif kind == "slide_left":                 # trượt vào từ bên trái
-        dx = -(1 - ease_out(enter)) * 0.8
+        dx = -(1 - overshoot(min(t / 0.45, 1.0))) * 0.8
     elif kind == "slide_right":                # trượt vào từ bên phải
-        dx = (1 - ease_out(enter)) * 0.8
+        dx = (1 - overshoot(min(t / 0.45, 1.0))) * 0.8
     elif kind in ("exit_left", "exit_right"):  # đứng yên, rồi đi ra khỏi khung trong 0,6 giây cuối
         leave = min(max((t - (life - 0.6)) / 0.6, 0.0), 1.0)
         dx = leave ** 3 * 0.9 * (-1 if kind == "exit_left" else 1)
@@ -168,14 +166,77 @@ def animate(kind, t, life):
     elif kind == "punch":                      # bật mạnh lên rồi về cỡ thường (nhấn mạnh, sốc)
         scale = 1 + 0.16 * max(0.0, 1 - t / 0.25) ** 2
     elif kind == "spin_in":                    # xoay vào
-        p = ease_out(min(t / 0.5, 1.0))
-        angle, scale = 360 * (1 - p), max(p, 0.01)
+        p = min(t / 0.55, 1.0)
+        angle, scale = 360 * (1 - ease_out(p)), max(overshoot(p), 0.01)
     elif kind == "lean_in":                    # chồm tới gần người xem
         p = ease_out(min(t / 0.6, 1.0))
         scale, dy = 1 + 0.07 * p, 0.015 * p
+    elif kind == "snap":                       # giật người / quay đầu thật nhanh rồi rung về (thốt lên, phản bác)
+        spring = math.exp(-7.0 * t) * math.sin(2 * math.pi * 2.4 * t + 0.4)
+        angle, dx = 7 * spring, 0.012 * spring
+        scale = 1 + 0.06 * math.exp(-10.0 * t)
     elif kind == "rise":                       # trồi lên từ mép dưới khung
-        dy = (1 - ease_out(min(t / 0.45, 1.0))) * 0.45
+        dy = (1 - overshoot(min(t / 0.5, 1.0))) * 0.45
     return dx, dy, scale, angle, alpha
+
+
+def deform(kind, t, life):
+    """Co giãn ảnh cho các anim kiểu hoạt hình: (sx, sy, jelly). sx, sy: tỉ lệ ngang, dọc (chân giữ trên mặt đất);
+    jelly: độ lắc ngang của phần trên người (tỉ lệ bề rộng ảnh), cho hiệu ứng rung như thạch."""
+    sx = sy = 1.0
+    jelly = 0.0
+    if kind == "squash":                       # bẹp xuống rồi bật lên, nảy vài nhịp (hăng hái, phấn khích)
+        sy = 1 - 0.16 * math.exp(-4.0 * t) * math.cos(2 * math.pi * 2.2 * t)
+        sx = sy ** -0.5                        # giữ thể tích: bẹp thì bè ra
+    elif kind == "jelly":                      # rung như thạch, nhỏ dần (giật mình, xấu hổ, cười ngượng)
+        jelly = 0.03 * math.exp(-2.0 * t) + 0.004
+        sy = 1 + 0.03 * math.exp(-3.0 * t) * math.sin(2 * math.pi * 3 * t)
+        sx = sy ** -0.5
+    elif kind == "puff":                       # phồng người lên vì giận, run nhẹ
+        p = ease_out(min(t / 0.35, 1.0))
+        sx = 1 + 0.07 * p + 0.012 * p * math.sin(2 * math.pi * 9 * t)
+        sy = 1 + 0.03 * p
+    elif kind == "deflate":                    # xẹp xuống (thất vọng, kiệt sức)
+        p = ease_out(min(t / 0.9, 1.0))
+        sy, sx = 1 - 0.10 * p, 1 + 0.04 * p
+    elif kind == "stretch_up":                 # giật mình vươn dài người rồi về (ngạc nhiên)
+        sy = 1 + 0.12 * math.exp(-4.0 * t) * math.sin(2 * math.pi * 1.8 * t)
+        sx = sy ** -0.5
+    return sx, sy, jelly
+
+
+IDLE = VIDEO.get("idle_motion", True)       # nhân vật luôn thở, đung đưa nhẹ (tắt: idle_motion = false trong [video])
+IDLE_SKIP = {"squash", "jelly", "puff", "deflate", "stretch_up", "none"}   # anim co giãn tự lo; "none": cố ý đứng yên
+
+
+def idle(t, seed):
+    """Chuyển động nhỏ luôn có của nhân vật: thở (giãn dọc rất nhẹ) và đung đưa thân trên (nghiêng, chân đứng yên).
+    seed lệch pha để hai nhân vật cùng cảnh không thở đều như nhau. Trả về (sy, độ nghiêng thân trên)."""
+    phase = (seed % 97) / 97 * 2 * math.pi
+    sy = 1 + 0.009 * math.sin(2 * math.pi * 0.42 * t + phase)
+    lean = 0.010 * math.sin(2 * math.pi * 0.31 * t + phase * 1.7) + 0.004 * math.sin(2 * math.pi * 0.83 * t + phase)
+    return sy, lean
+
+
+def lean_over(img, lean, sx=1.0, sy=1.0):
+    """Co giãn sx, sy và nghiêng thân trên (đỉnh ảnh lệch ngang lean × chiều cao, chân đứng yên) trong một lần lấy mẫu."""
+    w, h = max(round(img.width * sx), 1), max(round(img.height * sy), 1)
+    shift = lean * h
+    pad = math.ceil(abs(shift)) + 1
+    return img.transform((w + 2 * pad, h), Image.AFFINE,
+                         (1 / sx, shift / h / sx, (-pad - shift) / sx, 0, 1 / sy, 0), Image.BILINEAR)
+
+
+def jiggle(img, amount, t):
+    """Lắc ngang từng dải ngang của ảnh theo sóng, đầu lắc nhiều, chân đứng yên."""
+    pad = math.ceil(amount * img.width) + 1
+    out = Image.new("RGBA", (img.width + 2 * pad, img.height))
+    step = 6
+    for y in range(0, img.height, step):
+        k = 1 - y / img.height
+        offset = amount * img.width * k * math.sin(2 * math.pi * 5.5 * t - 3 * y / img.height)
+        out.paste(img.crop((0, y, img.width, min(y + step, img.height))), (pad + round(offset), y))
+    return out
 
 
 def word_image(layer, font_file, factor=1.0):
@@ -288,6 +349,28 @@ def resolve(place, placed, child, clamp=False):
     return inside(point, child)
 
 
+# Tư thế thứ hai: trước đây đổi qua lại mỗi 0,25 giây ở mọi cảnh -> nhấp nháy (hai ảnh vẽ riêng luôn lệch nét, có cặp khác
+# hẳn bề ngang; video 024: 20/48 cảnh). Nay mặc định đổi MỘT lần ở giữa câu (như đổi cử chỉ); chỉ động tác lặp lại thật
+# (đi, chạy, vẫy, gõ, ăn, nhai, khóc nấc, cười lăn) mới luân phiên, chậm hơn.
+ALT_LOOP = 0.4
+ALT_SWITCH = 0.5
+LOOP_WORDS = ("walk", "run", "jog", "march", "wav", "typ", "eat", "chew", "munch", "sob", "laugh", "clap", "nod", "shak",
+              "tremb", "shiver", "jump", "danc", "knock", "stir", "cook", "scrub", "wipe")
+
+
+def alt_loops(scene, layer_id):
+    """Ảnh tư thế 2 của lớp này có phải động tác lặp lại (luân phiên) không, theo mô tả alt_pose (chỉ tư thế 2: action
+    tả tư thế 1 hay có "typing" mà tư thế 2 lại là gãi đầu, hai cử chỉ khác nhau thì phải đổi một lần)."""
+    value = scene.get("alt_pose")
+    if isinstance(value, dict):
+        value = value.get(layer_id) or " ".join(map(str, value.values()))
+    words = re.findall(r"[a-z]+", str(value or "").lower())
+    return any(w.startswith(k) for w in words for k in LOOP_WORDS)
+
+
+MULTI_SCALE = {2: 0.8, 3: 0.7}     # cỡ mỗi nhân vật khi cảnh có 2 / 3 người, so với cảnh một người
+
+
 def with_shot(scene, layer):
     """Lớp nhân vật chính của cảnh (cutouts/NNN...png) bỏ trống size, at thì lấy theo "shot" của cảnh."""
     image = Path(layer.get("image", ""))
@@ -295,7 +378,10 @@ def with_shot(scene, layer):
         return layer
     shot = SHOTS[scene.get("shot", "full")]
     layer = dict(layer)
-    layer.setdefault("size", shot["size"])
+    # nhiều nhân vật cùng khung: mỗi người nhỏ lại cho vừa (video 024: hai, ba người cỡ cảnh một người chen chúc, cắt mép)
+    people = sum(1 for l in scene.get("layers", []) if Path(str(l.get("image", ""))).parent.name == "cutouts"
+                 and Path(str(l.get("image", ""))).stem.startswith(f"{scene['id']:03d}"))
+    layer.setdefault("size", round(shot["size"] * MULTI_SCALE.get(min(people, 3), 1.0), 3))
     if "path" not in layer:
         layer.setdefault("at", shot["at"])
     return layer
@@ -329,8 +415,13 @@ def load_layers(scene, font_file):
     items, by_id = [], {}
     for index, layer in enumerate(scene.get("layers", [])):
         if "effect" in layer:                  # hiệu ứng vẽ bằng code mỗi khung hình (effects.py), không có ảnh
-            items.append({"layer": layer, "img": None, "id": f"effect_{index}", "effect": True, "shape": None,
-                          "points": [(0.5, 0.5)], "seed": scene["id"] * 100 + index})
+            item = {"layer": layer, "img": None, "id": f"effect_{index}", "effect": True, "shape": None,
+                    "points": [(0.5, 0.5)], "seed": scene["id"] * 100 + index}
+            files = fx_files(fx_group(layer["effect"]))
+            if files:                          # hiệu ứng là video nền đen (library/fx), chồng kiểu screen
+                rng = random.Random(item["seed"])
+                item["fx"] = {"path": rng.choice(files), "offset": rng.uniform(0, 4), "frames": None}
+            items.append(item)
             continue
         layer = with_shot(scene, layer)
         parent = by_id.get(parent_of(layer))
@@ -344,12 +435,16 @@ def load_layers(scene, font_file):
         name = layer.get("id") or Path(layer.get("image", "word")).stem
         if name in by_id:                      # hai sticker cùng ảnh: mỗi lớp một tên riêng, không bị vẽ chồng
             name = f"{name}_{index}"
-        item = {"layer": layer, "img": img, "id": name, "shape": silhouette(img) if "image" in layer else None}
+        item = {"layer": layer, "img": img, "id": name, "shape": silhouette(img) if "image" in layer else None,
+                "character": Path(str(layer.get("image", ""))).parent.name == "cutouts"}
         if scene.get("alt_pose") and "image" in layer:   # tư thế thứ hai: cutouts/003.png -> cutouts/003_alt.png
             alt = Path(layer["image"])
             alt = alt.with_name(f"{alt.stem}_alt{alt.suffix}")
             if Path(alt).exists() or (LIBRARY / alt).exists():
                 item["alt"] = fit_height(find(alt), img.height)
+                item["alt_loop"] = alt_loops(scene, item["id"])
+        if item["character"]:
+            add_faces(scene, item, img.height)
         items.append(item)
         by_id[name] = item
 
@@ -368,7 +463,147 @@ def load_layers(scene, font_file):
             waiting.remove(item)
         if len(waiting) == before:
             raise ValueError(f"Cảnh {scene['id']}: không tìm thấy vị trí của lớp {[i['id'] for i in waiting]}")
+    scene["_focus"] = focus_point(scene, placed)
     return items
+
+
+# ---------- "focus": hai cú máy trong một cảnh (toàn cảnh, rồi đẩy vào một nhân vật / đồ vật trên tay / một điểm) ----------
+
+FOCUS_MOVE = 0.35            # giây đẩy máy vào
+
+
+def focus_point(scene, placed):
+    """(điểm (x, y), giây bắt đầu hoặc tỉ lệ cảnh, độ zoom) của "focus" trong kịch bản, hoặc None.
+    "on": "<id>" (mặt nhân vật), "<id>.<điểm neo>" (vd "father.hand_right": đồ đang cầm), hoặc [x, y]."""
+    focus = scene.get("focus")
+    if not isinstance(focus, dict) or not focus.get("on"):
+        return None
+    on, dummy = focus["on"], Image.new("RGBA", (2, 2))
+    try:
+        if isinstance(on, (list, tuple)):
+            point = (float(on[0]), float(on[1]))
+        elif "." not in str(on):
+            point = anchor(*placed[on], "head", dummy)      # nhân vật: đẩy vào mặt
+        else:
+            point = resolve(on, placed, dummy)
+    except (KeyError, ValueError, IndexError):
+        return None
+    return point, float(focus.get("at", 0.45)), float(focus.get("zoom", 1.45))
+
+
+def focus_camera(frame, scene, t, length):
+    """Trước mốc "at": toàn cảnh, máy nhích vào rất chậm; tới mốc: đẩy nhanh vào điểm focus rồi giữ."""
+    (px, py), at, zoom = scene["_focus"]
+    start = at * length if at < 1 else at
+    p = ease_out(min(max((t - start) / FOCUS_MOVE, 0.0), 1.0))
+    z = 1 + 0.04 * min(t / max(start, 0.01), 1.0)
+    z += (zoom - z) * p
+    cx, cy = 0.5 + (px - 0.5) * p, 0.5 + (py - 0.5) * p
+    w, h = W / z, H / z
+    left = min(max(cx * W - w / 2, 0), W - w)
+    top = min(max(cy * H - h / 2, 0), H - h)
+    return frame.resize((W, H), Image.BILINEAR, box=(left, top, left + w, top + h))
+
+
+# ---------- hiệu ứng video nền đen (library/fx, tools/fetch_fx.py): lấp lánh, bokeh, vệt sáng, bụi, khói ----------
+
+FX_DIR = LIBRARY / "fx"
+FX_SIZE = (540, 960)            # tools/fetch_fx.py đổi sẵn mọi file về khung dọc này
+FX_FADE = 0.3                   # giây hiện dần / tắt dần
+FX_OPACITY = {"sparkle": 1.0, "gold": 0.45, "bokeh": 0.6, "light_leak": 0.8, "dust": 0.85, "magic": 0.4,
+              "glitter": 0.9}
+# nền Irasutoya sáng màu, "screen" chỉ làm sáng thêm: tăng sáng video hiệu ứng để thấy rõ (đo bằng mắt trên video 015)
+FX_GAIN = {"sparkle": 2.4, "light_leak": 2.2, "dust": 1.8, "bokeh": 1.3, "glitter": 1.5}
+FX_BANNED = {"smoke"}   # khói quay thật trên tranh phẳng trông như vết bẩn (video 022): không bao giờ dùng
+
+
+def fx_group(kind):
+    """"fx_bokeh" -> "bokeh"; hiệu ứng vẽ bằng code (không có tiền tố fx_) -> None."""
+    return kind[3:] if isinstance(kind, str) and kind.startswith("fx_") else None
+
+
+def fx_files(group):
+    return sorted((FX_DIR / group).glob("*.mp4")) if group and group not in FX_BANNED else []
+
+
+def fx_frames(path, offset, seconds):
+    """Đọc các khung hình (540x960) của file hiệu ứng từ giây offset, lặp lại nếu file ngắn hơn."""
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-stream_loop", "-1", "-ss", f"{offset:.2f}", "-i", str(path),
+                          "-t", f"{seconds:.2f}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
+    size = FX_SIZE[0] * FX_SIZE[1] * 3
+    return np.frombuffer(raw[:len(raw) // size * size], np.uint8).reshape(-1, FX_SIZE[1], FX_SIZE[0], 3)
+
+
+def fx_blend(frame, item, local, life):
+    """Chồng một khung của video hiệu ứng lên ảnh kiểu "screen": phần đen biến mất, chỉ còn ánh sáng; mờ vào / ra."""
+    fx = item["fx"]
+    if fx["frames"] is None:                  # đọc một lần mỗi cảnh, đủ cho thời gian hiệu ứng hiện
+        frames = fx_frames(fx["path"], fx["offset"], life + 0.3)
+        gain = FX_GAIN.get(fx_group(item["layer"]["effect"]), 1.0)
+        fx["frames"] = np.clip(frames * gain, 0, 255).astype(np.uint8) if gain != 1.0 else frames
+    frames = fx["frames"]
+    if not len(frames):
+        return frame
+    layer = item["layer"]
+    overlay = Image.fromarray(frames[min(int(local * FPS), len(frames) - 1)]).resize((W, H), Image.BILINEAR)
+    fade = min(1.0, local / FX_FADE, (life - local) / FX_FADE)
+    opacity = layer.get("opacity", FX_OPACITY.get(fx_group(layer["effect"]), 0.7)) * max(fade, 0.0)
+    return Image.blend(frame, ImageChops.screen(frame, overlay), opacity) if opacity > 0.01 else frame
+
+
+# ---------- chớp mắt, mấp máy miệng (ảnh do tools/make_faces.py tạo trong cutouts/faces/) ----------
+
+BLINK_LENGTH = 0.13        # giây mắt nhắm mỗi lần chớp
+BLINK_GAP = (2.2, 4.2)     # giây giữa hai lần chớp (ngẫu nhiên, cố định theo nhân vật và cảnh)
+MOUTH_FLAP = 3             # số khung hình mỗi nhịp đóng / mở miệng khi đang nói (30 fps: ~5 lần mở mỗi giây)
+
+
+def add_faces(scene, item, height):
+    """Gắn ảnh mắt nhắm / miệng mở (nếu có) cho lớp nhân vật, cùng cỡ với ảnh chính và ảnh tư thế 2.
+    Miệng chỉ mấp máy với nhân vật đang nói câu của cảnh (speaker), không mấp máy khi là lời kể."""
+    stem = Path(item["layer"]["image"]).stem
+    for key, name in (("main", stem), ("alt", f"{stem}_alt")):
+        for kind in ("blink", "talk"):
+            path = Path("cutouts") / "faces" / f"{name}_{kind}.png"
+            if path.exists():
+                item.setdefault("faces", {})[(key, kind)] = fit_height(path, height)
+    if "faces" not in item:
+        return
+    speaker, who = scene.get("speaker", ""), stem[4:]
+    item["speaks"] = (scene.get("_dialogue", True) and speaker not in ("", "narrator")     # lời kể: miệng đứng yên
+                      and (who == speaker or (not who and scene.get("characters") == [speaker])))
+    rng = random.Random(scene["id"] * 1000 + sum(map(ord, stem)))
+    t, blinks = rng.uniform(0.3, 1.6), []
+    while t < 60:
+        blinks.append(t)
+        t += rng.uniform(*BLINK_GAP)
+    item["blinks"] = blinks
+
+
+def face_frame(scene, item, img, key, t):
+    """Ảnh nhân vật của khung hình này: mắt nhắm khi tới lượt chớp, miệng mở theo tiếng nói, không thì ảnh thường."""
+    faces = item.get("faces")
+    if not faces:
+        return img
+    if any(b <= t < b + BLINK_LENGTH for b in item["blinks"]) and (key, "blink") in faces:
+        return faces[(key, "blink")]
+    mouth = scene.get("_mouth")
+    if item.get("speaks") and mouth is not None and (key, "talk") in faces:
+        i = int(t * FPS)
+        if i < len(mouth) and mouth[i] and (i // MOUTH_FLAP) % 2 == 0:
+            return faces[(key, "talk")]
+    return img
+
+
+def mouth_track(audio, frames):
+    """Mỗi khung hình: giọng đang có tiếng không (RMS > 25% mức to nhất của câu). Dùng cho mấp máy miệng."""
+    voice, rate = read_wav(audio)
+    if voice is None or not len(voice):
+        return None
+    step = rate / FPS
+    rms = np.array([np.sqrt(np.mean(voice[int(i * step):int((i + 1) * step)] ** 2)) if int(i * step) < len(voice) else 0.0
+                    for i in range(frames)])
+    return rms > rms.max() * 0.25 if rms.max() > 0 else None
 
 
 def along(points, p):
@@ -384,8 +619,44 @@ def along(points, p):
                         + (3 * b[i] - a[i] - 3 * c[i] + d[i]) * u ** 3) for i in (0, 1))
 
 
+FULL_SHIFT = 300      # px: tranh vẽ cả cảnh dời xuống để mặt người nằm dưới phụ đề (phụ đề ~410-700 px từ đỉnh)
+
+
+def place_full(img):
+    """Tranh vẽ người cự ly gần: mặt hay nằm đúng vùng phụ đề (dưới dải tiêu đề). Đẩy tranh xuống FULL_SHIFT px (mất một ít
+    ở đáy), phần hở phía trên (gần như bị dải tiêu đề che) lấp bằng chính mép trên của tranh làm mờ (video 031)."""
+    img = ImageOps.fit(img, (W, H), Image.LANCZOS)
+    out = img.crop((0, 0, W, FULL_SHIFT)).resize((W, FULL_SHIFT + 40)).filter(ImageFilter.GaussianBlur(18))
+    canvas = Image.new("RGB", (W, H))
+    canvas.paste(out, (0, 0))
+    canvas.paste(img.crop((0, 0, W, H - FULL_SHIFT)), (0, FULL_SHIFT))
+    return canvas
+
+
+def clip_backgrounds(scene):
+    """Cảnh "motion_level": "low" có clips/NNN.mp4 (clip image-to-video từ tranh cả cảnh, tools/run_kaggle.py):
+    trả về danh sách khung nền theo FPS của video, đặt như tranh cả cảnh. Clip ngắn hơn câu thoại thì giữ khung cuối.
+    Clip cũ hơn tranh (tranh vẽ lại sau khi duyệt) thì bỏ, dùng ảnh tĩnh."""
+    clip, full = Path("clips") / f"{scene['id']:03d}.mp4", Path("full") / f"{scene['id']:03d}.png"
+    if scene.get("motion_level") != "low" or not clip.exists() or \
+            full.exists() and clip.stat().st_mtime < full.stat().st_mtime:
+        return []
+    # gọi thẳng ffprobe / ffmpeg (hàm run() đã tự thêm "ffmpeg -y" ở đầu: dùng nó ra lệnh "ffmpeg ffprobe ...", video 045)
+    probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                            "-of", "csv=p=0", str(clip)], capture_output=True, text=True, check=True).stdout
+    w, h = (int(x) for x in probe.strip().split(",")[:2])
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(clip), "-r", str(FPS), "-f", "rawvideo", "-pix_fmt", "rgb24",
+                          "-"], capture_output=True, check=True).stdout
+    return [place_full(Image.frombytes("RGB", (w, h), raw[k:k + w * h * 3])) for k in range(0, len(raw), w * h * 3)]
+
+
 def background(scene):
+    full = Path("full") / f"{scene['id']:03d}.png"          # cách dựng mới: tranh vẽ cả cảnh làm nền (có người sẵn)
+    if scene.get("full") and full.exists():
+        return place_full(Image.open(full).convert("RGB"))
     bg = Image.open(find(f"backgrounds/{scene['location']}.png")).convert("RGB")
+    if scene.get("phone"):                                   # màn hình điện thoại: nền mờ để máy nổi lên
+        bg = bg.filter(ImageFilter.GaussianBlur(8))
     return ImageOps.fit(bg, (W, H), Image.LANCZOS)
 
 
@@ -421,6 +692,19 @@ def camera(frame, kind, p, t):
         zoom = 1.06
         cx += 0.012 * math.sin(2 * math.pi * 0.25 * t)
         cy += 0.008 * math.sin(2 * math.pi * 0.18 * t + 1)
+    elif kind == "talk_in":                    # nhân vật cất lời: nhích máy vào ~108% thật nhanh rồi trôi rất chậm
+        zoom = 1 + 0.08 * ease_out(min(t / 0.18, 1.0)) + 0.025 * p
+        cy = 0.54
+    elif kind == "build":                      # zoom vào chậm và nhanh dần: dồn nén trước câu chốt
+        zoom = 1 + 0.10 * pytweening.easeInQuad(p)
+        cy = 0.5 + 0.06 * p
+    elif kind == "impact":                     # câu chốt: giật zoom ~120% gần như tức thì, rung tắt dần, giữ ~113%
+        snap = min(t / 0.06, 1.0)
+        zoom = 1 + 0.20 * snap - 0.07 * ease_out(min(max(t - 0.06, 0.0) / 0.5, 1.0))
+        cy = 0.58
+        shake = 0.016 * math.exp(-6.0 * t)
+        cx += shake * math.sin(2 * math.pi * 11 * t)
+        cy += shake * 0.7 * math.cos(2 * math.pi * 9 * t)
     elif kind == "dutch":                      # nghiêng khung dần (bất an, căng thẳng)
         frame = frame.rotate(4 * ease_out(p), Image.BILINEAR)
         zoom = 1.12
@@ -435,12 +719,216 @@ def camera(frame, kind, p, t):
 ANIMS = ("none", "bounce", "wobble", "pulse", "pop", "pop_fade", "drop", "slide_left", "slide_right",
          "exit_left", "exit_right", "approach", "recede", "jump",
          "nod", "shake_no", "sway", "tilt", "breathe", "shiver", "hop", "sink", "float", "punch", "spin_in",
-         "lean_in", "rise")
+         "lean_in", "rise", "squash", "jelly", "puff", "deflate", "stretch_up", "snap")
 MOTIONS = ("zoom_in", "zoom_out", "pan_left", "pan_right", "shake", "none",
-           "punch_in", "tilt_up", "tilt_down", "dolly_left", "dolly_right", "focus", "drift", "dutch")
+           "punch_in", "tilt_up", "tilt_down", "dolly_left", "dolly_right", "focus", "drift", "dutch",
+           "build", "impact", "talk_in")
 TRANSITIONS = ("cut", "fade", "push_left", "push_right", "push_up", "whip", "zoom", "flash", "wipe", "iris")
 ANCHORS = ("center", "top", "bottom", "left", "right", "above", "head", "beside_left", "beside_right",
            "hand_left", "hand_right")
+
+
+def guess_slot(name):
+    """Vị trí model tự đặt tên (bottom_right, center_left...) -> [x, y] ghép từ SLOTS; không đoán được thì center."""
+    parts = set(str(name).lower().replace("-", "_").split("_"))
+    x = SLOTS["left"][0] if "left" in parts else SLOTS["right"][0] if "right" in parts else SLOTS["center"][0]
+    y = SLOTS["top"][1] if "top" in parts else SLOTS["bottom"][1] if "bottom" in parts else SLOTS["center"][1]
+    return [x, y] if parts & {"left", "right", "top", "bottom"} else "center"
+
+
+def new_style_layers(scene):
+    """Cách dựng mới / màn hình điện thoại: bỏ lớp ảnh nhân vật cắt rời (người đã vẽ trong tranh, hoặc cảnh là điện thoại),
+    chữ / sticker neo vào lớp đã bỏ thì đặt ở góc trên phải; cảnh "phone" thêm lớp màn hình điện thoại (phone.py)."""
+    changes = []
+    card = None
+    photo = Path("photos") / f"{scene['id']:03d}.jpg"
+    if scene.get("compare"):                         # thẻ so sánh (compare.py): lớp giữa khung, mọi cách dựng
+        import compare
+        card = ("compare", Path("compare") / f"{scene['id']:03d}.png", 0.3)
+        if not card[1].exists():
+            compare.render(scene["compare"], card[1])
+    elif isinstance(scene.get("photo"), dict) and photo.exists():   # ảnh thật Pexels (steps/fetch_photos.py) trong khung
+        import compare
+        card = ("photo", photo.with_name(f"{photo.stem}_card.png"), 0.34)
+        if not card[1].exists():
+            compare.photo_card(photo, card[1], str(scene["photo"].get("caption") or ""))
+    if card:
+        if not any(layer.get("id") == card[0] for layer in scene.get("layers", [])):
+            scene.setdefault("layers", []).append({"id": card[0], "image": card[1].as_posix(), "size": card[2],
+                                                   "at": [0.5, 0.45], "anim": "pop"})
+        # hai linh vật đứng hai bên dưới thẻ / ảnh, đủ to để thấy đầu bản đồ (kịch bản hay để chồng nhau ở giữa)
+        scene["motion"] = "none"                     # máy đứng yên: zoom / lia sẽ cắt mất thẻ
+        sides = [[0.25, 0.83], [0.75, 0.83]]
+        for layer, at in zip([x for x in scene["layers"] if Path(x.get("image", "")).parent.name == "cutouts"], sides):
+            layer.update(at=at, size=half_width(layer["image"], 0.32))
+            layer.pop("path", None)
+    mascots = [x for x in scene.get("layers", []) if Path(x.get("image", "")).parent.name == "cutouts"
+               and str(x.get("id", "")).startswith("mascot_") and "path" not in x]
+    if len(mascots) == 2 and not card:   # hai linh vật: đầu bản đồ rất rộng, đứng sát nhau thì che nhau
+        for layer, x in zip(mascots, (0.27, 0.73)):
+            layer.update(at=[x, 0.78], size=half_width(layer["image"], 0.46))
+        if scene.get("motion") in ("dolly_left", "dolly_right", "focus", "tilt_up", "tilt_down", "dutch", "pan_left",
+                                   "pan_right", "talk_in"):
+            scene["motion"] = "zoom_in"                  # zoom / lia mạnh cắt mất một linh vật ở mép
+        scene.pop("focus", None)
+    if not (scene.get("full") or scene.get("phone")):
+        return changes
+    layers = scene.get("layers", [])
+    gone = {layer.get("id") or Path(layer["image"]).stem for layer in layers
+            if "image" in layer and Path(layer["image"]).parent.name == "cutouts"}
+    kept = [layer for layer in layers if not ("image" in layer and Path(layer["image"]).parent.name == "cutouts")]
+    # neo vào lớp không còn trong cảnh (lớp vừa bỏ, hoặc tên nhân vật vốn không có lớp: người đã vẽ trong tranh, video 031)
+    gone |= {p.split(".")[0] for layer in kept for p in ([layer.get("at")] + (layer.get("path") or []))
+             if isinstance(p, str) and "." in p}
+    gone -= {layer.get("id") or Path(layer["image"]).stem for layer in kept if "image" in layer}
+    for layer in kept:
+        for key in ("at", "path"):
+            places = layer.get(key)
+            listed = places if isinstance(places, list) and key == "path" else [places]
+            if any(isinstance(p, str) and "." in p and p.split(".")[0] in gone for p in listed):
+                layer.pop("path", None)
+                layer["at"] = "top_right"
+        if layer.get("on") in gone:
+            layer.pop("on")
+    if scene.get("phone"):
+        import phone
+        out = Path("phone") / f"{scene['id']:03d}.png"
+        if not out.exists():
+            phone.render(scene["phone"], out)
+        kept.insert(0, {"id": "phone", "image": out.as_posix(), "size": 0.8, "at": [0.5, 0.56], "anim": "pop"})
+    if len(kept) != len(layers) or scene.get("phone"):
+        changes.append(f"cảnh {scene['id']}: {'màn hình điện thoại' if scene.get('phone') else 'tranh cả cảnh'}, "
+                       f"bỏ {len(layers) - len(kept) + (1 if scene.get('phone') else 0)} lớp ảnh cắt rời")
+    scene["layers"] = kept
+    return changes
+
+
+def half_width(image, size):
+    """Cỡ (theo chiều cao khung) để lớp không rộng quá nửa khung: đầu bản đồ của linh vật rất rộng, hai lớp đứng hai bên che nhau."""
+    path = Path(image)
+    if not path.exists() and path.stem[4:]:             # tên viết tắt chưa sửa (052_jpn.png -> 052_mascot_jpn.png)
+        found = sorted(path.parent.glob(f"{path.stem[:3]}_*{path.stem[4:]}.png"))
+        path = found[0] if len(found) == 1 else path
+    try:
+        with Image.open(find(path)) as img:
+            aspect = img.width / img.height
+    except (OSError, FileNotFoundError):
+        return size
+    return round(min(size, 0.48 * W / H / aspect), 3)
+
+
+def split_group_layer(scene, note, renamed):
+    """Model gộp nhiều nhân vật vào MỘT lớp ảnh không có thật (cutouts/006_mascot_jpn_mascot_chn.png, video 045) trong khi
+    mỗi nhân vật có file riêng: tách thành một lớp mỗi nhân vật (giữ anim...), đứng hai bên."""
+    names = scene.get("characters") or []
+    files = [Path("cutouts") / f"{scene['id']:03d}_{n}.png" for n in names]
+    layers = scene.get("layers", [])
+    used = {Path(x["image"]).as_posix() for x in layers if "image" in x}
+    cut = [x for x in layers if Path(x.get("image", "")).parent.name == "cutouts"]
+    # chỉ khi cả cảnh có đúng MỘT lớp nhân vật (lớp gộp); đủ lớp riêng mà sai tên thì để bước đổi tên lo
+    if len(names) < 2 or len(cut) != 1 or not all(f.exists() for f in files) or any(f.as_posix() in used for f in files):
+        return
+    for k, layer in enumerate(layers):
+        image = layer.get("image")
+        if image and Path(image).parent.name == "cutouts" and not Path(image).exists():
+            spots = ["floor_left", "floor_right"] + ["floor"] * len(names)
+            parts = [{**{key: v for key, v in layer.items() if key not in ("id", "image", "at", "path")},
+                      "id": n, "image": f.as_posix(), "at": spots[i]} for i, (n, f) in enumerate(zip(names, files))]
+            layers[k:k + 1] = parts
+            renamed[layer.get("id") or Path(image).stem] = names[0]
+            note(f"{image} gộp {len(names)} nhân vật, tách thành {len(names)} lớp")
+            return
+
+
+def repair(script):
+    """Sửa chỗ model viết kịch bản lệch quy ước, trước check(): cảnh một nhân vật ghi cutouts/NNN_<tên>.png trong khi
+    file là cutouts/NNN.png; hiệu ứng cần "on" mà bỏ trống; vị trí không có trong SLOTS. Trả về danh sách thay đổi."""
+    changes = []
+    for scene in script["scenes"]:
+        if isinstance(scene.get("compare"), dict):    # nước đem so (Nhật Bản vs nước khác, steps/01_script.py)
+            scene["compare"].setdefault("country", script.get("country", "CHN"))
+        def note(message):
+            changes.append(f"cảnh {scene['id']}: {message}")
+        renamed = {}                                    # tên cũ (id / tên file / tên nhân vật) -> id lớp ảnh sau khi sửa
+        split_group_layer(scene, note, renamed)         # trước new_style_layers: thẻ so sánh xếp chỗ cho các lớp đã tách
+        changes += new_style_layers(scene)
+        for layer in scene.get("layers", []):
+            if isinstance(layer.get("path"), str):    # "path": "off_right": một điểm, không phải đường đi
+                place = layer.pop("path")
+                if not place.startswith("off_") and "at" not in layer:
+                    layer["at"] = place
+                note(f"\"path\": \"{place}\" không phải danh sách điểm, "
+                     + (f"dùng \"at\": \"{place}\"" if layer.get("at") == place else "bỏ (anim lo phần đi vào)"))
+            image = layer.get("image")
+            if image and not (Path(image).exists() or (LIBRARY / image).exists()):
+                single = Path(image).parent / f"{scene['id']:03d}.png"
+                if not single.exists():                 # tên viết tắt: 047_chn.png -> 047_mascot_chn.png (theo id lớp / đuôi tên)
+                    tail = Path(image).stem[4:]
+                    named = Path(image).parent / f"{scene['id']:03d}_{layer.get('id')}.png"
+                    found = [named] if layer.get("id") and named.exists() else \
+                        sorted(Path(image).parent.glob(f"{scene['id']:03d}_*{tail}.png")) if tail else []
+                    single = found[0] if len(found) == 1 else single
+                if Path(image).parent.name == "cutouts" and single.exists():
+                    old = layer.get("id") or Path(image).stem
+                    layer["image"] = single.as_posix()
+                    note(f"{image} không có, dùng {layer['image']}")
+                    new = layer.get("id") or single.stem
+                    renamed[old] = new
+                    renamed[Path(image).stem] = new
+                    renamed[Path(image).stem[4:]] = new         # "025_best_friend" -> tên nhân vật "best_friend"
+            for key in ("at", "path"):
+                places = layer.get(key)
+                if places is None:
+                    continue
+                listed = places if key == "path" else [places]
+                fixed = [guess_slot(p) if isinstance(p, str) and "." not in p and p not in SLOTS
+                         and p not in FLOOR and p not in EDGES else p for p in listed]
+                if fixed != listed:
+                    layer[key] = fixed if listed is places else fixed[0]
+                    note(f"vị trí {places} không có, dùng {layer[key]}")
+        # id lớp ảnh như check() / positions() tính: "id" nếu có, không thì tên file (lớp ảnh không ghi id vẫn bám được)
+        ids = [layer.get("id") or Path(layer["image"]).stem for layer in scene.get("layers", []) if "image" in layer]
+        main = variety.main_layer(scene)
+        target = (main.get("id") or Path(main["image"]).stem) if main else (ids[0] if ids else None)
+        # neo vào lớp không có (thường là tên nhân vật "best_friend.beside_right" khi cảnh chỉ có cutouts/NNN.png): chuyển sang
+        # lớp ảnh đổi tên ở trên, hoặc lớp ảnh chủ thể của cảnh
+        for layer in scene.get("layers", []):
+            if layer.get("effect"):
+                continue
+            for key in ("at", "path"):
+                places = layer.get(key)
+                listed = places if key == "path" and isinstance(places, list) else [places]
+                fixed = []
+                for place in listed:
+                    if isinstance(place, str) and "." in place and place.split(".", 1)[0] not in ids:
+                        name, anchor = place.split(".", 1)
+                        to = renamed.get(name) or target
+                        if to:
+                            fixed.append(f"{to}.{anchor}")
+                            note(f"'{place}': không có lớp '{name}', neo vào '{to}'")
+                            continue
+                    fixed.append(place)
+                if fixed != listed:
+                    layer[key] = fixed if key == "path" and isinstance(places, list) else fixed[0]
+        kept = []
+        for layer in scene.get("layers", []):
+            kind = layer.get("effect")
+            # hiệu ứng cần bám mà thiếu "on", hoặc ghi "on" trỏ vào lớp không có (vd "me": tên nhân vật) thì bám lớp ảnh của cảnh
+            if kind in effects.KINDS and layer.get("on") not in ids and (effects.KINDS[kind][0] or layer.get("on")):
+                if target is None:
+                    note(f"bỏ hiệu ứng '{kind}': cảnh không có lớp ảnh để bám")
+                    continue
+                layer["on"] = target
+                note(f"hiệu ứng '{kind}' bám vào '{target}'")
+            kept.append(layer)
+        for layer in [l for l in kept if l.get("effect") in effects.MANPU]:   # ký hiệu cảm xúc phải nằm trước mặt
+            target = next((l for l in kept if l.get("id") == layer.get("on")), None)
+            if target is not None and kept.index(layer) < kept.index(target):
+                kept.remove(layer)
+                kept.insert(kept.index(target) + 1, layer)
+                note(f"hiệu ứng '{layer['effect']}' chuyển ra sau lớp '{target['id']}' để vẽ trước mặt")
+        scene["layers"] = kept
+    return changes
 
 
 def check(script):
@@ -471,9 +959,10 @@ def check(script):
                 continue
             if "effect" in layer:
                 kind = layer["effect"]
-                if kind not in effects.KINDS:
-                    bad(f"hiệu ứng '{kind}' không có; có: {', '.join(effects.KINDS)}")
-                elif effects.KINDS[kind][0] and layer.get("on") not in ids:
+                if kind not in effects.KINDS and not fx_files(fx_group(kind)):
+                    bad(f"hiệu ứng '{kind}' không có; có: {', '.join(effects.KINDS)}, "
+                        f"{', '.join('fx_' + d.name for d in sorted(FX_DIR.glob('*')) if d.is_dir())}")
+                elif kind in effects.KINDS and effects.KINDS[kind][0] and layer.get("on") not in ids:
                     bad(f"hiệu ứng '{kind}' cần \"on\" là id một lớp trong cảnh (có: {', '.join(sorted(ids))})")
                 continue
             if layer.get("anim", "none") not in ANIMS:
@@ -568,24 +1057,46 @@ def render_frame(scene, bg, layers, t, length):
         local, life = timing(layer, t, length)
         if local < 0 or local > life:
             continue
+        if item.get("fx"):
+            frame = fx_blend(frame, item, local, life)
+            continue
         if item.get("effect"):
             effects.draw(frame, layer["effect"], local, life, effect_box(item, moves, lookup), (W, H),
-                         layer.get("colour"), seed=item["seed"])
+                         layer.get("colour"), seed=item["seed"], text=layer.get("text"))
             continue
         _, (px, py), scale, angle, alpha = moves[item["id"]]
-        img = item["img"]
-        if "alt" in item and int(local / ALT_INTERVAL) % 2:   # hai tư thế luân phiên
-            img = item["alt"]
-        if scale != 1.0:
-            img = img.resize((max(round(img.width * scale), 1), max(round(img.height * scale), 1)), Image.BILINEAR)
+        img, key = item["img"], "main"
+        if "alt" in item and (int(local / ALT_LOOP) % 2 if item.get("alt_loop")    # đi, chạy, vẫy: luân phiên
+                              else local >= life * ALT_SWITCH):                     # còn lại: đổi một lần giữa câu
+            img, key = item["alt"], "alt"
+        img = face_frame(scene, item, img, key, t)
+        travel = layer.get("over", 0.8) if len(item["points"]) > 1 else 0.0
+        sx, sy, jelly = deform(layer.get("anim", "none"), max(local - travel, 0.0), max(life - travel, 0.01))
+        lean = 0.0
+        if IDLE and item.get("character") and layer.get("anim", "none") not in IDLE_SKIP:
+            breath, lean = idle(t, sum(map(ord, item["id"])))
+            sy *= breath
+        drop = 0.0                                         # co giãn dọc giữ chân trên mặt đất
+        if lean and not jelly:
+            height = max(round(img.height * scale * sy), 1)
+            drop = (img.height * scale - height) / 2
+            img = lean_over(img, lean, scale * sx, scale * sy)
+        elif scale != 1.0 or sx != 1.0 or sy != 1.0:
+            height = max(round(img.height * scale * sy), 1)
+            drop = (img.height * scale - height) / 2
+            img = img.resize((max(round(img.width * scale * sx), 1), height), Image.BILINEAR)
+        if jelly:
+            img = jiggle(img, jelly, local)
         if angle:
             img = img.rotate(angle, Image.BICUBIC, expand=True)
         if alpha < 1.0:
             img = img.copy()
             img.putalpha(img.getchannel("A").point(lambda a: round(a * alpha)))
-        frame.paste(img, (round(px * W - img.width / 2), round(py * H - img.height / 2)), img)
+        frame.paste(img, (round(px * W - img.width / 2), round(py * H - img.height / 2 + drop)), img)
     if scene.get("filter") == "sepia":
         frame = ImageOps.colorize(ImageOps.grayscale(frame), "#2B1D0E", "#F3E3C3")
+    if scene.get("_focus"):                    # hai cú máy trong cảnh: thay cho chuyển động máy quay thường
+        return focus_camera(frame, scene, t, length)
     return camera(frame, scene.get("motion", "none"), t / length, t)
 
 
@@ -656,12 +1167,16 @@ def ambient_for(location):
     return next((group for word, group in AMBIENT_TIME if has(word)), None)
 SFX_TRANSITION = {"push_left": "whoosh", "push_right": "whoosh", "push_up": "whoosh", "zoom": "whoosh",
                   "wipe": "whoosh", "iris": "whoosh", "whip": "swish", "flash": "dodon"}
-SFX_EFFECT = {"flash": "dodon", "speed_lines": "don", "gloom": "gaan", "tears": "tear",
-              "sparkles": "kiran", "hearts": "kiran", "confetti": "fanfare", "aura": "aura", "rays": "shakin"}
+SFX_EFFECT = {"fx_sparkle": "kiran", "fx_glitter": "kiran", "fx_magic": "kiran", "fx_gold": "shakin",
+              "flash": "dodon", "speed_lines": "don", "gloom": "gaan", "tears": "tear",
+              "sparkles": "kiran", "hearts": "kiran", "confetti": "fanfare", "aura": "aura", "rays": "shakin",
+              "sweat": "hyu", "anger": "don", "shock_lines": "gaan", "idea": "pikon", "sigh": "shoboon",
+              "dizzy": "hatena"}
 SFX_STICKER = {"exclaim": "bikkuri", "question": "hatena", "sweat": "hyu", "gloom": "shoboon", "tear": "tear",
                "anger": "don", "lines": "gaan", "heart": "kiran", "spark": "pikon", "sparkle": "kiran"}
 # chỉ gắn tiếng cho chuyển động có chủ ý (kịch bản ghi); kiểu nhún variety.py tự chọn thì im lặng (video 009: quá nhiều ボヨン)
-SFX_ANIM = {"punch": "don", "jump": "boyon", "spin_in": "warp"}
+SFX_ANIM = {"punch": "don", "jump": "boyon", "spin_in": "warp", "squash": "boyon", "jelly": "boyon",
+            "puff": "don", "deflate": "shoboon", "stretch_up": "bikkuri"}
 SFX_MAX_PER_NAME = {"whoosh": 3}               # mỗi tiếng tối đa 4 lần một video (trừ tiếng ghi ở đây)
 SFX_SHARE = 0.3                                  # tổng số tiếng ~30% số cảnh; cảnh cảm xúc mạnh (variety.add_reaction) luôn được kêu
 SFX_STRONG = {"dodon", "jan", "gaan", "don", "kaisou", "whoosh", "heartbeat", "fall", "punch", "slap", "wrong", "correct"}
@@ -702,80 +1217,105 @@ def word_sfx(word):
     return ""                                       # chữ không có tiếng hợp: im lặng (trước đây mọi chữ đều kêu ポン)
 
 
+# Tiếng theo NỘI DUNG câu (chữ tiếng Nhật trong lời, hoặc tiếng Anh trong action): tiếng của chính sự việc trong cảnh,
+# hợp lý nhất nên được ưu tiên như tiếng ghi tay. Khớp mục đầu tiên. Nhóm tiếng: library/sfx/lab/<tên>.
+SFX_TEXT = [
+    (("着信", "電話が鳴", "スマホが鳴", "phone ringing", "phone rings"), "phone"),
+    (("メッセージが届", "通知が", "メールが届", "message notification"), "message"),
+    (("ノック", "knocking"), "knock"),
+    (("ドアを開", "扉を開", "ドアが開", "玄関を開", "opening the door", "opens the door"), "door"),
+    (("チャイム", "ベルが鳴", "school bell"), "bell"),
+    (("走って", "走り", "駆け", "急いで", "running", "rushing"), "dash"),
+    (("歩いて", "歩き", "walking"), "walk"),
+    (("食べ", "弁当", "ご飯を", "いただきます", "eating", "biting"), "eat"),
+    (("写真を撮", "シャッター", "taking a photo", "taking a picture"), "camera"),
+    (("財布", "お金", "給料", "小銭", "wallet", "coins"), "money"),
+    (("電車", "train"), "train"),
+    (("パソコン", "キーボード", "typing"), "keyboard"),
+    (("ドキドキ", "胸が高鳴", "鼓動", "heart pounding"), "heartbeat"),
+    (("時計", "時間がない", "締め切り", "looking at the clock", "clock"), "timer"),
+    (("転ん", "倒れ", "falling down", "trips"), "fall"),
+    (("ビンタ", "叩か", "slapping"), "slap"),
+    (("不合格", "間違い", "ハズレ", "失敗"), "wrong"),
+    (("合格", "正解", "当たり"), "correct"),
+    (("優勝", "おめでとう", "やったー", "celebrating"), "fanfare"),
+    (("なんでやねん", "ツッコ"), "tsukkomi"),
+    (("ずっこけ",), "zukkoke"),
+    (("泣い", "涙", "泣き", "crying", "tears"), "tear"),
+    (("怖", "恐ろし", "ゾッと", "horror"), "horror"),
+    (("ほっと", "安心", "relieved"), "heal"),
+    (("ひらめ", "思いつ", "そうだ！", "idea"), "pikon"),
+]
+
+
+SFX_TEXT_MAX = 2
+
+
+def text_sfx(scene, japanese_only=False):
+    """Tiếng hợp với nội dung câu (lời tiếng Nhật, action tiếng Anh), hoặc None. japanese_only: chỉ xét lời thoại
+    (action tiếng Anh hay đoán sai: "typing on phone" thành gõ phím, "eating" ở câu không liên quan)."""
+    text = str(scene.get("text", ""))
+    action = "" if japanese_only else str(scene.get("action", "")).lower()
+    for keys, name in SFX_TEXT:
+        if any(k in text or k.lower() in action for k in keys):
+            return name
+    return None
+
+
+# Tiếng chỉ khi THẬT cần (góp ý video 024: 36 tiếng / 48 cảnh, nhiều tiếng sai nghĩa: tiếng ăn ở câu "gọi điện cho trường",
+# gõ phím, bước chân, ドドン ở cảnh khóc). Không còn tự gắn theo chuyển cảnh, hiệu ứng, sticker, động tác, cảm xúc, hay đoán
+# theo action tiếng Anh. Chỉ: tiếng kịch bản ghi rõ ("sfx"), chữ tượng thanh có trên hình, câu thoại nhắc sự việc có tiếng
+# thật (SFX_REAL), câu chốt (impact), vào twist, vào hồi tưởng, kết video hài.
+SFX_REAL = {"phone", "message", "knock", "door", "bell", "camera", "fall", "slap", "train", "fanfare", "correct", "wrong",
+            "tsukkomi", "zukkoke"}
+SFX_SPARSE_SHARE = 0.1          # tiếng tự gắn tối đa ~10% số cảnh (tiếng ghi tay, chữ tượng thanh không tính)
+SFX_SPARSE_MAX = 2              # mỗi tiếng tối đa 2 lần / video
+
+
 def sfx_events(scene, has_previous):
-    """Các tiếng (tên, giây) của một cảnh: ghi tay trong "sfx" của cảnh, cộng với tiếng tự gắn theo chuyển cảnh,
-    rung khung, hiệu ứng, chữ tượng thanh và sticker. Tối đa 3 tiếng, mỗi tên một lần."""
-    events = []
-    for item in scene.get("sfx", []) or []:
+    """Các tiếng (tên, giây) của một cảnh, thưa: chỉ khi thật cần (xem SFX_REAL). Tối đa 1 tiếng một cảnh (ghi tay: 2)."""
+    must, auto = [], []
+    for item in scene.get("sfx", []) or []:                # kịch bản ghi rõ: luôn dùng
         if isinstance(item, str):
-            events.append((SFX_ALIAS.get(item, item), 0.0))
+            must.append((SFX_ALIAS.get(item, item), 0.0))
         elif isinstance(item, dict) and item.get("name"):
-            events.append((SFX_ALIAS.get(item["name"], item["name"]), float(item.get("at", 0))))
-    kind = scene.get("transition", "cut")
-    previous = scene.get("_previous") or {}
-    if has_previous and kind in SFX_TRANSITION:
-        events.append((SFX_TRANSITION[kind], 0.0))
-    elif has_previous and previous.get("location") not in (None, scene.get("location")):
-        events.append(("whoosh", 0.0))            # đổi bối cảnh bằng cắt thẳng / mờ: vẫn có tiếng lướt
-    if scene.get("beat") == "twist" and previous.get("beat") != "twist":
-        events.append(("jan", 0.0))               # vào cú twist: ジャン!
-    if scene.get("motion") in ("shake", "punch_in"):
-        events.append(("don", 0.0))               # ドン
-    if scene.get("_last") and "hài" in str(scene.get("_genre", "")).lower():
-        events.append(("chanchan", 0.3))          # kết video hài: チャンチャン
-    if scene.get("filter") == "sepia" and previous.get("filter") != "sepia":
-        events.append(("kaisou", 0.0))            # vào đoạn hồi tưởng
-    for layer in scene.get("layers", []):
-        start = float(layer.get("start", 0) or 0)
-        image = Path(str(layer.get("image", "")))
-        if "effect" in layer and layer["effect"] in SFX_EFFECT:
-            events.append((SFX_EFFECT[layer["effect"]], start))
-        elif image.parent.name == "stickers":
-            if image.stem in SFX_STICKER:
-                events.append((SFX_STICKER[image.stem], start + 0.05))
-        elif "word" in layer:
+            must.append((SFX_ALIAS.get(item["name"], item["name"]), float(item.get("at", 0))))
+    for layer in scene.get("layers", []):                   # chữ tượng thanh hiện trên hình thì có tiếng đúng chữ đó
+        if "word" in layer:
             name = word_sfx(str(layer["word"]))
             if name:
-                events.append((name, start + 0.05))
-        elif layer.get("path"):
-            events.append(("swish", start))         # nhân vật / đồ vật bay vào khung
-        elif layer.get("anim") in SFX_ANIM and layer.get("_auto_anim") is not True:
-            events.append((SFX_ANIM[layer["anim"]], start))
-    chosen, seen = [], set()
-    manual = len(scene.get("sfx", []) or [])
-    for k, (name, at) in enumerate(events):
-        if name in seen:
-            continue
-        seen.add(name)
-        chosen.append((k >= manual, SFX_PRIORITY.index(name) if name in SFX_PRIORITY else 99, name, at))
-    chosen.sort()                                   # tiếng ghi tay trước, rồi theo độ ưu tiên
-    picked = [(name, at) for _, _, name, at in chosen]
-    # không lặp cùng một tiếng trong 3 cảnh liền (video 009: ガーン 7 lần, ドン 6 lần); tiếng chuyển cảnh đổi bối cảnh vẫn giữ
-    recent = set((previous or {}).get("_sfx_names", [])) | set(((previous or {}).get("_previous") or {}).get("_sfx_names", []))
-    picked = [e for k, e in enumerate(picked) if k < manual or e[0] == "whoosh" or e[0] not in recent]
-    strong = [e for e in picked if e[0] in SFX_STRONG]
-    # thưa: mỗi cảnh 1 tiếng, cao trào (tiếng mạnh) được 2; cảnh trước vừa có tiếng thì cảnh này chỉ kêu nếu là tiếng mạnh
-    emotional = bool(scene.get("_emotion_fx"))      # bất ngờ, khóc, khoe...: tiếng là một phần của phản ứng
-    if (previous or {}).get("_sfx") and not strong and manual == 0 and not emotional:
-        picked = []
-    picked = picked[:2] if strong else picked[:1]
-    # giới hạn cả video: mỗi tiếng tối đa 3 lần, tổng ~45% số cảnh (đếm dồn qua các cảnh trước, cao trào được ưu tiên)
-    used = dict((previous or {}).get("_sfx_used", {}))
-    total = sum(used.values())
-    count = scene.get("_scene_count", 40)
-    budget = SFX_SHARE * (scene.get("_index", count - 1) + 1) + 1   # chia đều theo tiến độ video: không dồn hết vào nửa đầu
-    keep = []
-    for k, (name, at) in enumerate(picked):
-        if k >= manual and used.get(name, 0) >= SFX_MAX_PER_NAME.get(name, 4):
-            continue
-        if (k >= manual and total + len(keep) >= budget and scene.get("beat") not in ("twist", "climax")
-                and not emotional):
-            continue
-        keep.append((name, at))
-    picked = keep
+                must.append((name, float(layer.get("start", 0) or 0) + 0.05))
+    previous = scene.get("_previous") or {}
+    real = text_sfx(scene, japanese_only=True)
+    if real in SFX_REAL:
+        auto.append((real, 0.15))                           # câu nhắc sự việc có tiếng thật: chuông, gõ cửa, chụp ảnh...
+    card = scene.get("compare")
+    if isinstance(card, dict):                              # thẻ so sánh bật ra: "jan", bên thắng: đúng / sai
+        must.append(("jan", 0.0))
+        must.append(("correct" if card.get("winner") == "japan" else "wrong" if card.get("winner") == "other" else "boyon",
+                     0.55))
+    if scene.get("motion") == "impact" or scene.get("_index") == 0:
+        auto.append(("dodon", 0.0))                         # câu chốt; móc câu: tiếng nện ngay giây đầu
+    if scene.get("beat") == "twist" and previous.get("beat") != "twist":
+        auto.append(("jan", 0.0))
+    if scene.get("filter") == "sepia" and previous.get("filter") != "sepia":
+        auto.append(("kaisou", 0.0))
+    if scene.get("_last") and "hài" in str(scene.get("_genre", "")).lower():
+        auto.append(("chanchan", 0.3))
+    used = dict(previous.get("_sfx_used", {}))
+    recent = set(previous.get("_sfx_names", [])) | set((previous.get("_previous") or {}).get("_sfx_names", []))
+    auto_used = previous.get("_sfx_auto", 0)
+    budget = SFX_SPARSE_SHARE * (scene.get("_index", 0) + 1) + 1
+    picked = list(dict.fromkeys(must))[:2]
+    if not picked:
+        for name, at in auto:
+            if used.get(name, 0) < SFX_SPARSE_MAX and name not in recent and auto_used < budget:
+                picked = [(name, at)]
+                auto_used += 1
+                break
     for name, _ in picked:
         used[name] = used.get(name, 0) + 1
-    scene["_sfx_used"] = used
+    scene["_sfx_used"], scene["_sfx_auto"] = used, auto_used
     scene["_sfx"] = len(picked)
     scene["_sfx_names"] = [name for name, _ in picked]
     return picked
@@ -792,10 +1332,14 @@ def read_wav(path):
         return data, w.getframerate()
 
 
+SFX_BANNED = {l.strip() for l in (LIBRARY / "sfx" / "banned.txt").read_text(encoding="utf-8").splitlines()
+              if l.strip() and not l.startswith("#")} if (LIBRARY / "sfx" / "banned.txt").exists() else set()   # tiếng bị loại
+
+
 def sfx_file(name, seed):
     """Tiếng thật tải từ 効果音ラボ (library/sfx/lab/<nhóm>/, nhiều phiên bản, chọn luân phiên theo cảnh);
     nhóm chưa có thì dùng tiếng tạo bằng code library/sfx/<nhóm>.wav."""
-    choices = sorted((LIBRARY / "sfx" / "lab" / name).glob("*.wav"))
+    choices = sorted(f for f in (LIBRARY / "sfx" / "lab" / name).glob("*.wav") if f.stem not in SFX_BANNED)
     if choices:
         return choices[seed % len(choices)]
     return LIBRARY / "sfx" / f"{name}.wav"
@@ -853,9 +1397,11 @@ def render_clip(scene, font_file, audio, clip, previous=None):
     """Vẽ từng khung hình của một cảnh và đẩy thẳng vào ffmpeg cùng giọng đọc.
     previous: khung hình cuối của cảnh trước, để chuyển cảnh trong TRANSITION giây đầu.
     Trả về (độ dài cảnh, khung hình cuối)."""
-    frames = round((duration(audio) + PAD) * FPS)
+    frames = round((duration(audio) + PAD + scene.get("_hold", 0.0)) * FPS)   # _hold: cảnh cuối giữ thêm cho đủ độ dài
     length = frames / FPS
     bg, layers = background(scene), load_layers(scene, font_file)
+    moving = clip_backgrounds(scene)                       # nền là clip image-to-video thay cho tranh tĩnh
+    scene["_mouth"] = mouth_track(audio, frames)          # miệng nhân vật đang nói mở theo tiếng của chính câu này
     kind = scene.get("transition", "cut")
     blend = round(TRANSITION * FPS) if previous is not None and kind != "cut" else 0
     audio = mix_sfx(audio, sfx_events(scene, previous is not None), length, clip.with_name(f"{clip.stem}_mix.wav"),
@@ -868,7 +1414,7 @@ def render_clip(scene, font_file, audio, clip, previous=None):
          "-c:a", "aac", "-ar", "48000", "-ac", "2", str(clip)], stdin=subprocess.PIPE)
     frame = None
     for i in range(frames):
-        frame = render_frame(scene, bg, layers, i / FPS, length)
+        frame = render_frame(scene, moving[min(i, len(moving) - 1)] if moving else bg, layers, i / FPS, length)
         if i < blend:
             frame = transition(kind, previous, frame, (i + 1) / (blend + 1))
         ffmpeg.stdin.write(frame.tobytes())
@@ -1005,7 +1551,8 @@ def deepen(colour, factor=0.62):
 
 
 TITLE_SECOND_LINE = 0.8                            # dòng 2 tiêu đề nhỏ hơn dòng 1 (như video mẫu 感動の迷言集 / 七歳の手)
-TITLE_SIDE = 40                                    # lề trái phải tối thiểu của tiêu đề (px)
+TITLE_SIDE = 100                                   # lề trái phải tối thiểu của tiêu đề (px); 40 -> 100: thụt vào
+TITLE_TOP = 70                                     # đẩy tiêu đề xuống (px): thanh trên cùng của TikTok che mép trên khung
 
 
 def title_sizes(title_lines, font_file, band):
@@ -1028,8 +1575,8 @@ def title_sizes(title_lines, font_file, band):
         # bề rộng ở cỡ ASS size = width100/100 * em * size, cộng viền hai bên (size/11 mỗi bên) và 4% cho chữ đậm
         fit = (W - 2 * TITLE_SIDE) / (width100 / 100 * em * 1.04 + 2 / 11) if width100 else size
         sizes.append(max(min(size, int(fit)), 36))
-    if band and sum(sizes) > band - 20:             # cao quá dải đen: thu đều cho vừa
-        scale = (band - 20) / sum(sizes)
+    if band and sum(sizes) > band - 20 - TITLE_TOP:  # cao quá phần dải đen dưới thanh TikTok: thu đều cho vừa
+        scale = (band - 20 - TITLE_TOP) / sum(sizes)
         sizes = [max(int(s * scale), 36) for s in sizes]
     return sizes
 
@@ -1051,7 +1598,7 @@ def write_subtitles(script, timings, total, path):
     sizes = title_sizes(title_lines, font_path(script), band)
     lines.append(f"Style: Title,{font},{VIDEO['title_size']},&H0042CFFF,&H000E1C30,&H80000000,1,1,"
                  f"{max(round(VIDEO['title_size'] / 11), 6)},3,8,20,20,"
-                 f"{max(round((band - sum(sizes)) / 2), 6) if band else 90}")
+                 f"{max(round((band - TITLE_TOP - sum(sizes)) / 2), 6) + TITLE_TOP if band else 90}")
     for name, colour in script["speakers"].items():
         text_colour = VIDEO.get("narration_colour", "#2747F5") if name == "narrator" else deepen(colour)
         lines.append(f"Style: {name},{font},{size},{ass_colour(text_colour)},&H00FFFFFF,"
@@ -1085,6 +1632,8 @@ def pick_music(script):
     group = script.get("bgm")
     if group == "none":
         return None
+    if group and group.endswith(".mp3") and (LIBRARY / "bgm" / group).exists():   # bài cố định: "comical/retroparty.mp3"
+        return LIBRARY / "bgm" / group
     if not group:
         genre = str(script.get("genre", "")).lower()
         group = next((g for word, g in BGM_BY_GENRE if word in genre), "kandou")
@@ -1094,7 +1643,7 @@ def pick_music(script):
     return tracks[sum(map(ord, Path.cwd().name)) % len(tracks)]
 
 
-MUSIC_LOUDER = {"comical": 11, "honobono": 15}   # nhạc hài, ấm áp to hơn (video mẫu 愛彼女弁当: nhạc gần ngang giọng)
+MUSIC_LOUDER = {"comical": 14, "honobono": 18}   # nhạc hài, ấm áp to hơn (video mẫu 愛彼女弁当: nhạc gần ngang giọng)
 MUSIC_BREAK = 0.7                                  # giây tắt nhạc ở đầu cảnh chốt
 
 
@@ -1102,12 +1651,18 @@ def music_breaks(script, timings):
     """Khoảng (bắt đầu, kết thúc) tắt nhạc: đầu cảnh chốt (vào twist, cảnh rung / chớp, hoặc "music_stop": true trong
     kịch bản). Học video mẫu 愛彼女弁当: nhạc im bặt ~0,6 giây đúng câu chốt rồi vào lại."""
     out = []
+    if script.get("country"):                       # video so sánh: nhạc chạy liền, không tắt (người dùng thấy như khoảng nghỉ)
+        return out
     for prev, scene, (start, end) in zip([None] + script["scenes"][:-1], script["scenes"], timings):
         twist = scene.get("beat") == "twist" and (prev or {}).get("beat") != "twist"
-        hit = scene.get("motion") == "shake" or scene.get("transition") == "flash"
+        hit = scene.get("motion") in ("shake", "impact") or scene.get("transition") == "flash"
         if scene.get("music_stop") or twist or hit:
             out.append((start, min(start + MUSIC_BREAK, end)))
     return out[:4]                                  # tối đa 4 lần một video, không thì thành vụn
+
+
+MIN_SECONDS = VIDEO.get("min_seconds", 61.0)     # độ dài tối thiểu của video (giây), [video] min_seconds
+NEW_STYLE_MUSIC_BELOW = 13      # dB, cách dựng mới
 
 
 def music_gain(track, voice_files, group=""):
@@ -1143,6 +1698,8 @@ def main():
     for line in summarize_changes(normalize_script(script)):   # gộp các dòng "bỏ null" cho log gọn
         print("  sửa kịch bản:", line)
     script = variety.fill(script)                  # điền chuyển động còn trống
+    for line in repair(script):                    # tên ảnh, "on" của hiệu ứng, vị trí model đặt sai
+        print("  sửa kịch bản:", line)
     problems = check(script)
     if problems:                                   # dừng trước khi dựng, không ra video lỗi hiệu ứng
         sys.exit("Kịch bản có lỗi, sửa rồi chạy lại:\n  " + "\n  ".join(problems))
@@ -1153,6 +1710,12 @@ def main():
     TMP.mkdir(parents=True, exist_ok=True)
     font_file = font_path(script)
     clips, timings, clock, last = [], [], 0.0, None
+    # video phải trên 1 phút (TikTok tính tiền từ 60 giây): thiếu thì cảnh cuối (câu hỏi cho người xem) giữ thêm, không chèn
+    # khoảng nghỉ giữa video. Video so sánh đọc nhanh, không tự đọc chậm lại nên hay hụt (048: 57,4 giây).
+    planned = sum(duration(Path("audio") / f"{s['id']:03d}.wav") + PAD for s in script["scenes"])
+    script["scenes"][-1]["_hold"] = max(0.0, MIN_SECONDS - planned)
+    if script["scenes"][-1]["_hold"]:
+        print(f"Giọng + nghỉ {planned:.1f} giây < {MIN_SECONDS}: cảnh cuối giữ thêm {script['scenes'][-1]['_hold']:.1f} giây")
     for previous, scene in zip([None] + script["scenes"][:-1], script["scenes"]):
         scene["_previous"] = previous             # cảnh trước: để gắn tiếng khi đổi bối cảnh, vào twist
         scene["_last"], scene["_genre"] = scene is script["scenes"][-1], script.get("genre", "")
@@ -1184,6 +1747,11 @@ def main():
     music = pick_music(script)
     if music:
         gain = music_gain(music, [Path("audio") / f"{s['id']:03d}.wav" for s in script["scenes"]], music.parent.name)
+        if script.get("style") == "new":                  # như video mẫu: nhạc nền rõ, ~13 dB dưới giọng (đo 11-14 dB)
+            below = MUSIC_LOUDER.get(music.parent.name, VIDEO.get("music_below_voice", 18))
+            gain *= 10 ** ((below - NEW_STYLE_MUSIC_BELOW) / 20)
+        if script.get("music_quieter"):                   # chỉnh tay từng video: nhạc nhỏ đi thêm N dB (video 048: 4)
+            gain *= 10 ** (-float(script["music_quieter"]) / 20)
         breaks = music_breaks(script, timings)
         print(f"Nhạc nền: {music.parent.name}/{music.name}, âm lượng x{gain:.3f}, tắt nhạc ở "
               f"{', '.join(f'{a:.1f}s' for a, _ in breaks) or 'không chỗ nào'}")

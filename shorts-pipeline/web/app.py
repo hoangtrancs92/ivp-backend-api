@@ -58,16 +58,20 @@ CATEGORIES = {   # hạng mục góp ý: khớp với các bước của quy tr�
 }
 DEFAULT_SETTINGS = {           # admin sửa ở trang Cài đặt AI
     "ai_base_url": "https://api.shopaikey.com/v1",
-    "models": ["claude-opus-5-5", "claude-sonnet-5-5", "claude-sonnet-5", "gpt-5.6-luna"],
-    "script_model": "claude-opus-5-5",
+    "models": ["claude-sonnet-5-5", "claude-sonnet-5", "gpt-5.6-luna"],
+    "script_model": "claude-sonnet-5",
     "review_model": "claude-sonnet-5-5",
     "image_model": "gemini-2.5-flash-image",   # sửa ảnh lỗi của video đã xong (tools/fix_scenes.py)
     "telegram_bot_token": "",  # bot tạo qua @BotFather; trống = tắt thông báo Telegram
     "telegram_bot_username": "shorts_video_imgpro_bot",   # tự cập nhật (getMe) khi lưu token mới
     "public_url": "",          # địa chỉ trang web (vd link Cloudflare) để gắn vào tin nhắn; tùy chọn
+    "pixabay_key": "",         # ảnh thật cho video so sánh (steps/fetch_photos.py), dùng trước Pexels
+    "pexels_key": "",          # dự phòng; Pexels tạm ngừng cấp khóa mới (2026-10). Cả hai trống = dựng không có ảnh thật
 }
 NOTIFY_MODES = ("all", "errors", "")   # thông báo Telegram: lỗi + xong + chờ duyệt / chỉ lỗi / tắt
 VIDEOS = ROOT / "videos"
+STORY_MODES = ("auto", "twist", "sukatto", "touching", "comedy", "kaigai", "contrast")   # kiểu chuyện = steps/01_script.py STORY_MODES
+SKITS = ROOT / "skits"                         # chức năng Tiểu phẩm (skit/), tách riêng khỏi videos/
 DIST = Path(__file__).with_name("dist")        # bản build của giao diện React (npm run build)
 TYPES = {".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml",
          ".png": "image/png", ".jpg": "image/jpeg", ".mp4": "video/mp4"}
@@ -80,6 +84,7 @@ ACTIONS = {   # việc: (tên, lệnh chạy ở ROOT, khóa bắt buộc)
     "auto": ("Tạo video", lambda v: ["tools/auto.py", f"videos/{v}"], ["kaggle_key", "ai_api_key"]),
     "fix": ("Sửa cảnh bằng AI", lambda v: ["tools/fix_scenes.py", f"videos/{v}", "--edit"], ["ai_api_key"]),
     "fix_apply": ("Áp dụng ảnh sửa", lambda v: ["tools/fix_scenes.py", f"videos/{v}", "--apply"], []),
+    "skit": ("Tạo tiểu phẩm", lambda v: ["skit/auto.py", f"skits/{v}"], ["kaggle_key", "ai_api_key"]),
     "upload_lora": ("Đưa LoRA lên Kaggle",
                     lambda v: ["tools/run_kaggle.py", "loras/style.safetensors", "--upload-lora"], ["kaggle_key"]),
 }
@@ -340,7 +345,9 @@ def settings():
 def public_settings():
     """Cài đặt gửi về trình duyệt: không có token bot, chỉ báo đã có hay chưa."""
     conf = settings()
-    return {**{k: v for k, v in conf.items() if k != "telegram_bot_token"}, "telegram_bot": bool(conf.get("telegram_bot_token"))}
+    return {**{k: v for k, v in conf.items() if k not in ("telegram_bot_token", "pexels_key", "pixabay_key")},
+            "telegram_bot": bool(conf.get("telegram_bot_token")), "pexels": bool(conf.get("pexels_key")),
+            "pixabay": bool(conf.get("pixabay_key"))}
 
 
 def save_settings(me, body):
@@ -360,6 +367,8 @@ def save_settings(me, body):
     new = {"ai_base_url": url, "models": models, "public_url": public_url,
            "telegram_bot_token": body.get("telegram_bot_token", "").strip() or old.get("telegram_bot_token", ""),
            "telegram_bot_username": old.get("telegram_bot_username", ""),
+           "pexels_key": body.get("pexels_key", "").strip() or old.get("pexels_key", ""),
+           "pixabay_key": body.get("pixabay_key", "").strip() or old.get("pixabay_key", ""),
            "script_model": body.get("script_model") if body.get("script_model") in models else models[0],
            "review_model": body.get("review_model") if body.get("review_model") in models else models[0],
            "image_model": (body.get("image_model") or "").strip() or old.get("image_model") or DEFAULT_SETTINGS["image_model"]}
@@ -747,13 +756,23 @@ def video_info(d, runs):
             "prompt": prompt.read_text(encoding="utf-8") if prompt.exists() else "",
             "output": (d / "output.mp4").exists(), "thumb": thumbnail(d), "progress": progress,
             "owner": owner(d, runs), "updated": d.stat().st_mtime, "run": mine[-1] if mine else None,
-            "models": {k: v for k, v in load(d / "meta.json", {}).items() if k in ("script_model", "review_model", "review_mode")},
+            # kiểu kể: meta.json (lúc tạo), không có thì lấy từ kịch bản (01_script.py ghi voice_mode khi viết)
+            "models": {**{k: v for k, v in load(d / "meta.json", {}).items()
+                          if k in ("script_model", "review_model", "review_mode", "voice_mode", "story_mode", "style", "country")},
+                       **({} if "voice_mode" in load(d / "meta.json", {}) or not script.get("voice_mode")
+                          else {"voice_mode": script["voice_mode"]})},
+            # tên giọng VOICEVOX đã dùng: phải ghi ở mô tả khi đăng video
+            "credits": (d / "credits.txt").read_text(encoding="utf-8").strip() if (d / "credits.txt").exists() else "",
+            "posted": posted_info(d),
             # đang sửa cảnh bằng AI (tools/fix_scenes.py): cảnh nào, AI sửa được mấy ảnh, đang ở bước nào
             "fix": fix_info(d, mine[-1]) if mine and mine[-1]["status"] == "running"
             and mine[-1].get("action") in ("fix", "fix_apply") else None,
             "fix_review": fix_review(d) if not mine or mine[-1]["status"] != "running" else None,
             "review": review_info(d, script) if progress and progress["steps"].get("review", {}).get("status") == "waiting"
             and (not mine or mine[-1]["status"] != "running") else None}
+
+
+STARTED = time.time()      # giờ server khởi động: app.py sửa sau giờ này thì server đang chạy code cũ (video 044)
 
 
 def state(me):
@@ -772,12 +791,42 @@ def state(me):
                        "quota": q, "last_seen": max([online.get(name, 0)] + [r["started"] for r in mine])})
     videos = [video_info(d, runs) for d in VIDEOS.iterdir() if d.is_dir() and not d.name.startswith("_")]
     videos.sort(key=lambda v: v["name"], reverse=True)
-    return {"me": me, "users": public, "videos": videos, "runs": runs[-100:][::-1], "settings": public_settings(),
+    skits = sorted((skit_info(d, runs) for d in SKITS.iterdir() if d.is_dir()) if SKITS.exists() else [],
+                   key=lambda v: v["name"], reverse=True)
+    return {"me": me, "users": public, "videos": videos, "skits": skits, "runs": runs[-100:][::-1], "settings": public_settings(),
+            "stale": Path(__file__).stat().st_mtime > STARTED,
             "feedback": feedback_items(), "categories": CATEGORIES,
             "stats": {"users": len(users), "online": sum(u["online"] for u in public),
                       "active": len({r["user"] for r in runs if r["status"] == "running"}),
                       "running": sum(r["status"] == "running" for r in runs),
                       "videos": sum(v["output"] for v in videos)}}
+
+
+def posted_info(d):
+    """Đã đăng TikTok chưa (người dùng tự đánh dấu): {"by", "at"} hoặc None. Lưu trong meta.json của video / tiểu phẩm."""
+    meta = load(d / "meta.json", {})
+    return meta.get("posted") or None
+
+
+def set_posted(me, body):
+    """Đánh dấu / bỏ đánh dấu đã đăng TikTok. Chủ video hoặc admin."""
+    kind, name = body.get("kind"), body.get("name", "")
+    if kind == "skit":
+        d = skit_dir(name)
+        can_manage_skit(me, name)
+    else:
+        d = video_dir(name)
+        can_manage_video(me, name)
+    if not (d / "output.mp4").exists():
+        raise ValueError("Video chưa dựng xong.")
+    with lock:
+        meta = load(d / "meta.json", {})
+        if body.get("posted"):
+            meta["posted"] = {"by": me["name"], "at": time.time()}
+        else:
+            meta.pop("posted", None)
+        save(d / "meta.json", meta)
+    return {"posted": meta.get("posted")}
 
 
 def can_manage_video(me, name):
@@ -802,6 +851,95 @@ def delete_video(me, name):
         if r["video"] == name and r["status"] == "running":
             stop_run(me, r["id"])
             time.sleep(1)                       # chờ tiến trình nhả file trên Windows
+    for attempt in range(5):
+        try:
+            return shutil.rmtree(d)
+        except OSError:
+            time.sleep(1)
+    raise ValueError("Chưa xóa hết được thư mục (có file đang mở?), thử lại sau ít giây.")
+
+
+# ---------- tiểu phẩm (skit/) ----------
+
+SKIT_FORMATS = ("loop", "list", "incident", "story", "misunderstanding", "interview", "reaction", "free")   # = skit/write.py
+
+def skit_dir(name):
+    if not re.fullmatch(r"skit-[\w.-]{1,80}", name or "") or not (SKITS / name).is_dir():
+        raise ValueError("Không có tiểu phẩm này.")
+    return SKITS / name
+
+
+def skit_info(d, runs):
+    skit = load(d / "skit.json", {})
+    progress = load(d / "progress.json", None)
+    if progress:
+        kaggle = load(d / "work" / "kaggle_progress.json", None)
+        if kaggle and progress["steps"].get("kaggle", {}).get("status") == "running":
+            progress["kaggle"] = kaggle
+    mine = [r for r in runs if r["video"] == d.name]
+    meta = load(d / "meta.json", {})
+    timing = load(d / "audio" / "timing.json", {})
+    first = next(iter(skit.get("cast", {})), None)
+    thumb = f"cutouts/{first}_normal.png" if first and (d / "cutouts" / f"{first}_normal.png").exists() else None
+    faces = [f"cutouts/{n}_normal.png" for n in skit.get("cast", {}) if (d / "cutouts" / f"{n}_normal.png").exists()]
+    steps = (progress or {}).get("steps", {})
+    current = next((s for s in steps.values() if s.get("status") in ("running", "failed")), None)
+    return {"name": d.name, "title": " ".join(skit.get("title", [])), "format": skit.get("format"),
+            "lines": len(skit.get("lines", [])), "cast": len(skit.get("cast", {})),
+            "inserts": len({l.get("insert") for l in skit.get("lines", []) if l.get("insert")}),
+            "seconds": timing.get("total"), "prompt": (d / "prompt.txt").read_text(encoding="utf-8")
+            if (d / "prompt.txt").exists() else "", "output": (d / "output.mp4").exists(), "thumb": thumb,
+            "progress": progress, "owner": meta.get("owner", ""), "updated": d.stat().st_mtime,
+            "run": mine[-1] if mine else None, "script_model": meta.get("script_model", ""),
+            "poster": "work/poster.jpg" if (d / "work" / "poster.jpg").exists() else None, "faces": faces,
+            "step": {"label": current["label"], "status": current["status"], "note": current.get("note", "")} if current else None,
+            "steps_done": sum(s.get("status") in ("done", "skipped") for s in steps.values()), "steps_total": len(steps),
+            "grade": skit.get("grade"), "directed": bool(skit.get("directed")), "structure": skit.get("structure") or [],
+            "credits": (d / "credits.txt").read_text(encoding="utf-8").strip() if (d / "credits.txt").exists() else "",
+            "posted": posted_info(d)}
+
+
+def can_manage_skit(me, name):
+    if me["role"] != "admin" and load(SKITS / name / "meta.json", {}).get("owner") != me["name"]:
+        raise Denied("Bạn chỉ thao tác được trên tiểu phẩm của mình.")
+
+
+def generate_skit(me, body):
+    prompt = (body.get("prompt") or "").strip()
+    if len(prompt) < 5:
+        raise ValueError("Nhập ý tưởng tiểu phẩm (ít nhất vài chữ).")
+    check_user(me["name"], "skit")
+    conf = settings()
+    with lock:
+        SKITS.mkdir(exist_ok=True)
+        numbers = [int(m[1]) for d in SKITS.iterdir() if (m := re.match(r"skit-(\d{3})-", d.name))]
+        name = f"skit-{max(numbers, default=0) + 1:03d}-{slug(prompt)}"
+        (SKITS / name).mkdir(parents=True)
+        (SKITS / name / "prompt.txt").write_text(prompt, encoding="utf-8")
+        save(SKITS / name / "meta.json", {"owner": me["name"], "created": time.time(),
+                                          "script_model": body.get("script_model") or conf["script_model"],
+                                          "format": body.get("format") if body.get("format") in SKIT_FORMATS else ""})
+    try:
+        return start_run(me["name"], "skit", name, prompt)
+    except ValueError:
+        shutil.rmtree(SKITS / name, ignore_errors=True)
+        raise
+
+
+def resume_skit(me, name):
+    d = skit_dir(name)
+    can_manage_skit(me, name)
+    owner_name = load(d / "meta.json", {}).get("owner")
+    return start_run(owner_name if owner_name in load(USERS, {}) else me["name"], "skit", name, by=me["name"])
+
+
+def delete_skit(me, name):
+    d = skit_dir(name)
+    can_manage_skit(me, name)
+    for r in load(RUNS, []):
+        if r["video"] == name and r["status"] == "running":
+            stop_run(me, r["id"])
+            time.sleep(1)
     for attempt in range(5):
         try:
             return shutil.rmtree(d)
@@ -875,7 +1013,12 @@ def generate(me, body):
     check_user(me["name"], "auto")
     conf = settings()
     chosen = {k: body.get(k) or conf[k] for k in ("script_model", "review_model")}
-    chosen["review_mode"] = body.get("review_mode") if body.get("review_mode") in ("manual", "ai", "none") else "manual"
+    chosen["review_mode"] = body.get("review_mode") if body.get("review_mode") in ("manual", "ai", "none") else "none"
+    chosen["voice_mode"] = body.get("voice_mode") if body.get("voice_mode") in ("narration", "dialogue") else "narration"
+    chosen["story_mode"] = body.get("story_mode") if body.get("story_mode") in STORY_MODES else "auto"
+    chosen["country"] = str(body.get("country") or "CHN")[:3].upper()     # "Nhật Bản vs nước khác" (steps/compare_facts.py)
+    chosen["style"] = "new" if body.get("style") == "new" else "classic"
+    chosen["contrast_mode"] = bool(body.get("contrast_mode"))
     with lock:
         name = new_video_name(prompt)
         (VIDEOS / name).mkdir(parents=True)
@@ -934,12 +1077,18 @@ def start_run(name, action, video="", prompt="", extra_env=None, by=None):
     for k in ("ANTHROPIC_API_KEY", "AI_API_KEY", "CLAUDE_MODEL"):   # chỉ dùng khóa của người chạy, không lấy nhầm của máy
         env.pop(k, None)
     conf = settings()
-    meta = load(VIDEOS / video / "meta.json", {}) if video else {}
+    meta = load((SKITS if action == "skit" else VIDEOS) / video / "meta.json", {}) if video else {}
     env.update(AI_BASE_URL=conf["ai_base_url"], AI_API_KEY=u.get("ai_api_key", ""),
                AI_MODEL_SCRIPT=meta.get("script_model") or conf["script_model"],
                AI_MODEL_REVIEW=meta.get("review_model") or conf["review_model"],
                AI_MODEL_IMAGE=conf.get("image_model") or DEFAULT_SETTINGS["image_model"],
-               SHORTS_REVIEW_MODE=meta.get("review_mode", "manual"))
+               PEXELS_API_KEY=conf.get("pexels_key", ""), PIXABAY_API_KEY=conf.get("pixabay_key", ""),
+               SHORTS_REVIEW_MODE=meta.get("review_mode", "manual"),
+               SHORTS_VOICE_MODE=meta.get("voice_mode", "narration"), SHORTS_STORY_MODE=meta.get("story_mode", "auto"),
+               SHORTS_COUNTRY=meta.get("country", "CHN"),
+               SHORTS_CONTRAST_MODE="1" if meta.get("contrast_mode") else "0",
+               SHORTS_STYLE=meta.get("style", "classic"),
+               SKIT_FORMAT=meta.get("format", ""))
     env.update(extra_env or {})
     LOGS.mkdir(parents=True, exist_ok=True)
     log = open(LOGS / f"{run_id}.log", "w", encoding="utf-8")
@@ -1064,6 +1213,10 @@ class Handler(BaseHTTPRequestHandler):
             if m and (VIDEOS / m[1] / m[2]).is_file():
                 download = "download" in parse_qs(url.query) and m[2] == "output.mp4"
                 return self.send_file(VIDEOS / m[1] / m[2], f"{m[1]}.mp4" if download else None)
+            m = re.fullmatch(r"/skits/(skit-[\w.-]+)/(output\.mp4|cutouts/[\w.-]+\.png|work/frames/[\w.-]+\.png|work/poster\.jpg)", path)
+            if m and (SKITS / m[1] / m[2]).is_file():
+                download = "download" in parse_qs(url.query) and m[2] == "output.mp4"
+                return self.send_file(SKITS / m[1] / m[2], f"{m[1]}.mp4" if download else None)
             self.reply(404, {"error": "Không có."})
         except Denied as e:
             self.reply(e.code, {"error": str(e)})
@@ -1089,6 +1242,15 @@ class Handler(BaseHTTPRequestHandler):
                 name = video_dir(body.get("video", "")).name
                 can_manage_video(me, name)
                 return self.reply(200, start_run(runner_for(me, name), "auto", name, by=me["name"]))
+            if path == "/api/posted":
+                return self.reply(200, set_posted(me, body))
+            if path == "/api/skit/generate":
+                return self.reply(200, generate_skit(me, body))
+            if path == "/api/skit/resume":
+                return self.reply(200, resume_skit(me, body.get("skit", "")))
+            if path == "/api/skit/delete":
+                delete_skit(me, body.get("skit", ""))
+                return self.reply(200, {})
             if path == "/api/fix":
                 return self.reply(200, fix_scenes(me, body))
             if path == "/api/fix/apply":

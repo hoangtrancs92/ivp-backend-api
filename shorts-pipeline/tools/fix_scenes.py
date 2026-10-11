@@ -155,6 +155,10 @@ def apply(video, names):
     fix.report(phase="cutouts")
     if subprocess.run([sys.executable, "steps/04_cutouts.py", str(video.relative_to(ROOT))], cwd=ROOT, env=env).returncode:
         sys.exit("Lỗi ở bước tách nền.")
+    for name in names:                          # ảnh mắt nhắm / miệng mở của ảnh cũ không còn khớp: làm lại
+        for old in (video / "cutouts" / "faces").glob(f"{Path(name).stem}_*"):
+            old.unlink()
+    subprocess.run([sys.executable, "tools/make_faces.py", str(video.relative_to(ROOT))], cwd=ROOT, env=env)   # lỗi: bỏ qua
     approved = video / "review" / "approved.json"          # ảnh đã đổi: cập nhật dấu duyệt để Chạy tiếp không hỏi lại
     if approved.exists():
         data = json.loads(approved.read_text(encoding="utf-8"))

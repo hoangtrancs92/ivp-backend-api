@@ -7,6 +7,7 @@ export default function Settings({ state, notify, refresh }) {
   const [form, setForm] = useState({
     ai_base_url: s.ai_base_url, models: s.models.join("\n"), script_model: s.script_model, review_model: s.review_model,
     telegram_bot_token: "", public_url: s.public_url || "", image_model: s.image_model || "gemini-2.5-flash-image",
+    pexels_key: "", pixabay_key: "",
   });
   const [available, setAvailable] = useState(null);     // danh sách lấy từ cổng
   const [filter, setFilter] = useState("");
@@ -71,7 +72,7 @@ export default function Settings({ state, notify, refresh }) {
         <div className="form-row">
           <label className="field">Viết kịch bản
             <select value={form.script_model} onChange={set("script_model")}>{models.map((m) => <option key={m}>{m}</option>)}</select>
-            <small className="muted">Model mạnh viết truyện tiếng Nhật hay hơn (vd claude-opus).</small>
+            <small className="muted">Model mặc định dùng để viết truyện tiếng Nhật.</small>
           </label>
           <label className="field">Duyệt ảnh
             <select value={form.review_model} onChange={set("review_model")}>{models.map((m) => <option key={m}>{m}</option>)}</select>
@@ -84,6 +85,29 @@ export default function Settings({ state, notify, refresh }) {
                 .map((m) => <option key={m} value={m} />)}
             </datalist>
             <small className="muted">Model vẽ / sửa ảnh của cổng AI. Nút "🛠 Sửa cảnh lỗi" ở video đã xong dùng model này.</small>
+          </label>
+        </div>
+      </section>
+
+      <section className="panel padded">
+        <h2>Ảnh thật <em className="muted">(video Nhật Bản vs nước khác)</em></h2>
+        <p className="muted">
+          Kịch bản so sánh có 3-5 cảnh ảnh chụp thật làm dẫn chứng, tải tự động (miễn phí, dùng được cho video kiếm tiền, không bắt
+          ghi nguồn). Pixabay: đăng ký tài khoản, đăng nhập rồi mở{" "}
+          <a href="https://pixabay.com/api/docs/" target="_blank" rel="noreferrer">pixabay.com/api/docs</a>, khóa nằm ở mục
+          Parameters (dòng key). Pexels đang tạm ngừng cấp khóa mới. Ngoài ra luôn tìm thêm Wikimedia Commons (không cần khóa, nhiều
+          ảnh đúng mẫu xe; nguồn ảnh tự ghi vào credits.txt của video). Từ khóa có tên hãng thì tìm Wikimedia trước.
+        </p>
+        <div className="form-row">
+          <label className="field">
+            <span>Khóa API Pixabay {s.pixabay && <em className="ok">✓ đã có</em>}</span>
+            <input type="password" autoComplete="off" value={form.pixabay_key} onChange={set("pixabay_key")}
+              placeholder={s.pixabay ? "để trống để giữ khóa cũ" : "dán khóa API Pixabay"} />
+          </label>
+          <label className="field">
+            <span>Khóa API Pexels {s.pexels && <em className="ok">✓ đã có</em>}</span>
+            <input type="password" autoComplete="off" value={form.pexels_key} onChange={set("pexels_key")}
+              placeholder={s.pexels ? "để trống để giữ khóa cũ" : "dán khóa API Pexels"} />
           </label>
         </div>
       </section>

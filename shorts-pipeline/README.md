@@ -123,6 +123,9 @@ Lịch sử chi tiết từng thay đổi (lý do, kết quả kiểm tra): `doc
 | 2026-10-06 | **Quy tắc viết kịch bản tách ra `config/script_guide.md`**, gửi kèm cho Claude khi viết kịch bản | Sửa quy tắc không cần sửa code; kịch bản đa dạng hơn (khung hình, sticker, chuyển động) |
 | 2026-10-06 | Token Hugging Face gửi kèm dataset job riêng tư lên Kaggle | Tải model có đăng nhập, ít bị giới hạn. Token rời khỏi máy nhưng chỉ nằm trong dataset riêng tư |
 | 2026-10-06 | **Sticker tự khớp nhân vật**: vị trí theo hình dáng thật (đầu, tay), cỡ theo cỡ nhân vật, luôn nằm trong khung | Điểm neo theo khung chữ nhật làm sticker đứng xa và bị cắt ở mép |
+| 2026-10-10 | Cách dựng mới: phụ nữ trẻ đẹp (mẹ trẻ, người mẫu, siêu mẫu…) là nhân vật `art: anime`, mô tả thêm nét đẹp gợi cảm nhưng kín đáo, luôn từ 20 tuổi | Người dùng yêu cầu; chỉ áp cho cách dựng mới |
+| 2026-10-10 | Nhạc nền nhỏ hơn giọng 21 dB; skit tự chèn nhạc hài (`skit/add_music.py`) | Người dùng thấy nhạc to quá; skit trước đây không có nhạc |
+| 2026-10-11 | Cách dựng mới: kịch bản tương phản, gây tranh cãi (hai phe đều có lý, câu hỏi cho người xem), chỉ chuyện đời thường | Tạo hai phe khi xem để tăng bình luận, tương tác |
 
 Đổi một quyết định: sửa giá trị trong `config/settings.toml` và ghi thêm một dòng vào bảng này.
 

@@ -791,5 +791,494 @@
       "pitch": "-20Hz"
     },
     "colour": "#8D6E63"
+  },
+  "class_rep_girl": {
+    "prompt": "seventeen-year-old japanese girl, neat straight black bob haircut, thin black-rimmed glasses, navy sailor school uniform with a red ribbon, navy pleated skirt, white socks, black loafers, holding a wooden teacher's pointer stick",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#64B5F6"
+  },
+  "sleepy_boy": {
+    "prompt": "seventeen-year-old japanese boy, messy bedhead black hair, half-closed droopy eyes, black gakuran school uniform unbuttoned at the collar, white t-shirt underneath, black school trousers, worn grey sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#9E9E9E"
+  },
+  "idol_girl": {
+    "prompt": "seventeen-year-old japanese girl, long wavy light brown hair with a small pink hair clip, sparkly pink lip gloss, navy sailor school uniform with a pink ribbon customized shorter skirt, white knee socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#F48FB1"
+  },
+  "otaku_boy": {
+    "prompt": "sixteen-year-old japanese boy, round glasses with thick black frames, short black hair, black gakuran school uniform buttoned fully to the collar, white t-shirt underneath, black school trousers, carrying a bulging black backpack covered in small anime character keychains",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+10%",
+      "pitch": "+30Hz"
+    },
+    "colour": "#7986CB"
+  },
+  "athlete_boy": {
+    "prompt": "seventeen-year-old japanese boy, tall muscular build, short buzzed black hair, tanned skin, white and green track jacket half-zipped over a school t-shirt, navy track pants, white sneakers, a green sports towel around his neck",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#81C784"
+  },
+  "me_narrator_teen": {
+    "prompt": "seventeen-year-old japanese girl, shoulder-length black hair with messy side bangs, tired half-open eyes, navy sailor school uniform with a yellow ribbon slightly crooked, navy pleated skirt, white socks pulled unevenly, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#FFD54F"
+  },
+  "yui_teen": {
+    "prompt": "seventeen-year-old japanese girl, slim build, long straight black hair reaching her waist with a light blue hairband, navy sailor school uniform with a red ribbon, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#FF8A80"
+  },
+  "ren_teen": {
+    "prompt": "seventeen-year-old japanese boy, tall slim build, short neat black hair with a soft fringe, black stand-collar gakuran school uniform with gold buttons fully closed, black school trousers, white sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#9575CD"
+  },
+  "ryugakusei": {
+    "prompt": "vietnamese woman in her early twenties, slim build, long straight black hair in a low ponytail, light beige knit sweater, navy blue wide-leg trousers, white sneakers, small brown canvas backpack",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#B39DDB"
+  },
+  "konbini_clerk": {
+    "prompt": "japanese man in his early twenties, short dark brown hair, round friendly face, blue and white vertically striped convenience store uniform shirt, small white name tag, black trousers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#FF8A65"
+  },
+  "shinyu_daiki": {
+    "prompt": "japanese man in his late twenties, medium build, bleached light blond hair slicked back, small silver ear stud, gold chain necklace, black leather jacket over a plain white t-shirt, black skinny jeans, white sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#FF7043"
+  },
+  "lawyer_woman": {
+    "prompt": "japanese woman in her mid forties, neat black hair in a low bun, thin silver-rimmed glasses, charcoal grey pant suit, lavender blouse, small gold lawyer badge on her lapel",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#AB47BC"
+  },
+  "linh_anime": {
+    "prompt": "beautiful vietnamese woman aged twenty, slim build, delicate anime face with large gentle dark brown eyes and long eyelashes, long straight glossy black hair reaching her waist with soft side bangs, small white hair ribbon on the left side, cream knit cardigan over a light blue blouse, navy pleated midi skirt, white sneakers, small brown leather shoulder bag",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#9FA8DA",
+    "art": "anime"
+  },
+  "obaachan_kind": {
+    "prompt": "japanese woman in her late seventies, small round build, short curly white hair, round gold-rimmed glasses, lavender knitted cardigan over a beige blouse, long brown skirt, brown slip-on shoes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "-8%",
+      "pitch": "-20Hz"
+    },
+    "colour": "#FFAB91"
+  },
+  "mascot_jpn": {
+    "prompt": "cute country mascot character of Japan, the head is the map shape of Japan painted with its national flag, simple cute face drawn on the map head, small round body, navy blue school-style jacket, white shirt, grey trousers, brown shoes",
+    "head_ref": "mascot_jpn_head.png",
+    "lora": null,
+    "mascot": "JPN",
+    "colour": "#E53935",
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    }
+  },
+  "mascot_chn": {
+    "prompt": "cute country mascot character of China, the head is the map shape of China painted with its national flag, simple cute face drawn on the map head, small round body, light blue shirt with two buttons, grey trousers, brown shoes",
+    "head_ref": "mascot_chn_head.png",
+    "lora": null,
+    "mascot": "CHN",
+    "colour": "#FFB300",
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    }
+  },
+  "li_ming": {
+    "prompt": "chinese man in his late twenties, short neat black hair, thin black-rimmed rectangular glasses, light blue dress shirt with sleeves rolled to the elbow, dark grey slacks, black leather belt, silver wristwatch",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#4FC3F7"
+  },
+  "sato_boss": {
+    "prompt": "japanese man in his fifties, balding grey hair combed back, thick black eyebrows, white dress shirt with top button undone, loosened dark red necktie, navy suit trousers, no jacket",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#E57373"
+  },
+  "female_colleague": {
+    "prompt": "japanese woman in her thirties, straight black hair tied in a low bun, light grey blouse with a small bow at the collar, black pencil skirt, small gold stud earrings",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#F48FB1"
+  },
+  "husband_kazuki": {
+    "prompt": "japanese man in his mid thirties, medium build, short neat black hair, light grey crew-neck sweater over a white t-shirt, dark navy trousers, silver wristwatch",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#64B5F6"
+  },
+  "mika": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, beautiful japanese woman aged twenty-five, slim build, delicate anime face with large gentle brown eyes, long glossy wavy chestnut brown hair with soft side bangs, pink wrap blouse with a V neckline, fitted white midi skirt, thin silver necklace, small pearl earrings",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#CE93D8",
+    "art": "anime"
+  },
+  "friend_aya": {
+    "prompt": "japanese woman in her early thirties, short wavy brown bob, mustard yellow knit sweater, blue denim jeans, white sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#FFD54F"
+  },
+  "friend_nana": {
+    "prompt": "japanese woman in her thirties, long straight black hair, black-rimmed glasses, burgundy turtleneck sweater, grey trousers, black flat shoes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#FF8A65"
+  },
+  "aoi": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, cute japanese university freshman woman aged nineteen, petite build, anime face with large sparkling dark brown eyes and soft pink cheeks, fluffy semi-long black hair, white knit cardigan over a pale pink blouse, light beige pleated knee-length skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#FF8FB8",
+    "art": "anime"
+  },
+  "ren": {
+    "prompt": "handsome japanese university man aged twenty, tall slim build, anime face with gentle eyes, soft medium-short black hair, navy blue open shirt over a plain white t-shirt, beige slim trousers, white sneakers, thin silver bracelet on his left wrist",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#7C8FE8",
+    "art": "anime"
+  },
+  "misaki": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, cute japanese university freshman woman aged nineteen, anime face with round amber eyes and a bright smile, fluffy shoulder-length light brown hair, mustard yellow oversized hoodie, light blue denim skirt, white sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#FFB74D",
+    "art": "anime"
+  },
+  "chonan_carer": {
+    "prompt": "japanese man in his early forties, medium build, short black hair with a few grey strands, tired eyes with dark circles, navy blue zip-up work jacket over a plain grey t-shirt, dark brown trousers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#64B5F6"
+  },
+  "imouto_far": {
+    "prompt": "japanese woman in her late thirties, slim build, long straight dark brown hair tucked behind her ears, small gold hoop earrings, cream trench coat over a black turtleneck sweater, black trousers, black low heels",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#EF5350"
+  },
+  "otouto_busy": {
+    "prompt": "japanese man in his mid thirties, slim build, neat short black hair combed back, dark grey business suit, white shirt with no tie, black leather shoes, silver wristwatch",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#FFB74D"
+  },
+  "care_robot": {
+    "prompt": "friendly white humanoid care robot, rounded smooth white plastic body, black face visor with two glowing light blue round eyes, two slim white arms with three-fingered hands, short white legs, small light blue heart emblem on its chest, no clothes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#80DEEA"
+  },
+  "mother_cleaner": {
+    "prompt": "japanese woman in her late fifties, small thin build, short black hair streaked with grey tied back, light blue cleaning staff work shirt, navy blue apron, dark grey work trousers, white sneakers, light blue bandana on her head",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#F06292"
+  },
+  "reina_bride": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, beautiful japanese woman aged twenty-eight, slim build, delicate anime face with sharp elegant dark eyes, long glossy straight black hair with soft side bangs, ivory satin wrap dress with a V neckline fitted at the waist, thin gold necklace, small diamond stud earrings",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#FFD54F",
+    "art": "anime"
+  },
+  "tom": {
+    "prompt": "vietnamese man aged twenty-five, medium build, expressive comical anime face with big bright eyes, short neat black hair, black two-piece business suit, plain white dress shirt, dark navy tie, black leather shoes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#FFB300",
+    "art": "anime"
+  },
+  "shacho_sato": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, beautiful elegant japanese woman aged thirty-five, company president, slim build, delicate anime face with sharp intelligent dark eyes and long eyelashes, long straight glossy black hair reaching her back, fitted black skirt suit jacket over a white silk blouse with a soft V neckline, black pencil skirt, thin silver necklace, small pearl earrings, black low heels, tasteful, fully clothed",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#EC407A",
+    "art": "anime"
+  },
+  "tanaka_interviewer": {
+    "prompt": "japanese man aged thirty, slim build, serious anime face, short neat black hair, rectangular black-rimmed glasses, dark grey business suit, light blue dress shirt, burgundy tie, black leather shoes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#5C6BC0",
+    "art": "anime"
+  },
+  "fab_engineer": {
+    "prompt": "japanese woman in her thirties, slim build, white full-body cleanroom bunny suit with a hood covering all her hair, light blue face mask, clear safety glasses, light blue rubber gloves, white shoe covers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#90CAF9"
+  },
+  "dmitri": {
+    "prompt": "russian man in his early thirties, tall broad build, short light blond hair, light blond stubble, light grey knit sweater over a white collared shirt, dark navy trousers, black leather shoes, silver wristwatch",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#EF5350"
+  },
+  "ore_kudo": {
+    "prompt": "japanese man aged thirty-two, medium build, short neat black hair, slight dark circles under his eyes, charcoal grey business suit, white shirt, dark navy tie, black leather shoes, black wristwatch",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#4FA8D8"
+  },
+  "kohai_tanaka": {
+    "prompt": "japanese man aged twenty-five, slim build, light brown stylish short hair with a soft fringe, light beige slim business suit, light blue shirt, no tie, brown leather shoes, silver wristwatch",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#BA68C8"
+  },
+  "yuna": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, japanese woman in her mid twenties, long straight black hair with soft side bangs, light beige knit sweater, white long skirt, small silver necklace",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#4FC3F7",
+    "art": "anime"
+  },
+  "yuki_narrator": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, japanese woman in her mid twenties, long straight black hair with soft side bangs, light beige knit sweater, white long skirt, small silver necklace",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#4FC3F7",
+    "art": "anime"
+  },
+  "dmitri_bf": {
+    "prompt": "russian man in his late twenties, tall broad build, short light brown hair, light stubble, olive green military-style jacket over a dark grey t-shirt, black cargo pants, black boots, silver dog-tag necklace",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#EF5350",
+    "art": "anime"
+  },
+  "netizen": {
+    "prompt": "anonymous Japanese online commenter, voiceover only, not shown as a visible character",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#90A4AE"
   }
 }

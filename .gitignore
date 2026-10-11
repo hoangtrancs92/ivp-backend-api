@@ -28,3 +28,9 @@ shorts-pipeline/videos/*/**/*.png
 shorts-pipeline/videos/*/**/*.wav
 *.mp3
 *.mp4
+
+# Công cụ nhị phân (ffmpeg, Pillow) và dữ liệu tải lại được
+_media_tools/
+
+# ảnh chụp video tham khảo
+/tiktok_*.jpg
