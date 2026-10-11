@@ -36,6 +36,7 @@ import random
 import re
 import subprocess
 import sys
+import wave
 import tomllib
 from pathlib import Path
 
@@ -80,7 +81,23 @@ def run(*args, **kw):
 def duration(path):
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                           "-of", "csv=p=0", str(path)], capture_output=True, text=True, check=True)
-    return float(out.stdout.strip())
+    value = out.stdout.strip()
+    try:
+        seconds = float(value)
+    except ValueError as error:
+        if Path(path).suffix.lower() == ".wav":
+            try:
+                with wave.open(str(path), "rb") as audio:
+                    rate = audio.getframerate()
+                    frames = audio.getnframes()
+                if rate > 0 and frames > 0:
+                    return frames / rate
+            except (wave.Error, EOFError):
+                pass
+        raise ValueError(f"ffprobe không trả thời lượng hợp lệ cho {path}: {value!r}") from error
+    if not math.isfinite(seconds) or seconds <= 0:
+        raise ValueError(f"ffprobe trả thời lượng không hợp lệ cho {path}: {value!r}")
+    return seconds
 
 
 def find(path):
