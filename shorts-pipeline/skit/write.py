@@ -164,7 +164,7 @@ def clean(skit):
         line["size"] = line.get("size") if line.get("size") in SIZES else "normal"
         line["emphasis"] = [w for w in (line.get("emphasis") or []) if isinstance(w, str) and w in str(line.get("text", ""))]
         exp = line.get("expression") if isinstance(line.get("expression"), dict) else {}
-        line["expression"] = {n: e for n, e in exp.items() if n in cast and e in cast[n]["expressions"]}
+        line["expression"] = {n: e for n, e in exp.items() if n in cast and e in EXPRESSIONS}
         line["shot"] = str(line.get("shot") or "wide")
         pose = line.get("pose") if isinstance(line.get("pose"), dict) else {}
         line["pose"] = {n: q for n, q in pose.items() if n in cast and (q == "default" or q in cast[n]["poses"])}
@@ -178,7 +178,9 @@ def clean(skit):
         for key in ("bigword", "sfx"):
             line[key] = str(line[key]).strip() if isinstance(line.get(key), str) and line[key].strip() else None
         line["sfx_at"] = "end" if line.get("sfx_at") == "end" else "start"
-    return problems
+    from assets import normalize_assets
+    _, asset_errors = normalize_assets(skit)
+    return problems + asset_errors
 
 
 def extend(folder, seconds):

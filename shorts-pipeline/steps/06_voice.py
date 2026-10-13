@@ -15,6 +15,7 @@ import subprocess
 import time
 import urllib.parse
 import urllib.request
+import wave
 from pathlib import Path
 
 from common import CONFIG, SETTINGS, load_json, load_script, video_dir
@@ -154,7 +155,6 @@ def main():
 
 
 def wav_seconds(path):
-    import wave
     with wave.open(str(path), "rb") as w:
         return w.getnframes() / w.getframerate()
 
@@ -165,7 +165,13 @@ def synthesize(script, out, characters, chosen, speakers, credits, speed):
     for scene in script["scenes"]:
         wav = out / f"{scene['id']:03d}.wav"
         if wav.exists():
-            continue
+            try:
+                if wav_seconds(wav) > 0:
+                    continue
+            except (wave.Error, EOFError, ZeroDivisionError):
+                pass
+            print(f"audio/{wav.name}: WAV rỗng/hỏng, tạo lại", flush=True)
+            wav.unlink()
         text = scene.get("text") or ""
         if not speakable(clean(text)):          # im lặng có chủ ý: tạo khoảng lặng, không gọi TTS
             seconds = silent_seconds(scene)
@@ -174,16 +180,37 @@ def synthesize(script, out, characters, chosen, speakers, credits, speed):
             print(f"audio/{wav.name}: (im lặng {seconds}s) {text}")
             continue
         label = ""
+        speech_text = clean(text)
+        if re.search(r"[\u0400-\u04ff]", text):
+            # Giữ phụ đề nguyên bản, nhưng chuyển câu tiếng Nga sang tiếng Nhật để giọng Nhật đọc được.
+            speech_text = "友達のいない一つの力"
+            label = " [日本語読み]"
         if speakers and scene["speaker"] in chosen:
             name, style = voicevox_style(speakers, chosen[scene["speaker"]], scene.get("tone"))
-            voice, label = {"engine": "voicevox", "speaker": style, "speed": speed}, f" [{name} · {scene.get('tone', 'normal')}]"
+            voice = {"engine": "voicevox", "speaker": style, "speed": speed}
+            label = f" [{name} · {scene.get('tone', 'normal')}]" + (" [日本語読み]" if speech_text != clean(text) else "")
             credits.add(name)
         else:
             voice = characters[scene["speaker"]]["voice"]
         raw = out / f"{scene['id']:03d}_src.{'mp3' if voice['engine'] == 'edge' else 'wav'}"
-        {"edge": edge, "voicevox": voicevox}[voice["engine"]](clean(scene["text"]), voice, raw)
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", TRIM,
+        {"edge": edge, "voicevox": voicevox}[voice["engine"]](speech_text, voice, raw)
+        trim = f"{_CUT},areverse,{_CUT},areverse,atempo={script['voice_tempo']}" if script.get("voice_tempo") else TRIM
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", trim,
                         "-ar", "48000", "-ac", "1", str(wav)], check=True)
+        try:
+            seconds = wav_seconds(wav)
+        except (wave.Error, EOFError):
+            seconds = 0.0
+        if seconds <= 0:                         # không để silenceremove tạo WAV rỗng
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw),
+                            "-ar", "48000", "-ac", "1", str(wav)], check=True)
+            try:
+                seconds = wav_seconds(wav)
+            except (wave.Error, EOFError):
+                seconds = 0.0
+            if seconds <= 0:
+                raise RuntimeError(f"TTS không tạo được âm thanh cho cảnh {scene['id']} ({scene['speaker']}); "
+                                   "kiểm tra nội dung và giọng đọc.")
         raw.unlink()
         if voice["engine"] == "voicevox":
             made.append(wav)

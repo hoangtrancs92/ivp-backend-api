@@ -12,32 +12,10 @@ from pathlib import Path
 import random
 from functools import lru_cache
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
-# hiệu ứng -> (cần "on" không, màu mặc định)
-KINDS = {
-    "aura": (True, "#FFD84A"),        # hào quang phát sáng sau nhân vật
-    "rays": (True, "#FFE07A"),        # tia sáng xoay sau nhân vật
-    "sparkles": (True, "#FFF6C8"),    # ngôi sao lấp lánh quanh nhân vật
-    "hearts": (True, "#FF6F91"),      # trái tim bay lên
-    "tears": (True, "#7CCBFF"),       # nước mắt rơi liên tục từ mắt
-    "speed_lines": (False, "#1E1E28"),  # đường tập trung kiểu manga
-    "flash": (False, "#FFFFFF"),      # chớp trắng
-    "gloom": (False, "#1B2240"),      # phủ tối xanh
-    "confetti": (False, None),        # giấy màu rơi
-    "rain": (False, "#A8C8E8"),       # mưa
-    # ký hiệu cảm xúc kiểu manga (漫符), vẽ quanh đầu nhân vật
-    "sweat": (True, "#9ED8F5"),       # giọt mồ hôi to cạnh đầu (lúng túng, khó xử)
-    "anger": (True, "#E53935"),       # dấu gân giận 💢 nhấp nháy
-    "shock_lines": (True, "#3A3F8F"), # vạch dọc trên mặt kiểu ガーン (sốc, tái mặt)
-    "dizzy": (True, "#FFD54A"),       # sao xoay vòng trên đầu (choáng, rối trí)
-    "idea": (True, "#FFE45C"),        # bóng đèn bật sáng trên đầu (nảy ra ý)
-    "sigh": (True, "#FFFFFF"),        # làn hơi thở dài bay ra từ miệng (mệt, chán, nhẹ nhõm)
-    # chữ tượng thanh nhỏ rải quanh đầu (「ニヤ」「ドキッ」「イライラ」...), "text" của lớp; bám "on" nếu có, không thì vùng
-    # mặt giữa khung (tranh vẽ cả cảnh: người đã vẽ sẵn, không có lớp để bám)
-    "murmur": (False, "#FF8A1E"),
-}
-MANPU = ("sweat", "anger", "shock_lines", "dizzy", "idea", "sigh", "murmur")   # luôn vẽ trước mặt nhân vật
+from steps.effect_rules import KINDS
+MANPU = ("sweat", "anger", "shock_lines", "dizzy", "idea", "sigh", "murmur", "shiver")
 OUTLINE = "#2A2A35"
 CONFETTI = ("#FF6F91", "#FFD54A", "#6EC1FF", "#7CD992", "#B18CFF", "#FF9A2E")
 
@@ -52,7 +30,7 @@ def fade(t, life, fade_in=0.3, fade_out=0.3):
     return max(0.0, min(1.0, t / fade_in if fade_in else 1.0, (life - t) / fade_out if fade_out else 1.0))
 
 
-def draw(frame, kind, t, life, box, size, colour=None, seed=0, text=None):
+def draw(frame, kind, t, life, box, size, colour=None, seed=0, text=None, occlude=False):
     """Vẽ hiệu ứng lên frame (RGB). box: (cx, cy, w, h, head_x, head_y, head_r) bằng pixel của lớp được bám,
     hoặc None nếu phủ cả khung. size: (W, H) của khung hình. text: chữ của hiệu ứng "murmur"."""
     colour = colour or KINDS[kind][1]
@@ -61,7 +39,20 @@ def draw(frame, kind, t, life, box, size, colour=None, seed=0, text=None):
         _murmur(overlay, t, life, box, size, colour, seed, text or "ニヤ")
     else:
         globals()["_" + kind](overlay, t, life, box, size, colour, seed)
+    if occlude and box and kind in ("aura", "rays"):
+        overlay.putalpha(ImageChops.subtract(overlay.getchannel("A"), _subject_mask(size, tuple(box))))
     frame.paste(overlay, (0, 0), overlay)
+
+
+@lru_cache(maxsize=24)
+def _subject_mask(size, box):
+    """Che hiệu ứng phía sau người đã nằm trong tranh; tránh phủ sáng lên mặt và áo."""
+    cx, cy, w, h, hx, hy, hr = box
+    mask = Image.new("L", size)
+    d = ImageDraw.Draw(mask)
+    d.ellipse((cx - w * .44, cy - h * .46, cx + w * .44, cy + h * .48), fill=255)
+    d.ellipse((hx - hr * 1.15, hy - hr * 1.25, hx + hr * 1.15, hy + hr * 1.25), fill=255)
+    return mask.filter(ImageFilter.GaussianBlur(max(3, hr * .045)))
 
 
 # ---------- hiệu ứng bám nhân vật ----------
@@ -180,6 +171,21 @@ def _tears(overlay, t, life, box, size, colour, seed):
 
 
 # ---------- hiệu ứng phủ cả khung ----------
+
+def _shiver(overlay, t, life, box, size, colour, seed):
+    """Nét run nhỏ cạnh vai; giữ nguyên ảnh và chi tiết khuôn mặt."""
+    cx, cy, w, h, hx, hy, hr = box
+    d = ImageDraw.Draw(overlay)
+    alpha = fade(t, life, 0.2, 0.2) * 170
+    wiggle = math.sin(t * 2 * math.pi * 9) * hr * 0.025
+    for side in (-1, 1):
+        x = hx + side * max(hr * 1.25, w * 0.48) + wiggle
+        y = hy + hr * 1.35
+        for k in range(2):
+            offset = side * hr * k * 0.15
+            pts = [(x + offset + math.sin(i * math.pi / 2) * hr * 0.035,
+                    y + i * hr * 0.055) for i in range(9)]
+            d.line(pts, fill=rgba(colour, alpha), width=max(2, round(hr * 0.018)))
 
 def _speed_lines(overlay, t, life, box, size, colour, seed):
     W, H = size

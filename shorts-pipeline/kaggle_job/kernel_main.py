@@ -21,9 +21,8 @@ if EXPECTED != "__" + "BATCH__" and found != EXPECTED:
 
 log("Cài thư viện")
 
-subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-U",
-                "git+https://github.com/huggingface/diffusers", "transformers", "accelerate", "sentencepiece"],
-               check=True)
+subprocess.run([sys.executable, "-m", "pip", "install", "--disable-pip-version-check", "--prefer-binary", "-U",
+                "diffusers==0.41.0", "transformers", "accelerate", "sentencepiece"], check=True)
 
 worker = glob.glob("/kaggle/input/**/worker.py", recursive=True)[0]
 gpus = int(subprocess.run(["nvidia-smi", "--query-gpu=index", "--format=csv,noheader"],

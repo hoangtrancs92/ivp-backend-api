@@ -7,7 +7,7 @@ cần AI_API_KEY, model chọn bằng AI_MODEL_SCRIPT.
 Quy tắc viết nằm ở config/script_guide.md (gửi nguyên văn cho model). Model được dùng lại nhân vật, bối cảnh có sẵn
 hoặc khai thêm (new_characters, new_locations); thứ mới được ghi vào config/characters.json, config/locations.json
 để các bước sau sinh ảnh chuẩn, ảnh nền và các video sau dùng lại.
-Đã có script.json thì bỏ qua. Kịch bản có tên nhân vật / bối cảnh không khai báo thì không ghi, báo lỗi để chạy lại.
+Đã có script.json thì bỏ qua. Kịch bản sai khai báo được tự sửa tối đa hai lần; bản chưa đạt được lưu để chạy tiếp.
 """
 import functools
 import json
@@ -54,43 +54,14 @@ STORY_MODES = {
         "Kiểu chuyện (BẮT BUỘC): HÀI. Tình huống đời thường leo thang vô lý dần, nhân vật có tật / logic lệch, câu chốt bất ngờ "
         "khiến bật cười; nhiều thoại qua lại, nhịp nhanh."),
     "kaigai": (
-        "Kiểu video (BẮT BUỘC): SO SÁNH ĐỐI ĐẦU 日本 vs {country_jp} (KHÔNG phải truyện kể về một người), tân bốc Nhật Bản. "
-        "Hai nhân vật dẫn là HAI LINH VẬT QUỐC GIA (đầu là bản đồ nước tô cờ, có sẵn trong danh sách nhân vật, KHÔNG khai lại): "
-        "\"mascot_jpn\" (日本くん) và \"{mascot}\" ({country_jp}くん); có mặt ở gần hết các cảnh, mỗi cảnh 1-2 linh vật. "
-        "Chủ đề so sánh lấy theo đề tài người dùng (xe hơi, đồ điện tử, đồ ăn, an toàn, dịch vụ, đường phố...). "
-        "Cấu trúc: cảnh mở là {country_jp}くん thách đấu, tự tin khoe (「{country_jp}の方が上だ！」); rồi 4-6 HIỆP, mỗi hiệp một hạng mục "
-        "(giá, độ bền, an toàn, bán lại, dịch vụ hậu mãi, chất lượng...): chữ tượng thanh / lớp chữ lớn ghi tên hiệp "
-        "(「第1ラウンド：耐久性」), {country_jp}くん khoe điểm mạnh của mình (cho họ thắng 1 hiệp nhỏ, vd giá rẻ, để có tranh cãi), "
-        "日本くん đáp lại bằng một chi tiết / con số cụ thể, {country_jp}くん cứng họng (「ぐぬぬ…」). Có thể xen cảnh minh họa "
-        "(xe chạy đường đèo, khách hàng, thợ sửa xe) bằng người thật. Cuối: tỉ số chung cuộc Nhật thắng áp đảo (vd 5-1), "
-        "{country_jp}くん cay cú nói một câu chống chế, câu hỏi chia phe cho người xem (「あなたならどっち？」「コメントで教えて」). "
-        "Được chê thẳng SẢN PHẨM, HỆ THỐNG, DỊCH VỤ, THÓI QUEN của nước kia; KHÔNG miệt thị con người theo dân tộc (không gán cả "
-        "một dân tộc là bẩn, gian, ngu, thấp kém), không từ xúc phạm, không chính trị, chiến tranh, lịch sử, lãnh thổ, lãnh đạo, "
-        "người thật. Được nêu tên hãng / mẫu thật (Toyota, Honda, BYD, Hyundai...) khi khen, hoặc khi nói thông tin trung lập / có thật "
-        "(giá bán, kích thước, năm ra mắt, đặc điểm); lời chê chung (hay hỏng, bảo hành chậm) thì nói 'xe ○○ nhiều mẫu' chung chung, "
-        "không gắn tên một hãng / mẫu cụ thể. Hãng phải đúng nước (Hyundai, Kia là Hàn Quốc; BYD, Geely, Chery là Trung Quốc). Con số chỉ lấy từ đề tài người dùng hoặc "
-        "danh sách SỐ LIỆU THẬT (nếu liên quan chủ đề); không có số thì so bằng chi tiết cụ thể, không bịa thống kê. "
-        "Lời bằng tiếng Nhật, nhịp nhanh, nhiều thoại qua lại giữa hai linh vật. Tiêu đề: dòng 1 「日本 vs {country_jp}」, "
-        "dòng 2 nêu hạng mục (「車対決、勝つのはどっち？」). "
-        "HÌNH ẢNH (KHÔNG làm tranh tĩnh): (1) cảnh hai linh vật đối đáp là cảnh GHÉP LỚP thường: lớp ảnh cutouts/ của linh vật, "
-        "anim sôi động (jump, punch, shake_no, hop, lean_in, spin_in, sink khi thua), hiệu ứng (speed_lines, anger, sweat, "
-        "shock_lines, sparkles), chữ tượng thanh to (「ドヤッ」「ぐぬぬ」「ガーン」); (2) mỗi hiệp có MỘT cảnh thẻ so sánh: thêm "
-        "\"compare\": {{\"round\": \"第1ラウンド：耐久性\", \"label\": \"平均使用年数\", \"japan\": \"20年\", \"other\": \"8年\", "
-        "\"winner\": \"japan\" | \"other\" | \"draw\", \"score\": [tỉ số Nhật, tỉ số nước kia sau hiệp này]}} (code tự vẽ thẻ ở "
-        "giữa khung; trong cảnh đó hai linh vật \"size\": \"medium\" ở floor_left / floor_right); cảnh kết có \"compare\" "
-        "\"round\": \"最終結果\" với tỉ số chung cuộc; (3) cảnh minh họa (thợ sửa xe, khách hàng...) cũng là cảnh GHÉP LỚP có "
-        "nhân vật cắt rời và anim (KHÔNG dùng \"full\", \"motion_level\", clip); (4) 3-5 cảnh ẢNH THẬT làm dẫn chứng (ảnh chụp tải từ Pexels, code đặt trong khung ảnh giữa "
-        "khung hình): thêm \"photo\": {{\"query\": \"2-5 từ khóa tiếng Anh tả đúng ảnh cần (vd old japanese car mountain road, "
-        "car repair shop japan, used car dealership)\", \"caption\": \"chú thích tiếng Nhật ngắn dưới ảnh, tối đa 12 ký tự\"}}; "
-        "cảnh ảnh thật là cảnh ghép lớp có 1-2 linh vật đứng hai bên chỉ vào ảnh (không phải cảnh clip, không cùng cảnh "
-        "\"compare\"); từ khóa tả đúng ảnh cần, ĐƯỢC ghi hãng + mẫu khi cảnh đó khen hoặc nêu thông tin trung lập về đúng mẫu đó "
-        "(vd \"toyota corolla\", \"hyundai tucson\", \"byd electric car\"), cảnh chê chung thì từ khóa chung (\"car breakdown "
-        "road\"); không người nổi tiếng, không cờ, không bản đồ. "
-        "NHỊP NHANH, KHÔNG KHOẢNG LẶNG: MỌI cảnh đều có \"text\" (kể cả cảnh thẻ so sánh: một câu đọc to kết quả hiệp, vd "
-        "「耐久性は日本20年、中国8年！」; cảnh ảnh thật: câu dẫn chứng). Mỗi câu 6-16 ký tự, hai linh vật nói chen nhau dồn dập. "
-        "TIẾNG HIỆU ỨNG: cảnh thẻ so sánh, cú khoe, cú cứng họng ghi \"sfx\": [tên], chọn trong: jan, don, dodon, correct, wrong, "
-        "fanfare, drumroll, gaan, bikkuri, chiin, punch, boyon, hyu, dash, chanchan."),
-    # "Tương phản" ngẫu nhiên: chuyện đời thường chia hai phe (CONTROVERSY ghép vào ở NEW_STORY)
+        "VIDEO PHÂN TÍCH 日本 vs {country_jp}, khoảng 2 phút (110–130 giây). "
+        "Bám comparison_guide: một ý rõ mỗi cảnh, 3 luận điểm có dẫn chứng và một phản biện thật. "
+        "Dẫn bằng narrator; mascot_jpn (đầu cờ Nhật tròn) và {mascot} chỉ xen hỏi/đáp ở vài mốc. "
+        "Mở bằng câu hỏi/nghịch lý có ích với người xem, không thách đấu. Kết trả lời câu hỏi ban đầu. "
+        "Không tỉ số, không ép Nhật thắng, không bịa số liệu. Không hiệu ứng hoặc tiếng thắng/thua dồn dập. "
+        "Chỉ dùng số liệu đúng chủ đề từ đề tài hoặc danh sách SỐ LIỆU THẬT, ghi nguồn/năm khi có. "
+        "Ảnh kho là minh họa, không phải bằng chứng cho một sản phẩm/sự kiện cụ thể. "
+        "Luôn có lời đọc, chủ yếu narration/calm. Không full/clip/alt_pose."),
     "contrast": "",
 }
 STORY_MODE = os.environ.get("SHORTS_STORY_MODE") if os.environ.get("SHORTS_STORY_MODE") in STORY_MODES else "auto"
@@ -361,17 +332,31 @@ Trả về đúng các mục sau, mỗi mục 1-3 dòng:
 7. Tiêu đề 2 dòng (tiếng Nhật)"""
 
 
+ANALYSIS_BRIEF = """Lập dàn ý video phân tích Nhật Bản với nước khác trong {seconds}.
+Đề tài: {topic}
+Quy tắc: {rules}
+Trả về tiếng Việt, câu mẫu tiếng Nhật:
+1. Câu hỏi chính và lợi ích cụ thể cho người xem.
+2. Câu mở đầu hấp dẫn và câu nối vào phạm vi so sánh.
+3. Ba luận điểm: mỗi ý có bằng chứng đã được cung cấp, nguyên nhân, tác động thực tế; ghi rõ chỗ thiếu nguồn.
+4. Phản biện mạnh nhất và điều kiện khiến kết luận thay đổi.
+5. Kết luận trả lời câu hỏi đầu, câu hỏi bình luận cụ thể.
+6. Tiêu đề hai dòng ngắn. Không twist giả, không ép một nước thắng, không bịa số liệu."""
+
+
 def brief(video, topic):
     """"Tương phản" (ngẫu nhiên / Nhật vs nước khác): AI viết dàn ý từ đề tài người dùng theo quy tắc móc câu + tương phản,
     rồi mới viết kịch bản từ đề tài + dàn ý. Lưu work/brief.md (chạy lại thì dùng lại)."""
     if STORY_MODE not in ("contrast", "kaigai"):
         return topic
-    path = video / "work" / "brief.md"
+    path = video / "work" / ("analysis_brief.md" if STORY_MODE == "kaigai" else "brief.md")
     if not path.exists():
-        rules = (NEW_STORY if STYLE == "new" else STORY_MODES[STORY_MODE]) + " " + HOOK + facts_note()
+        rules = (STORY_MODES["kaigai"] + " " + (CONFIG / "comparison_guide.md").read_text(encoding="utf-8")
+                 if STORY_MODE == "kaigai" else (NEW_STORY if STYLE == "new" else STORY_MODES[STORY_MODE]) + " " + HOOK) + facts_note()
         print(f"Viết dàn ý tương phản bằng {MODEL}...", flush=True)
         try:
-            text = chat(BRIEF.format(topic=topic, rules=rules, seconds="70-90 giây"), MODEL, max_tokens=4000).strip()
+            template = ANALYSIS_BRIEF if STORY_MODE == "kaigai" else BRIEF
+            text = chat(template.format(topic=topic, rules=rules, seconds="110–130 giây" if STORY_MODE == "kaigai" else "70-90 giây"), MODEL, max_tokens=4000).strip()
         except LLMError as e:
             print(f"  không viết được dàn ý ({e}), viết kịch bản thẳng từ đề tài", flush=True)
             return topic
@@ -383,37 +368,69 @@ def brief(video, topic):
 
 
 KAIGAI_BGM = "hageshii/darkmatter.mp3"  # nhạc đối đầu kịch tính cho video Tương phản
-KAIGAI_VOICE_SPEED = 1.35               # VOICEVOX speedScale cho video so sánh (mặc định [voice] voicevox_speed 1.2)
+KAIGAI_VOICE_SPEED = 1.15               # nhịp đọc phân tích; không đọc dồn để nhồi số liệu
 
 
 def fix_subject_layers(script):
-    """Sửa ngay khi viết lớp ảnh chủ thể model hay viết lệch (video 045): tên viết tắt (cutouts/047_chn.png), nhiều nhân vật
-    gộp một lớp (cutouts/006_mascot_jpn_mascot_chn.png). Đổi về đúng tên file make_jobs.py sẽ sinh. Trả về danh sách thay đổi."""
-    changes = []
-    for scene in script.get("scenes", []):
-        names = scene.get("characters") or []
-        if scene.get("full") or scene.get("phone") or not names:
-            continue
-        sid = f"{scene['id']:03d}"
-        expected = {n: f"cutouts/{sid}.png" if len(names) == 1 else f"cutouts/{sid}_{n}.png" for n in names}
-        layers = scene.get("layers") or []
-        cut = [x for x in layers if str(x.get("image", "")).startswith("cutouts/")]
-        if len(names) > 1 and len(cut) == 1 and cut[0]["image"] not in expected.values():   # gộp nhiều người một lớp
-            k = layers.index(cut[0])
-            spots = ["floor_left", "floor_right"] + ["floor"] * len(names)
-            layers[k:k + 1] = [{**{a: b for a, b in cut[0].items() if a not in ("id", "image", "at", "path")},
-                                "id": n, "image": expected[n], "at": spots[i]} for i, n in enumerate(names)]
-            changes.append(f"cảnh {scene['id']}: tách lớp gộp {cut[0]['image']} thành {len(names)} lớp")
-            continue
-        for layer in cut:
-            if layer["image"] in expected.values():
-                continue
-            tail = Path(layer["image"]).stem[4:]
-            match = [n for n in names if n == layer.get("id")] or [n for n in names if tail and n.endswith(tail)]
-            if len(match) == 1:
-                changes.append(f"cảnh {scene['id']}: {layer['image']} -> {expected[match[0]]}")
-                layer.update(image=expected[match[0]], id=match[0])
-    return changes
+    from common import normalize_subject_layers
+    return normalize_subject_layers(script)
+
+
+def validate_candidate(script, video, characters, locations):
+    """Cùng kiểm tra cho bản mới, bản sửa và bản phục hồi."""
+    from common import asset_problems
+    if not isinstance(script, dict) or not isinstance(script.get('scenes'), list) or not script['scenes']:
+        return ['JSON phải có danh sách scenes không rỗng']
+    for scene in script['scenes']:
+        if not isinstance(scene, dict) or not all(k in scene for k in ('id', 'location', 'speaker')):
+            return ['Mỗi cảnh phải có id, location, speaker']
+        if not isinstance(scene['id'], int) or isinstance(scene['id'], bool) or scene['id'] < 1:
+            return ['id cảnh phải là số nguyên dương']
+        if not all(isinstance(scene[k], str) for k in ('location', 'speaker')):
+            return [f"cảnh {scene['id']}: location và speaker phải là chuỗi"]
+        if not isinstance(scene.get('characters') or [], list) or not all(isinstance(n, str) for n in scene.get('characters') or []):
+            return [f"cảnh {scene['id']}: characters phải là danh sách tên nhân vật"]
+        if not isinstance(scene.get('layers') or [], list):
+            return [f"cảnh {scene['id']}: layers phải là danh sách"]
+    script['style'] = STYLE
+    if STORY_MODE == 'kaigai':
+        for scene in script['scenes']:
+            scene['full'] = False
+    normalize_script(script, video)
+    add_new(script, characters, locations)
+    problems = asset_problems(script, video)
+    for scene in script['scenes']:
+        problems.extend(f"cảnh {scene['id']}: không có nhân vật '{n}'" for n in scene.get('characters', []) if n not in characters)
+        if scene['location'] not in locations:
+            problems.append(f"cảnh {scene['id']}: bối cảnh '{scene['location']}' chưa khai báo; thêm mô tả tiếng Anh vào new_locations hoặc dùng tên có sẵn")
+        if scene['speaker'] not in characters:
+            problems.append(f"cảnh {scene['id']}: speaker '{scene['speaker']}' chưa có giọng")
+    return problems
+
+
+def repair_candidate(script, video, characters, locations):
+    work = video / 'work'
+    work.mkdir(exist_ok=True)
+    for attempt in range(3):
+        problems = validate_candidate(script, video, characters, locations)
+        if not problems:
+            return script
+        (work / 'script_rejected.json').write_text(json.dumps(script, ensure_ascii=False, indent=2), encoding='utf-8')
+        (work / 'script_errors.txt').write_text('\n'.join(problems), encoding='utf-8')
+        if attempt == 2:
+            sys.exit('Kịch bản còn lỗi sau 2 lần tự sửa:\n  ' + '\n  '.join(problems[:10]))
+        print(f"  tự sửa kịch bản ({attempt + 1}/2): " + '; '.join(problems[:3]), flush=True)
+        ask = ('Sửa JSON kịch bản dưới đây theo các lỗi kiểm tra. Giữ nguyên nội dung, lời thoại, số cảnh và nhân vật. '
+               'Chỉ sửa khai báo hoặc giá trị sai. Tên bối cảnh mới cần mô tả tiếng Anh trong new_locations; '
+               'nhân vật mới cần prompt, colour, voice trong new_characters. '
+               'Không dùng đường dẫn ảnh không có nguồn tạo. Trả về TOÀN BỘ JSON, không giải thích.\nLỗi:\n'
+               + '\n'.join(problems) + '\nKịch bản:\n' + json.dumps(script, ensure_ascii=False))
+        try:
+            candidate = json_reply(chat(ask, MODEL, max_tokens=32000))
+            if isinstance(candidate, dict) and candidate.get('scenes'):
+                script = candidate
+        except ValueError as error:
+            print(f'  bản tự sửa không phải JSON hợp lệ: {error}', flush=True)
 
 
 @functools.lru_cache(maxsize=1)                  # dàn ý và kịch bản dùng chung một lần lấy số liệu
@@ -454,7 +471,7 @@ def main():
         topic = Path(topic).read_text(encoding="utf-8").strip()
     characters = load_json(CONFIG / "characters.json")
     locations = load_json(CONFIG / "locations.json")
-    if STORY_MODE == "kaigai":                      # linh vật 日本くん và nước đem so: đầu bản đồ + cờ (tools/country_mascot.py)
+    if STORY_MODE == "kaigai":                      # 日本くん đầu cờ tròn; nước khác đầu bản đồ tô cờ (tools/country_mascot.py)
         for added in add_new({}, characters, locations, raw=mascots()):
             print("  thêm", added, flush=True)
     topic = brief(video, topic)
@@ -468,16 +485,23 @@ def main():
         recent=recent_usage(video),
         stickers=", ".join(stickers) or "(chưa có)",
         voices=chr(10).join(f"- {name}: {v['gender']}, {v['age']}; {v['desc']}" for name, v in VOICEVOX_VOICES["voices"].items()),
-        voice_mode=VOICE_MODES[VOICE_MODE],
-        story_mode=(NEW_STYLE if STYLE == "new" else STORY_MODES[STORY_MODE]) + " " + HOOK + facts_note(),
-        guide=(CONFIG / "script_guide.md").read_text(encoding="utf-8"))   # quy tắc mở rộng, sửa trong file đó
+        voice_mode=("Một giọng narrator kể khoảng 80%; linh vật chỉ xen câu hỏi/phản biện ngắn." if STORY_MODE == "kaigai"
+                    else VOICE_MODES[VOICE_MODE]),
+        story_mode=(STORY_MODES["kaigai"] if STORY_MODE == "kaigai" else
+                    (NEW_STYLE if STYLE == "new" else STORY_MODES[STORY_MODE]) + " " + HOOK) + facts_note(),
+        guide=(CONFIG / ("comparison_guide.md" if STORY_MODE == "kaigai" else "script_guide.md")).read_text(encoding="utf-8"))
 
     print(f"Viết kịch bản bằng {MODEL}...", flush=True)
     script, ask = None, prompt
     for attempt in range(1 + LENGTH_RETRIES):
         text = ""
         try:
-            text = chat(ask, MODEL, max_tokens=32000)
+            rejected = video / 'work' / 'script_rejected.json'
+            if attempt == 0 and rejected.exists():
+                print('  phục hồi bản kịch bản trước để kiểm tra và sửa, giữ nội dung đã viết', flush=True)
+                text = rejected.read_text(encoding='utf-8')
+            else:
+                text = chat(ask, MODEL, max_tokens=32000)
             reply = json_reply(text)
         except LLMError as e:
             sys.exit(str(e))
@@ -487,6 +511,8 @@ def main():
             sys.exit(f"{MODEL} không trả về JSON hợp lệ. Thử lại hoặc chọn model khác. Đầu câu trả lời: {text[:300]}")
         if script is None or fit(length(reply)) < fit(length(script)):   # giữ bản sát khoảng 70-80 giây nhất
             script = reply
+        if attempt == 0 and rejected.exists():
+            break
         scenes, chars, seconds = length(script)
         print(f"  độ dài: {scenes} cảnh, {chars} ký tự lời, ước khoảng {seconds:.0f} giây", flush=True)
         if not fit((scenes, chars, seconds)):
@@ -500,23 +526,14 @@ def main():
         print(f"  CẢNH BÁO: kịch bản ước {length(script)[2]:.0f} giây, ngoài khoảng {MIN_SECONDS}-{MAX_SECONDS} giây "
               f"sau {LENGTH_RETRIES} lần viết lại.")
 
+    script = repair_candidate(script, video, characters, locations)
     from common import summarize_changes
-    for line in summarize_changes(normalize_script(script) + fix_subject_layers(script)):   # gộp các dòng "bỏ null" cho log gọn
+    script["style"] = STYLE
+    if STORY_MODE == "kaigai":
+        for scene in script["scenes"]:
+            scene["full"] = False
+    for line in summarize_changes(normalize_script(script, video)):   # dùng cùng quy tắc với sinh ảnh và dựng
         print("  sửa kịch bản:", line)
-    added = add_new(script, characters, locations)
-    problems = []
-    for scene in script["scenes"]:
-        problems += [f"cảnh {scene['id']}: không có nhân vật '{n}'" for n in scene.get("characters", []) if n not in characters]
-        if scene["location"] not in locations:
-            problems.append(f"cảnh {scene['id']}: không có bối cảnh '{scene['location']}'")
-        if scene["speaker"] not in characters:
-            problems.append(f"cảnh {scene['id']}: speaker '{scene['speaker']}' không có giọng trong characters.json")
-    for a in added:
-        print("  thêm", a)
-    if problems:                                # không ghi kịch bản hỏng: lần chạy sau viết lại
-        (video / "work").mkdir(exist_ok=True)
-        (video / "work" / "script_rejected.json").write_text(json.dumps(script, ensure_ascii=False, indent=2), encoding="utf-8")
-        sys.exit("Kịch bản dùng tên chưa khai báo:\n  " + "\n  ".join(problems[:10]) + "\nBấm Chạy tiếp để viết lại.")
     script["voice_mode"] = VOICE_MODE
     script["story_mode"] = STORY_MODE
     script["style"] = STYLE
@@ -525,19 +542,20 @@ def main():
         script["music_quieter"] = 8.0       # nhạc nền khoảng 21 dB dưới giọng đọc
     if STORY_MODE == "kaigai":
         script["country"] = COUNTRY                 # thẻ so sánh (compare.py) vẽ cờ nước này
-        script["bgm"] = KAIGAI_BGM                  # nhạc đối đầu kịch tính cố định
-        script["voice_speed"] = KAIGAI_VOICE_SPEED  # đọc nhanh hơn, không tự đọc chậm lại cho đủ độ dài
+        script["bgm"] = "serious"
+        script["music_quieter"] = 7.0
+        script["edit_profile"] = "comparison_analysis"
+        script["target_seconds"] = 120
+        script["voice_tempo"] = 1.05
+        script["voice_speed"] = KAIGAI_VOICE_SPEED
         for scene in script["scenes"]:
-            for key in ("motion_level", "i2v_prompt", "full"):   # không clip AI, không tranh tĩnh: cảnh ghép lớp
+            for key in ("motion_level", "i2v_prompt"):   # không clip AI: cảnh ghép lớp (full=False)
                 scene.pop(key, None)
             card = scene.get("compare")
             if isinstance(card, dict) and not str(scene.get("text") or "").strip():   # thẻ không lời = khoảng lặng
                 label = card.get("label") or str(card.get("round", "")).split("：")[-1]
                 scene["text"] = f"{label}、日本{card.get('japan', '')}、{COUNTRIES[COUNTRY][1]}{card.get('other', '')}！"
                 scene["speaker"] = scene.get("speaker") or "narrator"
-    for scene in script["scenes"]:                  # cách dựng mới: cảnh (trừ màn hình điện thoại) vẽ cả cảnh
-        if STYLE == "new" and not scene.get("phone"):
-            scene["full"] = True
     script.pop("new_characters", None)
     script.pop("new_locations", None)
     out.write_text(json.dumps(script, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -551,6 +569,9 @@ BACKGROUND_DESC = re.compile(r"^irasutoya_style, background illustration of ")
 # Độ dài bắt buộc: 70-80 giây (ngắn hoặc dài quá thì nhờ model viết lại). Ước theo tốc độ đọc tiếng Nhật đã tăng 1,2 lần (~8 ký tự/giây) cộng khoảng nghỉ mỗi cảnh.
 MIN_SCENES, MIN_SECONDS, MAX_SECONDS, LENGTH_RETRIES = 40, 68, 86, 2
 CHARS_PER_SECOND, GAP_PER_SCENE = 8.0, 0.35
+if STORY_MODE == "kaigai":
+    MIN_SCENES, MIN_SECONDS, MAX_SECONDS = 26, 110, 130
+    CHARS_PER_SECOND, GAP_PER_SCENE = 5.6, 0.18   # 076 đo ~7,54 ở 1,35×1,2; phân tích dùng 1,15×1,05
 LONGER = """
 
 ---
@@ -569,6 +590,20 @@ Trả về JSON đầy đủ cùng định dạng như trên. Bản cũ:
 {script}"""
 
 
+if STORY_MODE == "kaigai":
+    LONGER = """
+Bản vừa viết có {scenes} cảnh, ước {seconds} giây, chưa đủ chiều sâu cho 110–130 giây.
+Viết lại JSON đầy đủ khoảng 28–36 cảnh, tổng lời 600–700 ký tự Nhật. Bổ sung giải thích nguyên nhân,
+ví dụ thực tế, điều kiện so sánh và phản biện có căn cứ. Không bịa số, không thêm cảnh phản ứng hoặc khoảng lặng.
+Giữ câu hỏi mở đầu và trả lời rõ ở cuối. Bản cũ:
+{script}"""
+    SHORTER = """
+Bản vừa viết có {scenes} cảnh, ước {seconds} giây, vượt mục tiêu 110–130 giây.
+Viết lại JSON đầy đủ khoảng 28–36 cảnh: giữ 3 luận điểm, dẫn chứng, phản biện và kết luận;
+bỏ lặp ý, câu đối đáp thừa, không tăng tốc đọc để nhồi nội dung. Bản cũ:
+{script}"""
+
+
 def fit(measure):
     """Độ lệch khỏi khoảng cho phép (0 = vừa): giây thiếu / thừa, cộng phạt nếu ít cảnh quá."""
     scenes, _, seconds = measure
@@ -577,7 +612,10 @@ def fit(measure):
 
 def length(script):
     """(số cảnh, số ký tự lời, số giây ước tính) của kịch bản."""
-    scenes = script.get("scenes") or []
+    scenes = script.get("scenes") or [] if isinstance(script, dict) else []
+    if not isinstance(scenes, list):
+        scenes = []
+    scenes = [scene for scene in scenes if isinstance(scene, dict)]
     chars = sum(len(str(s.get("text", ""))) for s in scenes)
     return len(scenes), chars, chars / CHARS_PER_SECOND + len(scenes) * GAP_PER_SCENE
 

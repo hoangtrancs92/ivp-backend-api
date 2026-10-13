@@ -21,14 +21,10 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path[:0] = [str(ROOT / "steps"), str(ROOT / "tools")]
 from common import TRIGGER                     # noqa: E402
 from make_jobs import KEY_PROMPTS, key_for     # noqa: E402  (chỉ dùng lại, không sửa)
+from assets import FACE, character_states, normalize_assets  # noqa: E402
 
 BG = tomllib.loads((ROOT / "config" / "settings.toml").read_text(encoding="utf-8"))["background"]
 REFS = ROOT / "config" / "refs"
-FACE = {"normal": "calm neutral", "happy": "big happy smiling", "shocked": "shocked, wide-eyed, mouth open",
-        "angry": "angry, furrowed brows, shouting", "sad": "sad, teary", "panic": "panicked, sweating, mouth wide open",
-        "smug": "smug, confident grin", "crying": "crying with tears streaming",
-        "embarrassed": "embarrassed, blushing, awkward smile", "thinking": "thinking, puzzled, eyes looking up",
-        "disgusted": "disgusted, grimacing", "sleepy": "sleepy, half-closed eyes, yawning"}
 CAST = "{trigger}, {look}, standing straight facing forward, arms down, calm neutral face, full body, white background"
 BASE = ("{trigger}, the same person as in the reference image, wearing exactly the same clothes, colors and accessories as in "
         "the reference image, {look}, {pose}, {face} face, {framing}, facing the viewer, alone, the only person in the image, "
@@ -178,6 +174,11 @@ def slug(name):
 def main():
     folder = Path(sys.argv[1]).resolve()
     skit = json.loads((folder / "skit.json").read_text(encoding="utf-8"))
+    changes, problems = normalize_assets(skit)
+    for change in changes:
+        print("  sửa kịch bản:", change)
+    if problems:
+        sys.exit("Tiểu phẩm có lỗi ảnh:\n  " + "\n  ".join(problems))
     have = lambda *paths: any(p.exists() for p in paths)   # noqa: E731
     jobs, refs = [], []
     tiers = []                                              # (bậc, job): ảnh làm tham chiếu phải đứng trước ảnh dùng nó
@@ -194,10 +195,8 @@ def main():
         ref_src = f"ref__{ref.name}" if ref.exists() else f"@ref_{tag}_{name}"
         ref_of[name] = ref_src
         seed = sum(map(ord, name)) % 10000
-        stems = []                                          # các ảnh (trừ bản miệng mở) của nhân vật này
         for stem, pose in [(f"{name}_normal", c["pose"])] + [(f"{name}_pose_{k}", seated_pose(v, c["pose"]))
                                                              for k, v in (c.get("poses") or {}).items()]:
-            stems.append(stem)
             if not exists(stem):
                 tiers.append((1, {"name": f"ch_{stem}", "seed": seed, "refs": [ref_src],
                                   "prompt": (SEATED_BASE if furniture_pose(pose) else BASE).format(
@@ -209,11 +208,11 @@ def main():
             stem = f"{name}_{expr}"
             if expr == "normal":
                 continue
-            stems.append(stem)
             if not exists(stem):
                 tiers.append((2, {"name": f"ch_{stem}", "seed": seed, "refs": [source(f"{name}_normal")],
                                   "prompt": EXPR.format(trigger=TRIGGER, face=FACE[expr], background=background)}))
-        for stem in stems:                                  # bản miệng mở của từng ảnh: mấp máy khi nói
+        for state in character_states(c):                   # cùng danh sách với kiểm tra và dựng
+            stem = f"{name}_{state}"
             if not exists(f"{stem}_talk"):
                 tiers.append((3, {"name": f"ch_{stem}_talk", "seed": seed, "refs": [source(stem)],
                                   "prompt": TALK.format(trigger=TRIGGER, background=background)}))

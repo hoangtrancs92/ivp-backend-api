@@ -79,21 +79,22 @@ def run(*args, **kw):
 
 
 def duration(path):
+    if Path(path).suffix.lower() == ".wav":
+        try:
+            with wave.open(str(path), "rb") as audio:
+                rate = audio.getframerate()
+                frames = audio.getnframes()
+            if rate > 0 and frames > 0:
+                return frames / rate
+            raise ValueError(f"WAV không có dữ liệu âm thanh: {path}")
+        except (wave.Error, EOFError, ZeroDivisionError) as error:
+            raise ValueError(f"WAV không hợp lệ hoặc rỗng: {path}") from error
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                           "-of", "csv=p=0", str(path)], capture_output=True, text=True, check=True)
     value = out.stdout.strip()
     try:
         seconds = float(value)
     except ValueError as error:
-        if Path(path).suffix.lower() == ".wav":
-            try:
-                with wave.open(str(path), "rb") as audio:
-                    rate = audio.getframerate()
-                    frames = audio.getnframes()
-                if rate > 0 and frames > 0:
-                    return frames / rate
-            except (wave.Error, EOFError):
-                pass
         raise ValueError(f"ffprobe không trả thời lượng hợp lệ cho {path}: {value!r}") from error
     if not math.isfinite(seconds) or seconds <= 0:
         raise ValueError(f"ffprobe trả thời lượng không hợp lệ cho {path}: {value!r}")
@@ -434,6 +435,11 @@ def load_layers(scene, font_file):
         if "effect" in layer:                  # hiệu ứng vẽ bằng code mỗi khung hình (effects.py), không có ảnh
             item = {"layer": layer, "img": None, "id": f"effect_{index}", "effect": True, "shape": None,
                     "points": [(0.5, 0.5)], "seed": scene["id"] * 100 + index}
+            box = (scene.get("effect_anchors") or {}).get(layer.get("on"))
+            if box is not None and scene.get("full"):
+                from effect_rules import project_anchor
+                with Image.open(Path("full") / f"{scene['id']:03d}.png") as source:
+                    item["anchor_box"] = project_anchor(box, source.size, (W, H), FULL_SHIFT)
             files = fx_files(fx_group(layer["effect"]))
             if files:                          # hiệu ứng là video nền đen (library/fx), chồng kiểu screen
                 rng = random.Random(item["seed"])
@@ -668,6 +674,9 @@ def clip_backgrounds(scene):
 
 
 def background(scene):
+    if scene.get("_analysis") and (scene.get("compare") or scene.get("photo")
+                                   or str(scene.get("location", "")).startswith("mood_")):
+        return Image.new("RGB", (W, H), "#EAF0F6")
     full = Path("full") / f"{scene['id']:03d}.png"          # cách dựng mới: tranh vẽ cả cảnh làm nền (có người sẵn)
     if scene.get("full") and full.exists():
         return place_full(Image.open(full).convert("RGB"))
@@ -733,14 +742,7 @@ def camera(frame, kind, p, t):
     return frame.resize((W, H), Image.BILINEAR, box=(left, top, left + w, top + h))
 
 
-ANIMS = ("none", "bounce", "wobble", "pulse", "pop", "pop_fade", "drop", "slide_left", "slide_right",
-         "exit_left", "exit_right", "approach", "recede", "jump",
-         "nod", "shake_no", "sway", "tilt", "breathe", "shiver", "hop", "sink", "float", "punch", "spin_in",
-         "lean_in", "rise", "squash", "jelly", "puff", "deflate", "stretch_up", "snap")
-MOTIONS = ("zoom_in", "zoom_out", "pan_left", "pan_right", "shake", "none",
-           "punch_in", "tilt_up", "tilt_down", "dolly_left", "dolly_right", "focus", "drift", "dutch",
-           "build", "impact", "talk_in")
-TRANSITIONS = ("cut", "fade", "push_left", "push_right", "push_up", "whip", "zoom", "flash", "wipe", "iris")
+from render_rules import ANIMS, MOTIONS, TRANSITIONS
 ANCHORS = ("center", "top", "bottom", "left", "right", "above", "head", "beside_left", "beside_right",
            "hand_left", "hand_right")
 
@@ -761,8 +763,9 @@ def new_style_layers(scene):
     photo = Path("photos") / f"{scene['id']:03d}.jpg"
     if scene.get("compare"):                         # thẻ so sánh (compare.py): lớp giữa khung, mọi cách dựng
         import compare
-        card = ("compare", Path("compare") / f"{scene['id']:03d}.png", 0.3)
-        if not card[1].exists():
+        card = ("compare", Path("compare") / f"{scene['id']:03d}{'_analysis' if scene.get('_analysis') else ''}.png",
+                0.34 if scene.get("_analysis") else 0.3)
+        if scene.get("_analysis") or not card[1].exists():
             compare.render(scene["compare"], card[1])
     elif isinstance(scene.get("photo"), dict) and photo.exists():   # ảnh thật Pexels (steps/fetch_photos.py) trong khung
         import compare
@@ -770,9 +773,13 @@ def new_style_layers(scene):
         if not card[1].exists():
             compare.photo_card(photo, card[1], str(scene["photo"].get("caption") or ""))
     if card:
+        if scene.get("_analysis"):
+            # Bỏ cả lớp thẻ cũ nếu kịch bản đã lưu bố cục từ lần dựng trước.
+            scene["layers"] = [l for l in scene.get("layers", []) if l.get("id") not in ("compare", "photo")]
         if not any(layer.get("id") == card[0] for layer in scene.get("layers", [])):
             scene.setdefault("layers", []).append({"id": card[0], "image": card[1].as_posix(), "size": card[2],
-                                                   "at": [0.5, 0.45], "anim": "pop"})
+                                                   "at": [0.5, 0.57] if scene.get("_analysis") else [0.5, 0.45],
+                                                   "anim": "none" if scene.get("_analysis") else "pop"})
         # hai linh vật đứng hai bên dưới thẻ / ảnh, đủ to để thấy đầu bản đồ (kịch bản hay để chồng nhau ở giữa)
         scene["motion"] = "none"                     # máy đứng yên: zoom / lia sẽ cắt mất thẻ
         sides = [[0.25, 0.83], [0.75, 0.83]]
@@ -858,8 +865,7 @@ def split_group_layer(scene, note, renamed):
 
 
 def repair(script):
-    """Sửa chỗ model viết kịch bản lệch quy ước, trước check(): cảnh một nhân vật ghi cutouts/NNN_<tên>.png trong khi
-    file là cutouts/NNN.png; hiệu ứng cần "on" mà bỏ trống; vị trí không có trong SLOTS. Trả về danh sách thay đổi."""
+    """Chuẩn hóa bố cục, hiệu ứng và vị trí sau khi common đã đồng bộ ảnh chủ thể."""
     changes = []
     for scene in script["scenes"]:
         if isinstance(scene.get("compare"), dict):    # nước đem so (Nhật Bản vs nước khác, steps/01_script.py)
@@ -867,7 +873,6 @@ def repair(script):
         def note(message):
             changes.append(f"cảnh {scene['id']}: {message}")
         renamed = {}                                    # tên cũ (id / tên file / tên nhân vật) -> id lớp ảnh sau khi sửa
-        split_group_layer(scene, note, renamed)         # trước new_style_layers: thẻ so sánh xếp chỗ cho các lớp đã tách
         changes += new_style_layers(scene)
         for layer in scene.get("layers", []):
             if isinstance(layer.get("path"), str):    # "path": "off_right": một điểm, không phải đường đi
@@ -876,23 +881,6 @@ def repair(script):
                     layer["at"] = place
                 note(f"\"path\": \"{place}\" không phải danh sách điểm, "
                      + (f"dùng \"at\": \"{place}\"" if layer.get("at") == place else "bỏ (anim lo phần đi vào)"))
-            image = layer.get("image")
-            if image and not (Path(image).exists() or (LIBRARY / image).exists()):
-                single = Path(image).parent / f"{scene['id']:03d}.png"
-                if not single.exists():                 # tên viết tắt: 047_chn.png -> 047_mascot_chn.png (theo id lớp / đuôi tên)
-                    tail = Path(image).stem[4:]
-                    named = Path(image).parent / f"{scene['id']:03d}_{layer.get('id')}.png"
-                    found = [named] if layer.get("id") and named.exists() else \
-                        sorted(Path(image).parent.glob(f"{scene['id']:03d}_*{tail}.png")) if tail else []
-                    single = found[0] if len(found) == 1 else single
-                if Path(image).parent.name == "cutouts" and single.exists():
-                    old = layer.get("id") or Path(image).stem
-                    layer["image"] = single.as_posix()
-                    note(f"{image} không có, dùng {layer['image']}")
-                    new = layer.get("id") or single.stem
-                    renamed[old] = new
-                    renamed[Path(image).stem] = new
-                    renamed[Path(image).stem[4:]] = new         # "025_best_friend" -> tên nhân vật "best_friend"
             for key in ("at", "path"):
                 places = layer.get(key)
                 if places is None:
@@ -905,6 +893,7 @@ def repair(script):
                     note(f"vị trí {places} không có, dùng {layer[key]}")
         # id lớp ảnh như check() / positions() tính: "id" nếu có, không thì tên file (lớp ảnh không ghi id vẫn bám được)
         ids = [layer.get("id") or Path(layer["image"]).stem for layer in scene.get("layers", []) if "image" in layer]
+        anchor_ids = list((scene.get("effect_anchors") or {})) if scene.get("full") else []
         main = variety.main_layer(scene)
         target = (main.get("id") or Path(main["image"]).stem) if main else (ids[0] if ids else None)
         # neo vào lớp không có (thường là tên nhân vật "best_friend.beside_right" khi cảnh chỉ có cutouts/NNN.png): chuyển sang
@@ -928,10 +917,38 @@ def repair(script):
                 if fixed != listed:
                     layer[key] = fixed if key == "path" and isinstance(places, list) else fixed[0]
         kept = []
+        # Sticker cảm xúc trùng hiệu ứng động dễ che mặt, đặc biệt trên tranh full.
+        duplicate_stickers = {"tear": "tears", "sweat": "sweat", "anger": "anger",
+                              "heart": "hearts", "sparkle": "sparkles"}
+        active_effects = {l.get("effect") for l in scene.get("layers", [])}
         for layer in scene.get("layers", []):
+            image_path = Path(layer.get("image", ""))
+            if (image_path.parent.name == "stickers"
+                    and duplicate_stickers.get(image_path.stem) in active_effects
+                    and not any(key in layer for key in ("id", "at", "path"))):
+                note(f"bỏ sticker '{image_path.stem}' trùng hiệu ứng động để không che mặt")
+                continue
             kind = layer.get("effect")
+            if kind in effects.KINDS:
+                if not effects.KINDS[kind][0] and kind != "murmur":
+                    # Hiệu ứng toàn khung không cần bám nhân vật/sticker.
+                    layer.pop("on", None)
+                elif scene.get("full") and layer.get("on") not in anchor_ids:
+                    names = scene.get("characters") or []
+                    default = scene.get("speaker") if scene.get("speaker") in names else names[0] if len(names) == 1 else "__subject"
+                    if default in anchor_ids:
+                        layer["on"] = default
+                    elif len(anchor_ids) == 1:
+                        layer["on"] = anchor_ids[0]
+                    elif effects.KINDS[kind][0] or layer.get("on"):
+                        raise ValueError(f"cảnh {scene['id']}: hiệu ứng '{kind}' cần điểm neo nhân vật trên tranh; chạy tools/prepare_effects.py")
             # hiệu ứng cần bám mà thiếu "on", hoặc ghi "on" trỏ vào lớp không có (vd "me": tên nhân vật) thì bám lớp ảnh của cảnh
-            if kind in effects.KINDS and layer.get("on") not in ids and (effects.KINDS[kind][0] or layer.get("on")):
+            if kind in effects.KINDS and layer.get("on") not in ids + anchor_ids and (effects.KINDS[kind][0] or layer.get("on")):
+                # Chỉ neo hiệu ứng cơ thể vào chủ thể, không chọn sticker làm người thay thế.
+                subjects = [l for l in scene.get("layers", []) if Path(l.get("image", "")).parent.name == "cutouts"]
+                subject = next((l for l in subjects if l.get("id") == layer.get("on")), None)
+                subject = subject or main or (subjects[0] if len(subjects) == 1 else None)
+                target = (subject.get("id") or Path(subject["image"]).stem) if subject else None
                 if target is None:
                     note(f"bỏ hiệu ứng '{kind}': cảnh không có lớp ảnh để bám")
                     continue
@@ -964,7 +981,7 @@ def check(script):
         if scene.get("shot", "full") not in SHOTS:
             bad(f"shot '{scene['shot']}' không có; có: {', '.join(SHOTS)}")
         layers = scene.get("layers", [])
-        ids, seen = set(), set()
+        ids, seen = set(scene.get("effect_anchors") or {}) if scene.get("full") else set(), set()
         for index, layer in enumerate(layers):
             if "effect" not in layer:
                 name = layer.get("id") or Path(layer.get("image", "word")).stem
@@ -1051,6 +1068,8 @@ def by_ids(layers):
 
 def effect_box(item, moves, lookup):
     """Khung (pixel) của lớp được hiệu ứng bám theo: tâm, rộng, cao, tâm đầu, bán kính đầu."""
+    if "anchor_box" in item:
+        return item["anchor_box"]
     target = item["layer"].get("on")
     if not target:
         return None
@@ -1079,7 +1098,8 @@ def render_frame(scene, bg, layers, t, length):
             continue
         if item.get("effect"):
             effects.draw(frame, layer["effect"], local, life, effect_box(item, moves, lookup), (W, H),
-                         layer.get("colour"), seed=item["seed"], text=layer.get("text"))
+                         layer.get("colour"), seed=item["seed"], text=layer.get("text"),
+                         occlude=bool(scene.get("full") and "anchor_box" in item))
             continue
         _, (px, py), scale, angle, alpha = moves[item["id"]]
         img, key = item["img"], "main"
@@ -1090,7 +1110,7 @@ def render_frame(scene, bg, layers, t, length):
         travel = layer.get("over", 0.8) if len(item["points"]) > 1 else 0.0
         sx, sy, jelly = deform(layer.get("anim", "none"), max(local - travel, 0.0), max(life - travel, 0.01))
         lean = 0.0
-        if IDLE and item.get("character") and layer.get("anim", "none") not in IDLE_SKIP:
+        if IDLE and not scene.get("_analysis") and item.get("character") and layer.get("anim", "none") not in IDLE_SKIP:
             breath, lean = idle(t, sum(map(ord, item["id"])))
             sy *= breath
         drop = 0.0                                         # co giãn dọc giữ chân trên mặt đất
@@ -1291,6 +1311,8 @@ SFX_SPARSE_MAX = 2              # mỗi tiếng tối đa 2 lần / video
 
 def sfx_events(scene, has_previous):
     """Các tiếng (tên, giây) của một cảnh, thưa: chỉ khi thật cần (xem SFX_REAL). Tối đa 1 tiếng một cảnh (ghi tay: 2)."""
+    if scene.get("_analysis"):
+        return [(str(name), 0.0) for name in (scene.get("sfx") or [])[:1]]
     must, auto = [], []
     for item in scene.get("sfx", []) or []:                # kịch bản ghi rõ: luôn dùng
         if isinstance(item, str):
@@ -1414,7 +1436,7 @@ def render_clip(scene, font_file, audio, clip, previous=None):
     """Vẽ từng khung hình của một cảnh và đẩy thẳng vào ffmpeg cùng giọng đọc.
     previous: khung hình cuối của cảnh trước, để chuyển cảnh trong TRANSITION giây đầu.
     Trả về (độ dài cảnh, khung hình cuối)."""
-    frames = round((duration(audio) + PAD + scene.get("_hold", 0.0)) * FPS)   # _hold: cảnh cuối giữ thêm cho đủ độ dài
+    frames = round((duration(audio) + scene.get("_pad", PAD) + scene.get("_hold", 0.0)) * FPS)
     length = frames / FPS
     bg, layers = background(scene), load_layers(scene, font_file)
     moving = clip_backgrounds(scene)                       # nền là clip image-to-video thay cho tranh tĩnh
@@ -1572,10 +1594,10 @@ TITLE_SIDE = 100                                   # lề trái phải tối thi
 TITLE_TOP = 70                                     # đẩy tiêu đề xuống (px): thanh trên cùng của TikTok che mép trên khung
 
 
-def title_sizes(title_lines, font_file, band):
+def title_sizes(title_lines, font_file, band, base=None):
     """Cỡ chữ từng dòng tiêu đề: dòng 1 title_size, các dòng sau nhỏ hơn; dòng nào dài quá bề ngang thì co lại cho vừa
     (đo bằng chính font, tính cả viền), tổng chiều cao không vượt dải đen."""
-    base = VIDEO["title_size"]
+    base = VIDEO["title_size"] if base is None else base
     try:
         measure = ImageFont.truetype(font_file, 100) if font_file else None
     except OSError:
@@ -1601,9 +1623,13 @@ def title_sizes(title_lines, font_file, band):
 def write_subtitles(script, timings, total, path):
     """Như video mẫu: dải đen trên cùng chứa tiêu đề chữ vàng viền nâu; phụ đề chữ màu viền trắng dày, ngay dưới dải.
     Lời kể (narrator) màu xanh dương; lời thoại (speaker khác) màu của nhân vật, làm đậm."""
-    font, size = script.get("font", "Arial"), VIDEO["subtitle_size"]
-    outline, margin = max(round(size / 7), 6), VIDEO["subtitle_margin"]   # viền trắng dày như video mẫu
-    band = VIDEO.get("title_band", 0)
+    from analysis_profile import video_options
+    options = video_options(script, VIDEO)
+    font, size = script.get("font", "Arial"), options["subtitle_size"]
+    from analysis_profile import enabled
+    analysis = enabled(script)
+    outline, margin = (4 if analysis else max(round(size / 7), 6)), options["subtitle_margin"]
+    band = options.get("title_band", 0)
     lines = [
         "[Script Info]", "ScriptType: v4.00+", f"PlayResX: {W}", f"PlayResY: {H}", "WrapStyle: 2", "",
         "[V4+ Styles]",
@@ -1612,14 +1638,15 @@ def write_subtitles(script, timings, total, path):
         "Style: Band,Arial,10,&H00000000,&H00000000,&H00000000,0,1,0,0,7,0,0,0",
     ]
     title_lines = [str(t) for t in script.get("title", []) if str(t).strip()]
-    sizes = title_sizes(title_lines, font_path(script), band)
-    lines.append(f"Style: Title,{font},{VIDEO['title_size']},&H0042CFFF,&H000E1C30,&H80000000,1,1,"
-                 f"{max(round(VIDEO['title_size'] / 11), 6)},3,8,20,20,"
+    sizes = title_sizes(title_lines, font_path(script), band, base=options["title_size"])
+    title_colour = "&H00FFFFFF" if analysis else "&H0042CFFF"
+    lines.append(f"Style: Title,{font},{options['title_size']},{title_colour},&H000E1C30,&H80000000,1,1,"
+                 f"{max(round(options['title_size'] / 11), 6)},3,8,20,20,"
                  f"{max(round((band - TITLE_TOP - sum(sizes)) / 2), 6) + TITLE_TOP if band else 90}")
     for name, colour in script["speakers"].items():
-        text_colour = VIDEO.get("narration_colour", "#2747F5") if name == "narrator" else deepen(colour)
+        text_colour = "#1F2A4D" if analysis else VIDEO.get("narration_colour", "#2747F5") if name == "narrator" else deepen(colour)
         lines.append(f"Style: {name},{font},{size},{ass_colour(text_colour)},&H00FFFFFF,"
-                     f"&H64000000,1,1,{outline},2,8,{margin},{margin},{VIDEO['subtitle_top']}")
+                     f"&H64000000,1,1,{outline},2,8,{margin},{margin},{options['subtitle_top']}")
     lines += ["", "[Events]", "Format: Layer, Start, End, Style, Text"]
     if band:                                        # dải đen tiêu đề: hình chữ nhật vẽ bằng lệnh vẽ của ASS
         lines.append(f"Dialogue: 0,{ass_time(0)},{ass_time(total)},Band,{{\\pos(0,0)\\p1}}m 0 0 l {W} 0 {W} {band} 0 {band}{{\\p0}}")
@@ -1712,9 +1739,17 @@ def preview(script):
 def main():
     script = json.loads(Path("script.json").read_text(encoding="utf-8"))
     from common import summarize_changes
-    for line in summarize_changes(normalize_script(script)):   # gộp các dòng "bỏ null" cho log gọn
+    for line in summarize_changes(normalize_script(script, Path.cwd())):   # gộp các dòng "bỏ null" cho log gọn
         print("  sửa kịch bản:", line)
+    from common import asset_problems, missing_script_images
+    problems = asset_problems(script, Path.cwd())
+    problems += [f"thiếu {p}" for p in missing_script_images(Path.cwd(), script)]
+    if problems:
+        sys.exit("Chưa đủ nguồn ảnh để dựng; chạy bước lên danh sách ảnh và sinh ảnh:\n  " + "\n  ".join(problems))
+    sys.path.insert(0, str(ROOT / "tools"))
+    from prepare_effects import prepare
     script = variety.fill(script)                  # điền chuyển động còn trống
+    prepare(Path.cwd(), script=script)
     for line in repair(script):                    # tên ảnh, "on" của hiệu ứng, vị trí model đặt sai
         print("  sửa kịch bản:", line)
     problems = check(script)
@@ -1729,7 +1764,11 @@ def main():
     clips, timings, clock, last = [], [], 0.0, None
     # video phải trên 1 phút (TikTok tính tiền từ 60 giây): thiếu thì cảnh cuối (câu hỏi cho người xem) giữ thêm, không chèn
     # khoảng nghỉ giữa video. Video so sánh đọc nhanh, không tự đọc chậm lại nên hay hụt (048: 57,4 giây).
-    planned = sum(duration(Path("audio") / f"{s['id']:03d}.wav") + PAD for s in script["scenes"])
+    from analysis_profile import video_options
+    pad = video_options(script, VIDEO)["pad"]
+    for scene in script["scenes"]:
+        scene["_pad"] = pad
+    planned = sum(duration(Path("audio") / f"{s['id']:03d}.wav") + pad for s in script["scenes"])
     script["scenes"][-1]["_hold"] = max(0.0, MIN_SECONDS - planned)
     if script["scenes"][-1]["_hold"]:
         print(f"Giọng + nghỉ {planned:.1f} giây < {MIN_SECONDS}: cảnh cuối giữ thêm {script['scenes'][-1]['_hold']:.1f} giây")

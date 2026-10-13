@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from kaggle_quota import quota          # noqa: E402
+from assets import missing_images, normalize_assets  # noqa: E402
 
 STEPS = [
     ("script", "Viết tiểu phẩm"),
@@ -59,14 +60,12 @@ def run(args, env=None):
 
 
 def missing(folder):
-    """Ảnh bắt buộc còn thiếu: ảnh gốc từng nhân vật và ảnh nền (thiếu ảnh biểu cảm thì dựng bằng ảnh gốc)."""
+    """Cùng danh sách ảnh với bước sinh ảnh và dựng, kể cả biểu cảm / tư thế / tranh chèn."""
     skit = json.loads((folder / "skit.json").read_text(encoding="utf-8"))
-    out = [f"{n}_normal" for n in skit["cast"]
-           if not (folder / "characters" / f"{n}_normal.png").exists() and not (folder / "cutouts" / f"{n}_normal.png").exists()]
-    for bg in (skit.get("backgrounds") or {}).values():      # nền từng nơi bắt buộc; thiếu tranh chèn thì câu đó hiện sân khấu
-        if not (ROOT / "library" / "backgrounds" / f"{bg}.png").exists():
-            out.append(bg)
-    return out
+    _, problems = normalize_assets(skit)
+    if problems:
+        raise ValueError("Tiểu phẩm có lỗi ảnh:\n  " + "\n  ".join(problems))
+    return missing_images(folder, skit)
 
 
 def main():
@@ -91,6 +90,14 @@ def main():
         if run(["skit/write.py", rel, folder / "prompt.txt"]):
             fail("script", "AI không viết được tiểu phẩm, xem log.")
         p.step("script", "done")
+    script_path = folder / "skit.json"
+    skit = json.loads(script_path.read_text(encoding="utf-8"))
+    before = json.dumps(skit, ensure_ascii=False)
+    _, problems = normalize_assets(skit)
+    if problems:
+        fail("script", "Tiểu phẩm có lỗi ảnh:\n  " + "\n  ".join(problems))
+    if json.dumps(skit, ensure_ascii=False) != before:
+        script_path.write_text(json.dumps(skit, ensure_ascii=False, indent=2), encoding="utf-8")
     for attempt in range(EXTENDS + 1):
         p.step("voice", "running")
         code = run(["skit/voice.py", rel])

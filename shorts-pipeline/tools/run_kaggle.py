@@ -24,6 +24,8 @@ import time
 import tomllib
 from pathlib import Path
 
+from PIL import Image
+
 ROOT = Path(__file__).resolve().parent.parent
 REFS = ROOT / "config" / "refs"
 DEFAULTS = {"machine_shape": "NvidiaTeslaT4", "lora_dataset": "irasutoya-style-lora", "job_dataset": "shorts-job",
@@ -39,7 +41,9 @@ def ref_source(video, ref):
     """File trên máy của một tham chiếu không phải '@': ref__x = ảnh chuẩn, char__x = ảnh gốc trong characters/,
     bg__x = ảnh nền library/backgrounds/x (tiểu phẩm: vẽ toàn cảnh có người trong đúng căn phòng của nền)."""
     if ref.startswith("char__"):
-        return video / "characters" / ref.removeprefix("char__")
+        filename = ref.removeprefix("char__")
+        original = video / "characters" / filename
+        return original if original.is_file() else video / "cutouts" / filename
     if ref.startswith("bg__"):
         return ROOT / "library" / "backgrounds" / ref.removeprefix("bg__")
     if ref.startswith("full__"):                # ảnh đầu của clip: tranh cả cảnh đã có
@@ -349,14 +353,37 @@ def report(kaggle, kernel, names, path):
     print(f"  tiến trình: {len(done)}/{len(names)} ảnh xong, {len(failed)} lỗi", flush=True)
 
 
+def png_error(path):
+    """Kaggle có thể lưu trang lỗi HTTP 502 dưới tên .png dù lệnh tải báo thành công."""
+    try:
+        with Image.open(path) as img:
+            if img.format != "PNG":
+                return "không phải PNG"
+            img.verify()
+        with Image.open(path) as img:
+            img.load()
+    except (OSError, ValueError, SyntaxError) as error:
+        return str(error)
+    return None
+
+
 def fetch(video, kaggle, kernel, dry):
     """Tải kết quả lần chạy gần nhất của kernel về work/kaggle/, rồi chép từng ảnh về đúng chỗ."""
     out = video / "work" / "kaggle"
     shutil.rmtree(out, ignore_errors=True)       # chỉ giữ kết quả của lần chạy này
     out.mkdir(parents=True)
-    for attempt in range(3):                   # mạng tới máy chủ tải file của Kaggle đôi khi quá hạn: thử lại
-        result = kaggle("kernels", "output", kernel, "-p", out, check=False)
-        if dry or "Max retries exceeded" not in result and "Error" not in result:
+    bad = []
+    for attempt in range(3):                   # kiểm tra nội dung ảnh, không chỉ thông báo của CLI
+        retry = ["--file-pattern", "(?:" + "|".join(re.escape(p.name) for p in bad) + ")$"] if bad else []
+        result = kaggle("kernels", "output", kernel, "-p", out, "-o", *retry, check=False)
+        if dry:
+            break
+        bad = [p for p in out.rglob("*.png") if png_error(p)]
+        if not bad and "Max retries exceeded" not in result and "Error" not in result:
+            break
+        if bad:
+            print("  ảnh tải về không hợp lệ: " + ", ".join(p.name for p in bad), flush=True)
+        if attempt == 2:
             break
         print(f"Tải về lỗi, thử lại lần {attempt + 2}...", flush=True)
         time.sleep(10)
@@ -365,15 +392,20 @@ def fetch(video, kaggle, kernel, dry):
     failed = [p.name for p in out.rglob("*.failed")]
     print(f"Đã tải {len(list(out.rglob('*.png')))} ảnh về {out}. Lỗi: {failed or 'không'}")
     for png in sorted(out.rglob("*.png")):
+        if png in bad:
+            continue
         target = destination(video, png.stem)
         if target is None:
             continue
-        if target.exists():
+        if target.exists() and not png_error(target):
             print(f"  giữ ảnh đã có: {target.relative_to(ROOT)}")
             continue
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy(png, target)
         print(f"  -> {target.relative_to(ROOT)}")
+    if bad:
+        sys.exit("Không tải được ảnh PNG hợp lệ sau 3 lần: " + ", ".join(p.name for p in bad)
+                 + ". Chạy tools/run_kaggle.py <video> --fetch để tải lại, không cần sinh lại ảnh.")
     # clip chép SAU ảnh: clip không cũ hơn tranh cả cảnh của nó (make_jobs.clip_ready); luôn ghi đè clip cũ
     for mp4 in sorted(out.rglob("clip_*.mp4")):
         target = video / "clips" / f"{mp4.stem.removeprefix('clip_')}.mp4"

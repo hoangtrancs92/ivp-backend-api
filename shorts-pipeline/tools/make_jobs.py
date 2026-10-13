@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "steps"))
-from common import TRIGGER, character_files   # noqa: E402
+from common import TRIGGER, asset_problems, character_files   # noqa: E402
 
 # Cách dựng mới (style "new", như kênh スカッと迷言集): mỗi cảnh một tranh vẽ cả cảnh có 1-2 người ở cự ly gần, ảnh chuẩn
 # từng người làm tham chiếu để giữ mặt; 576x1024 để vừa T4 với 2 tham chiếu (768x1344 + nhiều tham chiếu từng hết VRAM)
@@ -40,6 +40,11 @@ MASCOT_CAST = ("{trigger}, turn the map shape in the reference image into the HE
                "the same map outline and the same flag colors and pattern on it, draw a simple cute face on the map head "
                "(two black dot eyes, pink blush, small smile), add a small body with short arms and legs below it, {look}, "
                "standing, one hand waving, full body, plain white background")
+ROUND_FLAG_CAST = ("{trigger}, use the round flag in the reference image as the oversized perfectly circular HEAD "
+                   "of a cute mascot. Keep its smooth circular outline, white surface and centered red sun. "
+                   "Draw two black dot eyes, pink blush and a tiny red smile on the lower white part of the head. "
+                   "Add a small chibi body below it, {look}, standing, one hand waving, full body, "
+                   "plain white background, no map outline, no islands")
 ANIME_LORA = 0.0         # ảnh chỉ có nhân vật anime
 MIXED_LORA = 0.55        # tranh cả cảnh có cả nhân vật anime và Irasutoya: giảm LoRA để hai nét cùng tồn tại
 
@@ -107,8 +112,15 @@ def main():
     script = load(video / "script.json")
     from common import normalize_script
     from common import summarize_changes
-    for line in summarize_changes(normalize_script(script)):   # gộp các dòng "bỏ null" cho log gọn
+    changes = normalize_script(script, video)
+    for line in summarize_changes(changes):   # gộp các dòng "bỏ null" cho log gọn
         print("  sửa kịch bản:", line)
+    # Phát hiện ảnh không có nguồn sinh trước khi tốn thời gian chạy Kaggle.
+    problems = asset_problems(script, video)
+    if problems:
+        sys.exit("Kịch bản có ảnh chưa được khai báo:\n  " + "\n  ".join(problems))
+    if changes:
+        (video / "script.json").write_text(json.dumps(script, ensure_ascii=False, indent=2), encoding="utf-8")
     refs = ROOT / "config" / "refs"
 
     wrong = [s["id"] for s in script["scenes"] if s.get("shot", "full") not in shots]
@@ -124,11 +136,12 @@ def main():
 
     def ref_job(owner):
         """Ảnh chuẩn: nhân vật anime vẽ kiểu anime, không LoRA Irasutoya. Linh vật quốc gia ("head_ref", tools/country_mascot.py):
-        sửa từ ảnh đầu bản đồ + cờ vẽ bằng code, để hình nước và cờ đúng."""
+        sửa từ ảnh đầu vẽ bằng code: cờ tròn cho Nhật, bản đồ tô cờ cho các nước khác."""
         head = characters[owner].get("head_ref")
         if head:
+            template = ROUND_FLAG_CAST if characters[owner].get("head_shape") == "round_flag" else MASCOT_CAST
             return {"name": f"ref_{owner}", "refs": [f"ref__{head}"],
-                    "prompt": MASCOT_CAST.format(trigger=TRIGGER, look=characters[owner]["prompt"])}
+                    "prompt": template.format(trigger=TRIGGER, look=characters[owner]["prompt"])}
         if is_anime(characters, owner):
             return {"name": f"ref_{owner}", "lora": ANIME_LORA,
                     "prompt": ANIME_CAST.format(look=characters[owner]["prompt"])}
@@ -144,7 +157,7 @@ def main():
             return prompt
         head = f"{TRIGGER}, "
         return f"{head}{fix}, {prompt[len(head):]}" if prompt.startswith(head) else f"{fix}, {prompt}"
-    for loc in sorted({s["location"] for s in script["scenes"]}):
+    for loc in sorted({s["location"] for s in script["scenes"] if not s.get("full")}):
         if have(ROOT / "library" / "backgrounds" / f"{loc}.png", video / "backgrounds" / f"{loc}.png"):
             continue
         if loc not in locations:
@@ -238,8 +251,7 @@ def main():
             elif (video / "characters" / filename).exists():
                 base = f"char__{filename}"                         # ảnh gốc đã có ở characters/
             else:
-                print(f"  bỏ qua {stem}_alt: cần characters/{filename} (ảnh gốc nền trắng) để sửa ra tư thế thứ hai")
-                continue
+                base = f"char__{filename}"  # run_kaggle.py cũng đóng gói ảnh đã tách nền khi ảnh gốc không còn.
             # nhân vật anime: tư thế thứ hai cũng không LoRA, cùng cường độ với ảnh gốc (run_kaggle.py bắt buộc)
             anime = is_anime(characters, name) if name else False
             alts.append({"name": f"ch_{stem}_alt", "seed": seed + 500, "refs": [base],

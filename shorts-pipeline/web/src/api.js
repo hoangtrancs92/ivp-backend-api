@@ -77,8 +77,8 @@ export const STORY_MODES = {
     hint: "Gia đình, tình thân, tình bạn; hiểu lầm hoặc hy sinh lộ ra ở cuối." },
   comedy: { icon: "😂", label: "Hài", short: "Leo thang vô lý, câu chốt bất ngờ.",
     hint: "Tình huống đời thường leo thang vô lý, nhiều thoại, nhịp nhanh." },
-  kaigai: { icon: "🗾", label: "Người nước ngoài khen Nhật", short: "海外の反応: sốc văn hóa, so với quê nhà.",
-    hint: "Người nước ngoài (mặc định Trung Quốc) sang Nhật, sốc vì Nhật quá tốt, so với quê nhà (chê hệ thống, thói quen, không miệt thị dân tộc); có người đồng hương cãi lại để tạo hai phe." },
+  kaigai: { icon: "🇯🇵", label: "Nhật Bản và các nước", short: "Phân tích khoảng 2 phút, hình gọn, dẫn chứng rõ.",
+    hint: "Một câu hỏi chính, 3 luận điểm có dẫn chứng và phản biện. Giọng kể dẫn dắt, linh vật xuất hiện ở vài mốc; bảng số liệu dễ đọc, ít hiệu ứng." },
 };
 
 // Cách dựng video truyện kể: "new" = như kênh スカッと迷言集 (video mẫu): tranh vẽ cả cảnh, bí mật + cú lật, nhạc rõ
@@ -100,7 +100,7 @@ export const BUILD_MODES = {
 };
 export const CONTRAST_KINDS = {
   random: { icon: "🎲", label: "Ngẫu nhiên", hint: "Từ đề tài bạn nhập, AI viết dàn ý chia hai phe theo quy tắc móc câu + tương phản, rồi mới viết kịch bản." },
-  japan: { icon: "🗾", label: "Nhật Bản vs nước khác", hint: "So Nhật với một nước bằng số liệu thật, tân bốc Nhật." },
+  japan: { icon: "🇯🇵", label: "Nhật Bản vs nước khác", hint: "Phân tích khoảng 2 phút: 3 luận điểm, dẫn chứng đúng chủ đề, phản biện và kết luận rõ. Hình gọn, ít hiệu ứng." },
 };
 // = steps/compare_facts.py COUNTRIES
 export const COUNTRIES = {

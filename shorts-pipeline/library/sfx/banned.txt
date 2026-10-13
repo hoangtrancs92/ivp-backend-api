@@ -1,0 +1,2 @@
+# Tiếng bị loại: không bao giờ dùng / tải lại (mỗi dòng: tên file không đuôi, như jean1)
+jean1

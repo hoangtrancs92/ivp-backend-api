@@ -118,6 +118,14 @@ ghế tím trên tàu ghế xanh, tay vịn lơ lửng, khung cửa sổ trắng
 - Trạng thái cơ thể khó vẽ (mang thai, ốm, bị thương) dễ ra hình kỳ lạ; thể hiện bằng đồ vật cùng ý thay vào
   (mang thai: cầm đôi tất em bé hoặc ảnh siêu âm; ốm: miếng dán hạ sốt trên trán, khăn quàng).
 - Cảnh không có nhân vật, đồ vật là chủ thể (hai cốc chạm nhau, lá thư trên bàn): `"characters": []` và `"object"` mô tả cả nhóm đồ vật trong một ảnh.
+- **Đồng bộ nguồn ảnh**: mọi nhân vật / robot có lớp `cutouts/` phải được khai trong `characters`, kể cả cảnh thẻ so sánh.
+  Một chủ thể dùng `cutouts/NNN.png`; nhiều chủ thể dùng `cutouts/NNN_<tên>.png`, mỗi chủ thể một lớp riêng.
+  Không tự đặt đường dẫn ảnh cho chủ thể chưa có mô tả. Cảnh chỉ có đồ vật dùng `object` và một lớp `cutouts/NNN.png`.
+  Tranh cả cảnh dùng `full: true` (ảnh ở `full/NNN.png`), không yêu cầu ảnh cutout riêng; điện thoại dùng `phone`.
+- **Đúng trường chuyển động**: `motion` của cảnh là máy quay (`zoom_in`, `zoom_out`, `pan_left`, `pan_right`, `shake`,
+  `none`, `punch_in`, `tilt_up`, `tilt_down`, `dolly_left`, `dolly_right`, `focus`, `drift`, `dutch`, `build`, `impact`, `talk_in`).
+  `breathe`, `sink`, `sway`, `tilt`, `rise`, `slide_right`, `exit_right`, `approach`, `recede` là `anim` của lớp chủ thể.
+  Tranh cả cảnh chỉ có chuyển động máy quay; không đặt chuyển động cơ thể vào `motion`.
 - **Tránh màu xanh lá** cho trang phục, tóc, đồ vật của nhân vật và cảnh đồ vật (ảnh vẽ trên nền xanh lá rồi tách theo màu:
   đồ xanh lá dễ bị khoét lủng). Chọn màu khác (xanh dương, vàng, đỏ, nâu, cam...). Thật cần xanh lá (lá cây, ếch) thì vẫn được,
   bước tạo việc sẽ đổi nền tách sang xanh dương.
@@ -174,6 +182,14 @@ Mỗi cảnh có nhân vật chọn một khung hình:
 
 Lớp hiệu ứng: `{"effect": "<tên>", "on": "<id nhân vật>", "start": 0.2, "duration": 1.2, "colour": "#RRGGBB"}`.
 `on`, `start`, `duration`, `colour` tùy chọn (hiệu ứng bám nhân vật thì bắt buộc có `on`). Thứ tự trong `layers` là thứ tự vẽ.
+
+Cảnh `full: true` vẫn dùng được hiệu ứng bám nhân vật: bước `tools/prepare_effects.py` tự xác định thân/mặt trên ảnh đã sinh,
+lưu `effect_anchors` theo tọa độ ảnh gốc và kiểm tra lại khi ảnh thay đổi. Ghi `on` đúng id nhân vật, không dùng id sticker.
+Không tự đoán tọa độ trong bước viết kịch bản. Nếu không xác định được nhân vật sau hai lần dò, pipeline bỏ riêng hiệu ứng phụ,
+ghi cảnh báo vào `effect_anchor_warning` và tiếp tục dựng. Thay ảnh sẽ tự dò lại. Không dùng hiệu ứng bám mặt khi nhân vật quay lưng,
+bị che mặt hoặc ngoài khung hình; ưu tiên hiệu ứng toàn khung hoặc chữ tượng thanh có `at` rõ ràng.
+Hiệu ứng toàn khung như `gloom` không cần điểm neo. `shiver` là các nét run nhẹ quanh vai; dùng `anim: shiver` khi muốn
+chuyển động cả lớp nhân vật cắt rời. Không đặt thêm sticker giọt nước trùng `tears` che mặt nhân vật.
 
 **Hiệu ứng ánh sáng (video, phủ cả khung, đặt cuối `layers`)**: `{"effect": "fx_<nhóm>"}`, tùy chọn `"opacity": 0.6`,
 `start`, `duration`. Nhóm: `fx_sparkle` đốm sáng bay (vui) · `fx_gold` mưa vàng (đắc ý, chiến thắng) · `fx_bokeh` đốm tròn

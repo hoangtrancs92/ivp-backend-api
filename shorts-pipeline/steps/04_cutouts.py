@@ -55,7 +55,7 @@ def main():
     session = None
     (video / "cutouts").mkdir(exist_ok=True)
     script = load_script(video) if (video / "script.json").exists() else {"scenes": []}
-    whole = {f"{sc['id']:03d}.png" for sc in script["scenes"] if sc.get("full_scene")}   # cách dựng mới: giữ nguyên tranh
+    whole = {f"{sc['id']:03d}.png" for sc in script["scenes"] if sc.get("full")}   # tranh cả cảnh không tách nền
     for path in sorted((video / "characters").glob("*.png")):
         out = video / "cutouts" / path.name
         if out.exists() or path.name in whole:

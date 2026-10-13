@@ -192,7 +192,8 @@ def make_variant(cut_path, kind):
 
 def wanted(video):
     """(ảnh cutout, loại) cần tạo: blink cho mọi nhân vật ở cảnh close / half, talk cho nhân vật đang nói."""
-    script = json.loads((video / "script.json").read_text(encoding="utf-8"))
+    from common import character_variants, load_script
+    script = load_script(video)
     only = None
     if "--only" in sys.argv:
         only = {int(x) for x in sys.argv[sys.argv.index("--only") + 1].split(",")}
@@ -205,19 +206,14 @@ def wanted(video):
             continue
         if sc.get("shot", "full") not in CONF["shots"] or not sc.get("characters"):
             continue
-        stem, speaker = f"{sc['id']:03d}", sc.get("speaker", "")
-        for layer in sc.get("layers", []):
-            image = Path(str(layer.get("image", "")))
-            if image.parent.name != "cutouts" or not image.stem.startswith(stem):
+        speaker = sc.get("speaker", "")
+        for who, filename in character_variants(sc):
+            path = video / "cutouts" / filename
+            if not path.exists():
                 continue
-            for name in (image.stem, f"{image.stem}_alt"):
-                path = video / "cutouts" / f"{name}.png"
-                if not path.exists():
-                    continue
-                jobs.append((path, "blink"))
-                who = name[4:].removesuffix("_alt").removesuffix("alt").strip("_")   # "", "<nhân vật>"
-                if CONF.get("talk", True) and variety.is_dialogue(sc, voice) and                         ((not who and sc["characters"] == [speaker]) or who == speaker):
-                    jobs.append((path, "talk"))
+            jobs.append((path, "blink"))
+            if CONF.get("talk", True) and variety.is_dialogue(sc, voice) and who == speaker:
+                jobs.append((path, "talk"))
     faces = video / "cutouts" / "faces"           # .skip: lần trước model đổi quá nhiều, không thử lại (đỡ tốn tiền)
     return [(p, k) for p, k in dict.fromkeys(jobs)
             if not (faces / f"{p.stem}_{k}.png").exists() and not (faces / f"{p.stem}_{k}.skip").exists()]

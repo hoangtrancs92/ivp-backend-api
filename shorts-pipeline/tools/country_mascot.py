@@ -1,8 +1,8 @@
-"""Linh vật quốc gia (国擬人化): đầu là bản đồ nước đó tô cờ, thân nét Irasutoya. Dùng cho "Nhật Bản vs nước khác".
+"""Linh vật quốc gia (国擬人化): Nhật dùng đầu cờ tròn, nước khác dùng bản đồ tô cờ, thân nét Irasutoya.
 
   python tools/country_mascot.py CHN JPN        # vẽ config/refs/mascot_chn_head.png ... và khai nhân vật vào characters.json
 
-Model ảnh không vẽ đúng hình bản đồ, nên phần đầu vẽ bằng code: đường biên thật (Natural Earth 1:50m) tô ảnh cờ thật
+Phần đầu Nhật là vòng tròn trắng với mặt trời đỏ. Các nước khác dùng đường biên thật (Natural Earth 1:50m) tô ảnh cờ thật
 (flagcdn.com), viền nâu như nét Irasutoya. Ảnh này là tham chiếu cho job ảnh chuẩn `ref_mascot_<nước>` trên Kaggle
 (tools/make_jobs.py, "head_ref"): model thêm mặt, thân, tay chân. Dữ liệu tải một lần vào library/maps/.
 """
@@ -82,7 +82,19 @@ def outline(iso):
 
 
 def head(iso):
-    """Ảnh đầu linh vật: bản đồ tô cờ, viền nâu, trên nền trắng. Trả về đường dẫn."""
+    """Ảnh đầu linh vật: cờ Nhật tròn hoặc bản đồ tô cờ, viền nâu, trên nền trắng."""
+    if iso == "JPN":
+        # Nhật dùng đầu cờ tròn đã được chọn, không dùng đường biên quần đảo.
+        out = Image.new("RGB", (SIZE, SIZE), "white")
+        draw = ImageDraw.Draw(out)
+        draw.ellipse((60, 60, SIZE - 60, SIZE - 60), fill="white", outline=OUTLINE, width=9)
+        radius = round((SIZE - 120) * 0.26)
+        centre = SIZE // 2
+        draw.ellipse((centre - radius, centre - radius, centre + radius, centre + radius), fill="#F20D0D")
+        REFS.mkdir(parents=True, exist_ok=True)
+        path = REFS / "mascot_jpn_head.png"
+        out.save(path)
+        return path
     rings = outline(iso)
     lats = [lat for r in rings for _, lat in r]
     k = math.cos(math.radians((min(lats) + max(lats)) / 2))          # chiếu đơn giản: co kinh độ theo vĩ độ giữa
@@ -122,6 +134,15 @@ def head(iso):
 def character(iso):
     """Mục characters.json của linh vật (tên mascot_<nước>). Ảnh chuẩn sinh trên Kaggle từ ảnh đầu (head_ref)."""
     _, name_jp, clothes, voice, colour = INFO[iso]
+    if iso == "JPN":
+        return "mascot_jpn", {
+            "prompt": "cute Japan flag mascot, oversized perfectly round white head with a vivid red circular sun "
+                      "centered on it, smooth circular dark-brown outline, two small black dot eyes and a tiny red "
+                      "mouth on the lower white part of the head, soft pink blush, small chibi body, dark navy "
+                      "school-uniform-style jacket with gold buttons, white shirt, dark tie, grey trousers, "
+                      "white gloves, brown shoes, no map outline, no islands",
+            "head_ref": "mascot_jpn_head.png", "head_shape": "round_flag", "lora": None,
+            "mascot": iso, "voice_type": voice, "colour": colour}
     return f"mascot_{iso.lower()}", {
         "prompt": f"cute country mascot character of {ENGLISH[iso]}, the head is the map shape of {ENGLISH[iso]} painted with its "
                   f"national flag, simple cute face drawn on the map head, small round body, {clothes}, brown shoes",
@@ -132,7 +153,7 @@ def ensure(isos):
     """Vẽ đầu (nếu chưa có) và trả về {tên nhân vật: mục characters.json} cho các nước."""
     found = {}
     for iso in isos:
-        if not (REFS / f"mascot_{iso.lower()}_head.png").exists():
+        if iso == "JPN" or not (REFS / f"mascot_{iso.lower()}_head.png").exists():
             head(iso)
         name, spec = character(iso)
         found[name] = spec

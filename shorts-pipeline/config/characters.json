@@ -948,8 +948,9 @@
     "colour": "#FFAB91"
   },
   "mascot_jpn": {
-    "prompt": "cute country mascot character of Japan, the head is the map shape of Japan painted with its national flag, simple cute face drawn on the map head, small round body, navy blue school-style jacket, white shirt, grey trousers, brown shoes",
+    "prompt": "cute Japan flag mascot, oversized perfectly round white head with a vivid red circular sun centered on it, smooth circular dark-brown outline, two small black dot eyes and a tiny red mouth on the lower white part of the head, soft pink blush, small chibi body, dark navy school-uniform-style jacket with gold buttons, white shirt, dark tie, grey trousers, white gloves, brown shoes, no map outline, no islands",
     "head_ref": "mascot_jpn_head.png",
+    "head_shape": "round_flag",
     "lora": null,
     "mascot": "JPN",
     "colour": "#E53935",
@@ -1280,5 +1281,353 @@
       "pitch": "-5Hz"
     },
     "colour": "#90A4AE"
+  },
+  "misaki_wife": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, beautiful japanese woman aged thirty-five, slim elegant build, long glossy dark brown hair in a low ponytail, refined face, burgundy blouse with a modest V neckline, cream fitted midi skirt, thin gold necklace, small pearl earrings",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#E91E63",
+    "art": "anime"
+  },
+  "daughter_highschool": {
+    "prompt": "japanese high school girl aged eighteen, shoulder-length dark brown hair, navy sailor school uniform with a red ribbon, navy pleated skirt, white socks, brown loafers, small silver bracelet",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#80CBC4"
+  },
+  "father_tanaka_work": {
+    "prompt": "japanese man in his late forties, broad sturdy build, short black hair with grey temples, faded steel-blue construction work jacket with beige dust marks on the sleeves, plain light grey crew-neck shirt, matching steel-blue work trousers with beige dust marks, tan safety boots",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#FFB74D"
+  },
+  "misaki_classmate_child": {
+    "prompt": "eight-year-old japanese girl, slender build, long dark brown hair in a high ponytail with a pink hair tie, pastel violet cardigan over a white collared blouse, navy pleated skirt, white socks, brown shoes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#BA68C8"
+  },
+  "principal_female": {
+    "prompt": "japanese woman in her early fifties, medium build, neat short grey-black bob haircut, small pearl stud earrings, dark burgundy blazer over an ivory blouse, beige straight trousers, black low heels",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#81C784"
+  },
+  "sakura_teen": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, seventeen-year-old japanese girl, long soft black hair, large gentle eyes, navy sailor school uniform with a red ribbon, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#F48FB1",
+    "art": "anime"
+  },
+  "mizuki_teen": {
+    "prompt": "seventeen-year-old japanese girl, bright brown semi-long hair, cute soft face, navy sailor school uniform with a light blue ribbon, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#FFD54F"
+  },
+  "shota_teen": {
+    "prompt": "seventeen-year-old japanese boy, short black hair, confident face, black gakuran school uniform unbuttoned at the collar, white t-shirt underneath, black school trousers, black sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#EF5350"
+  },
+  "ren_classmate": {
+    "prompt": "seventeen-year-old japanese boy, calm black hair, quiet composed face, black stand-collar gakuran school uniform with gold buttons fully closed, black school trousers, white sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#64B5F6"
+  },
+  "teacher_calm": {
+    "prompt": "japanese man in his forties, short neat black hair, calm gentle face, light grey cardigan over a white collared shirt, dark grey trousers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#90A4AE"
+  },
+  "son_teen": {
+    "prompt": "japanese high school boy, short black hair, navy gakuran school uniform with gold buttons, black school trousers, white sneakers, carrying a brown cloth-wrapped lunch bag",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#4FC3F7"
+  },
+  "friend_classmate": {
+    "prompt": "japanese high school boy, messy brown hair, light grey blazer school uniform, navy trousers, black backpack with one strap",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+10%",
+      "pitch": "+30Hz"
+    },
+    "colour": "#FFD54F"
+  },
+  "old_man_bench": {
+    "prompt": "japanese man in his seventies, thin build, white short hair, deep wrinkles, grey knitted vest over a pale blue shirt, brown trousers, old brown leather shoes, worn beige tote bag beside him",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "-8%",
+      "pitch": "-20Hz"
+    },
+    "colour": "#90A4AE"
+  },
+  "young_chef_past": {
+    "prompt": "young japanese man in his twenties, short black hair, white chef uniform with a tall white chef hat, white apron",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#81C784"
+  },
+  "hungry_girl_past": {
+    "prompt": "seven-year-old japanese girl, short messy black hair, worn faded red dress, bare feet, thin small frame",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#F48FB1"
+  },
+  "aoi_hs": {
+    "prompt": "japanese high school girl aged seventeen, long straight black hair, large bright eyes, white collared shirt under a navy blazer with a red ribbon, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#FF6F91",
+    "art": "anime"
+  },
+  "yuna_hs": {
+    "prompt": "japanese high school girl aged seventeen, bright light brown semi-long hair, gentle soft face, white collared shirt under a navy blazer with a red ribbon neatly worn, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#81C784"
+  },
+  "daiki_hs": {
+    "prompt": "japanese high school boy aged seventeen, short black hair, slightly sharp eyes, white collared shirt under a navy blazer loosely worn, navy trousers, black school shoes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#FFB74D"
+  },
+  "kenta_hs": {
+    "prompt": "japanese high school boy aged seventeen, short black hair, calm composed face, white collared shirt under a navy blazer neatly buttoned, navy trousers, black school shoes",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#64B5F6"
+  },
+  "teacher_strict": {
+    "prompt": "japanese male teacher in his forties, short neat black hair with grey temples, stern composed face, grey suit jacket over a white shirt, dark navy tie, grey trousers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#90A4AE"
+  },
+  "son_ryota": {
+    "prompt": "japanese man aged thirty-two, slim build, neat short black hair, charcoal grey business suit, white dress shirt, loosened navy blue tie, black leather shoes, black wristwatch",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#5C6BC0"
+  },
+  "aoi_girl": {
+    "prompt": "japanese high school girl aged eighteen, cute face with large sparkling eyes, black semi-long hair, white sailor school uniform with a navy blue ribbon, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#4FC3F7",
+    "art": "anime"
+  },
+  "mizuki_ghost": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, japanese high school girl aged eighteen, long black hair, soft smile, white sailor school uniform with a red ribbon, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#CE93D8",
+    "art": "anime"
+  },
+  "sakura_class": {
+    "prompt": "japanese high school girl aged eighteen, bright brown hair in a ponytail, friendly round face, white sailor school uniform with a yellow ribbon, navy pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+10%",
+      "pitch": "+40Hz"
+    },
+    "colour": "#FFD54F"
+  },
+  "teacher_staffroom": {
+    "prompt": "japanese man in his fifties, short grey hair, black glasses, beige cardigan over a white shirt, grey trousers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "-8%",
+      "pitch": "-20Hz"
+    },
+    "colour": "#90A4AE"
+  },
+  "musuko": {
+    "prompt": "japanese man in his early twenties, slim build, short slightly messy black hair, charcoal grey hoodie over a white t-shirt, dark blue jeans, black wristwatch, white sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#5C6BC0",
+    "art": "anime"
+  },
+  "musuko_child": {
+    "prompt": "five-year-old japanese boy, short black hair with a small cowlick, yellow t-shirt, blue shorts, white sneakers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+10%",
+      "pitch": "+30Hz"
+    },
+    "colour": "#81D4FA"
+  },
+  "mother_young": {
+    "prompt": "japanese woman in her early thirties, short black hair, light pink apron over a cream blouse, long beige skirt, brown house slippers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#F48FB1"
+  },
+  "yui": {
+    "prompt": "gorgeous glamorous adult woman, sexy and elegant, attractive curvy figure, beautiful detailed face, long eyelashes, glossy hair, fashionable outfit, tasteful, fully clothed, nineteen-year-old japanese university freshman woman, petite slim build, soft shoulder-length black hair with gentle side bangs, large clear dark brown anime eyes, white knit sweater, pale blue pleated skirt, white socks, brown loafers",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+5%",
+      "pitch": "+10Hz"
+    },
+    "colour": "#64B5F6",
+    "art": "anime"
+  },
+  "yui_mother": {
+    "prompt": "japanese woman aged forty-two, long straight black hair, gentle kind eyes, soft warm smile, light pink cardigan over a cream blouse, navy blue long skirt, small silver pendant necklace",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-NanamiNeural",
+      "rate": "+0%",
+      "pitch": "-5Hz"
+    },
+    "colour": "#F48FB1"
+  },
+  "shota_friend": {
+    "prompt": "twenty-year-old japanese university man, slim build, short neat black hair, kind plain face, charcoal grey college hoodie, dark navy jeans, white sneakers, black canvas shoulder bag",
+    "lora": null,
+    "voice": {
+      "engine": "edge",
+      "name": "ja-JP-KeitaNeural",
+      "rate": "+5%",
+      "pitch": "+5Hz"
+    },
+    "colour": "#FFB74D"
   }
 }

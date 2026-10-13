@@ -3,6 +3,15 @@
 Video dọc 1080x1920 tiếng Nhật: nền và nhân vật nét Irasutoya, mỗi cảnh gồm vài lớp ảnh chuyển động riêng, phụ đề, tiêu đề, giọng đọc, nhạc nền.
 Sinh ảnh chạy trên Kaggle (GPU T4 x2) qua API; các bước còn lại chạy ở máy.
 
+Các bước viết kịch bản, sinh ảnh, duyệt ảnh và kiểm tra ảnh thiếu dùng quy tắc chung trong `steps/common.py`.
+`full` là cờ tranh cả cảnh; `full_scene` cũ được chuyển về `full`. Với `style: new`, cảnh chưa chỉ định `full`
+dùng tranh cả cảnh, trừ cảnh điện thoại; `full: false` giữ cảnh ghép lớp. Luồng tiểu phẩm dùng `skit/assets.py`
+để kiểm tra mọi biểu cảm, tư thế, miệng mở, nền và tranh chèn đã khai báo.
+
+Rà kịch bản hiện có mà không gọi AI/Kaggle: `python tools/audit_assets.py`.
+Thêm `--apply` để lưu các chuẩn hóa xác định được. Báo cáo nằm ở `work/asset_audit.json`;
+ảnh thiếu cần được sinh qua luồng tương ứng, lỗi khai báo không xác định được nguồn sẽ dừng trước Kaggle.
+
 Mọi lệnh chạy trong PowerShell, đứng ở thư mục dự án:
 
 ```
@@ -158,6 +167,10 @@ Mẫu prompt ảnh chuẩn, ảnh cảnh, ảnh đồ vật và tư thế thứ 
 
 Quy tắc viết kịch bản (đồ vật, khung hình, bố cục, sticker, chuyển động, độ đa dạng) nằm ở **`config/script_guide.md`**; bảng dưới chỉ là các trường kỹ thuật.
 
+Hiệu ứng bám người trên tranh `full` dùng `effect_anchors`, được `tools/prepare_effects.py` xác định từ ảnh thật đã sinh
+trước khi dựng. `auto.py`, `run_local.py` và `build_video.py` đều chuẩn bị điểm neo; ảnh thay đổi thì tính lại.
+Hiệu ứng `shiver` vẽ nét run quanh vai. Tên hiệu ứng/chuyển động được kiểm tra bằng danh mục dùng chung từ đầu pipeline.
+
 Ví dụ đầy đủ: `videos/001-futatsu-no-jokki/script.json`. Mỗi cảnh:
 
 ```json
@@ -231,7 +244,7 @@ Sửa bố cục: đổi `at`, `size`, `anim` trong `script.json`, chạy lại 
 ## 7. Cài đặt (làm một lần)
 
 ```
-pip install kaggle pillow "rembg[cpu]" edge-tts anthropic
+python -m pip install -r requirements.txt
 ```
 
 Cần `ffmpeg` (đã cài bằng winget; nếu không tìm thấy thì mở cửa sổ PowerShell mới).
@@ -265,3 +278,14 @@ python ../../review.py layout                            # góp ý bố cục (x
 | `jobs.json: ... không đứng trước nó` | Job có `@x` phải nằm sau job `x` (make_jobs.py đã xếp đúng) |
 | Kernel thất bại | Mở trang kernel trên Kaggle, xem tab Logs; sửa xong chạy lại, ảnh đã có không sinh lại |
 | Ảnh nhân vật lệch so với ảnh chuẩn (vd mất kính) | Ghi rõ chi tiết trong `config/characters.json`, xóa ảnh hỏng, chạy lại |
+
+### Video phân tích Nhật Bản với các nước
+
+Chế độ `kaigai` dùng kịch bản khoảng 110–130 giây, 28–36 cảnh, 3 luận điểm có dẫn chứng,
+một phản biện và kết luận trả lời câu hỏi mở đầu. Quy tắc nội dung ở `config/comparison_guide.md`;
+`analysis_profile.py` giữ một tiêu điểm mỗi cảnh, giảm hiệu ứng/tiếng, ưu tiên bảng số liệu và ảnh minh họa.
+Giọng mới dùng `voice_speed=1.15`, `voice_tempo=1.05`; không kéo cảnh cuối cho đủ 2 phút.
+Độ dài ước tính dựa trên lời đọc, thời lượng thực tế tùy giọng. Các chế độ tiểu phẩm giữ mục tiêu cũ.
+
+Video `kaigai` đã có dùng bố cục mới khi dựng lại, nhưng lời và audio cũ giữ nguyên; muốn thành video phân tích
+2 phút phải viết lại kịch bản và tạo lại audio phù hợp. Dàn ý mới lưu riêng trong `work/analysis_brief.md`.

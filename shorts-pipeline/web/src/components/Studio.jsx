@@ -23,7 +23,7 @@ export default function Studio({ state, me, user, admin, refresh, notify, openVi
   const [country, setCountry] = useState(remembered("country", COUNTRIES, "CHN"));
   const keep = (key, set) => (v) => { store.set(key, v); set(v); };
   const japanVs = build === "contrast" && contrast === "japan";
-  // Nhật vs nước khác: ghép lớp có chuyển động + vài clip AI (không tranh tĩnh); các ô khác theo BUILD_MODES
+  // Nhật vs nước khác: phân tích khoảng 2 phút, ưu tiên dẫn chứng; các ô khác theo BUILD_MODES
   const style = japanVs ? "classic" : BUILD_MODES[build].style;
   const storyMode = build === "contrast" ? (japanVs ? "kaigai" : "contrast") : BUILD_MODES[build].story;
 
@@ -109,7 +109,7 @@ export default function Studio({ state, me, user, admin, refresh, notify, openVi
         <div className="composer-foot">
           <span className="muted small summary-line">
             {BUILD_MODES[build].icon} {BUILD_MODES[build].label}{build === "contrast" && ` (${contrast === "japan" ? `Nhật vs ${COUNTRIES[country]}` : "ngẫu nhiên"})`} · {VOICE_MODES[voiceMode].icon} {VOICE_MODES[voiceMode].label} · {REVIEW_MODES[reviewMode].icon} {REVIEW_MODES[reviewMode].label}
-            {" "}· video ~70-80 giây · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> để tạo
+            {" "}· video {japanVs ? "~2 phút · phân tích, ít hiệu ứng" : "~70-80 giây"} · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> để tạo
           </span>
           <button className="primary big" disabled={busy || !prompt.trim() || !user || missing?.length > 0} onClick={submit}>
             {busy ? "Đang gửi..." : "✦ Tạo video"}

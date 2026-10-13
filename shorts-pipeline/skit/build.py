@@ -568,6 +568,11 @@ def plan(skit, stages, inserts):
 
 def render(folder, frames_only=False):
     skit, timing, starts, total = load(folder)
+    from assets import missing_images, normalize_assets
+    _, problems = normalize_assets(skit)
+    missing = missing_images(folder, skit, cutouts=True)
+    if problems or missing:
+        sys.exit("Chưa thể dựng tiểu phẩm:\n  " + "\n  ".join(problems + [f"thiếu {p}" for p in missing]))
     keys = list(skit.get("backgrounds") or {"main": skit["background"]})
     raw = load_raw(folder, skit["cast"])
     stages = {key: stage_view(skit, raw, key) for key in keys}

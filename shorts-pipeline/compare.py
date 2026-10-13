@@ -57,6 +57,8 @@ def crown(draw, cx, top, w):
 
 
 def render(spec, out):
+    if spec.get("style") == "analysis":
+        return render_analysis(spec, out)
     iso = spec.get("country", "CHN")
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
@@ -95,6 +97,29 @@ def render(spec, out):
         j, o = spec["score"]
         text = f"日本 {j} - {o} {name_jp(iso)}"
         d.text((W / 2, H - 70), text, fill=INK, font=fit_text(d, text, 58, W - 100), anchor="mm")
+    Path(out).parent.mkdir(parents=True, exist_ok=True)
+    img.save(out)
+    return out
+
+
+def render_analysis(spec, out):
+    """Một chỉ số, hai giá trị dễ đọc; không tỉ số hoặc vương miện."""
+    img = Image.new("RGBA", (W, H), "#F8FAFC")
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle((8, 8, W - 8, H - 8), 32, fill="white", outline="#CBD5E1", width=3)
+    label = str(spec.get("label") or spec.get("round") or "比較")
+    d.text((W / 2, 72), label, fill=NAVY, font=fit_text(d, label, 54, W - 90), anchor="mm")
+    for k, (code, value, colour) in enumerate((("JPN", spec.get("japan", ""), "#B91C1C"),
+                                              (spec.get("country", "CHN"), spec.get("other", ""), "#1D4ED8"))):
+        cx = W * (0.26 if k == 0 else 0.74)
+        d.rounded_rectangle((cx - 214, 150, cx + 214, 498), 24, fill="#F1F5F9")
+        img.paste(flag(code).resize((96, 64)), (round(cx - 48), 182))
+        d.text((cx, 292), name_jp(code), fill=NAVY, font=font(44), anchor="mm")
+        value = str(value)
+        d.text((cx, 394), value, fill=colour, font=fit_text(d, value, 104, 388), anchor="mm")
+    source = str(spec.get("source") or "")
+    if source:
+        d.text((W / 2, 560), source, fill="#64748B", font=fit_text(d, source, 30, W - 90), anchor="mm")
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     img.save(out)
     return out

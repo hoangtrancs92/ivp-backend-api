@@ -156,3 +156,10 @@ Mỗi tiểu phẩm có một "phong cách dựng" riêng hợp nội dung; đ�
 - [ ] Góc máy đổi liên tục; có `shout` ở cao trào; có `stack` khi nhiều người nối lời.
 - [ ] Có `grade` hợp chủ đề; `fx`, `bigword`, `sfx` dùng có chủ đích, đa dạng, không lặp một kiểu.
 - [ ] 4-8 `insert`, 1-3 `silent`, vài `mark`; ý tưởng và cú chốt là của riêng tiểu phẩm này, không lấy từ video mẫu.
+
+# Đồng bộ nguồn ảnh
+
+Mọi biểu cảm trong lời thoại phải thuộc bộ biểu cảm hỗ trợ và được khai trong `cast.<vai>.expressions`.
+Mọi tư thế trong `line.pose` phải có mô tả trong `cast.<vai>.poses`, hoặc là `default`.
+Vai dùng trong `speaker`, `enter`, `exit`, `expression`, `pose` phải tồn tại trong `cast`.
+Pipeline kiểm tra cả ảnh miệng mở, tư thế và tranh chèn trước khi dựng; không đặt tên ảnh thủ công trong lời thoại.

@@ -243,6 +243,11 @@ ROUGH_MOTIONS = {"dutch", "focus", "tilt_up", "tilt_down", "dolly_left", "dolly_
 
 def fill(script):
     """Điền anim, motion, transition, vị trí còn trống. Sửa trực tiếp script và trả về nó."""
+    from steps.render_rules import normalize_motion
+    normalize_motion(script)
+    from analysis_profile import enabled, apply
+    if enabled(script):
+        return apply(script)
     for scene in script["scenes"]:
         # tranh vẽ cả cảnh / màn hình điện thoại (video 031): hiệu ứng phủ (mưa, tuyết, hạt) che người, máy nghiêng / lấy nét
         # làm nhòe, điện thoại nghiêng ra ngoài khung: bỏ các thứ đó, chỉ giữ vệt sáng nhẹ của hồi tưởng

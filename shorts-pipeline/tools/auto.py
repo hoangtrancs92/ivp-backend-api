@@ -65,7 +65,16 @@ class Progress:
 
 def run(args, cwd=ROOT, env=None):
     env = {**os.environ, "PYTHONUTF8": "1", "PYTHONUNBUFFERED": "1", **(env or {})}
-    return subprocess.run([sys.executable, *map(str, args)], cwd=cwd, env=env).returncode == 0
+    tail = []
+    with subprocess.Popen([sys.executable, *map(str, args)], cwd=cwd, env=env,
+                          stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                          text=True, encoding='utf-8', errors='replace') as process:
+        for line in process.stdout:
+            print(line, end='', flush=True)
+            tail = (tail + [line.rstrip()])[-10:]
+        ok = process.wait() == 0
+    run.error = '\n'.join(tail) if not ok else ''
+    return ok
 
 
 def restore_rejected(video, missing):
@@ -90,6 +99,9 @@ def main():
     account = (os.environ.get("SHORTS_KAGGLE_USERNAME", ""), os.environ.get("SHORTS_KAGGLE_KEY", ""))
 
     def fail(key, message):
+        detail = getattr(run, 'error', '')
+        if detail:
+            message += '\n' + detail
         p.step(key, "failed", message)
         p.data["error"] = message
         p.save()
@@ -154,7 +166,7 @@ def main():
 
     # 3b. Ảnh thật Pexels cho cảnh "photo" (trước bước duyệt: người duyệt bỏ ảnh lạc đề, lần chạy sau lấy ảnh khác)
     p.step("photos", "running")
-    if run(["steps/fetch_photos.py", rel]):
+    if not run(["steps/fetch_photos.py", rel]):
         p.step("photos", "done", "bỏ qua (lỗi tải ảnh, xem log), dựng không có ảnh thật")
     else:
         got = len(list((video / "photos").glob("[0-9][0-9][0-9].jpg"))) if (video / "photos").exists() else 0
@@ -181,12 +193,20 @@ def main():
                            ("voice", ["steps/06_voice.py", rel], ROOT),
                            ("build", [ROOT / "build_video.py"], video)]:
         p.step(key, "running")
+        if key == "preview" and not run(["tools/prepare_effects.py", rel]):
+            fail(key, "Không xác định được vị trí hiệu ứng trên tranh, xem log.")
         if not run(args, cwd=cwd):
             if key == "faces":                  # chớp mắt / mấp máy miệng chỉ thêm sinh động: lỗi thì dựng không có
                 p.step(key, "done", "bỏ qua (lỗi tạo ảnh mắt, miệng, xem log)")
                 continue
             fail(key, f"Lỗi ở bước {p.data['steps'][key]['label']}, xem log.")
-        p.step(key, "done")
+        note = None
+        if key == 'preview':
+            stored = json.loads((video / 'script.json').read_text(encoding='utf-8'))
+            skipped = [str(s['id']) for s in stored['scenes'] if s.get('effect_anchor_warning')]
+            if skipped:
+                note = 'Đã dựng bố cục; bỏ hiệu ứng phụ không rõ neo ở cảnh ' + ', '.join(skipped)
+        p.step(key, "done", note)
     print(f"Xong: {video / 'output.mp4'}")
 
 
