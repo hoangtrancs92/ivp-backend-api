@@ -148,6 +148,7 @@ def main():
         return {"name": f"ref_{owner}", "prompt": CAST.format(trigger=TRIGGER, look=characters[owner]["prompt"])}
 
     backgrounds, cast, scenes, alts = [], {}, [], []
+    planned_scenes, planned_alts = set(), set()
     fixes = corrections(video)                  # câu sửa khi vẽ lại (AI chấm, ghi chú người duyệt)
 
     def fixed(prompt, key):
@@ -218,12 +219,13 @@ def main():
             # ảnh bị loại (review.py chuyển sang rejected/) thì đổi seed, không sinh lại y hệt ảnh cũ
             seed = scene["id"] * 10 + k + 1000 * len(list((video / "rejected").glob(f"{stem}*.png")))
             base_new = not have(video / "characters" / filename, video / "cutouts" / filename)
-            if base_new and name is None:                  # cảnh chỉ có đồ vật
+            if base_new and stem not in planned_scenes and name is None:  # cảnh chỉ có đồ vật
                 scenes.append({"name": f"ch_{stem}", "seed": seed, "fix": fixes.get(f"characters/{filename}", ""),
                                "prompt": fixed(OBJECT.format(trigger=TRIGGER, desc=scene["object"],
                                                              background=key_for(scene["object"])),
                                                f"characters/{filename}")})
-            elif base_new:
+                planned_scenes.add(stem)
+            elif base_new and stem not in planned_scenes:
                 if name not in characters or not characters[name].get("prompt"):
                     sys.exit(f"Cảnh {scene['id']}: nhân vật '{name}' không có mô tả trong config/characters.json")
                 look = characters[name]["prompt"]
@@ -241,10 +243,11 @@ def main():
                                                             framing=shots[scene.get("shot", "full")]["prompt"],
                                                             background=key_for(look, per_character(scene, "action", name))),
                                                 f"characters/{filename}")})
+                planned_scenes.add(stem)
 
             # tư thế thứ hai: sửa từ ảnh gốc của chính cảnh này để nhân vật và vị trí giữ nguyên
             pose = alt_pose(scene, name)
-            if not pose or have(video / "characters" / f"{stem}_alt.png", video / "cutouts" / f"{stem}_alt.png"):
+            if not pose or stem in planned_alts or have(video / "characters" / f"{stem}_alt.png", video / "cutouts" / f"{stem}_alt.png"):
                 continue
             if base_new:
                 base = f"@ch_{stem}"                               # ảnh gốc sinh cùng lần chạy
@@ -258,6 +261,7 @@ def main():
                          "fix": fixes.get(f"characters/{stem}_alt.png", ""), **({"lora": ANIME_LORA} if anime else {}),
                          "prompt": fixed(ALT.format(trigger=ANIME if anime else TRIGGER, pose=pose),
                                          f"characters/{stem}_alt.png")})
+            planned_alts.add(stem)
 
     # mỗi job đứng sau job nó tham chiếu: ảnh chuẩn -> ảnh cảnh -> tư thế thứ hai (quy tắc của run_kaggle.py)
     jobs = list(cast.values()) + scenes + alts + backgrounds

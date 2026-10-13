@@ -76,6 +76,19 @@ class AssetTests(unittest.TestCase):
         self.assertEqual(sc["layers"][0]["image"], "cutouts/012.png")
         self.assertEqual(character_files(sc), [("mascot_jpn", "012.png")])
 
+    def test_reused_cutout_is_generated_once_in_one_kaggle_batch(self):
+        from make_jobs import main as make_jobs
+        from run_kaggle import validate
+
+        first = scene(location="generic_studio", layers=[{"id": "mascot_jpn", "image": "cutouts/001.png"}])
+        second = scene(id=2, location="generic_studio", layers=[{"id": "mascot_jpn", "image": "cutouts/001.png"}])
+        (self.video / "script.json").write_text(json.dumps({"scenes": [first, second]}), encoding="utf-8")
+        with patch.object(sys, "argv", ["make_jobs.py", str(self.video)]):
+            make_jobs()
+        jobs = json.loads((self.video / "jobs.json").read_text(encoding="utf-8"))["jobs"]
+        self.assertEqual([job["name"] for job in jobs].count("ch_001"), 1)
+        validate(jobs, self.video)
+
     def test_unknown_layer_and_duplicate_files_are_errors(self):
         s = {"scenes": [scene(characters=[], layers=[{"id": "unknown", "image": "cutouts/001_unknown.png"}])]}
         normalize_script(s, self.video)
